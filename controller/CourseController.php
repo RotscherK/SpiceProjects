@@ -38,8 +38,11 @@ class CourseController
         $course = new Course();
         $course->setId($_POST["id"]);
         $course->setName($_POST["name"]);
-        $course->setEmail($_POST["email"]);
-        $course->setMobile($_POST["mobile"]);
+        $course->setDescription($_POST["description"]);
+        $course->setPrice($_POST["price"]);
+        $course->setExpirationDate($_POST["expiration_date"]);
+        $course->setRequirement($_POST["requirement"]);
+        $course->setUniversityId($_POST["university_id"]);
         $courseValidator = new CourseValidator($course);
         if($courseValidator->isValid()) {
             if ($course->getId() === "") {

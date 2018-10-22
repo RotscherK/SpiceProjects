@@ -113,7 +113,7 @@ class CourseValidator
         return isset($this->expirationdateError);
     }
 
-    public function getxpirationDateError()
+    public function getExpirationDateError()
     {
         return $this->expirationdateError;
     }
