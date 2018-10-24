@@ -19,14 +19,21 @@ class ProgramDAO extends BasicDAO {
 	 */
 	public function create(Program $program) {
         $stmt = $this->pdoInstance->prepare('
-            INSERT INTO program (name, description, price, expiration_date, requirements, university_id)
-            VALUES (:name, :description, :price, :expiration_date, :requirements, :university_id)');
+            INSERT INTO program(name,type,category_id,distance_learning,degree,price,duration,description,requirements,url,expiration,provider_id)
+            VALUES (:name,:type,:category_id,:distance_learning,:degree,:price,:duration,:description,:requirements,:url,:expiration,:provider_id)');
+
         $stmt->bindValue(':name', $program->getName());
-        $stmt->bindValue(':description', $program->getDescription());
+        $stmt->bindValue(':type', $program->getType());
+        $stmt->bindValue(':category_id', $program->getCategoryId());
+        $stmt->bindValue(':distance_learning', $program->getDistanceLearning());
+        $stmt->bindValue(':degree', $program->getDegree());
         $stmt->bindValue(':price', $program->getPrice());
-        $stmt->bindValue(':expiration_date', $program->getExpirationDate());
+        $stmt->bindValue(':duration', $program->getDuration());
+        $stmt->bindValue(':description', $program->getDescription());
         $stmt->bindValue(':requirements', $program->getRequirement());
-        $stmt->bindValue(':university_id', $program->getUniversityId());
+        $stmt->bindValue(':url', $program->getUrl());
+        $stmt->bindValue(':expiration', $program->getExpiration());
+        $stmt->bindValue(':provider_id', $program->getProviderId());
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
 	}
@@ -51,7 +58,7 @@ class ProgramDAO extends BasicDAO {
 
 	/**
 	 * @access public
-	 * @param Program program
+	 * @param program Program
 	 * @return Program
 	 * @ParamType program Program
 	 * @ReturnType Program
@@ -59,18 +66,29 @@ class ProgramDAO extends BasicDAO {
 	public function update(Program $program) {
         $stmt = $this->pdoInstance->prepare('
             UPDATE customer SET name = :name,
-                description = :description,
+                type = :type,
+                category_id = :category_id,
+                distance_learning = :distance_learning,
+                degree = :degree,
                 price = :price,
-                expiration_date = :expiration_date,
+                duration = :duration,
+                description = :description,
                 requirements = :requirements,
-                university_id = :university_id,
+                url = :url,
+                expiration = :expiration,
+                provider_id = :provider_id
             WHERE id = :id');
-        $stmt->bindValue(':name', $program->getName());
-        $stmt->bindValue(':description', $program->getDescription());
+        $stmt->bindValue(':type', $program->getType());
+        $stmt->bindValue(':category_id', $program->getCategoryId());
+        $stmt->bindValue(':distance_learning', $program->getDistanceLearning());
+        $stmt->bindValue(':degree', $program->getDegree());
         $stmt->bindValue(':price', $program->getPrice());
-        $stmt->bindValue(':expiration_date', $program->getExpirationDate());
+        $stmt->bindValue(':duration', $program->getDuration());
+        $stmt->bindValue(':description', $program->getDescription());
         $stmt->bindValue(':requirements', $program->getRequirement());
-        $stmt->bindValue(':university_id', $program->getUniversityId());
+        $stmt->bindValue(':url', $program->getUrl());
+        $stmt->bindValue(':expiration', $program->getExpiration());
+        $stmt->bindValue(':provider_id', $program->getProviderId());
         $stmt->bindValue(':id', $program->getId());
         $stmt->execute();
         return $this->read($program->getId());

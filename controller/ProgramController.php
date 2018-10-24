@@ -21,12 +21,18 @@ class ProgramController
         LayoutRendering::basicLayout($contentView);
     }
 
+    /**
+     * @throws \http\HTTPException
+     */
     public static function readAll(){
         $contentView = new TemplateView("programs.php");
         $contentView->programs = (new ProgramServiceImpl())->findAllPrograms();
         LayoutRendering::basicLayout($contentView);
     }
 
+    /**
+     * @throws \http\HTTPException
+     */
     public static function edit(){
         $id = $_GET["id"];
         $contentView = new TemplateView("programEdit.php");
@@ -34,15 +40,25 @@ class ProgramController
         LayoutRendering::basicLayout($contentView);
     }
 
+    /**
+     * @return bool
+     * @throws \http\HTTPException
+     */
     public static function update(){
         $program = new Program();
         $program->setId($_POST["id"]);
         $program->setName($_POST["name"]);
-        $program->setDescription($_POST["description"]);
+        $program->setType($_POST["type"]);
+        $program->setCategoryId($_POST["category_id"]);
+        $program->setDistanceLearning(["distance_learning"]);
+        $program->setDegree($_POST["degree"]);
         $program->setPrice($_POST["price"]);
-        $program->setExpirationDate($_POST["expiration_date"]);
-        $program->setRequirement($_POST["requirement"]);
-        $program->setUniversityId($_POST["university_id"]);
+        $program->setDuration($_POST["duration"]);
+        $program->setDescription($_POST["description"]);
+        $program->setRequirement($_POST["requirements"]);
+        $program->setUrl($_POST["url"]);
+        $program->setExpiration($_POST["expiration"]);
+        $program->setProviderId($_POST["provider_id)"]);
         $programValidator = new ProgramValidator($program);
         if($programValidator->isValid()) {
             if ($program->getId() === "") {
