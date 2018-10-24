@@ -68,7 +68,7 @@ Index (Search and latest courses)
 
 #### Database Model
 
-![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.png "Database Model")  
+![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.jpg "Database Model")  
 
 #### Use Case Diagram
 
