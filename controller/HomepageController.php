@@ -8,6 +8,7 @@
 namespace controller;
 
 use domain\Program;
+use service\ProgramServiceImpl;
 use view\LayoutRendering;
 use view\TemplateView;
 
@@ -16,7 +17,7 @@ class HomepageController
     public static function show()
     {
         $contentView = new TemplateView("view/homepage.php");
-        $contentView->programs = (new ProgramController())->findAllPrograms();
+        $contentView->programs = (new ProgramServiceImpl())->getAllPrograms();
         LayoutRendering::basicLayout($contentView);
     }
 }

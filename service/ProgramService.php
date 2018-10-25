@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: roger.kaufmann
- * Date: 22.10.2018
- * Time: 22:08
+ * Program: roger.kaufmann
+ * Date: 25.10.2018
+ * Time: 10:08
  */
 
 namespace service;
@@ -20,14 +20,14 @@ interface ProgramService {
      * @access public
      * @param Program program
      * @return Program
-     * @ParamType customer program
+     * @ParamType program Program
      * @ReturnType Program
      */
     public function createProgram(Program $program);
 
     /**
      * @access public
-     * @param int cprogramId
+     * @param int programId
      * @return Program
      * @ParamType programId int
      * @ReturnType Program
@@ -55,5 +55,5 @@ interface ProgramService {
      * @return Program[]
      * @ReturnType Program[]
      */
-    public function findAllPrograms();
+    public function findAllProgram();
 }

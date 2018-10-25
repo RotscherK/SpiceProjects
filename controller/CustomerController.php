@@ -10,7 +10,7 @@ namespace controller;
 
 use domain\Customer;
 use validator\CustomerValidator;
-use service\CustomerServiceImpl;
+use service\UserServiceImpl;
 use view\TemplateView;
 use view\LayoutRendering;
 
@@ -23,14 +23,14 @@ class CustomerController
 
     public static function readAll(){
         $contentView = new TemplateView("customers.php");
-        $contentView->customers = (new CustomerServiceImpl())->findAllCustomer();
+        $contentView->customers = (new UserServiceImpl())->findAllCustomer();
         LayoutRendering::basicLayout($contentView);
     }
 
     public static function edit(){
         $id = $_GET["id"];
         $contentView = new TemplateView("customerEdit.php");
-        $contentView->customer = (new CustomerServiceImpl())->readCustomer($id);
+        $contentView->customer = (new UserServiceImpl())->readCustomer($id);
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -43,9 +43,9 @@ class CustomerController
         $customerValidator = new CustomerValidator($customer);
         if($customerValidator->isValid()) {
             if ($customer->getId() === "") {
-                (new CustomerServiceImpl())->createCustomer($customer);
+                (new UserServiceImpl())->createCustomer($customer);
             } else {
-                (new CustomerServiceImpl())->updateCustomer($customer);
+                (new UserServiceImpl())->updateCustomer($customer);
             }
         }
         else{
@@ -60,7 +60,7 @@ class CustomerController
 
     public static function delete(){
         $id = $_GET["id"];
-        (new CustomerServiceImpl())->deleteCustomer($id);
+        (new UserServiceImpl())->deleteCustomer($id);
     }
 
 }

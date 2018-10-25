@@ -83,7 +83,7 @@ class ProgramServiceImpl implements ProgramService
      * @ReturnType Program[]
      * @throws HTTPException
      */
-    public function findAllPrograms() {
+    public function getAllPrograms() {
         if(AuthServiceImpl::getInstance()->verifyAuth()){
             $programDAO = new ProgramDAO();
             return $programDAO->getAllPrograms();

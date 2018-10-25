@@ -8,7 +8,7 @@
 
 namespace controller;
 
-use service\CustomerServiceImpl;
+use service\UserServiceImpl;
 use view\TemplateView;
 use service\PDFServiceClient;
 
@@ -16,7 +16,7 @@ class PDFController
 {
     public static function generatePDFCustomers(){
         $pdfView = new TemplateView("customerListPDF.php");
-        $pdfView->customers = (new CustomerServiceImpl())->findAllCustomer();
+        $pdfView->customers = (new UserServiceImpl())->findAllCustomer();
         $result = PDFServiceClient::sendPDF($pdfView->render());
         header("Content-Type: application/pdf", NULL, 200);
         echo $result;
