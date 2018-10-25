@@ -3,11 +3,11 @@
         <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" method="post">
             <h2 class="text-center">Login</h2>
             <div class="form-group">
-                <input class="form-control is-invalid" type="email" name="email" placeholder="Email">
+                <input class="form-control is-invalid" type="email" name="email" value="a.b@c.com" placeholder="Email">
                 <small class="form-text text-danger">Please enter a correct email address.</small>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password">
+                <input class="form-control" type="password" name="password" value="a" placeholder="Password">
             </div>
             <div class="form-group">
                 <div class="form-control">

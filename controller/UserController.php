@@ -19,7 +19,7 @@ class UserController
 {
     public static function editView(){
         $view = new TemplateView("agentEdit.php");
-        $view->agent = AuthServiceImpl::getInstance()->readAgent();
+        $view->agent = AuthServiceImpl::getInstance()->readUser();
         $view->pageTitle = "WE-CRM";
         $view->pageHeading = "<strong>WE-CRM | Update</strong> your account.";
         $view->pageSubmitText = "Update";
