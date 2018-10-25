@@ -84,9 +84,6 @@ class AuthServiceImpl implements AuthService {
      * @ReturnType boolean
      */
     public function verifyUser($email, $password) {
-        echo "test";
-        echo "test".$email;
-        return;
         $userDAO = new UserDAO();
         $user = $userDAO->findByEmail($email);
         if (isset($user)) {
