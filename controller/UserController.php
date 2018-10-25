@@ -11,6 +11,8 @@ namespace controller;
 use service\AuthServiceImpl;
 use validator\AgentValidator;
 use view\TemplateView;
+use view\LayoutRendering;
+
 use domain\Agent;
 
 class UserController
@@ -61,7 +63,8 @@ class UserController
     }
 
     public static function loginView(){
-
-        echo (new TemplateView("userLogin.php"))->render();
+        $loginView = new TemplateView("userLogin.php");
+        LayoutRendering::basicLayout($loginView);
+        //echo (new TemplateView("userLogin.php"))->render();
     }
 }

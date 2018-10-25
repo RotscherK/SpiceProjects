@@ -3,34 +3,31 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WE-CRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Webdesign_v1</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
 <body>
-<div>
-    <nav class="navbar navbar-default navigation-clean">
-        <div class="container">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="<?php echo $GLOBALS["ROOT_URL"]; ?>">WE-CRM </a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="<?php echo $GLOBALS["ROOT_URL"]; ?>">My Customers</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">My Profile <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="presentation"><a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/agent/edit">Edit Profile</a></li>
-                            <li role="presentation"><a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/logout">Logout </a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-light navbar-expand-md" style="background-color: #282d32;">
+    <div class="container-fluid"><a class="navbar-brand" href="#" style="color: #ffffff;font-size: 30px;">Education Program</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div
+                class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color: #ffffff;">Search</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color: #ffffff;">Programs</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color: #ffffff;">Schools</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color: #ffffff;">Advertisement</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color: #ffffff;">Users</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color: #ffffff;">Login<span class="glyphicon glyphicon-log-in"></span></a></li>
+            </ul>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
+<div class="container-fluide text-center">
+    <div class="row">
