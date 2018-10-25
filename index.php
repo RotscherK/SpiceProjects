@@ -54,7 +54,7 @@ Router::route("POST", "/register", function () {
 
 Router::route("POST", "/login", function () {
     AuthController::login();
-    Router::redirect("/");
+    HomepageController::show();
 });
 
 Router::route("GET", "/logout", function () {
