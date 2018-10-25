@@ -115,7 +115,7 @@ class ProgramDAO extends BasicDAO {
 	 */
 	public function getAllPrograms() {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM program ORDER BY id;');
+            SELECT * FROM "program" ORDER BY id;');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Program");
 	}

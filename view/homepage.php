@@ -2,10 +2,10 @@
     <div class="form-clean">
         <form method="post">
             <h2 class="text-center">Available Programs</h2>
-            <div class="form-group"><input class="form-control" type="search" placeholder="Search"></div>
+            <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchProgram()" placeholder="Search"></div>
             <div class="text">
                 <div class="table-responsive table table-striped table-bordered table-hover">
-                    <table class="table">
+                    <table class="table" id="program">
                         <thead>
                         <tr>
                             <th>Programm</th>
@@ -57,3 +57,4 @@
         </form>
     </div>
 </div>
+

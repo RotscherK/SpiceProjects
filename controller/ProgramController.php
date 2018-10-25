@@ -11,8 +11,12 @@ namespace controller;
 use domain\Program;
 use validator\ProgramValidator;
 use service\ProgramServiceImpl;
+use service\AuthServiceImpl;
+use dao\ProgramDAO;
 use view\TemplateView;
 use view\LayoutRendering;
+use http\HTTPException;
+use http\HTTPStatusCode;
 
 class ProgramController
 {
@@ -75,6 +79,14 @@ class ProgramController
             return false;
         }
         return true;
+    }
+
+    public function findAllPrograms() {
+        if(AuthServiceImpl::getInstance()->verifyAuth()){
+            $programDAO = new ProgramDAO();
+            return $programDAO->getAllPrograms();
+        }
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     public static function delete(){
