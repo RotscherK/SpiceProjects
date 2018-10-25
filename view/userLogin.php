@@ -3,10 +3,7 @@
         <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" method="post">
             <h2 class="text-center">Login</h2>
             <div class="form-group">
-                <input class="form-control" type="text" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input class="form-control is-invalid" type="email2" name="email2" placeholder="EmailTest">
+                <input class="form-control is-invalid" type="email" name="email" placeholder="Email">
                 <small class="form-text text-danger">Please enter a correct email address.</small>
             </div>
             <div class="form-group">
