@@ -13,6 +13,6 @@ use view\TemplateView;
 class ErrorController
 {
     public static function show404(){
-        echo (new TemplateView("404page.php"))->render();
+        echo (new TemplateView("404.php"))->render();
     }
 }

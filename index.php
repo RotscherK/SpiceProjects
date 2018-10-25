@@ -5,17 +5,20 @@
  * Date: 12.09.2017
  * Time: 21:30
  */
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once("config/Autoloader.php");
 
 use router\Router;
-use controller\CustomerController;
-use controller\AgentController;
+use controller\UserController;
 use controller\AuthController;
 use controller\ErrorController;
-use controller\AgentPasswordResetController;
+use controller\UserPasswordResetController;
 use controller\EmailController;
 use controller\PDFController;
-use service\ServiceEndpoint;
 use http\HTTPException;
 use http\HTTPHeader;
 use http\HTTPStatusCode;
@@ -23,14 +26,25 @@ use http\HTTPStatusCode;
 session_start();
 
 $authFunction = function () {
+
     if (AuthController::authenticate())
         return true;
     Router::redirect("/login");
+
     return false;
 };
 
 Router::route("GET", "/login", function () {
-    AgentController::loginView();
+    UserController::loginView();
+});
+
+Router::route("GET", "/register", function () {
+    UserController::registerView();
+});
+
+Router::route("POST", "/register", function () {
+    if(UserController::register())
+        Router::redirect("/logout");
 });
 
 Router::route("POST", "/login", function () {
@@ -44,21 +58,52 @@ Router::route("GET", "/logout", function () {
 });
 
 Router::route("POST", "/password/request", function () {
-    AgentPasswordResetController::resetEmail();
+    UserPasswordResetController::resetEmail();
     Router::redirect("/login");
 });
 
 Router::route("GET", "/password/request", function () {
-    AgentPasswordResetController::requestView();
+    UserPasswordResetController::requestView();
 });
 
 Router::route("POST", "/password/reset", function () {
-    AgentPasswordResetController::reset();
+    UserPasswordResetController::reset();
     Router::redirect("/login");
 });
 
 Router::route("GET", "/password/reset", function () {
-    AgentPasswordResetController::resetView();
+    UserPasswordResetController::resetView();
+});
+
+Router::route_auth("GET", "/", $authFunction, function () {
+    UserController::readAll();
+});
+
+Router::route_auth("GET", "/agent/edit", $authFunction, function () {
+    UserController::editView();
+});
+
+Router::route_auth("POST", "/agent/edit", $authFunction, function () {
+    if(UserController::update())
+        Router::redirect("/logout");
+});
+
+Router::route_auth("GET", "/customer/create", $authFunction, function () {
+    UserController::create();
+});
+
+Router::route_auth("GET", "/customer/edit", $authFunction, function () {
+    UserController::edit();
+});
+
+Router::route_auth("GET", "/customer/delete", $authFunction, function () {
+    UserController::delete();
+    Router::redirect("/");
+});
+
+Router::route_auth("POST", "/customer/update", $authFunction, function () {
+    if(UserController::update())
+        Router::redirect("/");
 });
 
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
@@ -70,47 +115,6 @@ Router::route_auth("GET", "/customer/pdf", $authFunction, function () {
     PDFController::generatePDFCustomers();
 });
 
-$authAPIBasicFunction = function () {
-    if (ServiceEndpoint::authenticateBasic())
-        return true;
-    Router::errorHeader();
-    return false;
-};
-
-Router::route_auth("GET", "/api/token", $authAPIBasicFunction, function () {
-    ServiceEndpoint::loginBasicToken();
-});
-
-$authAPITokenFunction = function () {
-    if (ServiceEndpoint::authenticateToken())
-        return true;
-    Router::errorHeader();
-    return false;
-};
-
-Router::route_auth("HEAD", "/api/token", $authAPITokenFunction, function () {
-    ServiceEndpoint::validateToken();
-});
-
-Router::route_auth("GET", "/api/customer", $authAPITokenFunction, function () {
-    ServiceEndpoint::findAllCustomer();
-});
-
-Router::route_auth("GET", "/api/customer/{id}", $authAPITokenFunction, function ($id) {
-    ServiceEndpoint::readCustomer($id);
-});
-
-Router::route_auth("PUT", "/api/customer/{id}", $authAPITokenFunction, function ($id) {
-    ServiceEndpoint::updateCustomer($id);
-});
-
-Router::route_auth("POST", "/api/customer", $authAPITokenFunction, function () {
-    ServiceEndpoint::createCustomer();
-});
-
-Router::route_auth("DELETE", "/api/customer/{id}", $authAPITokenFunction, function ($id) {
-    ServiceEndpoint::deleteCustomer($id);
-});
 
 try {
     HTTPHeader::setHeader("Access-Control-Allow-Origin: *");

@@ -8,7 +8,7 @@
 
 namespace service;
 
-use domain\Agent;
+use domain\User;
 
 /**
  * @access public
@@ -33,14 +33,14 @@ interface AuthService {
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function verifyAgent($email, $password);
+    public function verifyUser($email, $password);
 
     /**
      * @access public
-     * @return Agent
-     * @ReturnType Agent
+     * @return User
+     * @ReturnType User
      */
-    public function readAgent();
+    public function readUser();
 
     /**
      * @access public
@@ -53,7 +53,7 @@ interface AuthService {
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function editAgent($name, $email, $password);
+    public function editUser($name, $email, $password);
 
     /**
      * @access public

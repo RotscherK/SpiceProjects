@@ -17,6 +17,8 @@ class Config
     {
         if (file_exists(self::$iniFile)) {
             self::$config = parse_ini_file(self::$iniFile);
+            self::$config["database.dsn"] = "pgsql" . ":host=" . self::$config["database.host"] . ";port=" . self::$config["database.port"] . "; dbname=" . ltrim(self::$config["database.path"], '/') . ";sslmode=require";
+
         } else if (file_exists("../". self::$iniFile)) {
             self::$config = parse_ini_file("../". self::$iniFile);
         } else {
