@@ -19,12 +19,12 @@ class AuthTokenDAO extends BasicDAO {
      */
     public function create(AuthToken $authToken) {
         $stmt = $this->pdoInstance->prepare('
-        INSERT INTO authtoken (selector, validator, expiration, agentid, type)
-          VALUES (:selector,:validator,:expiration, :agentid, :type);');
+        INSERT INTO "authtoken" (selector, validator, expiration, user_id, type)
+          VALUES (:selector,:validator,:expiration, :userid, :type);');
         $stmt->bindValue(':selector', $authToken->getSelector());
         $stmt->bindValue(':validator', $authToken->getValidator());
         $stmt->bindValue(':expiration', $authToken->getExpiration());
-        $stmt->bindValue(':agentid', $authToken->getAgentid());
+        $stmt->bindValue(':userid', $authToken->getUserid());
         $stmt->bindValue(':type', $authToken->getType());
         $stmt->execute();
         return $this->findBySelector($authToken->getSelector());
