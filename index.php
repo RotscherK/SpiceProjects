@@ -36,9 +36,6 @@ $authFunction = function () {
 };
 
 Router::route("GET", "/", function () {
-    echo password_hash("a", PASSWORD_DEFAULT);
-    echo password_hash("b", PASSWORD_DEFAULT);
-    return;
     HomepageController::show();
 });
 
