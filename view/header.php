@@ -24,7 +24,7 @@
                 <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color: #ffffff;">Users</a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color: #ffffff;">Login<span class="glyphicon glyphicon-log-in"></span></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" style="color: #ffffff;">Login<span class="glyphicon glyphicon-log-in"></span></a></li>
             </ul>
         </div>
     </div>

@@ -13,6 +13,7 @@ error_reporting(E_ALL);
 require_once("config/Autoloader.php");
 
 use router\Router;
+use controller\HomepageController;
 use controller\UserController;
 use controller\AuthController;
 use controller\ErrorController;
@@ -33,6 +34,10 @@ $authFunction = function () {
 
     return false;
 };
+
+Router::route("GET", "/", function () {
+    HomepageController::show();
+});
 
 Router::route("GET", "/login", function () {
     UserController::loginView();
@@ -73,10 +78,6 @@ Router::route("POST", "/password/reset", function () {
 
 Router::route("GET", "/password/reset", function () {
     UserPasswordResetController::resetView();
-});
-
-Router::route_auth("GET", "/", $authFunction, function () {
-    UserController::readAll();
 });
 
 Router::route_auth("GET", "/agent/edit", $authFunction, function () {
