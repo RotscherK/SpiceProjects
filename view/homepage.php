@@ -32,8 +32,8 @@ use view\TemplateView;
                         foreach($this->programs as $program): /* @var Program $program */ ?>
                             <tr>
                                 <td><?php echo TemplateView::noHTML($program->getName()); ?></td>
-                                <td><?php echo TemplateView::noHTML($program->getUniversityID()); ?></td>
-                                <td><?php echo TemplateView::noHTML($program->getUniversityID()); ?> </td>
+                                <td><?php echo TemplateView::noHTML($program->getProviderId()); ?></td>
+                                <td><?php echo TemplateView::noHTML($program->getProviderId()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getDegree()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getType()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getDuration()); ?> </td>
