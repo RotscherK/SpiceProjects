@@ -39,7 +39,7 @@ use view\TemplateView;
                                 <td><?php echo TemplateView::noHTML($program->getDuration()); ?> </td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <i class="fa fa-edit"></i></a>
+                                        <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
                                         <button class="btn-default" type="button" data-target="#confirm-modal" data-toggle="modal" data-href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></button>
                                     </div>
                                 </td>
