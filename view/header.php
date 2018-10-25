@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
     <script>
         function searchProgram() {
             // Declare variables
