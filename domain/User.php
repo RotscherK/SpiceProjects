@@ -9,7 +9,7 @@
 namespace domain;
 
 
-class User extends AbstractJSONDTO {
+class User {
 
     /**
      * @AttributeType int
