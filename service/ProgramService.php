@@ -55,5 +55,5 @@ interface ProgramService {
      * @return Program[]
      * @ReturnType Program[]
      */
-    public function findAllProgram();
+    public function getAllPrograms();
 }
