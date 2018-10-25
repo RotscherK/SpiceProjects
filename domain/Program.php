@@ -9,7 +9,7 @@
 namespace domain;
 
 
-class Program extends AbstractJSONDTO {
+class Program {
 
     /**
      * @AttributeType int
