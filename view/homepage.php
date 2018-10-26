@@ -40,7 +40,7 @@ use view\TemplateView;
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group">
                                         <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
-                                        <a class="btn-default" type="button" data-href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
+                                        <a class="btn-default" role="button" href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                     </div>
                                 </td>
                             </tr>
