@@ -38,6 +38,7 @@
             // Loop through all table rows, and hide those who don't match the search query
             for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("th");
+                alert(td);
                 rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML + td[3].innerHTML + td[4].innerHTML + td[5].innerHTML;
                 if (td) {
                     if (rowContent.toUpperCase().indexOf(filter) > -1) {
