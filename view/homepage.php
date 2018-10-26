@@ -7,7 +7,7 @@
  */
 use view\TemplateView;
 ?>
-<div class="col-sm-10 text-left">
+<div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form method="post">
             <h2 class="text-center">Available Programs</h2>
