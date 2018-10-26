@@ -59,7 +59,7 @@ Router::route("POST", "/login", function () {
 
 Router::route("GET", "/logout", function () {
     AuthController::logout();
-    Router::redirect("/login");
+    Router::redirect("/");
 });
 
 Router::route("POST", "/password/request", function () {
