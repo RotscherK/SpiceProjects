@@ -26,31 +26,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <script>
-        function searchProgram() {
-            // Declare variables
-            var input, filter, table, tbody, tr, td, i, rowContent;
-            input = document.getElementById("search");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("program");
-            tbody = document.getElementsByTagName("tbody")[0];
-            tr = tbody.getElementsByTagName("tr");
-
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td");
-                rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML + td[3].innerHTML + td[4].innerHTML + td[5].innerHTML;
-
-                if (td) {
-                    if (rowContent.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
     <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
 </head>
 
@@ -67,14 +42,13 @@
                 <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/agent/edit" style="color: #ffffff;">Users</a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li class="nav-item" role="presentation">
+                <li class="nav-item log-button" role="presentation">
                     <?php if(isset($_SESSION['userLogin'])): ?>
-                        <a class="btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" style="color: #ffffff;">Logout <ion-icon name="log-out"></ion-icon></a></li>
+                        <a class="btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" style="color: #ffffff;">Logout <ion-icon name="log-out"></ion-icon></a>
                     <?php else: ?>
-                        <a class="btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" style="color: #ffffff;">Login <ion-icon name="log-in"></ion-icon></span></a></li>
+                        <a class="btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" style="color: #ffffff;">Login <ion-icon name="log-in"></ion-icon></span></a>
                     <?php endif; ?>
-
-
+                </li>
             </ul>
         </div>
     </div>

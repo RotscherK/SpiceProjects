@@ -6,3 +6,13 @@
 .blue-background{
     background: #f1f7fc;
 }
+.log-button {
+    color: #ffffff;
+    background-color: #555555;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.log-button:hover {
+    color: black;
+    background-color: white;
+}
