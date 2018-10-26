@@ -29,7 +29,7 @@
     <script>
         function searchProgram() {
             // Declare variables
-            var input, filter, table, tr, td, i;
+            var input, filter, table, tr, td, i, rowContent;
             input = document.getElementById("search");
             filter = input.value.toUpperCase();
             table = document.getElementById("program");
@@ -37,10 +37,10 @@
 
             // Loop through all table rows, and hide those who don't match the search query
             for (i = 0; i < tr.length; i++) {
-                rowContent = tr[i].innerHTML.replace(/<th>/g, "").replace(/<.th>/g, "").replace(/[\n|\r|\n\r]/g,"").replace(/ /g,"").toUpperCase();
-                console.log(rowContent);
+                td = tr[i].getElementsByTagName("th");
+                rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML + td[3].innerHTML + td[4].innerHTML + td[5].innerHTML;
                 if (td) {
-                    if (rowContent.indexOf(filter) > -1) {
+                    if (rowContent.toUpperCase().indexOf(filter) > -1) {
                         tr[i].style.display = "";
                     } else {
                         tr[i].style.display = "none";
