@@ -40,7 +40,7 @@ use view\TemplateView;
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group">
                                         <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
-                                        <a class="btn-default" type="button" data-target="#confirm-modal" data-toggle="modal" data-href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
+                                        <a class="btn-default" type="button" data-href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                     </div>
                                 </td>
                             </tr>
@@ -55,3 +55,25 @@ use view\TemplateView;
     </div>
 </div>
 
+<script>
+    function searchProgram() {
+        // Declare variables
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("program");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td");
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
