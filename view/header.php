@@ -37,7 +37,7 @@
 
             // Loop through all table rows, and hide those who don't match the search query
             for (i = 0; i < tr.length; i++) {
-                rowContent = tr[i].innerHTML.toUpperCase().innerHTML.replace(/<th>/g, "").replace(/<.th>/g, "").replace(/[\n|\r|\n\r]/g,"").replace(/ /g,"");
+                rowContent = tr[i].innerHTML.replace(/<th>/g, "").replace(/<.th>/g, "").replace(/[\n|\r|\n\r]/g,"").replace(/ /g,"").toUpperCase();
                 if (td) {
                     if (rowContent.indexOf(filter) > -1) {
                         tr[i].style.display = "";
