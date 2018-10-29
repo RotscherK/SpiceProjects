@@ -23,12 +23,16 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                     <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $program->getId() ?>">
                 </div>
             </div>
-            <div class="form-group row <?php echo $programValidator->isNameError() ? "has-error" : ""; ?>">
+            <div class="form-group row  <?php echo $programValidator->isNameError() ? "has-error" : ""; ?>">
                 <label for="name" class="col-sm-3 col-form-label">Name</label>
-                <div class="col-sm-9">
+                <div class="col-sm-9 flex-wrap">
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $program->getName() ?>">
+                    <div class="invalid-feedback w-100">
+                        Example invalid custom select feedback
+                    </div>
                 </div>
                 <p class="help-block"><?php echo $programValidator->getNameError() ?></p>
+
             </div>
             <div class="form-group row">
                 <label for="provider" class="col-sm-3 col-form-label" name="provider" >Provider</label>
@@ -92,6 +96,12 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 </div>
                 <div class="invalid-feedback">Example invalid custom select feedback</div>
 
+            </div>
+            <div class="form-group row <?php echo $programValidator->isPriceError() ? "has-error" : ""; ?>">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 invalid-feedback">
+                    Example invalid custom select feedback
+                </div>
             </div>
             <div class="form-group row <?php echo $programValidator->isDurationError() ? "has-error" : ""; ?>">
                 <label for="duration" class="col-sm-3 col-form-label">Duration</label>
