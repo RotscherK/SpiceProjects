@@ -31,7 +31,6 @@ class AuthController
 
         $authService = AuthServiceImpl::getInstance();
 
-
         if($authService->verifyUser($_POST["email"],$_POST["password"]))
         {
             session_regenerate_id(true);

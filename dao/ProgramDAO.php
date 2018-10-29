@@ -25,7 +25,7 @@ class ProgramDAO extends BasicDAO {
 	 */
 	public function create(Program $program) {
         $stmt = $this->pdoInstance->prepare('
-            INSERT INTO program(name,type,category_id,distance_learning,degree,price,duration,description,requirements,url,expiration,provider_id)
+            INSERT INTO "program" (name,type,category_id,distance_learning,degree,price,duration,description,requirements,url,expiration,provider_id)
             VALUES (:name,:type,:category_id,:distance_learning,:degree,:price,:duration,:description,:requirements,:url,:expiration,:provider_id)');
 
         $stmt->bindValue(':name', $program->getName());
@@ -71,7 +71,7 @@ class ProgramDAO extends BasicDAO {
 	 */
 	public function update(Program $program) {
         $stmt = $this->pdoInstance->prepare('
-            UPDATE customer SET name = :name,
+            UPDATE "program" SET name = :name,
                 type = :type,
                 category_id = :category_id,
                 distance_learning = :distance_learning,
@@ -107,7 +107,7 @@ class ProgramDAO extends BasicDAO {
 	 */
 	public function delete(Program $program) {
         $stmt = $this->pdoInstance->prepare('
-            DELETE FROM program
+            DELETE FROM "program"
             WHERE id = :id
         ');
         $stmt->bindValue(':id', $program->getId());
