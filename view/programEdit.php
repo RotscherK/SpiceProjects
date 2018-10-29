@@ -23,12 +23,12 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                     <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $program->getId() ?>">
                 </div>
             </div>
-            <div class="form-group row is-invalid <?php echo $programValidator->isNameError() ? "has-error" : ""; ?>">
+            <div class="form-group row <?php echo $programValidator->isNameError() ? "has-error" : ""; ?>">
                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $program->getName() ?>">
                 </div>
-                <div class="invalid-feedback">Test<?php echo $programValidator->getNameError() ?></div>
+                <small class="form-text text-danger">Please enter a correct email address.</small>
             </div>
             <div class="form-group row">
                 <label for="provider" class="col-sm-3 col-form-label" name="provider" >Provider</label>
