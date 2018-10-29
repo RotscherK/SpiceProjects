@@ -33,7 +33,7 @@ use view\TemplateView;
                             <tr>
                                 <td><?php echo TemplateView::noHTML($program->getName()); ?></td>
                                 <td><?php echo TemplateView::noHTML($program->getProviderId()); ?></td>
-                                <td><?php echo TemplateView::noHTML($program->getPrice()); ?> ! <?php echo TemplateView::noHTML($program->getCategoryId()); ?> ! <?php echo TemplateView::noHTML($program->getDistanceLearning()); ?> ! <?php echo TemplateView::noHTML($program->getPlace()); ?></td>
+                                <td><?php echo TemplateView::noHTML($program->getPrice()); ?> ! <?php echo TemplateView::noHTML($program->getCategoryId()); ?> ! <?php echo TemplateView::noHTML($program->getDistanceLearning()); ?> ! <?php echo TemplateView::noHTML($program->getURL()); ?></td>
                                 <td><?php echo TemplateView::noHTML($program->getDegree()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getType()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getDuration()); ?> </td>
