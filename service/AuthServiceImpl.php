@@ -38,10 +38,10 @@ class AuthServiceImpl implements AuthService {
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
-            echo "<script>alert('new');</script>";
+            echo "<script>alert('auth instance new');</script>";
             self::$instance = new self();
         }
-        echo "<script>alert('old');</script>";
+        echo "<script>alert('auth instance old');</script>";
         return self::$instance;
     }
 
@@ -61,8 +61,7 @@ class AuthServiceImpl implements AuthService {
      * @ReturnType boolean
      */
     public function verifyAuth() {
-        echo "<script>alert('Test2');</script>";
-        echo "<script>alert('Test2 '".$this->currentUserId."');</script>";
+        echo "<script>alert('verify userid '".$this->currentUserId."');</script>";
 
         return;
 
