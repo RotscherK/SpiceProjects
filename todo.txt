@@ -1,0 +1,49 @@
+Todo:
+Login
+- Login
+    - (validation handling)
+    - Failed
+- Password reset
+
+Full Program Search
+
+Content Management:
+- Program
+    - View
+- User
+    - View
+    - Edit
+    - Create/Edit
+- Provider
+    - View
+    - Edit
+    - Create/Edit
+- Advertisement
+    - View
+    - Edit
+    - Create/Edit
+
+- Notification
+- Charging
+- PDF Generation
+
+Done:
+
+Authorization
+- Login Form & Logic
+- Logout
+
+Content Management:
+- Homepage with program listing
+- Homepage basic search
+- Program
+    - Create & Edit (Form, Logic & Validation)
+    - Delete (Logic)
+
+DB
+- DB Setup Heroku
+- DB Connection
+
+Deployment
+- Setup Heroku
+- Autoprovision on Heroku based on GitHub

@@ -90,6 +90,10 @@ Router::route_auth("POST", "/agent/edit", $authFunction, function () {
         Router::redirect("/logout");
 });
 
+Router::route_auth("GET", "/program", $authFunction, function () {
+    ProgramController::edit();
+});
+
 Router::route_auth("GET", "/program/create", $authFunction, function () {
     ProgramController::create();
 });

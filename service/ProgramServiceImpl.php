@@ -24,11 +24,9 @@ class ProgramServiceImpl implements ProgramService
      * @throws HTTPException
      */
     public function createProgram(Program $program) {
-        if(AuthServiceImpl::getInstance()->verifyAuth()) {
-            $programDAO = new ProgramDAO();
-            return $programDAO->create($program);
-        }
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+        $programDAO = new ProgramDAO();
+        return $programDAO->create($program);
+
     }
 
     /**
@@ -79,8 +77,13 @@ class ProgramServiceImpl implements ProgramService
      * @ReturnType Program[]
      * @throws HTTPException
      */
-    public function getAllPrograms() {
+    public function getAllPrograms($programId) {
         $programDAO = new ProgramDAO();
         return $programDAO->getAllPrograms();
+    }
+
+    public function getProgramById($programId) {
+        $programDAO = new ProgramDAO();
+        return $programDAO->getProgramById($programId);
     }
 }

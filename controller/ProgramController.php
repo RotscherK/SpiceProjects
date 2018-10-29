@@ -89,6 +89,13 @@ class ProgramController
 
     }
 
+    public static function getProgramById($id)
+    {
+        $contentView = new TemplateView("view/program_detail.php");
+        $contentView->program = (new ProgramServiceImpl())->getProgramById($id);
+        LayoutRendering::basicLayout($contentView);
+    }
+
     public static function delete(){
         $id = $_GET["id"];
         (new ProgramServiceImpl())->deleteProgram($id);
