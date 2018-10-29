@@ -94,9 +94,7 @@ class ProgramDAO extends BasicDAO {
         $stmt->bindValue(':description', $program->getDescription());
         $stmt->bindValue(':requirements', $program->getRequirement());
         $stmt->bindValue(':url', $program->getUrl());
-        $date = $program->getExpiration();
-        $strDate = $date->format('d-m-Y');
-        $stmt->bindValue(':expiration', $strDate);
+        $stmt->bindValue(':expiration',  $program->getExpiration());
         $stmt->bindValue(':provider_id', $program->getProviderId());
         $stmt->bindValue(':id', $program->getId());
         $stmt->execute();
