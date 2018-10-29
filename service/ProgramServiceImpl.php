@@ -66,12 +66,11 @@ class ProgramServiceImpl implements ProgramService
      * @ParamType programId int
      */
     public function deleteProgram($programId) {
-        if(AuthServiceImpl::getInstance()->verifyAuth()) {
-            $programDAO = new ProgramDAO();
-            $program = new Program();
-            $program->setId($programId);
-            $programDAO->delete($program);
-        }
+        $programDAO = new ProgramDAO();
+        $program = new Program();
+        $program->setId($programId);
+        $programDAO->delete($program);
+
     }
 
     /**
