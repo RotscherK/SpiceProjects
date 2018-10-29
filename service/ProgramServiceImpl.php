@@ -42,7 +42,6 @@ class ProgramServiceImpl implements ProgramService
     public function readProgram($programId) {
         echo "<script>alert('Test ".$programId ."');</script>";
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
-            return;
             $programDAO = new programDAO();
             return $programDAO->read($programId);
         }
