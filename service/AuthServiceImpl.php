@@ -38,10 +38,8 @@ class AuthServiceImpl implements AuthService {
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
-            echo "<script>alert('auth instance new');</script>";
             self::$instance = new self();
         }
-        echo "<script>alert('auth instance old');</script>";
         return self::$instance;
     }
 
@@ -61,14 +59,10 @@ class AuthServiceImpl implements AuthService {
      * @ReturnType boolean
      */
     public function verifyAuth() {
-        echo "<script>alert('verify auth ".$this->currentUserId."');</script>";
 
         if(isset($this->currentUserId))
-            echo "<script>alert('verify res true');</script>";
-        echo "<script>alert('verify res false');</script>";
-
-       // return true;
-        //return false;
+            return true;
+        return false;
     }
 
     /**
@@ -99,10 +93,7 @@ class AuthServiceImpl implements AuthService {
                     $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
                     $userDAO->update($user);
                 }
-                echo "<script>alert('UserID ".$user->getId()."' );</script>";
-
                 $this->currentUserId = $user->getId();
-                echo "<script>alert('UserID after ".$this->currentUserId."' );</script>";
 
                 return true;
             }
