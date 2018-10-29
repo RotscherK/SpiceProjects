@@ -125,6 +125,7 @@ try {
     if($_SERVER['REQUEST_METHOD']=="OPTIONS") {
         HTTPHeader::setStatusHeader(HTTPStatusCode::HTTP_204_NO_CONTENT);
     } else {
+        echo "<script>alert('Test'".$_SERVER['REQUEST_METHOD'] . " " .  $_SERVER['PATH_INFO'].");</script>";
         Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO']);
     }
 } catch (HTTPException $exception) {
