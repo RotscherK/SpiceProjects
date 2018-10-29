@@ -27,8 +27,8 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $program->getName() ?>">
+                    <small class="form-text text-danger">Please enter a correct email address.</small>
                 </div>
-                <small class="form-text text-danger">Please enter a correct email address.</small>
             </div>
             <div class="form-group row">
                 <label for="provider" class="col-sm-3 col-form-label" name="provider" >Provider</label>
