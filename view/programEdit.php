@@ -89,8 +89,8 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="price" class="col-sm-3 col-form-label">Price</label>
                 <div class="col-sm-9">
                     <input type="number" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $program->getPrice() ?>">
+                    <div class="invalid-feedback">Example invalid custom select feedback</div>
                 </div>
-                <p class="help-block"><?php echo $programValidator->getPriceError() ?></p>
             </div>
             <div class="form-group row <?php echo $programValidator->isDurationError() ? "has-error" : ""; ?>">
                 <label for="duration" class="col-sm-3 col-form-label">Duration</label>

@@ -50,7 +50,7 @@ class Program {
     /**
      * @AttributeType String
      */
-    protected $requirement;
+    protected $requirements;
     /**
      * @AttributeType String
      */
@@ -214,15 +214,15 @@ class Program {
      */
     public function getRequirement()
     {
-        return $this->requirement;
+        return $this->requirements;
     }
 
     /**
      * @param mixed $requirement
      */
-    public function setRequirement($requirement)
+    public function setRequirement($requirements)
     {
-        $this->requirement = $requirement;
+        $this->requirements = $requirements;
     }
 
     /**
