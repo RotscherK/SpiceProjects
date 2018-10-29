@@ -38,12 +38,13 @@ class ProgramController
      * @throws \http\HTTPException
      */
     public static function edit(){
-        echo "<script>alert('Test'".$_GET["id"] .");</script>";
-        return;
 
         $id = $_GET["id"];
         $contentView = new TemplateView("programEdit.php");
         $contentView->program = (new ProgramServiceImpl())->readProgram(1);
+        echo "<script>alert('Test".$_GET["id"] ."');</script>";
+        echo print_r($contentView->program);
+        return;
         LayoutRendering::basicLayout($contentView);
     }
 
