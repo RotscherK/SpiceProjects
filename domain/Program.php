@@ -26,11 +26,11 @@ class Program {
     /**
      * @AttributeType Int
      */
-    protected $categoryid;
+    protected $category_id;
     /**
      * @AttributeType boolean
      */
-    protected $distancelearning;
+    protected $distance_learning;
     /**
      * @AttributeType String
      */
