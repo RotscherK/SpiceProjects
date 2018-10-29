@@ -65,10 +65,12 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 </div>
             </div>
             <div class="form-group row">
-                <input class="form-check-input" type="checkbox" id="distance_learning" <?php echo ($program->getName()==true ? 'checked' : '');?>>
-                <label class="form-check-label" for="distance_learning">
-                    Distance Learning
-                </label>
+                <div class="col-sm-12">
+                    <input class="form-check-input" type="checkbox" id="distance_learning" <?php echo ($program->getName()==true ? 'checked' : '');?>>
+                    <label class="form-check-label" for="distance_learning">
+                        Distance Learning
+                    </label>
+                </div>
             </div>
             <div class="form-group row">
                 <label for="degree" class="col-sm-2 col-form-label">Degree</label>
