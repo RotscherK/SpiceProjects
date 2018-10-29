@@ -17,16 +17,15 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
     <div class="form-clean">
         <form action="update" method="post">
             <h2 class="text-center">Edit program</h2>
-            <div class="form-group">
-                <div class="input-group row">
-                    <div class="input-group-addon col-sm-2"><span>ID </span></div>
-                    <input class="form-control col-sm-10" type="text" name="id" readonly="" value="<?php echo $program->getId() ?>">
+            <div class="form-group row">
+                <label for="id" class="col-sm-2 col-form-label">ID</label>
+                <div class="col-sm-8"><input class="form-control" type="text" name="id" readonly="" value="<?php echo $program->getId() ?>">
                 </div>
             </div>
             <div class="form-group <?php echo $programValidator->isNameError() ? "has-error" : ""; ?>">
                 <div class="input-group row">
                     <div class="input-group-addon col-sm-2"><span>Name </span></div>
-                    <input class="form-control col-sm-10" type="text" name="name" value="<?php echo TemplateView::noHTML($program->getName()) ?>">
+                    <input class="form-control col-sm-8" type="text" name="name" value="<?php echo TemplateView::noHTML($program->getName()) ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getNameError() ?></p>
             </div>
