@@ -99,7 +99,7 @@ Router::route_auth("GET", "/program/edit", $authFunction, function () {
 });
 
 Router::route_auth("GET", "/program/delete", $authFunction, function () {
-    UserController::delete();
+    ProgramController::delete();
     Router::redirect("/");
 });
 
