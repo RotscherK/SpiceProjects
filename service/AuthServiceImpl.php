@@ -38,8 +38,10 @@ class AuthServiceImpl implements AuthService {
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
+            echo "<script>alert('new');</script>";
             self::$instance = new self();
         }
+        echo "<script>alert('old');</script>";
         return self::$instance;
     }
 
