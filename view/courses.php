@@ -29,7 +29,7 @@ use view\TemplateView;
                 <td><?php echo $course->getId(); ?> </td>
                 <td><?php echo TemplateView::noHTML($course->getName()); ?></td>
                 <td><?php echo TemplateView::noHTML($course->getDescription()); ?> </td>
-                <td><?php echo TemplateView::noHTML($course->getPrice()); ?> </td>
+                <td><?php echo TemplateView::noHTML($course->getPrice()); ?> ! <?php echo TemplateView::noHTML($course->getCategoryId()); ?> ! <?php echo TemplateView::noHTML($course->getDistanceLearning()); ?> ! <?php echo TemplateView::noHTML($course->getDistanceLearning()); ?></td>
                 <td><?php echo TemplateView::noHTML($course->getExpirationDate()); ?> </td>
                 <td><?php echo TemplateView::noHTML($course->getRequirement()); ?> </td>
                 <td><?php echo TemplateView::noHTML($course->getUniversityId()); ?> </td>
@@ -64,6 +64,7 @@ use view\TemplateView;
         </div>
     </div>
 </div>
+
 <script>
     function searchProgram() {
         // Declare variables

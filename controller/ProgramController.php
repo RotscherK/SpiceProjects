@@ -30,7 +30,7 @@ class ProgramController
      */
     public static function readAll(){
         $contentView = new TemplateView("programs.php");
-        $contentView->programs = (new ProgramServiceImpl())->findAllPrograms();
+        $contentView->programs = (new ProgramServiceImpl())->getAllPrograms();
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -81,7 +81,7 @@ class ProgramController
         return true;
     }
 
-    public function findAllPrograms() {
+    public function getAllPrograms() {
         if(AuthServiceImpl::getInstance()->verifyAuth()){
             $programDAO = new ProgramDAO();
             return $programDAO->getAllPrograms();
