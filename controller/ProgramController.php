@@ -61,10 +61,10 @@ class ProgramController
         $program->setPrice($_POST["price"]);
         $program->setDuration($_POST["duration"]);
         $program->setDescription($_POST["description"]);
-        $program->setRequirement($_POST["requirements"]);
+        $program->setRequirement($_POST["requirement"]);
         $program->setUrl($_POST["url"]);
         $program->setExpiration($_POST["expiration"]);
-        $program->setProviderId($_POST["provider)"]);
+        $program->setProviderId($_POST["provider"]);
         $programValidator = new ProgramValidator($program);
         if($programValidator->isValid()) {
             if ($program->getId() === "") {
