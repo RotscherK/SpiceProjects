@@ -20,18 +20,18 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
             <div class="form-group row">
                 <label for="id" class="col-sm-3 col-form-label">ID</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="id" placeholder="ID" readonly="true" value="<?php echo $program->getId() ?>">
+                    <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $program->getId() ?>">
                 </div>
             </div>
             <div class="form-group row <?php echo $programValidator->isNameError() ? "has-error" : ""; ?>">
                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="name" placeholder="Name" value="<?php echo $program->getName() ?>">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $program->getName() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getNameError() ?></p>
             </div>
             <div class="form-group row">
-                <label for="provider" class="col-sm-3 col-form-label">Provider</label>
+                <label for="provider" class="col-sm-3 col-form-label" name="provider" >Provider</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="provider">
                         <option value="1" <?php if($program->getCategoryId() == '1'): ?> selected="selected"<?php endif; ?> >FHNW</option>
@@ -45,7 +45,7 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
             <div class="form-group row">
                 <label for="type" class="col-sm-3 col-form-label">Type</label>
                 <div class="col-sm-9">
-                    <select class="form-control" id="type">
+                    <select class="form-control" id="type" name="type">
                         <option value="1" <?php if($program->getType() == '1'): ?> selected="selected"<?php endif; ?> >BB</option>
                         <option value="2" <?php if($program->getType() == '2'): ?> selected="selected"<?php endif; ?> >VZ</option>
                         <option value="3" <?php if($program->getType() == '3'): ?> selected="selected"<?php endif; ?> >VZ/BB</option>
@@ -55,7 +55,7 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
             <div class="form-group row">
                 <label for="category" class="col-sm-3 col-form-label">Category</label>
                 <div class="col-sm-9">
-                    <select class="form-control" id="category">
+                    <select class="form-control" id="category" name="category">
                         <option value="1" <?php if($program->getCategoryId() == '1'): ?> selected="selected"<?php endif; ?> >Computer Science</option>
                         <option value="2" <?php if($program->getCategoryId() == '2'): ?> selected="selected"<?php endif; ?> >Economy</option>
                         <option value="3" <?php if($program->getCategoryId() == '3'): ?> selected="selected"<?php endif; ?> >Education</option>
@@ -65,20 +65,19 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-2">
-                    <input class="form-check-input" type="checkbox" id="distance_learning" <?php echo ($program->getName()==true ? 'checked' : '');?>>
-                </div>
-                <div class="col-sm-9">
+                <div class="col-sm-3">
                     <label class="form-check-label" for="distance_learning">
                         Distance Learning
                     </label>
+                </div>
+                <div class="col-sm-9">
+                    <input class="form-check-input" type="checkbox" name="distance_learning" id="distance_learning" <?php echo ($program->getName()==true ? 'checked' : '');?>>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="degree" class="col-sm-3 col-form-label">Degree</label>
                 <div class="col-sm-9">
-                    <select class="form-control" id="degree">
+                    <select class="form-control" id="degree" name="degree">
                         <option value="bachelor" <?php if($program->getCategoryId() == 'bachelor'): ?> selected="selected"<?php endif; ?> >Bachelor</option>
                         <option value="master" <?php if($program->getCategoryId() == 'master'): ?> selected="selected"<?php endif; ?> >Master</option>
                         <option value="other" <?php if($program->getCategoryId() == 'other'): ?> selected="selected"<?php endif; ?> >Other</option>
@@ -89,48 +88,48 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
             <div class="form-group row <?php echo $programValidator->isPriceError() ? "has-error" : ""; ?>">
                 <label for="price" class="col-sm-3 col-form-label">Price</label>
                 <div class="col-sm-9">
-                    <input type="number" class="form-control" id="price" placeholder="Price" value="<?php echo $program->getPrice() ?>">
+                    <input type="number" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $program->getPrice() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getPriceError() ?></p>
             </div>
             <div class="form-group row <?php echo $programValidator->isDurationError() ? "has-error" : ""; ?>">
                 <label for="duration" class="col-sm-3 col-form-label">Duration</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="duration" placeholder="Duration" value="<?php echo $program->getDuration() ?>">
+                    <input type="text" class="form-control" id="duration" name="duration"  placeholder="Duration" value="<?php echo $program->getDuration() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getDurationError() ?></p>
             </div>
             <div class="form-group row <?php echo $programValidator->isDescriptionError() ? "has-error" : ""; ?>">
                 <label for="description" class="col-sm-3 col-form-label">Description</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="description" placeholder="Description" value="<?php echo $program->getDescription() ?>">
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="<?php echo $program->getDescription() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getDescriptionError() ?></p>
             </div>
             <div class="form-group row <?php echo $programValidator->isRequirementError() ? "has-error" : ""; ?>">
                 <label for="requirement" class="col-sm-3 col-form-label">Requirements</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="requirement" placeholder="Requirements" value="<?php echo $program->getRequirement() ?>">
+                    <input type="text" class="form-control" id="requirement" name="requirement"  placeholder="Requirements" value="<?php echo $program->getRequirement() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getRequirementError() ?></p>
             </div>
             <div class="form-group row <?php echo $programValidator->isURLError() ? "has-error" : ""; ?>">
                 <label for="url" class="col-sm-3 col-form-label">URL</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="url" placeholder="URL" value="<?php echo $program->getUrl() ?>">
+                    <input type="text" class="form-control" id="url" name="url"  placeholder="URL" value="<?php echo $program->getUrl() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getURLError() ?></p>
             </div>
             <div class="form-group row <?php echo $programValidator->isExpirationError() ? "has-error" : ""; ?>">
                 <label for="expiration" class="col-sm-3 col-form-label">Expiration Date</label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" id="expiration" placeholder="Expiration Date" value="<?php echo $program->getExpiration() ?>">
+                    <input type="date" class="form-control" id="expiration" name="expiration"  placeholder="Expiration Date" value="<?php echo $program->getExpiration() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getExpirationError() ?></p>
             </div>
             <div class="form-group row">
                 <div class="col-sm-5">
-                    <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';" />Cancle</button>
+                    <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
                 </div>
                 <div class="col-sm-5">
                     <button type="submit" class="btn btn-primary">Save</button>
