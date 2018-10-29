@@ -55,11 +55,11 @@ class ProgramServiceImpl implements ProgramService
      * @throws HTTPException
      */
     public function updateProgram(Program $program) {
-        if(AuthServiceImpl::getInstance()->verifyAuth()) {
+        //if(AuthServiceImpl::getInstance()->verifyAuth()) {
             $programDAO = new ProgramDAO();
             return $programDAO->update($program);
-        }
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+        //}
+        //throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
