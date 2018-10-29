@@ -33,12 +33,15 @@ Authorization
 - Login Form & Logic
 - Logout
 
-Content Management:
-- Homepage with program listing
-- Homepage basic search
-- Program
-    - Create & Edit (Form, Logic & Validation)
-    - Delete (Logic)
+Templatestructure
+- Header
+- Footer
+
+Basic Index & Routing setup
+
+Configuration Local and on Heroku
+
+Basic Error Page
 
 DB
 - DB Setup Heroku
@@ -47,3 +50,10 @@ DB
 Deployment
 - Setup Heroku
 - Autoprovision on Heroku based on GitHub
+
+Content Management:
+- Homepage with program listing
+- Homepage basic search
+- Program
+    - Create & Edit (Form, Logic & Validation)
+    - Delete (Logic)
