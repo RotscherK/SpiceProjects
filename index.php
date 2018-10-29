@@ -129,5 +129,5 @@ try {
     }
 } catch (HTTPException $exception) {
     $exception->getHeader();
-    ErrorController::show404();
+    //ErrorController::show404();
 }
