@@ -17,7 +17,8 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
     <div class="form-clean">
         <form action="update" method="post">
             <h2 class="text-center">Create/Edit program</h2>
-            <div class="form-group row">
+
+            <div class="form-group row" <?php if($program->getProviderId() != null): ?> style="display: none" <?php endif; ?>>
                 <label for="id" class="col-sm-3 col-form-label">ID</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $program->getId() ?>">
@@ -34,11 +35,11 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="provider" class="col-sm-3 col-form-label" name="provider" >Provider</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="provider" name="provider">
-                        <option value="1" <?php if($program->getCategoryId() == '1'): ?> selected="selected"<?php endif; ?> >FHNW</option>
-                        <option value="2" <?php if($program->getCategoryId() == '2'): ?> selected="selected"<?php endif; ?> >Uni Basel</option>
-                        <option value="3" <?php if($program->getCategoryId() == '3'): ?> selected="selected"<?php endif; ?> >Uni Bern</option>
-                        <option value="4" <?php if($program->getCategoryId() == '4'): ?> selected="selected"<?php endif; ?> >IKT</option>
-                        <option value="5" <?php if($program->getCategoryId() == '5'): ?> selected="selected"<?php endif; ?> >FHBO</option>
+                        <option value="1" <?php if($program->getProviderId() == '1'): ?> selected="selected"<?php endif; ?> >FHNW</option>
+                        <option value="2" <?php if($program->getProviderId() == '2'): ?> selected="selected"<?php endif; ?> >Uni Basel</option>
+                        <option value="3" <?php if($program->getProviderId() == '3'): ?> selected="selected"<?php endif; ?> >Uni Bern</option>
+                        <option value="4" <?php if($program->getProviderId() == '4'): ?> selected="selected"<?php endif; ?> >IKT</option>
+                        <option value="5" <?php if($program->getProviderId() == '5'): ?> selected="selected"<?php endif; ?> >FHBO</option>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getProviderIDError() ?></small>
                 </div>

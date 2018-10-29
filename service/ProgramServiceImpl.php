@@ -42,8 +42,6 @@ class ProgramServiceImpl implements ProgramService
     public function readProgram($programId) {
         $programDAO = new programDAO();
         return $programDAO->read($programId);
-
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**

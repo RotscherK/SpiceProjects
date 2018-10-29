@@ -91,7 +91,7 @@ Router::route_auth("POST", "/agent/edit", $authFunction, function () {
 });
 
 Router::route_auth("GET", "/program/create", $authFunction, function () {
-    UserController::create();
+    ProgramController::create();
 });
 
 Router::route_auth("GET", "/program/edit", $authFunction, function () {
