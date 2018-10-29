@@ -84,10 +84,9 @@ class ProgramController
     }
 
     public function getAllPrograms() {
-        if(AuthServiceImpl::getInstance()->verifyAuth()){
-            $programDAO = new ProgramDAO();
-            return $programDAO->getAllPrograms();
-        }
+        $programDAO = new ProgramDAO();
+        return $programDAO->getAllPrograms();
+
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
