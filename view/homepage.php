@@ -23,7 +23,7 @@ use view\TemplateView;
                             <th>Degree</th>
                             <th>Type</th>
                             <th>Duration</th>
-                            <th>Action</th>
+                            <?php if(isset($_SESSION['userLogin'])): ?><th>Action</th><?php endif; ?>
 
                         </tr>
                         </thead>
@@ -37,12 +37,14 @@ use view\TemplateView;
                                 <td><?php echo TemplateView::noHTML($program->getDegree()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getType()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getDuration()); ?> </td>
-                                <td>
-                                    <div class="btn-group btn-group-sm" role="group">
-                                        <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
-                                        <a class="btn-default" role="button" href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
-                                    </div>
-                                </td>
+                                <?php if(isset($_SESSION['userLogin'])): ?>
+                                    <td>
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
+                                            <a class="btn-default" role="button" href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
+                                        </div>
+                                    </td>
+                                <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
 
