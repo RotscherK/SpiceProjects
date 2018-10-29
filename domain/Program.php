@@ -118,15 +118,15 @@ class Program {
      */
     public function getCategoryId()
     {
-        return $this->categoryid;
+        return $this->category_id;
     }
 
     /**
-     * @param mixed $categoryid
+     * @param mixed $category_id
      */
-    public function setCategoryId($categoryid)
+    public function setCategoryId($category_id)
     {
-        $this->categoryid = $categoryid;
+        $this->category_id = $category_id;
     }
 
     /**
@@ -134,15 +134,15 @@ class Program {
      */
     public function getDistanceLearning()
     {
-        return $this->distancelearning;
+        return $this->distance_learning;
     }
 
     /**
-     * @param mixed $distancelearning
+     * @param mixed $distance_learning
      */
-    public function setDistanceLearning($distancelearning)
+    public function setDistanceLearning($distance_learning)
     {
-        $this->distancelearning = $distancelearning;
+        $this->distance_learning = $distance_learning;
     }
 
     /**
@@ -274,4 +274,3 @@ class Program {
     }
 
 }
-?>
