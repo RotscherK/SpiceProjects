@@ -87,7 +87,6 @@ class ProgramController
         $programDAO = new ProgramDAO();
         return $programDAO->getAllPrograms();
 
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     public static function delete(){

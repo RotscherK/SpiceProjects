@@ -40,10 +40,9 @@ class ProgramServiceImpl implements ProgramService
      * @throws HTTPException
      */
     public function readProgram($programId) {
-        //if(AuthServiceImpl::getInstance()->verifyAuth()) {
-            $programDAO = new programDAO();
-            return $programDAO->read($programId);
-        //}
+        $programDAO = new programDAO();
+        return $programDAO->read($programId);
+
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
