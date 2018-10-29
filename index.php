@@ -14,6 +14,7 @@ require_once("config/Autoloader.php");
 
 use router\Router;
 use controller\HomepageController;
+use controller\ProgramController;
 use controller\UserController;
 use controller\AuthController;
 use controller\ErrorController;
@@ -89,21 +90,21 @@ Router::route_auth("POST", "/agent/edit", $authFunction, function () {
         Router::redirect("/logout");
 });
 
-Router::route_auth("GET", "/customer/create", $authFunction, function () {
+Router::route_auth("GET", "/program/create", $authFunction, function () {
     UserController::create();
 });
 
-Router::route_auth("GET", "/customer/edit", $authFunction, function () {
-    UserController::edit();
+Router::route_auth("GET", "/program/edit", $authFunction, function () {
+    ProgramController::edit();
 });
 
-Router::route_auth("GET", "/customer/delete", $authFunction, function () {
+Router::route_auth("GET", "/program/delete", $authFunction, function () {
     UserController::delete();
     Router::redirect("/");
 });
 
-Router::route_auth("POST", "/customer/update", $authFunction, function () {
-    if(UserController::update())
+Router::route_auth("POST", "/program/update", $authFunction, function () {
+    if(ProgramController::update());
         Router::redirect("/");
 });
 
