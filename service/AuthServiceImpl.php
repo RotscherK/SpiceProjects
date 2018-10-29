@@ -61,13 +61,14 @@ class AuthServiceImpl implements AuthService {
      * @ReturnType boolean
      */
     public function verifyAuth() {
-        echo "<script>alert('verify userid '".$this->currentUserId."');</script>";
-
-        return;
+        echo "<script>alert('verify auth ".$this->currentUserId."');</script>";
 
         if(isset($this->currentUserId))
-            return true;
-        return false;
+            echo "<script>alert('verify res true');</script>";
+        echo "<script>alert('verify res false');</script>";
+
+       // return true;
+        //return false;
     }
 
     /**
