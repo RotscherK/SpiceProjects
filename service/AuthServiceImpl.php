@@ -60,7 +60,7 @@ class AuthServiceImpl implements AuthService {
      */
     public function verifyAuth() {
         echo "<script>alert('Test2');</script>";
-        echo "<script>alert('Test2 '".currentUserId."');</script>";
+        echo "<script>alert('Test2 '".$this->currentUserId."');</script>";
 
         return;
 
