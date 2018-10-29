@@ -65,8 +65,11 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-12">
+                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <input class="form-check-input" type="checkbox" id="distance_learning" <?php echo ($program->getName()==true ? 'checked' : '');?>>
+                </div>
+                <div class="col-sm-9">
                     <label class="form-check-label" for="distance_learning">
                         Distance Learning
                     </label>
@@ -121,7 +124,7 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
             <div class="form-group row <?php echo $programValidator->isExpirationError() ? "has-error" : ""; ?>">
                 <label for="expiration" class="col-sm-3 col-form-label">Expiration Date</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="expiration" placeholder="Expiration Date" value="<?php echo $program->getExpiration() ?>">
+                    <input type="date" class="form-control" id="expiration" placeholder="Expiration Date" value="<?php echo $program->getExpiration() ?>">
                 </div>
                 <p class="help-block"><?php echo $programValidator->getExpirationError() ?></p>
             </div>

@@ -55,7 +55,7 @@ class ProgramController
         $program->setId($_POST["id"]);
         $program->setName($_POST["name"]);
         $program->setType($_POST["type"]);
-        $program->setCategoryId($_POST["category_id"]);
+        $program->setCategoryId($_POST["category"]);
         $program->setDistanceLearning(["distance_learning"]);
         $program->setDegree($_POST["degree"]);
         $program->setPrice($_POST["price"]);
@@ -64,7 +64,7 @@ class ProgramController
         $program->setRequirement($_POST["requirements"]);
         $program->setUrl($_POST["url"]);
         $program->setExpiration($_POST["expiration"]);
-        $program->setProviderId($_POST["provider_id)"]);
+        $program->setProviderId($_POST["provider)"]);
         $programValidator = new ProgramValidator($program);
         if($programValidator->isValid()) {
             if ($program->getId() === "") {
