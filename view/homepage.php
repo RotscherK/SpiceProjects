@@ -13,7 +13,7 @@ use view\TemplateView;
             <h2 class="text-center">Available Programs</h2>
             <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchProgram()" placeholder="Search"></div>
             <div class="text">
-                <div class="table-responsive table table-striped table-bordered table-hover">
+                <div class="table-responsive table table-striped table-hover">
                     <table class="table" id="program">
                         <thead>
                         <tr>
