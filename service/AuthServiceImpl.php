@@ -117,7 +117,7 @@ class AuthServiceImpl implements AuthService {
             $userDAO = new UserDAO();
             return $userDAO->read($this->currentUserId);
         }
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+        //throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
