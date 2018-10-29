@@ -14,64 +14,65 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
 ?>
 
 <div class="col-sm-10 text-left blue-background">
-    <div class="form-clean">
-        <form action="update" method="post">
-            <h2 class="text-center">Edit program</h2>
-            <div class="form-group row">
-                <label for="id" class="col-sm-2 col-form-label">ID</label>
-                <div class="col-sm-8"><input class="form-control" type="text" name="id" readonly="" value="<?php echo $program->getId() ?>">
+    <form>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            First radio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                            Second radio
+                        </label>
+                    </div>
+                    <div class="form-check disabled">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                        <label class="form-check-label" for="gridRadios3">
+                            Third disabled radio
+                        </label>
+                    </div>
                 </div>
             </div>
-            <div class="form-group <?php echo $programValidator->isNameError() ? "has-error" : ""; ?>">
-                <div class="input-group row">
-                    <div class="input-group-addon col-sm-2"><span>Name </span></div>
-                    <input class="form-control col-sm-8" type="text" name="name" value="<?php echo TemplateView::noHTML($program->getName()) ?>">
+        </fieldset>
+        <div class="form-group row">
+            <div class="col-sm-2">Checkbox</div>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                    <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                    </label>
                 </div>
-                <p class="help-block"><?php echo $programValidator->getNameError() ?></p>
             </div>
-            <div class="form-group <?php echo $programValidator->isDescriptionError() ? "has-error" : ""; ?>">
-                <div class="input-group">
-                    <div class="input-group-addon"><span>Description </span></div>
-                    <input class="form-control" type="text" name="description" value="<?php echo TemplateView::noHTML($program->getDescription()) ?>">
-                </div>
-                <p class="help-block"><?php echo $programValidator->getDescriptionError() ?></p>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-5">
+                <button type="button" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';" />Cancle</button>
             </div>
-            <div class="form-group <?php echo $programValidator->isPriceError() ? "has-error" : ""; ?>">
-                <div class="input-group">
-                    <div class="input-group-addon"><span>Price </span></div>
-                    <input class="form-control" type="currency" name="price" value="<?php echo TemplateView::noHTML($program->getPrice()) ?>">
-                </div>
-                <p class="help-block"><?php echo $programValidator->getPriceError() ?></p>
+            <div class="col-sm-5">
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
+            <div class="col-sm-10">
 
-            <div class="form-group <?php echo $programValidator->isExpirationError() ? "has-error" : ""; ?>">
-                <div class="input-group">
-                    <div class="input-group-addon"><span>Expiration Date </span></div>
-                    <input class="form-control" type="date" name="expiration_date" value="<?php echo TemplateView::noHTML($program->getExpiration()) ?>">
-                </div>
-                <p class="help-block"><?php echo $programValidator->getExpirationError() ?></p>
             </div>
-
-            <div class="form-group <?php echo $programValidator->isRequirementError() ? "has-error" : ""; ?>">
-                <div class="input-group">
-                    <div class="input-group-addon"><span>Requirement </span></div>
-                    <input class="form-control" type="currency" name="price" value="<?php echo TemplateView::noHTML($program->getRequirement()) ?>">
-                </div>
-                <p class="help-block"><?php echo $programValidator->getRequirementError() ?></p>
-            </div>
-
-            <div class="form-group <?php echo $programValidator->isProviderIDError() ? "has-error" : ""; ?>">
-                <div class="input-group">
-                    <div class="input-group-addon"><span>Provider </span></div>
-                    <input class="form-control" type= name="Provider" value="<?php echo TemplateView::noHTML($program->getProviderID()) ?>">
-                </div>
-                <p class="help-block"><?php echo $programValidator->getProviderIDError() ?></p>
-            </div>
-          
-
-            <div class="form-group">
-                <button class="btn btn-primary pull-right" type="submit">Save</button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
