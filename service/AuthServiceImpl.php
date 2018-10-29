@@ -99,7 +99,11 @@ class AuthServiceImpl implements AuthService {
                     $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
                     $userDAO->update($user);
                 }
+                echo "<script>alert('UserID ".$user->getId()."' );</script>";
+
                 $this->currentUserId = $user->getId();
+                echo "<script>alert('UserID after ".$this->currentUserId."' );</script>";
+
                 return true;
             }
         }
