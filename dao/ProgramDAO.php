@@ -53,7 +53,7 @@ class ProgramDAO extends BasicDAO {
 	 */
 	public function read($programId) {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM program WHERE id = :id;');
+            SELECT * FROM "program" WHERE id = :id;');
         $stmt->bindValue(':id', $programId);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
