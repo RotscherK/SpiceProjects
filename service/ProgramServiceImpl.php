@@ -40,6 +40,8 @@ class ProgramServiceImpl implements ProgramService
      * @throws HTTPException
      */
     public function readProgram($programId) {
+        echo "<script>alert('Test ".$programId ."');</script>";
+        return;
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
             $programDAO = new programDAO();
             return $programDAO->read($programId);

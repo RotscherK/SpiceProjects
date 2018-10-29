@@ -41,10 +41,7 @@ class ProgramController
 
         $id = $_GET["id"];
         $contentView = new TemplateView("programEdit.php");
-        echo "<script>alert('Test".$_GET["id"] ."');</script>";
-        echo print_r($contentView->program);
-        return;
-        $contentView->program = (new ProgramServiceImpl())->readProgram(1);
+        $contentView->program = (new ProgramServiceImpl())->readProgram($id);
 
         LayoutRendering::basicLayout($contentView);
     }
