@@ -111,7 +111,8 @@ class AuthServiceImpl implements AuthService {
      * @throws HTTPException
      */
     public function readUser() {
-        echo "Test3: " . $this->currentUserID;
+        echo $this->currentUserID;
+        return;
         if($this->verifyAuth()) {
             $userDAO = new UserDAO();
             return $userDAO->read($this->currentUserId);
