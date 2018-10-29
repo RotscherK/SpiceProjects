@@ -84,16 +84,19 @@ class ProgramDAO extends BasicDAO {
                 expiration = :expiration,
                 provider_id = :provider_id
             WHERE id = :id');
+        $stmt->bindValue(':name', $program->getName());
         $stmt->bindValue(':type', $program->getType());
         $stmt->bindValue(':category_id', $program->getCategoryId());
         $stmt->bindValue(':distance_learning', $program->getDistanceLearning());
         $stmt->bindValue(':degree', $program->getDegree());
-        $stmt->bindValue(':price', $program->getPrice());
+        $stmt->bindValue(':price', strval($program->getPrice()));
         $stmt->bindValue(':duration', $program->getDuration());
         $stmt->bindValue(':description', $program->getDescription());
         $stmt->bindValue(':requirements', $program->getRequirement());
         $stmt->bindValue(':url', $program->getUrl());
-        $stmt->bindValue(':expiration', $program->getExpiration());
+        $date = $program->getExpiration();
+        $strDate = $date->format('d-m-Y');
+        $stmt->bindValue(':expiration', $strDate);
         $stmt->bindValue(':provider_id', $program->getProviderId());
         $stmt->bindValue(':id', $program->getId());
         $stmt->execute();
