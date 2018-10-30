@@ -6,6 +6,9 @@
  * Time: 18:00
  */
 use view\TemplateView;
+use domain\Program;
+isset($this->program) ? $program = $this->program : $program = new Program();
+
 ?>
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
