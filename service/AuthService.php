@@ -18,7 +18,7 @@ interface AuthService {
     /**
      * @AttributeType int
      */
-    const AGENT_TOKEN = 1;
+    const USER_TOKEN = 1;
     /**
      * @AttributeType int
      */
@@ -73,5 +73,5 @@ interface AuthService {
      * @ParamType email String
      * @ReturnType String
      */
-    public function issueToken($type = self::AGENT_TOKEN, $email = null);
+    public function issueToken($type = self::USER_TOKEN, $email = null);
 }

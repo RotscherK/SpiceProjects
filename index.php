@@ -21,6 +21,8 @@ use controller\ErrorController;
 use controller\UserPasswordResetController;
 use controller\EmailController;
 use controller\PDFController;
+use view\TemplateView;
+use view\LayoutRendering;
 use http\HTTPException;
 use http\HTTPHeader;
 use http\HTTPStatusCode;
@@ -132,6 +134,12 @@ try {
         Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO']);
     }
 } catch (HTTPException $exception) {
+    $exception->getHeader();
+
+     // $contentView = new TemplateView("404page.php");
+    // $contentView->exception = $exception;
+   // LayoutRendering::basicLayout($contentView);
+
     $exception->getHeader();
     //ErrorController::show404();
 }
