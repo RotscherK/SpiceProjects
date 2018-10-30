@@ -110,14 +110,14 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
             <div class="form-group row <?php echo $programValidator->isDescriptionError() ? "has-error" : ""; ?>">
                 <label for="description" class="col-sm-3 col-form-label">Description</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" rows="20" id="description" name="description" placeholder="Description" value="<?php echo $program->getDescription() ?>"></textarea>
+                    <textarea class="form-control" rows="20" id="description" name="description" placeholder="Description"><?php echo $program->getDescription() ?></textarea>
                     <small class="form-text text-danger"><?php echo $programValidator->getDescriptionError() ?></small>
                 </div>
             </div>
             <div class="form-group row <?php echo $programValidator->isRequirementError() ? "has-error" : ""; ?>">
                 <label for="requirement" class="col-sm-3 col-form-label">Requirements</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" rows="20" id="requirement" name="requirement"  placeholder="Requirements" value="<?php echo $program->getRequirement() ?>"></textarea>
+                    <textarea class="form-control" rows="20" id="requirement" name="requirement"  placeholder="Requirements"><?php echo $program->getRequirement() ?></textarea>
                     <small class="form-text text-danger"><?php echo $programValidator->getRequirementError() ?></small>
                 </div>
             </div>
