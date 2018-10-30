@@ -30,7 +30,7 @@ use view\TemplateView;
                         <tbody>
                         <?php
                         foreach($this->programs as $program): /* @var Program $program */ ?>
-                            <tr>
+                            <tr class='clickable-row' data-href="/program?id=<?php echo $program->getId(); ?>">
                                 <td><?php echo TemplateView::noHTML($program->getName()); ?></td>
                                 <td><?php echo TemplateView::noHTML($program->getProviderId()); ?></td>
                                 <td><?php echo TemplateView::noHTML($program->getPrice()); ?> ! <?php echo TemplateView::noHTML($program->getCategoryId()); ?> ! <?php echo TemplateView::noHTML($program->getDistanceLearning()); ?> ! <?php echo TemplateView::noHTML($program->getURL()); ?></td>
@@ -80,4 +80,9 @@ use view\TemplateView;
             }
         }
     }
+    jQuery(document).ready(function($) {
+        $(".clickable-row").click(function() {
+            window.location = $(this).data("href");
+        });
+    });
 </script>
