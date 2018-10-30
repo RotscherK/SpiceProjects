@@ -77,7 +77,7 @@ class ProgramServiceImpl implements ProgramService
      * @ReturnType Program[]
      * @throws HTTPException
      */
-    public function getAllPrograms($programId) {
+    public function getAllPrograms() {
         $programDAO = new ProgramDAO();
         return $programDAO->getAllPrograms();
     }

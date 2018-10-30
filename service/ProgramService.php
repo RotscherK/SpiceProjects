@@ -56,4 +56,7 @@ interface ProgramService {
      * @ReturnType Program[]
      */
     public function getAllPrograms();
+
+    public function getProgramById($programId);
+
 }
