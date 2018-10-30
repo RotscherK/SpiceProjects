@@ -1,12 +1,12 @@
 Todo:
 Login
-- Password reset
+- Password reset !Singleton Problem
 
 Full Program Search
 
 Content Management:
 - Program
-    - View
+    - Dropdowns with other entities
 - User
     - View
     - Edit
@@ -30,7 +30,7 @@ Authorization
 - Login Form, Logic & Validation
 - Logout
 
-Templatestructure
+Template-structure
 - Header
 - sFooter
 
@@ -39,6 +39,8 @@ Basic Index & Routing setup
 Configuration Local and on Heroku
 
 Basic Error Page
+
+Email Sending Setup
 
 DB
 - DB Setup Heroku
@@ -54,3 +56,4 @@ Content Management:
 - Program
     - Create & Edit (Form, Logic & Validation)
     - Delete (Logic)
+    - View
