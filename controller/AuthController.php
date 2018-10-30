@@ -11,6 +11,7 @@ namespace controller;
 use domain\User;
 use service\AuthServiceImpl;
 use view\LayoutRendering;
+use view\TemplateView;
 use validator\UserValidator;
 
 class AuthController
