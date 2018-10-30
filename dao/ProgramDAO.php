@@ -31,14 +31,14 @@ class ProgramDAO extends BasicDAO {
         $stmt->bindValue(':name', $program->getName());
         $stmt->bindValue(':type', $program->getType());
         $stmt->bindValue(':category_id', $program->getCategoryId());
-        $stmt->bindValue(':distance_learning', $program->getDistanceLearning());
+        $stmt->bindValue(':distance_learning', (($program->getDistanceLearning()) ? 'true' : 'false'));
         $stmt->bindValue(':degree', $program->getDegree());
-        $stmt->bindValue(':price', $program->getPrice());
+        $stmt->bindValue(':price', strval($program->getPrice()));
         $stmt->bindValue(':duration', $program->getDuration());
         $stmt->bindValue(':description', $program->getDescription());
         $stmt->bindValue(':requirements', $program->getRequirement());
         $stmt->bindValue(':url', $program->getUrl());
-        $stmt->bindValue(':expiration', $program->getExpiration());
+        $stmt->bindValue(':expiration',  $program->getExpiration());
         $stmt->bindValue(':provider_id', $program->getProviderId());
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
