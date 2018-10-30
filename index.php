@@ -92,8 +92,8 @@ Router::route_auth("POST", "/agent/edit", $authFunction, function () {
         Router::redirect("/logout");
 });
 
-Router::route_auth("GET", "/program", $authFunction, function () {
-    ProgramController::showDetails();
+Router::route("GET", "/program", function () {
+    ProgramController::getProgramById();
 });
 
 Router::route_auth("GET", "/program/create", $authFunction, function () {

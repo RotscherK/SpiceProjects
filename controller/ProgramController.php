@@ -88,7 +88,7 @@ class ProgramController
 
     }
 
-    public static function showDetails($id)
+    public static function getProgramById()
     {
         $id = $_GET["id"];
         $contentView = new TemplateView("view/program_detail.php");
