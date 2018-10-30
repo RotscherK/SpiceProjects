@@ -1,8 +1,5 @@
 Todo:
 Login
-- Login
-    - (validation handling)
-    - Failed
 - Password reset
 
 Full Program Search
@@ -30,7 +27,7 @@ Content Management:
 Done:
 
 Authorization
-- Login Form & Logic
+- Login Form, Logic & Validation
 - Logout
 
 Templatestructure
