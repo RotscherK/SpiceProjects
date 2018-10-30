@@ -93,7 +93,7 @@ Router::route_auth("POST", "/agent/edit", $authFunction, function () {
 });
 
 Router::route("GET", "/program", function () {
-    ProgramController::getProgramById();
+    ProgramController::showDetails();
 });
 
 Router::route_auth("GET", "/program/create", $authFunction, function () {
@@ -101,7 +101,7 @@ Router::route_auth("GET", "/program/create", $authFunction, function () {
 });
 
 Router::route_auth("GET", "/program/edit", $authFunction, function () {
-    ProgramController::getProgramById();
+    ProgramController::edit();
 });
 
 Router::route_auth("GET", "/program/delete", $authFunction, function () {
@@ -110,7 +110,7 @@ Router::route_auth("GET", "/program/delete", $authFunction, function () {
 });
 
 Router::route_auth("POST", "/program/update", $authFunction, function () {
-    if(ProgramController::update());
+    if(ProgramController::update())
         Router::redirect("/");
 });
 
