@@ -53,7 +53,7 @@ interface AuthService {
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function editUser($name, $email, $password);
+    public function editUser($email, $password);
 
     /**
      * @access public

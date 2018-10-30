@@ -13,11 +13,11 @@ use config\Config;
 class EmailServiceClient
 {
 
-    public static function sendEmail($toEmail, $fromEmail, $name, $subject, $htmlData){
+    public static function sendEmail($toEmail, $subject, $htmlData){
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
-        $jsonObj->from->email = $fromEmail;
-        $jsonObj->from->name = $name;
+        $jsonObj->from->email = "spice.project.test@test.com";
+        $jsonObj->from->name = "Spice Projects";
 
         $jsonObj->subject = $subject;
         $jsonObj->content[0]->value = $htmlData;

@@ -128,9 +128,8 @@ class AuthServiceImpl implements AuthService {
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function editUser($name, $email, $password) {
+    public function editUser($email, $password) {
         $user = new User();
-        $user->setName($name);
         $user->setEmail($email);
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
