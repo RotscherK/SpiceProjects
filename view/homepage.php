@@ -80,9 +80,10 @@ use view\TemplateView;
             }
         }
     }
-    jQuery(document).ready(function($) {
-        $(".clickable-row").click(function() {
+    window.onload = function(){
+        $('*[data-href]').on('click', function() {
             window.location = $(this).data("href");
         });
-    });
+    };
+
 </script>
