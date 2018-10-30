@@ -9,7 +9,7 @@ use view\TemplateView;
 use domain\User;
 use validator\UserValidator;
 
-isset($this->user) ? $user = $this->program : user = new User();
+isset($this->user) ? $user = $this->program : $user = new User();
 isset($this->userValidator) ? $userValidator = $this->userValidator : $userValidator = new UserValidator();
 ?>
 
