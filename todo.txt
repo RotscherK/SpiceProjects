@@ -35,7 +35,7 @@ Authorization
 
 Templatestructure
 - Header
-- Footer
+- sFooter
 
 Basic Index & Routing setup
 

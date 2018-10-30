@@ -96,7 +96,7 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
             <div class="form-group row <?php echo $programValidator->isPriceError() ? "has-error" : ""; ?>">
                 <label for="price" class="col-sm-3 col-form-label">Price</label>
                 <div class="col-sm-9">
-                    <input type="number" class="form-control" id="price" name="price" placeholder="Price" value="<?php echo $program->getPrice() ?>">
+                    <input type="number" class="form-control" id="price" name="price" step="0.05" placeholder="Price" value="<?php echo $program->getPrice() ?>">
                     <small class="form-text text-danger"><?php echo $programValidator->getPriceError() ?></small>
                 </div>
             </div>

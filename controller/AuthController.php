@@ -8,7 +8,10 @@
 
 namespace controller;
 
+use domain\User;
 use service\AuthServiceImpl;
+use view\LayoutRendering;
+use validator\UserValidator;
 
 class AuthController
 {
@@ -31,15 +34,29 @@ class AuthController
 
         $authService = AuthServiceImpl::getInstance();
 
-        if($authService->verifyUser($_POST["email"],$_POST["password"]))
-        {
-            session_regenerate_id(true);
-            $token = $authService->issueToken();
-            $_SESSION["userLogin"]["token"] = $token;
-            if(isset($_POST["remember"])) {
-                setcookie("token", $token, (new \DateTime('now'))->modify('+30 days')->getTimestamp(), "/");
+        $user = new User();
+        $user->setEmail($_POST["email"]);
+        $user->setPassword($_POST["password"]);
+        $userValidator = new UserValidator($user);
+
+        if($userValidator->isValid()) {
+
+            if($authService->verifyUser($_POST["email"],$_POST["password"])){
+                session_regenerate_id(true);
+                $token = $authService->issueToken();
+                $_SESSION["userLogin"]["token"] = $token;
+                if(isset($_POST["remember"])) {
+                    setcookie("token", $token, (new \DateTime('now'))->modify('+30 days')->getTimestamp(), "/");
+                }
             }
+        }else{
+            $contentView = new TemplateView("userLogin.php");
+            $contentView->user = $user;
+            $contentView->userValidator = $userValidator;
+            LayoutRendering::basicLayout($contentView);
+            return false;
         }
+        return true;
     }
 
     public static function logout(){
