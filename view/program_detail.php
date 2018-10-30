@@ -69,7 +69,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             <div class="row details-form">
                 <div class="container container-details"><label><strong>Actions</strong><br /></label>
                     <div>
-                        <div class="container container-details"><button class="btn btn-primary" href="program/edit?id=<?php echo $program->getId(); ?>" type="button">Edit</button><button class="btn btn-primary" href="program/delete?id=<?php echo $program->getId(); ?>" type="button">Delete</button></div>
+                        <div class="container container-details"><button class="btn btn-primary" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button><button class="btn btn-primary" onclick="location.href='http://www.example.com'"program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
                     </div>
                 </div>
             </div>
