@@ -191,11 +191,11 @@ class AuthServiceImpl implements AuthService {
      * https://www.owasp.org/index.php/PHP_Security_Cheat_Sheet#Authentication
      * https://stackoverflow.com/a/31419246
      */
-    public function issueToken($type = self::AGENT_TOKEN, $email = null) {
+    public function issueToken($type = self::USER_TOKEN, $email = null) {
         $token = new AuthToken();
         $token->setSelector(bin2hex(random_bytes(5)));
-        if($type===self::AGENT_TOKEN) {
-            $token->setType(self::AGENT_TOKEN);
+        if($type===self::USER_TOKEN) {
+            $token->setType(self::USER_TOKEN);
             $token->setUserid($this->currentUserId);
             $timestamp = (new \DateTime('now'))->modify('+30 days');
         }
