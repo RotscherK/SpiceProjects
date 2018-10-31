@@ -24,9 +24,11 @@ class ProgramServiceImpl implements ProgramService
      * @throws HTTPException
      */
     public function createProgram(Program $program) {
-        $programDAO = new ProgramDAO();
-        return $programDAO->create($program);
-
+        if(AuthServiceImpl::getInstance()->verifyAuth()) {
+            $programDAO = new ProgramDAO();
+            return $programDAO->create($program);
+        }
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
@@ -64,11 +66,13 @@ class ProgramServiceImpl implements ProgramService
      * @ParamType programId int
      */
     public function deleteProgram($programId) {
-        $programDAO = new ProgramDAO();
-        $program = new Program();
-        $program->setId($programId);
-        $programDAO->delete($program);
-
+        if(AuthServiceImpl::getInstance()->verifyAuth()) {
+            $programDAO = new ProgramDAO();
+            $program = new Program();
+            $program->setId($programId);
+            $programDAO->delete($program);
+        }
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
@@ -82,8 +86,4 @@ class ProgramServiceImpl implements ProgramService
         return $programDAO->getAllPrograms();
     }
 
-    public function getProgramById($programId) {
-        $programDAO = new ProgramDAO();
-        return $programDAO->getProgramById($programId);
-    }
 }

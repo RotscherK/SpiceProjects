@@ -126,17 +126,5 @@ class ProgramDAO extends BasicDAO {
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Program");
 	}
-
-    public function getProgramById($id)
-    {
-        $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM "program" WHERE "id" = :Id;');
-        $stmt->bindValue(':Id', $id);
-        $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Program")[0];
-        }
-        return null;
-    }
 }
 ?>

@@ -19,7 +19,7 @@ class UserDAO extends BasicDAO {
 	 */
 	public function create(User $user) {
         $stmt = $this->pdoInstance->prepare('
-        INSERT INTO user (name, email, password)
+        INSERT INTO "user" (name, email, password)
           SELECT :name,:email,:password
           WHERE NOT EXISTS (
             SELECT email FROM user WHERE email = :emailExist
@@ -41,7 +41,7 @@ class UserDAO extends BasicDAO {
 	 */
 	public function read($userId) {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM user WHERE id = :id;');
+            SELECT * FROM "user" WHERE id = :id;');
         $stmt->bindValue(':id', $userId);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
@@ -59,7 +59,7 @@ class UserDAO extends BasicDAO {
 	 */
 	public function update(User $user) {
         $stmt = $this->pdoInstance->prepare('
-                UPDATE user SET name=:name, email=:email, password=:password WHERE id = :id;');
+                UPDATE "user" SET name=:name, email=:email, password=:password WHERE id = :id;');
         $stmt->bindValue(':id', $user->getId());
         $stmt->bindValue(':name', $user->getName());
         $stmt->bindValue(':email', $user->getEmail());

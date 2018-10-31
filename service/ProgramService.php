@@ -57,6 +57,4 @@ interface ProgramService {
      */
     public function getAllPrograms();
 
-    public function getProgramById($programId);
-
 }

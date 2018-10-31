@@ -77,6 +77,7 @@ class UserServiceImpl implements UserService
             $user->setId($userId);
             $userDAO->delete($user);
         }
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
@@ -85,10 +86,10 @@ class UserServiceImpl implements UserService
      * @ReturnType User[]
      * @throws HTTPException
      */
-    public function getAllUser() {
+    public function findAllUser() {
         if(AuthServiceImpl::getInstance()->verifyAuth()){
             $userDAO = new UserDAO();
-            return $userDAO->findByAgent(AuthServiceImpl::getInstance()->getCurrentAgentId());
+            return $userDAO->findByEmail(AuthServiceImpl::getInstance()->getCurrentAgentId());
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
