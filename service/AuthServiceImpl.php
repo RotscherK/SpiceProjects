@@ -60,7 +60,7 @@ class AuthServiceImpl implements AuthService {
      */
     public function verifyAuth() {
 
-        if(isset($this->currentUserId))
+        if(isset($_SESSION["userLogin"]["userID"]))
             return true;
         return false;
     }
@@ -72,7 +72,7 @@ class AuthServiceImpl implements AuthService {
      */
     public function getCurrentUserId()
     {
-        return $this->currentUserId;
+        return $_SESSION["userLogin"]["userID"];
     }
 
     /**
@@ -93,7 +93,7 @@ class AuthServiceImpl implements AuthService {
                     $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
                     $userDAO->update($user);
                 }
-                $this->currentUserId = $user->getId();
+                $_SESSION["userLogin"]["userID"] = $user->getId();
 
                 return true;
             }
@@ -164,7 +164,7 @@ class AuthServiceImpl implements AuthService {
         if (!empty($authToken)) {
             if(time()<=(new \DateTime($authToken->getExpiration()))->getTimestamp()){
                 if (hash_equals(hash('sha384', hex2bin($tokenArray[1])), $authToken->getValidator())) {
-                    $this->currentUserId = $authToken->getUserid();
+                    $_SESSION["userLogin"]["userID"] = $authToken->getUserid();
                     if($authToken->getType()===self::RESET_TOKEN){
                         $authTokenDAO->delete($authToken);
                     }
@@ -195,7 +195,7 @@ class AuthServiceImpl implements AuthService {
         $token->setSelector(bin2hex(random_bytes(5)));
         if($type===self::USER_TOKEN) {
             $token->setType(self::USER_TOKEN);
-            $token->setUserid($this->currentUserId);
+            $token->setUserid($_SESSION["userLogin"]["userID"]);
             $timestamp = (new \DateTime('now'))->modify('+30 days');
         }
         elseif(isset($email)){

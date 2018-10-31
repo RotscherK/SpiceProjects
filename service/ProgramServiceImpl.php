@@ -55,7 +55,7 @@ class ProgramServiceImpl implements ProgramService
             $programDAO = new ProgramDAO();
             return $programDAO->update($program);
         }
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+        //throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
