@@ -46,8 +46,8 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         <div class="row details-form">
             <div class="container container-details"><label><strong>Actions</strong><br /></label>
                 <div id="actiondetail" class="row">
-                    <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $program->getUrl(); ?>'" type="button">Link to Provider</button></div>
-                    <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='#requestform'" type="button">Request more information</button></div>
+                    <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $program->getUrl(); ?>'" type="button">Link to Provider</button></div>
+                    <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='#requestform'" type="button">Request more information</button></div>
                 </div>
             </div>
         </div>
@@ -78,14 +78,14 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             <div class="row details-form">
                 <div class="container container-details"><label><strong>Actions</strong><br /></label>
                     <div id="actiondetail" class="row">
-                            <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button></div>
-                            <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
+                            <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button></div>
+                            <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
                     </div>
                 </div>
             </div>
         <?php endif; ?>
 
-        <div class="row details-form">
+        <div class="row form-clean">
             <form action="program/request" method="post">
                 <label><strong>Request more Information</strong><br /></label>
 
@@ -114,10 +114,10 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <button type="submit" class="btn btn-primary btn-block">Request</button>
                     </div>
 
