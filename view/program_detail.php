@@ -69,10 +69,8 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         <div class="row details-form">
             <div class="container container-details"><label><strong>Actions</strong><br /></label>
                 <div id="actiondetail" class="row">
-                    <div class="container container-details">
                         <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button></div>
                         <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
-                    </div>
                 </div>
             </div>
         </div>
