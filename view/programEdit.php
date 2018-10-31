@@ -18,7 +18,7 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
         <form action="update" method="post">
             <h2 class="text-center">Create/Edit program</h2>
 
-            <div class="form-group row" <?php if($program->getProviderId() == null || $program->getProviderId() == ""): ?> style="display: none" <?php endif; ?>>
+            <div class="form-group row" <?php if($program->getId() == null): ?> style="display: none" <?php endif; ?>>
                 <label for="id" class="col-sm-3 col-form-label">ID</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $program->getId() ?>">
