@@ -85,45 +85,42 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             </div>
         <?php endif; ?>
 
-        <div class="row form-clean">
-            <form action="program/request" method="post">
-                <label><strong>Request more Information</strong><br /></label>
+        <form action="program/request" class="request-form" method="post">
+            <label><strong>Request more Information</strong><br /></label>
 
-                <div class="form-group row">
-                    <label for="id" class="col-sm-3 col-form-label">Name</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                    </div>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                 </div>
-                <div class="form-group row">
-                    <label for="id" class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                    </div>
+            </div>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                 </div>
-                <div class="form-group row">
-                    <label for="id" class="col-sm-3 col-form-label">Phone</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
-                    </div>
+            </div>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">Phone</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                 </div>
-                <div class="form-group row">
-                    <label for="id" class="col-sm-3 col-form-label">Comment</label>
-                    <div class="col-sm-9">
-                        <textarea class="form-control" rows="20" id="comment" name="comment" placeholder="Comment"></textarea>
-                    </div>
+            </div>
+            <div class="form-group row">
+                <label for="id" class="col-sm-3 col-form-label">Comment</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" rows="20" id="comment" name="comment" placeholder="Comment"></textarea>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
-                    </div>
-                    <div class="col-sm-6">
-                        <button type="submit" class="btn btn-primary btn-block">Request</button>
-                    </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary btn-block">Request</button>
+                </div>
 
-                </div>
-            </form>
-        </div>
-
+            </div>
+        </form>
     </div>
 </div>
