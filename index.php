@@ -28,6 +28,8 @@ use http\HTTPHeader;
 use http\HTTPStatusCode;
 
 session_start();
+$log = "Test ";
+file_put_contents('./log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
 
 $authFunction = function () {
 
