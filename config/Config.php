@@ -44,10 +44,10 @@ class Config
             self::$config["email.sendgrid-apikey"] = $_ENV["SENDGRID_APIKEY"];
         }
         if (isset($_ENV["HYPDF_USER"])) {
-            self::$config["hypdf.user"] = $_ENV["HYPDF_USER"];
+            self::$config["pdf.hypdf-user"] = $_ENV["HYPDF_USER"];
         }
         if (isset($_ENV["HYPDF_PASSWORD"])) {
-            self::$config["hypdf.password"] = $_ENV["HYPDF_PASSWORD"];
+            self::$config["pdf.hypdf-password"] = $_ENV["HYPDF_PASSWORD"];
         }
     }
 }
