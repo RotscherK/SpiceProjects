@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light navbar-expand-md" style="background-color: #282d32;">
+<nav class="navbar navbar-dark navbar-expand-md" style="background-color: #282d32;">
     <div class="container-fluid"><a class="navbar-brand" href="/" style="color: #ffffff;font-size: 30px;">Education Program</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div    class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
@@ -61,4 +61,4 @@
     </div>
 </nav>
 <div class="container-fluide text-center">
-    <div class="row row-eq-height">
+    <div class="row">
