@@ -1,6 +1,4 @@
 Todo:
-Login
-- Password reset !Singleton Problem
 
 Full Program Search
 
@@ -24,10 +22,12 @@ Content Management:
 - Charging
 - PDF Generation
 
+=========================================
 Done:
 
 Authorization
 - Login Form, Logic & Validation
+    - Reset
 - Logout
 
 Template-structure
@@ -41,6 +41,7 @@ Configuration Local and on Heroku
 Basic Error Page
 
 Email Sending Setup
+
 
 DB
 - DB Setup Heroku
