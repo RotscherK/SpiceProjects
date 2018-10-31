@@ -59,11 +59,6 @@ class AuthServiceImpl implements AuthService {
      * @ReturnType boolean
      */
     public function verifyAuth() {
-        if (isset($_SESSION)) {
-            echo "Session on! ".print_r($_SESSION);
-        }
-        error_log("Test123123123");
-        echo "ID: " . $_SESSION["userLogin"]["userID"] ." Status " . isset($_SESSION["userLogin"]["userID"]);
         if(isset($_SESSION["userLogin"]["userID"]))
             return true;
         return false;
