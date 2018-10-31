@@ -86,21 +86,39 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         <?php endif; ?>
 
         <div class="row details-form">
-            <form action="update" method="post">
-                <h3 class="text-center">Request more information</h3>
+            <form action="program/request" method="post">
+                <label><strong>Request more Information</strong><br /></label>
 
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label for="id" class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="123">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">Phone</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">Comment</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="20" id="comment" name="comment" placeholder="Comment"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-5">
-                        <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
+                        <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
                     </div>
                     <div class="col-sm-5">
-                        <button type="submit" class="btn btn-primary">Request</button>
+                        <button type="submit" class="btn btn-primary btn-block">Request</button>
                     </div>
 
                 </div>
