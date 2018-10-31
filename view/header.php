@@ -32,8 +32,7 @@
 <body>
 <nav class="navbar navbar-light navbar-expand-md" style="background-color: #282d32;">
     <div class="container-fluid"><a class="navbar-brand" href="/" style="color: #ffffff;font-size: 30px;">Education Program</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div
-                class="collapse navbar-collapse" id="navcol-1">
+        <div    class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/search" style="color: #ffffff;">Search</a></li>
                 <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color: #ffffff;">Programs&nbsp;</a>
@@ -62,4 +61,4 @@
     </div>
 </nav>
 <div class="container-fluide text-center">
-    <div class="row">
+    <div class="row row-eq-height">

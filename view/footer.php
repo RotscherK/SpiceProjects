@@ -31,12 +31,12 @@
                     </ul>
                 </div>
                 <div class="col-md-6 item text">
-                    <h3>Company Name</h3>
-                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    <h3>Spice Projects</h3>
+                    <p>The Company Spice Projects is a design and development studio based in Basel. It was founded with a simple, powerful idea: lets make everything spicy.</p>
                 </div>
                 <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
             </div>
-            <p class="copyright">Company Name © 2017</p>
+            <p class="copyright">Spice Projects © 2018</p>
         </div>
     </footer>
 </div>
