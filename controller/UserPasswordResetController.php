@@ -12,6 +12,7 @@ use service\AuthServiceImpl;
 use view\TemplateView;
 use validator\UserValidator;
 use service\EmailServiceClient;
+use view\LayoutRendering;
 
 class UserPasswordResetController
 {
