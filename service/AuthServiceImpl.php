@@ -60,6 +60,7 @@ class AuthServiceImpl implements AuthService {
      */
     public function verifyAuth() {
 
+        echo "ID: " . $_SESSION["userLogin"]["userID"] ." Status " . isset($_SESSION["userLogin"]["userID"]);
         if(isset($_SESSION["userLogin"]["userID"]))
             return true;
         return false;
