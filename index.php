@@ -110,8 +110,8 @@ Router::route_auth("GET", "/program/delete", $authFunction, function () {
 });
 
 Router::route_auth("POST", "/program/update", $authFunction, function () {
-    if(ProgramController::update())
-        Router::redirect("/");
+    if(ProgramController::update());
+        //Router::redirect("/");
 });
 
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
