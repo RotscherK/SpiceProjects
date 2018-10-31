@@ -166,6 +166,8 @@ class AuthServiceImpl implements AuthService {
         if (!empty($authToken)) {
             if(time()<=(new \DateTime($authToken->getExpiration()))->getTimestamp()){
                 if (hash_equals(hash('sha384', hex2bin($tokenArray[1])), $authToken->getValidator())) {
+                    echo "Token ".$authToken->getUserid();
+                    return;
                     $_SESSION["userLogin"]["userID"] = $authToken->getUserid();
                     if($authToken->getType()===self::RESET_TOKEN){
                         $authTokenDAO->delete($authToken);
