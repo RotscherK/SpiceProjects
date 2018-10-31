@@ -52,6 +52,7 @@ class AuthTokenDAO extends BasicDAO {
      * @ReturnType AuthToken
      */
     public function findBySelector($selector) {
+        error_log("Selector: ".$selector);
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "authtoken" WHERE selector = :selector;');
         $stmt->bindValue(':selector', $selector);
