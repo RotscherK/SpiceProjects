@@ -25,8 +25,8 @@ class ProgramDAO extends BasicDAO {
 	 */
 	public function create(Program $program) {
         $stmt = $this->pdoInstance->prepare('
-            INSERT INTO "program" (name,type,category_id,distance_learning,degree,price,duration,description,requirements,url,expiration,provider_id)
-            VALUES (:name,:type,:category_id,:distance_learning,:degree,:price,:duration,:description,:requirements,:url,:expiration,:provider_id)');
+            INSERT INTO "program" (name,type,category_id,distance_learning,degree,price,duration,description,requirements,url,start_date,provider_id,is_billed)
+            VALUES (:name,:type,:category_id,:distance_learning,:degree,:price,:duration,:description,:requirements,:url,:start_date,:provider_id,:is_billed)');
 
         $stmt->bindValue(':name', $program->getName());
         $stmt->bindValue(':type', $program->getType());
@@ -38,8 +38,10 @@ class ProgramDAO extends BasicDAO {
         $stmt->bindValue(':description', $program->getDescription());
         $stmt->bindValue(':requirements', $program->getRequirement());
         $stmt->bindValue(':url', $program->getUrl());
-        $stmt->bindValue(':expiration',  $program->getExpiration());
+        $stmt->bindValue(':start_date',  $program->getStartDate());
         $stmt->bindValue(':provider_id', $program->getProviderId());
+        $stmt->bindValue(':is_billed', (($program->getisBilled()) ? 'true' : 'false'));
+
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
 	}
@@ -81,8 +83,9 @@ class ProgramDAO extends BasicDAO {
                 description = :description,
                 requirements = :requirements,
                 url = :url,
-                expiration = :expiration,
-                provider_id = :provider_id
+                start_date = :start_date,
+                provider_id = :provider_id,
+                is_billed = :is_billed
             WHERE id = :id');
         $stmt->bindValue(':name', $program->getName());
         $stmt->bindValue(':type', $program->getType());
@@ -94,8 +97,9 @@ class ProgramDAO extends BasicDAO {
         $stmt->bindValue(':description', $program->getDescription());
         $stmt->bindValue(':requirements', $program->getRequirement());
         $stmt->bindValue(':url', $program->getUrl());
-        $stmt->bindValue(':expiration',  $program->getExpiration());
+        $stmt->bindValue(':start_date',  $program->getStartDate());
         $stmt->bindValue(':provider_id', $program->getProviderId());
+        $stmt->bindValue(':is_billed', (($program->getisBilled()) ? 'true' : 'false'));
         $stmt->bindValue(':id', $program->getId());
         $stmt->execute();
         return $this->read($program->getId());

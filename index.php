@@ -26,6 +26,7 @@ use view\LayoutRendering;
 use http\HTTPException;
 use http\HTTPHeader;
 use http\HTTPStatusCode;
+use controller\ChargingController;
 
 session_start();
 
@@ -108,6 +109,9 @@ Router::route_auth("POST", "/program/update", $authFunction, function () {
 });
 Router::route("GET", "/program/pdf/{id}", function ($id) {
     PDFController::generateProgramDetailPDF($id);
+});
+Router::route("GET", "/charging", function () {
+    Cha::generateProgramDetailPDF($id);
 });
 
 /*

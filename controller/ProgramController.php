@@ -63,7 +63,7 @@ class ProgramController
         $program->setDescription($_POST["description"]);
         $program->setRequirement($_POST["requirement"]);
         $program->setUrl($_POST["url"]);
-        $program->setExpiration($_POST["expiration"]);
+        $program->setExpiration($_POST["start_date"]);
         $program->setProviderId($_POST["provider"]);
         $programValidator = new ProgramValidator($program);
         if($programValidator->isValid()) {

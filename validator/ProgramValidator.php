@@ -22,7 +22,7 @@ class ProgramValidator
     private $descriptionError = null;
     private $requirementsError = null;
     private $urlError = null;
-    private $expirationError = null;
+    private $startDateError = null;
     private $providerIDError = null;
 
     public function __construct(Program $program = null)
@@ -83,11 +83,11 @@ class ProgramValidator
                 $this->valid = false;
             }
 
-            if (empty($program->getExpiration())) {
-                $this->expirationError = 'Please enter an expiration date';
+            if (empty($program->getStartDate())) {
+                $this->expirationError = 'Please enter a start date';
                 $this->valid = false;
-            }else if(strtotime($program->getExpiration()) === strtotime('today')){
-                $this->expirationError = 'Please enter a valid expiration date';
+            }else if(strtotime($program->getStartDate()) === strtotime('today')){
+                $this->expirationError = 'Please enter a valid start date';
                 $this->valid = false;
             }
 
@@ -199,14 +199,14 @@ class ProgramValidator
         return $this->urlError;
     }
 
-    public function isExpirationError()
+    public function isStartDateError()
     {
-        return isset($this->expirationError);
+        return isset($this->startDateError);
     }
 
-    public function getExpirationError()
+    public function getStartDateError()
     {
-        return $this->expirationError;
+        return $this->startDateError;
     }
 
 

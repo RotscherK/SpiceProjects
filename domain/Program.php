@@ -58,12 +58,17 @@ class Program {
     /**
      * @AttributeType Date
      */
-    protected $expiration;
+    protected $start_date;
 
     /**
      * @AttributeType Int
      */
     protected $provider_id;
+
+    /**
+     * @AttributeType Boolean
+     */
+    protected $is_billed;
 
     /**
      * @return mixed
@@ -244,17 +249,17 @@ class Program {
     /**
      * @return mixed
      */
-    public function getExpiration()
+    public function getStartDate()
     {
-        return $this->expiration;
+        return $this->start_date;
     }
 
     /**
-     * @param mixed $expiration
+     * @param mixed $start_date
      */
-    public function setExpiration($expiration)
+    public function setStartDate($start_date)
     {
-        $this->expiration = $expiration;
+        $this->start_date = $start_date;
     }
 
     /**
@@ -271,6 +276,21 @@ class Program {
     public function setProviderId($provider_id)
     {
         $this->provider_id = $provider_id;
+    }
+    /**
+     * @return mixed
+     */
+    public function getisBilled()
+    {
+        return $this->is_billed;
+    }
+
+    /**
+     * @param mixed $is_billed
+     */
+    public function setisBilled($is_billed)
+    {
+        $this->is_billed = $is_billed;
     }
 
 }

@@ -38,8 +38,8 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                     <div class="col"><label><?php echo TemplateView::noHTML($program->getDuration()) ?><br></label></div>
                 </div>
                 <div class="row">
-                    <div class="col"><label>Expiration<br></label></div>
-                    <div class="col"><label><?php echo TemplateView::noHTML($program->getExpiration()) ?><br></label></div>
+                    <div class="col"><label>Start Date<br></label></div>
+                    <div class="col"><label><?php echo TemplateView::noHTML($program->getStartDate()) ?><br></label></div>
                 </div>
             </div>
         </div>

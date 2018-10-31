@@ -128,11 +128,11 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                     <small class="form-text text-danger"><?php echo $programValidator->getURLError() ?></small>
                 </div>
             </div>
-            <div class="form-group row <?php echo $programValidator->isExpirationError() ? "has-error" : ""; ?>">
-                <label for="expiration" class="col-sm-3 col-form-label">Expiration Date</label>
+            <div class="form-group row <?php echo $programValidator->isStartDateError() ? "has-error" : ""; ?>">
+                <label for="expiration" class="col-sm-3 col-form-label">Start Date</label>
                 <div class="col-sm-9">
-                    <input type="date" class="form-control" id="expiration" name="expiration"  placeholder="Expiration Date" value="<?php echo $program->getExpiration() ?>">
-                    <small class="form-text text-danger"><?php echo $programValidator->getExpirationError() ?></small>
+                    <input type="date" class="form-control" id="startDate" name="expiration"  placeholder="Expiration Date" value="<?php echo $program->getStartDate() ?>">
+                    <small class="form-text text-danger"><?php echo $programValidator->getStartDateError() ?></small>
                 </div>
             </div>
             <div class="form-group row">

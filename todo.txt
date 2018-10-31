@@ -18,7 +18,7 @@ Content Management:
     - Create/Edit
 
 - Notification
-   - Setup of schedule job when Startdate Expired => Heroku Schdule
+   - Setup of schedule job when start date Expired => Heroku Schdule
 - Charging
     - When Program is created
 
