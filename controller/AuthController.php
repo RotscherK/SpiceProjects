@@ -38,18 +38,15 @@ class AuthController
         $user = new User();
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
-        $userValidator = new UserValidator($user);
+        $userValidator = new UserValidator($user, $authService);
 
         if($userValidator->isValid()) {
-
-            if($authService->verifyUser($_POST["email"],$_POST["password"])){
-                session_regenerate_id(true);
-                $token = $authService->issueToken();
-                $_SESSION["userLogin"]["token"] = $token;
-                $_SESSION["userLogin"]["userID"] = $authService->getCurrentUserId();
-                if(isset($_POST["remember"])) {
-                    setcookie("token", $token, (new \DateTime('now'))->modify('+30 days')->getTimestamp(), "/");
-                }
+            session_regenerate_id(true);
+            $token = $authService->issueToken();
+            $_SESSION["userLogin"]["token"] = $token;
+            $_SESSION["userLogin"]["userID"] = $authService->getCurrentUserId();
+            if(isset($_POST["remember"])) {
+                setcookie("token", $token, (new \DateTime('now'))->modify('+30 days')->getTimestamp(), "/");
             }
         }else{
             $contentView = new TemplateView("userLogin.php");

@@ -9,6 +9,7 @@
 namespace validator;
 
 use domain\User;
+use service\AuthServiceImpl;
 
 class UserValidator
 {
@@ -17,14 +18,14 @@ class UserValidator
     private $passwordError = null;
 
 
-    public function __construct(User $user = null)
+    public function __construct(User $user = null, AuthServiceImpl $authService = null)
     {
-        if (!is_null($user)) {
-            $this->validate($user);
+        if (!is_null($user)& !is_null($authService)) {
+            $this->validate($user, $authService);
         }
     }
 
-    public function validate(User $user)
+    public function validate(User $user, AuthServiceImpl $authService)
     {
         if (!is_null($user)) {
             if (empty($user->getEmail())) {
@@ -37,7 +38,12 @@ class UserValidator
                 $this->valid = false;
             }
 
-        } else {
+            if($authService->verifyUser($_POST["email"],$_POST["password"])){
+                $this->passwordError = 'Email and password do not match!';
+                $this->valid = false;
+            }
+
+            } else {
             $this->valid = false;
         }
         return $this->valid;
