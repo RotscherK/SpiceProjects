@@ -11,10 +11,10 @@ use view\TemplateView;
 ?>
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
-        <div class="page-header">
+
         <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset" method="post">
-            <h2 class="text-center"><strong>Reset your Password</strong></h2></div>
-        <input type="hidden" name="token" value="<?php echo TemplateView::noHTML($this->token); ?>"/>
+            <div class="page-header"><h2 class="text-center"><strong>Reset your Password</strong></h2></div>
+            <input type="hidden" name="token" value="<?php echo TemplateView::noHTML($this->token); ?>"/>
             <div class="form-group <?php echo isset($this->agentValidator) && $this->agentValidator->isPasswordError() ? "has-error" : ""; ?>">
                 <input class="form-control" type="password" name="password" placeholder="Password">
                 <p class="help-block"><?php echo isset($this->agentValidator) && $this->agentValidator->isPasswordError() ? $this->agentValidator->getPasswordError() : ""; ?></p>
