@@ -14,7 +14,7 @@ use service\PDFServiceClient;
 
 class PDFController
 {
-    public static function generateDetailPDF($id){
+    public static function generateProgramDetailPDF($id){
         $pdfView = new TemplateView("programDetailPDF.php");
         $pdfView->program = (new ProgramServiceImpl())->readProgram($id);
         $result = PDFServiceClient::sendPDF($pdfView->render());
