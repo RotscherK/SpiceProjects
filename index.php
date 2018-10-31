@@ -29,8 +29,6 @@ use http\HTTPStatusCode;
 
 session_start();
 
-error_log("Test", 3, "./error.log");
-
 $authFunction = function () {
 
     if (AuthController::authenticate())

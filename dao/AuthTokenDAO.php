@@ -37,7 +37,7 @@ class AuthTokenDAO extends BasicDAO {
      */
     public function delete(AuthToken $authToken) {
         $stmt = $this->pdoInstance->prepare('
-            DELETE FROM authtoken
+            DELETE FROM "authtoken"
             WHERE id = :id
         ');
         $stmt->bindValue(':id', $authToken->getId());
@@ -53,7 +53,7 @@ class AuthTokenDAO extends BasicDAO {
      */
     public function findBySelector($selector) {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM authtoken WHERE selector = :selector;');
+            SELECT * FROM "authtoken" WHERE selector = :selector;');
         $stmt->bindValue(':selector', $selector);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
