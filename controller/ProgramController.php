@@ -92,7 +92,7 @@ class ProgramController
     public static function showDetails()
     {
         $id = $_GET["id"];
-        $contentView = new TemplateView("view/program_detail.php");
+        $contentView = new TemplateView("view/programDetail.php");
         $contentView->program = (new ProgramServiceImpl())->readProgram($id);
         LayoutRendering::basicLayout($contentView);
     }

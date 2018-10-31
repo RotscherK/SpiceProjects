@@ -46,8 +46,9 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         <div class="row details-form">
             <div class="container container-details"><label><strong>Actions</strong><br /></label>
                 <div id="actiondetail" class="row">
-                    <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='http://<?php echo $program->getUrl(); ?>'" type="button">Link to provider</button></div>
-                    <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='#requestform'" type="button">Request more info</button></div>
+                    <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='http://<?php echo $program->getUrl(); ?>'" type="button">Link to provider</button></div>
+                    <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='#requestform'" type="button">Request more info</button></div>
+                    <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/program/pdf/<?php echo $program->getId(); ?>'" type="button">Generate PDF</button></div>
                 </div>
             </div>
         </div>
@@ -87,7 +88,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
 
         <form action="program/request" method="post">
             <label><strong>Request more Information</strong><br /></label>
-
+            <input hidden type="text" name="programid" value="<?php echo TemplateView::noHTML($program->getId()); ?>" />
             <div class="form-group row">
                 <label for="id" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">

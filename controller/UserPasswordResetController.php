@@ -24,7 +24,8 @@ class UserPasswordResetController
     }
     
     public static function requestView(){
-        echo (new TemplateView("userPasswordResetRequest.php"))->render();
+        $contentView = new TemplateView("userPasswordResetRequest.php");
+        LayoutRendering::basicLayout($contentView);
     }
     
     public static function reset(){

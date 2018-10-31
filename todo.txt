@@ -1,10 +1,9 @@
 Todo:
 
-Full Program Search
-
 Content Management:
 - Program
     - Dropdowns with other entities
+    - Attributebased Search
 - User
     - View
     - Edit
@@ -27,21 +26,17 @@ Done:
 
 Authorization
 - Login Form, Logic & Validation
-    - Reset
+    - Password Reset
 - Logout
 
-Template-structure
-- Header
-- sFooter
-
-Basic Index & Routing setup
-
-Configuration Local and on Heroku
-
-Basic Error Page
-
-Email Sending Setup
-
+Basics
+- Index & Routing setup
+- Configuration Local and on Heroku
+- Error Page
+- Email Sending Setup
+- Template-structure
+    - Header
+    - Footer
 
 DB
 - DB Setup Heroku
@@ -49,7 +44,7 @@ DB
 
 Deployment
 - Setup Heroku
-- Autoprovision on Heroku based on GitHub
+- Autodeployment on Heroku based on GitHub
 
 Content Management:
 - Homepage with program listing

@@ -1,22 +1,22 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: andreas.martin
- * Date: 01.11.2017
- * Time: 13:51
+ * User: roger.kaufmann
+ * Date: 31.10.2018
+ * Time: 15:00
  */
 
 namespace controller;
 
-use service\UserServiceImpl;
+use service\ProgramServiceImpl;
 use view\TemplateView;
 use service\PDFServiceClient;
 
 class PDFController
 {
-    public static function generatePDFCustomers(){
-        $pdfView = new TemplateView("customerListPDF.php");
-        $pdfView->customers = (new UserServiceImpl())->findAllCustomer();
+    public static function generateDetailPDF($id){
+        $pdfView = new TemplateView("programDetailPDF.php");
+        $pdfView->program = (new ProgramServiceImpl())->readProgram($id);
         $result = PDFServiceClient::sendPDF($pdfView->render());
         header("Content-Type: application/pdf", NULL, 200);
         echo $result;

@@ -11,7 +11,6 @@ use view\TemplateView;
 ?>
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
-
         <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset" method="post">
             <div class="page-header"><h2 class="text-center"><strong>Reset your Password</strong></h2></div>
             <input type="hidden" name="token" value="<?php echo TemplateView::noHTML($this->token); ?>"/>

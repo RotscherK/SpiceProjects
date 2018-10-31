@@ -46,6 +46,7 @@ Router::route("GET", "/login", function () {
     UserController::loginView();
 });
 
+/*
 Router::route("GET", "/register", function () {
     UserController::registerView();
 });
@@ -54,6 +55,7 @@ Router::route("POST", "/register", function () {
     if(UserController::register())
         Router::redirect("/logout");
 });
+*/
 
 Router::route("POST", "/login", function () {
     if(AuthController::login()){}
@@ -83,15 +85,6 @@ Router::route("GET", "/password/reset", function () {
     UserPasswordResetController::resetView();
 });
 
-Router::route_auth("GET", "/agent/edit", $authFunction, function () {
-    UserController::editView();
-});
-
-Router::route_auth("POST", "/agent/edit", $authFunction, function () {
-    if(UserController::update())
-        Router::redirect("/logout");
-});
-
 Router::route("GET", "/program", function () {
     ProgramController::showDetails();
 });
@@ -113,7 +106,12 @@ Router::route_auth("POST", "/program/update", $authFunction, function () {
     if(ProgramController::update());
         Router::redirect("/");
 });
+Router::route_auth("POST", "//program/pdf/{id}", $authFunction, function ($id) {
+    PDFController::generateProgramDetailPDF($id);
+});
 
+
+/*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
     EmailController::sendMeMyCustomers();
     Router::redirect("/");
@@ -122,7 +120,7 @@ Router::route_auth("GET", "/customer/email", $authFunction, function () {
 Router::route_auth("GET", "/customer/pdf", $authFunction, function () {
     PDFController::generatePDFCustomers();
 });
-
+*/
 
 try {
     HTTPHeader::setHeader("Access-Control-Allow-Origin: *");
@@ -141,5 +139,5 @@ try {
    // LayoutRendering::basicLayout($contentView);
 
     $exception->getHeader();
-    //ErrorController::show404();
+    ErrorController::show404();
 }
