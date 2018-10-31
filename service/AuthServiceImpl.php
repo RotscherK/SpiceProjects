@@ -108,11 +108,10 @@ class AuthServiceImpl implements AuthService {
      * @throws HTTPException
      */
     public function readUser() {
-        echo $this->currentUserID;
         return;
         if($this->verifyAuth()) {
             $userDAO = new UserDAO();
-            return $userDAO->read($this->currentUserId);
+            return $userDAO->read($_SESSION["userLogin"]["userID"]);
         }
         //throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
@@ -134,8 +133,8 @@ class AuthServiceImpl implements AuthService {
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
         if($this->verifyAuth()) {
-            $user->setId($this->currentUserId);
-            if($userDAO->read($this->currentUserId)->getEmail() !== $user->getEmail()) {
+            $user->setId($_SESSION["userLogin"]["userID"]);
+            if($userDAO->read( $_SESSION["userLogin"]["userID"])->getEmail() !== $user->getEmail()) {
                 if (!is_null($userDAO->findByEmail($email))) {
                     return false;
                 }

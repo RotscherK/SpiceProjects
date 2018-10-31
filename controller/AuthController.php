@@ -46,6 +46,7 @@ class AuthController
                 session_regenerate_id(true);
                 $token = $authService->issueToken();
                 $_SESSION["userLogin"]["token"] = $token;
+                $_SESSION["userLogin"]["userID"] = $authService->getCurrentUserId();
                 if(isset($_POST["remember"])) {
                     setcookie("token", $token, (new \DateTime('now'))->modify('+30 days')->getTimestamp(), "/");
                 }
