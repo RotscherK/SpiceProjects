@@ -106,10 +106,9 @@ Router::route_auth("POST", "/program/update", $authFunction, function () {
     if(ProgramController::update());
         Router::redirect("/");
 });
-Router::route("POST", "/program/pdf/{id}", function ($id) {
+Router::route("GET", "/program/pdf/{id}", function ($id) {
     PDFController::generateProgramDetailPDF($id);
 });
-
 
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
