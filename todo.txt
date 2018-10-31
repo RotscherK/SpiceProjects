@@ -18,8 +18,9 @@ Content Management:
     - Create/Edit
 
 - Notification
+   - Setup of schedule job when Startdate Expired => Heroku Schdule
 - Charging
-- PDF Generation
+    - When Program is created
 
 =========================================
 Done:
@@ -53,3 +54,4 @@ Content Management:
     - Create & Edit (Form, Logic & Validation)
     - Delete (Logic)
     - View
+    - PDF Generation
