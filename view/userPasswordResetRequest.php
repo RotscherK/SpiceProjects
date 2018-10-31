@@ -12,6 +12,7 @@ use view\TemplateView;
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/request" method="post">
+            <div class="page-header"><h2 class="text-center"><strong>Reset your Password</strong></h2></div>
             <div class="form-group">
                 <input class="form-control" type="email" name="email" placeholder="Email">
             </div>
