@@ -38,7 +38,7 @@ class UserValidator
                 $this->valid = false;
             }
 
-            if($authService->verifyUser($_POST["email"],$_POST["password"])){
+            if(!$authService->verifyUser($_POST["email"],$_POST["password"])){
                 $this->passwordError = 'Email and password do not match!';
                 $this->valid = false;
             }
