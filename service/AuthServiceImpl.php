@@ -59,7 +59,9 @@ class AuthServiceImpl implements AuthService {
      * @ReturnType boolean
      */
     public function verifyAuth() {
-
+        if (!isset($_SESSION)) {
+            echo "Session on! ";
+        }
         echo "ID: " . $_SESSION["userLogin"]["userID"] ." Status " . isset($_SESSION["userLogin"]["userID"]);
         if(isset($_SESSION["userLogin"]["userID"]))
             return true;
@@ -109,7 +111,6 @@ class AuthServiceImpl implements AuthService {
      * @throws HTTPException
      */
     public function readUser() {
-        return;
         if($this->verifyAuth()) {
             $userDAO = new UserDAO();
             return $userDAO->read($_SESSION["userLogin"]["userID"]);
