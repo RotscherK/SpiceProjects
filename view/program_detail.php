@@ -44,6 +44,14 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             </div>
         </div>
         <div class="row details-form">
+            <div class="container container-details"><label><strong>Actions</strong><br /></label>
+                <div id="actiondetail" class="row">
+                    <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $program->getUrl(); ?>'" type="button">Link to Provider</button></div>
+                    <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='#requestform'" type="button">Request more information</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="row details-form">
             <div class="container-fluide"><label><strong>Description</strong></label>
                 <p><?php echo TemplateView::noHTML($program->getDescription()) ?></p>
             </div>
@@ -66,23 +74,38 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             </div>
         </div>
 
-        <div class="row details-form">
-            <div class="container container-details"><label><strong>Actions</strong><br /></label>
-                <div id="actiondetail" class="row">
-                        <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button></div>
-                        <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
-                </div>
-            </div>
-        </div>
-
         <?php if(isset($_SESSION['userLogin'])): ?>
             <div class="row details-form">
                 <div class="container container-details"><label><strong>Actions</strong><br /></label>
-                    <div id="actiondetail">
-                        <div class="container container-details"><button class="btn btn-secondary btn-block" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button><button class="btn btn-secondary btn-block" onclick="location.href='http://www.example.com'"program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
+                    <div id="actiondetail" class="row">
+                            <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button></div>
+                            <div class="col"><button class="btn btn-secondary btn-block" onclick="location.href='program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
                     </div>
                 </div>
             </div>
         <?php endif; ?>
+
+        <div class="row details-form">
+            <form action="update" method="post">
+                <h3 class="text-center">Request more information</h3>
+
+                <div class="form-group row">
+                    <label for="id" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="123">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
+                    </div>
+                    <div class="col-sm-5">
+                        <button type="submit" class="btn btn-primary">Request</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
