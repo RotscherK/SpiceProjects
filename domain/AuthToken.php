@@ -130,7 +130,7 @@ class AuthToken {
      * @ReturnType void
      */
     public function setUserid($user_id) {
-        $this->userid = $user_id;
+        $this->user_id = $user_id;
     }
 
     /**
