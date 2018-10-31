@@ -37,9 +37,9 @@ class UserPasswordResetController
                 }
             }
             $user->setPassword("");
-            $resetView = new TemplateView("userPasswordReset.php");
-            $resetView->token = $_POST["token"];
-            echo $resetView->render();
+            $contentView = new TemplateView("userPasswordReset.php");
+            $contentView->token = $_POST["token"];
+            LayoutRendering::basicLayout($contentView);
             return false;
         }
         return false;
