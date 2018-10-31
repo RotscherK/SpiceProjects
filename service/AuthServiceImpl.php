@@ -62,6 +62,7 @@ class AuthServiceImpl implements AuthService {
         if (isset($_SESSION)) {
             echo "Session on! ".print_r($_SESSION);
         }
+        error_log("Test123123123");
         echo "ID: " . $_SESSION["userLogin"]["userID"] ." Status " . isset($_SESSION["userLogin"]["userID"]);
         if(isset($_SESSION["userLogin"]["userID"]))
             return true;
@@ -166,9 +167,7 @@ class AuthServiceImpl implements AuthService {
         if (!empty($authToken)) {
             if(time()<=(new \DateTime($authToken->getExpiration()))->getTimestamp()){
                 if (hash_equals(hash('sha384', hex2bin($tokenArray[1])), $authToken->getValidator())) {
-                    $log = "Token ".$authToken->getUserid();
-                    file_put_contents('./log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
-
+                    error_log("AuthID: ". $authToken->getUserid());
                     $_SESSION["userLogin"]["userID"] = $authToken->getUserid();
                     if($authToken->getType()===self::RESET_TOKEN){
                         $authTokenDAO->delete($authToken);
