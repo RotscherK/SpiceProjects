@@ -129,7 +129,8 @@ class ProgramController
         $emailView = new TemplateView("view/programExpirationEmail.php");
         $emailView->program = $program;
         $emailView->provider = $provider;
-        return EmailServiceClient::sendEmail($admin->getEmail(), "Program is Expired", $emailView->render());
+        $emailView->firstname = $admin->getFirstname();
+        return EmailServiceClient::sendEmail($admin->getEmail(), "Program is expired", $emailView->render());
 
     }
 
