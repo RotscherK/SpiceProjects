@@ -20,7 +20,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <table class="table" id="user">
                         <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
                             <th>Email</th>
                             <?php if(isset($_SESSION['userLogin'])): ?><th>Action</th><?php endif; ?>
 
@@ -30,7 +31,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                         <?php
                         foreach($this->users as $user): /* @var User $user */ ?>
                             <tr class='clickable-row' data-href="/user?id=<?php echo $user->getId(); ?>">
-                                <td><?php echo TemplateView::noHTML($user->getName()); ?></td>
+                                <td><?php echo TemplateView::noHTML($user->getLastname()); ?></td>
+                                <td><?php echo TemplateView::noHTML($user->getFirstname()); ?></td>
                                 <td><?php echo TemplateView::noHTML($user->getEmail()); ?></td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
