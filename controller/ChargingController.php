@@ -40,14 +40,13 @@ class ChargingController
         foreach ($billingPrograms as $program){
 
             if($providerid == $program->getProviderID() || $providerid == 'initial'){
-                array_push($providerPrograms, $program);
                 $providerid = $program->getProviderID();
             }else{
                 PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
                 $providerid = $program->getProviderID();
                 $providerPrograms = array();
             }
-
+            array_push($providerPrograms, $program);
         }
         if(count($providerPrograms)>0)
                 PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
