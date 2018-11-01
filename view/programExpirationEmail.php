@@ -12,7 +12,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
 <html>
 <body>
 <p>Dear <?php echo $this->firstname; ?></p>
-<p>The course <?php echo $program->getName; ?> provided by <?php echo $provider->getName; ?> is expired.</p>
+<p>The course <?php echo $program->getName(); ?> provided by <?php echo $provider->getName(); ?> is expired.</p>
 <p>Kind regards</p>
 <p>Spice Projects Team</p>
 </body>
