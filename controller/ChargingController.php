@@ -32,7 +32,7 @@ class ChargingController
         {
             return strcmp($a->getProviderId(), $b->getProviderId());
         });
-        echo print_r($billingPrograms) . "</br>";
+        //echo print_r($billingPrograms) . "</br>";
 
         $providerid = 'initial';
         $providerPrograms = array();
@@ -48,6 +48,8 @@ class ChargingController
             }
 
         }
+        if(count($providerPrograms)>0)
+                PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
 
     }
 
