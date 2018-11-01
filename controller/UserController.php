@@ -20,6 +20,7 @@ class UserController
     
     public static function list(){
         $contentView = new TemplateView("userList.php");
+        $contentView->users = (new UserServiceImpl())->getAllUsers();
         LayoutRendering::basicLayout($contentView);
     }
     
