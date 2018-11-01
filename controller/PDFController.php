@@ -25,7 +25,7 @@ class PDFController
         echo "</br></br>";
         echo "</br>";
         echo "</br>Provider</br></br>";
-        echo $providerID
+        echo $providerID;
         echo "</br>Content</br></br>";
         echo print_r($billingPrograms);
 

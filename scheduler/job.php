@@ -1,5 +1,7 @@
 <?php
 
+require_once("config/Autoloader.php");
+
 use controller\ChargingController;
 
 $d = new DateTime();
