@@ -14,18 +14,24 @@ use domain\Provider;
  * @access public
  * @author roger.kaufmann
  */
-class ProgramDAO extends BasicDAO {
+class ProviderDAO extends BasicDAO {
 
     /**
      * @access public
-     * @return Provider[]
-     * @ReturnType Provider[]
+     * @param int providerId
+     * @return Provider
+     * @ParamType providerId int
+     * @ReturnType Provider
      */
-    public function getProvider() {
+    public function read($providerId) {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM "provider" ORDER BY id;');
+            SELECT * FROM "provider" WHERE id = :id;');
+        $stmt->bindValue(':id', $providerId);
         $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider");
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider")[0];
+        }
+        return null;
     }
 
 	/**
