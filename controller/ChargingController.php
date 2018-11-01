@@ -27,6 +27,10 @@ class ChargingController
                 unset($allPrograms[$program]);
             }
         }
+        $new_array = array_filter($allPrograms, function($program){
+            if ($program->getisBilled() == true) return false;
+            return true;
+        });
 
         usort($allPrograms, function(Program $a, Program $b)
         {
