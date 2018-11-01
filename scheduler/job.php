@@ -8,7 +8,7 @@ use controller\ProgramController;
 //Execution of invoicing at the end of the month
 $d = new DateTime();
 
-//if($d->format( 'Y-m-t' ) == $d->format( 'Y-m-d' )){
+if($d->format( 'Y-m-t' ) == $d->format( 'Y-m-d' )){
     ChargingController::charging();
 //}
 

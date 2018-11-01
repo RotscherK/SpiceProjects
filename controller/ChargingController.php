@@ -21,7 +21,6 @@ class ChargingController
 
         $programService = new ProgramServiceImpl();
         $allPrograms = $programService->getAllPrograms();
-        //echo print_r($allPrograms) . "</br>";
 
         $billingPrograms = array_filter($allPrograms, function(Program $program){
             if ($program->getisBilled() == true) return false;
@@ -32,7 +31,6 @@ class ChargingController
         {
             return strcmp($a->getProviderId(), $b->getProviderId());
         });
-        //echo print_r($billingPrograms) . "</br>";
 
         $providerid = 'initial';
         $providerPrograms = array();
