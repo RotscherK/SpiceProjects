@@ -21,7 +21,7 @@ class ChargingController
 
         $programService = new ProgramServiceImpl();
         $allPrograms = $programService->getAllPrograms();
-        echo print_r($allPrograms) . "</br>";
+        //echo print_r($allPrograms) . "</br>";
 
         $billingPrograms = array_filter($allPrograms, function(Program $program){
             if ($program->getisBilled() == true) return false;
@@ -39,12 +39,12 @@ class ChargingController
 
         foreach ($billingPrograms as $program){
 
-            if($providerid == $program->getProviderID || $providerid == 'initial'){
+            if($providerid == $program->getProviderID() || $providerid == 'initial'){
                 array_push($providerPrograms, $program);
-                $providerid = $program->getProviderID;
+                $providerid = $program->getProviderID();
             }else{
                 PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
-                $providerid = $program->getProviderID;
+                $providerid = $program->getProviderID();
                 $providerPrograms = array();
             }
 

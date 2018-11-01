@@ -22,16 +22,14 @@ class PDFController
         echo $result;
     }
     public static function generateProviderInvoicePDF($billingPrograms, $providerID){
-        echo "</br></br>";
-        echo "</br>";
-        echo "</br>Provider</br></br>";
+        echo "Provider: ";
         echo $providerID;
-        echo "</br>Content</br></br>";
+        echo " Content: ";
         foreach($billingPrograms as $program){
-            echo "ID: ". $program->getID() . " " . $program->getProviderID() . "</br>";
+            echo "ID: ". $program->getID() . "P_ID: " . $program->getProviderID() . "</br>";
 
         }
-
+        echo "  |  ";
 
     }
 }
