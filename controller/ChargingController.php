@@ -21,9 +21,9 @@ class ChargingController
 
         $programService = new ProgramServiceImpl();
         $allPrograms = $programService->getAllPrograms();
-        echo print_r($allPrograms);
+        echo print_r($allPrograms) . "</br>";
 
-        $billingPrograms = array_filter($allPrograms, function($program){
+        $billingPrograms = array_filter($allPrograms, function(Program $program){
             if ($program->getisBilled() == true) return false;
             return true;
         });
@@ -32,7 +32,22 @@ class ChargingController
         {
             return strcmp($a->getProviderId(), $b->getProviderId());
         });
-        echo print_r($billingPrograms);
+        echo print_r($billingPrograms) . "</br>";
+
+        $providerid = 'initial';
+        $providerPrograms = array();
+
+        foreach ($billingPrograms as $program){
+
+            if($providerid == $program->getProviderID || $providerid == 'initial'){
+                array_push($providerPrograms, $program);
+            }else{
+                PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
+                $providerid = $program->getProviderID;
+                $providerPrograms = array();
+            }
+
+        }
 
     }
 

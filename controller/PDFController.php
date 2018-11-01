@@ -21,4 +21,14 @@ class PDFController
         header("Content-Type: application/pdf", NULL, 200);
         echo $result;
     }
+    public static function generateProviderInvoicePDF($billingPrograms, $providerID){
+        echo "</br></br>";
+        echo "</br>";
+        echo "</br>Provider</br></br>";
+        echo $providerID
+        echo "</br>Content</br></br>";
+        echo print_r($billingPrograms);
+
+
+    }
 }
