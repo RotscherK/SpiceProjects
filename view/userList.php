@@ -8,7 +8,14 @@
 
 use view\TemplateView;
 use domain\User;
+if(isset($this->user)){
+    echo "<b>YES</b>";
+}
+else{ echo "<b>YES</b>";}
 isset($this->user) ? $user = $this->user : $user = new User();
+
+
+
 ?>
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
