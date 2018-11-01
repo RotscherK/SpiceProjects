@@ -20,7 +20,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <table class="table" id="user">
                         <thead>
                         <tr>
-                            <th>Last Name</th>
+                            <th>Last Name1</th>
                             <th>First Name</th>
                             <th>Email</th>
                             <?php if(isset($_SESSION['userLogin'])): ?><th>Action</th><?php endif; ?>
