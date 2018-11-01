@@ -41,6 +41,7 @@ class ChargingController
 
             if($providerid == $program->getProviderID || $providerid == 'initial'){
                 array_push($providerPrograms, $program);
+                $providerid = $program->getProviderID;
             }else{
                 PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
                 $providerid = $program->getProviderID;
