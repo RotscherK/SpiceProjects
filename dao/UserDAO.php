@@ -50,6 +50,24 @@ class UserDAO extends BasicDAO {
         return null;
     }
 
+    /**
+     * @access public
+     * @param int userId
+     * @return User
+     * @ParamType userId int
+     * @ReturnType User
+     */
+    public function readBasic($userId) {
+        $stmt = $this->pdoInstance->prepare('
+            SELECT id, lastname, firstname, email FROM "user" WHERE id = :id;');
+        $stmt->bindValue(':id', $userId);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\User")[0];
+        }
+        return null;
+    }
+
 	/**
 	 * @access public
 	 * @param User user

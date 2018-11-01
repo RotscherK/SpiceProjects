@@ -51,6 +51,21 @@ class UserServiceImpl implements UserService
 
     /**
      * @access public
+     * @param int userId
+     * @return User
+     * @ParamType userId int
+     * @ReturnType User
+     * @throws HTTPException
+     */
+    public function readUserBasic($userId) {
+        $userDAO = new UserDAO();
+        return $userDAO->readBasic($userId);
+    }
+
+
+
+    /**
+     * @access public
      * @param User user
      * @return User
      * @ParamType user User

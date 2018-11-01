@@ -121,7 +121,7 @@ class ProgramController
 
         foreach($expiredPrograms as $program){
             $provider = (new ProviderServiceImpl())->readProvider($program->getProviderId());
-            self::sendExpirationNotification($program, $provider, (new UserServiceImpl())->readUser($provider->getAdministrator()));
+            self::sendExpirationNotification($program, $provider, (new UserServiceImpl())->readUserBasic($provider->getAdministrator()));
         }
 
     }
