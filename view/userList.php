@@ -14,7 +14,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form method="post">
-            <h2 class="text-center">Available Programs</h2>
+            <h2 class="text-center">All Users</h2>
             <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchProgram()" placeholder="Search"></div>
             <div class="text">
                 <div class="table-responsive table table-striped table-bordered table-hover">
