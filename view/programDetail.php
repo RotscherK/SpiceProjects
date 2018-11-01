@@ -45,7 +45,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         </div>
         <div class="row details-form">
             <div class="container container-details"><label><strong>Actions</strong><br /></label>
-                <div id="actiondetail" class="row">
+                <div id="buttondetail" class="row">
                     <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='http://<?php echo $program->getUrl(); ?>'" type="button">Link to provider</button></div>
                     <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='#requestform'" type="button">Request more info</button></div>
                     <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/program/pdf/<?php echo $program->getId(); ?>'" type="button">Generate PDF</button></div>
@@ -77,8 +77,8 @@ isset($this->program) ? $program = $this->program : $program = new Program();
 
         <?php if(isset($_SESSION['userLogin'])): ?>
             <div class="row details-form">
-                <div class="container container-details"><label><strong>Actions</strong><br /></label>
-                    <div id="actiondetail" class="row">
+                <div class="container container-details"><label><strong>Administration</strong><br /></label>
+                    <div id="buttondetail" class="row">
                             <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='program/edit?id=<?php echo $program->getId(); ?>'" type="button">Edit</button></div>
                             <div class="col-sm-6"><button class="btn btn-secondary btn-block" onclick="location.href='program/delete?id=<?php echo $program->getId(); ?>'" type="button">Delete</button></div>
                     </div>
