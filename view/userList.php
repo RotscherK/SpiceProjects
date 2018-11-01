@@ -29,7 +29,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                         <tbody>
                         <?php
                         foreach($this->users as $user): /* @var User $user */ ?>
-                            <tr class='clickable-row' data-href="/user?id=<?php echo $program->getId(); ?>">
+                            <tr class='clickable-row' data-href="/user?id=<?php echo $user->getId(); ?>">
                                 <td><?php echo TemplateView::noHTML($user->getName()); ?></td>
                                 <td><?php echo TemplateView::noHTML($user->getEmail()); ?></td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
