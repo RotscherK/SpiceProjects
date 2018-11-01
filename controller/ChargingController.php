@@ -22,21 +22,17 @@ class ChargingController
         $programService = new ProgramServiceImpl();
         $allPrograms = $programService->getAllPrograms();
         echo print_r($allPrograms);
-        foreach ($allPrograms as $program){
-            if ($program->getisBilled() == true){
-                unset($allPrograms[$program]);
-            }
-        }
-        $new_array = array_filter($allPrograms, function($program){
+
+        $billingPrograms = array_filter($allPrograms, function($program){
             if ($program->getisBilled() == true) return false;
             return true;
         });
 
-        usort($allPrograms, function(Program $a, Program $b)
+        usort($billingPrograms, function(Program $a, Program $b)
         {
             return strcmp($a->getProviderId(), $b->getProviderId());
         });
-        echo print_r($allPrograms);
+        echo print_r($billingPrograms);
 
     }
 
