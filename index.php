@@ -83,6 +83,10 @@ Router::route("GET", "/password/reset", function () {
     UserPasswordResetController::resetView();
 });
 
+Router::route_auth("GET", "/user/edit", $authFunction, function () {
+    UserController::list();
+});
+
 Router::route("GET", "/program", function () {
     ProgramController::showDetails();
 });
