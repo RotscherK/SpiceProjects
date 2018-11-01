@@ -56,4 +56,6 @@ interface UserService {
      * @ReturnType User[]
      */
     public function findAllUser();
+
+    public function getAllUsers();
 }

@@ -106,4 +106,17 @@ class UserDAO extends BasicDAO {
         }
         return null;
     }
+
+    /**
+     * @access public
+     * @return User[]
+     * @ReturnType User[]
+     */
+    public function getAllUsers() {
+        $stmt = $this->pdoInstance->prepare('
+            SELECT * FROM "user" ORDER BY id;');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\User");
+    }
 }
+

@@ -96,6 +96,9 @@ class UserServiceImpl implements UserService
     }
 
     /**
+     *
+     * NEEDED??
+     *
      * @access public
      * @return User[]
      * @ReturnType User[]
@@ -108,4 +111,18 @@ class UserServiceImpl implements UserService
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
+
+    /**
+     * @access public
+     * @return User[]
+     * @ReturnType User[]
+     * @throws HTTPException
+     */
+    public function getAllUsers() {
+        $userDAO = new UserDAO();
+        return $userDAO->getAllUsers();
+    }
+
+
+
 }

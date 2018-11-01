@@ -73,4 +73,10 @@ class UserController
         LayoutRendering::basicLayout($loginView);
         //echo (new TemplateView("userLogin.php"))->render();
     }
+
+    public function getAllUsers() {
+        $userDAO = new UserDAO();
+        return $userDAO->getAllUsers();
+
+    }
 }
