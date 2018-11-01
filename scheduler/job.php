@@ -3,7 +3,7 @@
 require_once("config/Autoloader.php");
 
 use controller\ChargingController;
-use controller\Pro;
+use controller\ProgramController;
 
 //Execution of invoicing at the end of the month
 $d = new DateTime();
