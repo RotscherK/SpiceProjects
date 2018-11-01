@@ -11,6 +11,7 @@ namespace controller;
 use service\ProgramServiceImpl;
 use view\TemplateView;
 use service\PDFServiceClient;
+use service\ProviderServiceImpl;
 
 class PDFController
 {
@@ -21,11 +22,15 @@ class PDFController
         header("Content-Type: application/pdf", NULL, 200);
         echo $result;
     }
-    public static function generateProviderInvoicePDF($billingPrograms, $provider){
+    public static function generateProviderInvoicePDF($billingPrograms, $providerID){
+
+        $provider = (new ProviderServiceImpl())->readProvider($providerID);
+
+        echo "Provider: " . $provider->getID();
 
         foreach($billingPrograms as $program){
 
-            echo "Provider: " . $program . " ID: ". $program->getID() . "P_ID: " . $program->getProviderID() . " | </br>";
+            echo " ID: ". $program->getID() . "P_ID: " . $program->getProviderID() . " | </br>";
 
             /*
             $pdfView = new TemplateView("programInvoicePDF.php");
