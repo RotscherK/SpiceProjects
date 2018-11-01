@@ -7,7 +7,7 @@
  */
 
 use view\TemplateView;
-use domain\Program;
+use domain\User;
 isset($this->user) ? $user = $this->user : $user = new User();
 ?>
 <div class="col-sm-10 text-left blue-background">
