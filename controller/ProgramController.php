@@ -106,7 +106,9 @@ class ProgramController
         $programService = new ProgramServiceImpl();
         $allPrograms = $programService->getAllPrograms();
         $expiredPrograms = array_filter($allPrograms, function(Program $program){
-            if ($program->getStartDate()->format('Y-m-d')!==(new DateTime())->format('Y-m-d')) return false;
+            if ($program->getStartDate()->format('Y-m-d')==(new DateTime())->format('Y-m-d')){
+                return false;
+            }
             return true;
         });
         echo " || " . count($allPrograms). " expired";
