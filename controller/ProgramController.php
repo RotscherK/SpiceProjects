@@ -8,7 +8,13 @@
 
 namespace controller;
 
+use dao\UserDAO;
 use domain\Program;
+use domain\User;
+use domain\Provider;
+use service\EmailServiceClient;
+use service\ProviderServiceImpl;
+use service\UserServiceImpl;
 use validator\ProgramValidator;
 use service\ProgramServiceImpl;
 use dao\ProgramDAO;
@@ -113,6 +119,19 @@ class ProgramController
         });
         echo " || " . count($expiredPrograms). " expired";
 
+        foreach($expiredPrograms as $program){
+            $provider = (new ProviderServiceImpl())->readProvider($program->getProviderId());
+            self::sendExpirationNotification($program, $provider, (new UserServiceImpl())->readUser($provider->getAdministrator()));
+        }
+
     }
+    public static function  sendExpirationNotification(Program $program, Provider $provider, User $admin){
+        $emailView = new TemplateView("view/programExpirationEmail.php");
+        $emailView->program = $program;
+        $emailView->provider = $provider;
+        return EmailServiceClient::sendEmail($admin->getEmail(), "Program is Expired", $emailView->render());
+
+    }
+
 
 }

@@ -21,15 +21,24 @@ class PDFController
         header("Content-Type: application/pdf", NULL, 200);
         echo $result;
     }
-    public static function generateProviderInvoicePDF($billingPrograms, $providerID){
-        echo "Provider: ";
-        echo $providerID;
-        echo " Content: ";
+    public static function generateProviderInvoicePDF($billingPrograms, $provider){
+
         foreach($billingPrograms as $program){
-            echo "ID: ". $program->getID() . "P_ID: " . $program->getProviderID() . "</br>";
+            //echo "ID: ". $program->getID() . "P_ID: " . $program->getProviderID() . "</br>";
+
+            $pdfView = new TemplateView("programInvoicePDF.php");
+            $pdfView->billingPrograms = $billingPrograms;
+            $pdfView->provider = $provider;
+
+            $result = PDFServiceClient::sendPDF($pdfView->render());
+            header("Content-Type: application/pdf", NULL, 200);
+            //echo $result
+            //TODO Create email and attach PDF
 
         }
         echo "  |  ";
+
+
 
     }
 }

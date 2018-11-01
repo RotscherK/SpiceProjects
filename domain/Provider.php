@@ -8,37 +8,227 @@
 
 namespace domain;
 
-
-class Provider extends AbstractJSONDTO {
-
+class Provider {
     /**
-     * @AttributeType int
+     * 
+     *
+     * @access protected
+     * @var PROPTYPE
      */
     protected $id;
+
     /**
-     * @AttributeType String
+     *
+     * @access protected
+     * @var PROPTYPE
+     */
+    protected $name;
+
+    /**
+     * 
+     *
+     * @access protected
+     * @var PROPTYPE
      */
     protected $description;
+
     /**
-     * @AttributeType int
+     * 
+     *
+     * @access protected
+     * @var PROPTYPE
      */
     protected $plz;
+
     /**
-     * @AttributeType String
+     * 
+     *
+     * @access protected
+     * @var PROPTYPE
      */
     protected $city;
+
     /**
-     * @AttributeType String
+     * 
+     *
+     * @access protected
+     * @var PROPTYPE
      */
     protected $street;
+
     /**
-     * @AttributeType String
+     * 
+     *
+     * @access protected
+     * @var PROPTYPE
      */
     protected $billing_email;
+
     /**
-     * @AttributeType Int
+     * 
+     *
+     * @access protected
+     * @var PROPTYPE
      */
     protected $administrator;
 
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $id ARGDESCRIPTION
+     */
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getName() {
+        return $this->name;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $name ARGDESCRIPTION
+     */
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getDescription() {
+        return $this->description;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $description ARGDESCRIPTION
+     */
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getPlz() {
+        return $this->plz;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $plz ARGDESCRIPTION
+     */
+    public function setPlz($plz) {
+        $this->plz = $plz;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getCity() {
+        return $this->city;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $city ARGDESCRIPTION
+     */
+    public function setCity($city) {
+        $this->city = $city;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getStreet() {
+        return $this->street;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $street ARGDESCRIPTION
+     */
+    public function setStreet($street) {
+        $this->street = $street;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getBillingEmail() {
+        return $this->billing_email;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $billingEmail ARGDESCRIPTION
+     */
+    public function setBillingEmail($billingEmail) {
+        $this->billing_email = $billingEmail;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getAdministrator() {
+        return $this->administrator;
+    }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @param ARGTYPE $administrator ARGDESCRIPTION
+     */
+    public function setAdministrator($administrator) {
+        $this->administrator = $administrator;
+    }
 }
-?>
