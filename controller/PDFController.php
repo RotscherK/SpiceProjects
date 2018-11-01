@@ -27,7 +27,10 @@ class PDFController
         echo "</br>Provider</br></br>";
         echo $providerID;
         echo "</br>Content</br></br>";
-        echo print_r($billingPrograms);
+        foreach($billingPrograms as $program){
+            echo "ID: ". $program->getID() . " " . $program->getProviderID() . "</br>";
+
+        }
 
 
     }
