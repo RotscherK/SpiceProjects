@@ -19,12 +19,13 @@ class UserDAO extends BasicDAO {
 	 */
 	public function create(User $user) {
         $stmt = $this->pdoInstance->prepare('
-        INSERT INTO "user" (name, email, password)
-          SELECT :name,:email,:password
+        INSERT INTO "user" (lastname, firstname, email, password)
+          SELECT :lastname,:firstname,:email,:password
           WHERE NOT EXISTS (
             SELECT email FROM user WHERE email = :emailExist
         );');
-        $stmt->bindValue(':name', $user->getName());
+        $stmt->bindValue(':lastname', $user->getLastname());
+        $stmt->bindValue(':firstname', $user->getFirstname());
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':emailExist', $user->getEmail());
         $stmt->bindValue(':password', $user->getPassword());
@@ -77,9 +78,10 @@ class UserDAO extends BasicDAO {
 	 */
 	public function update(User $user) {
         $stmt = $this->pdoInstance->prepare('
-                UPDATE "user" SET name=:name, email=:email, password=:password WHERE id = :id;');
+                UPDATE "user" SET lastname=:lastname, firstname=:firstname, email=:email, password=:password WHERE id = :id;');
         $stmt->bindValue(':id', $user->getId());
-        $stmt->bindValue(':name', $user->getName());
+        $stmt->bindValue(':lastname', $user->getLastname());
+        $stmt->bindValue(':firstname', $user->getFirstname());
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':password', $user->getPassword());
         $stmt->execute();
