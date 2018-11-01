@@ -17,6 +17,12 @@ use domain\Agent;
 
 class UserController
 {
+    
+    public static function list(){
+        $contentView = new TemplateView("userList.php");
+        LayoutRendering::basicLayout($contentView);
+    }
+    
     public static function editView(){
         $view = new TemplateView("agentEdit.php");
         $view->agent = AuthServiceImpl::getInstance()->readUser();
