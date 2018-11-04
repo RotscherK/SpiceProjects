@@ -124,6 +124,14 @@ class User {
     {
         return $this->passwordRepeat;
     }
+    /**
+     * @return mixed
+     */
+    public function setPasswordRepeat($passwordRepeat)
+    {
+        $this->passwordReapeat = $passwordRepeat;
+    }
+
 
 
 }

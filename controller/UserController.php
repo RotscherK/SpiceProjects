@@ -8,8 +8,10 @@
 
 namespace controller;
 
+use domain\User;
 use service\AuthServiceImpl;
 use validator\AgentValidator;
+use validator\UserValidator;
 use view\TemplateView;
 use view\LayoutRendering;
 use service\UserServiceImpl;
@@ -52,13 +54,42 @@ class UserController
         echo (new TemplateView("agentEdit.php"))->render();
     }
 
-    public static function update(){
+    public static function update1(){
         $view = new TemplateView("agentEdit.php");
         $view->pageTitle = "WE-CRM";
         $view->pageHeading = "<strong>WE-CRM | Update</strong> your account.";
         $view->pageSubmitText = "Update";
         $view->pageFormAction = "/agent/edit";
         return self::register($view);
+    }
+
+    /**
+     * @return bool
+     * @throws \http\HTTPException
+     */
+    public static function update(){
+        $user = new User();
+        $user->setId($_POST["id"]);
+        $user->setFirstname($_POST["firstname"]);
+        $user->setLastname($_POST["lastname"]);
+        $user->setPassword($_POST["password"]);
+        $user->setPasswordRepeat($_POST["passwordRepeat"]);
+        $userValidator2 = new UserValidator2($user);
+        if($userValidator2->isValid()) {
+            if ($userValidator2->getId() === "") {
+                (new UserServiceImpl())->createUser($user);
+            } else {
+                (new UserServiceImpl())->updateUser($user);
+            }
+        }
+        else{
+            $contentView = new TemplateView("userEdit.php");
+            $contentView->user = $user;
+            $contentView->userValidator = $userValidator2;
+            LayoutRendering::basicLayout($contentView);
+            return false;
+        }
+        return true;
     }
 
     public static function register($view = null){
