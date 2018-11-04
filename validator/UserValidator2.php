@@ -16,6 +16,7 @@ class UserValidator2
     private $valid = true;
     private $emailError = null;
     private $passwordError = null;
+    private $nameError = null;
 
     public function __construct(User $user = null)
     {
