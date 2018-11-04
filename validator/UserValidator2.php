@@ -11,7 +11,7 @@ namespace validator;
 use domain\User;
 use service\AuthServiceImpl;
 
-class UserValidator
+class UserValidator2
 {
     private $valid = true;
     private $emailError = null;
