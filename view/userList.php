@@ -38,8 +38,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">
-                                            <a class="btn-default" role="button" href="user/edit?id=<?php echo $user->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
-                                            <a class="btn-default" role="button" href="user/delete?id=<?php echo $user->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
+                                            <a class="btn-default" role="button" href="/edit?id=<?php echo $user->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
+                                            <a class="btn-default" role="button" href="/delete?id=<?php echo $user->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                         </div>
                                     </td>
                                 <?php endif; ?>
