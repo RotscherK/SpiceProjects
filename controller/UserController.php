@@ -35,6 +35,19 @@ class UserController
         echo $view->render();
     }
 
+    /**
+     * @throws \http\HTTPException
+     */
+    public static function edit(){
+
+        $id = $_GET["id"];
+        $contentView = new TemplateView("userEdit.php");
+        $contentView->user = (new UserServiceImpl())->readUser($id);
+
+        LayoutRendering::basicLayout($contentView);
+    }
+
+
     public static function registerView(){
         echo (new TemplateView("agentEdit.php"))->render();
     }

@@ -31,6 +31,10 @@ class User {
      * @AttributeType String
      */
     protected $password;
+    /**
+     * @AttributeType String
+     */
+    protected $passwordRepeat;
 
     /**
      * @return mixed
@@ -104,6 +108,7 @@ class User {
         return $this->password;
     }
 
+
     /**
      * @param mixed $password
      */
@@ -111,6 +116,15 @@ class User {
     {
         $this->password = $password;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPasswordRepeat()
+    {
+        return $this->passwordRepeat;
+    }
+
 
 }
 ?>

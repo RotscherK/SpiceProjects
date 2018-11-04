@@ -17,33 +17,42 @@ class UserValidator
     private $emailError = null;
     private $passwordError = null;
 
-
-    public function __construct(User $user = null, AuthServiceImpl $authService = null)
+    public function __construct(User $user = null)
     {
-        if (!is_null($user)& !is_null($authService)) {
-            $this->validate($user, $authService);
+        if (!is_null($user)){
+            $this->validate($user);
         }
     }
 
     public function validate(User $user, AuthServiceImpl $authService)
     {
         if (!is_null($user)) {
+            if (empty($user->getFirstname())) {
+                $this->nameError = 'Please enter the first name';
+                $this->valid = false;
+            }
+            if (empty($user->getLastname())) {
+                $this->nameError = 'Please enter the last name';
+                $this->valid = false;
+            }
             if (empty($user->getEmail())) {
                 $this->nameError = 'Please enter an email address';
                 $this->valid = false;
             }
-
             if (empty($user->getPassword())) {
                 $this->passwordError = 'Please select a password';
                 $this->valid = false;
             }
-
-            if(!$authService->verifyUser($_POST["email"],$_POST["password"])){
-                $this->passwordError = 'Email and password do not match!';
+            if (empty($user->getPasswordRepeat())) {
+                $this->passwordError = 'Please repeat the password';
+                $this->valid = false;
+            }
+            if(!comparePasswords($_POST["password"],$_POST["passwordRepeat"])){
+                $this->passwordError = 'Passwords do not match!';
                 $this->valid = false;
             }
 
-            } else {
+        } else {
             $this->valid = false;
         }
         return $this->valid;
@@ -65,9 +74,9 @@ class UserValidator
         return $this->nameError;
     }
     public function isEmailError()
-{
-    return isset($this->emailError);
-}
+    {
+        return isset($this->emailError);
+    }
 
     public function getEmailError()
     {
@@ -83,5 +92,12 @@ class UserValidator
     {
         return $this->passwordError;
     }
-
+    public function comparePasswords($password, $passwordRepeat){
+        if($password == $passwordRepeat){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
