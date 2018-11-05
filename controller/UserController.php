@@ -15,6 +15,7 @@ use validator\UserValidator2;
 use view\TemplateView;
 use view\LayoutRendering;
 use service\UserServiceImpl;
+use dao\UserDAO;
 
 use domain\Agent;
 
@@ -77,7 +78,7 @@ class UserController
         $user->setPasswordRepeat($_POST["passwordRepeat"]);
         $userValidator2 = new UserValidator2($user);
         if($userValidator2->isValid()) {
-            if ($userValidator2->getId() === "") {
+            if ($user->getId() === "") {
                 (new UserServiceImpl())->createUser($user);
             } else {
                 (new UserServiceImpl())->updateUser($user);
