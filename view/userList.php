@@ -21,7 +21,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <table class="table" id="user">
                         <thead>
                         <tr>
-                            <th>Last Name1</th>
+                            <th>Last Name</th>
                             <th>First Name</th>
                             <th>Email</th>
                             <?php if(isset($_SESSION['userLogin'])): ?><th>Action</th><?php endif; ?>
@@ -66,7 +66,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td");
-            rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML + td[3].innerHTML + td[4].innerHTML + td[5].innerHTML;
+            rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML;
             if (td) {
                 if (rowContent.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
