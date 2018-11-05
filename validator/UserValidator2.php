@@ -46,7 +46,7 @@ class UserValidator2
                 $this->passwordError = 'Please select a password';
                 $this->valid = false;
             }
-            if (empty($user->getPasswordRepeat())) {
+            if (empty($_POST["passwordRepeat"])){
                 $this->passwordRepeatError = 'Please repeat the password';
                 $this->valid = false;
             }
