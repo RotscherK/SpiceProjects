@@ -16,6 +16,8 @@ class UserValidator2
     private $valid = true;
     private $emailError = null;
     private $passwordError = null;
+    private $passwordRepeatError = null;
+    private $passwordCompareError = null;
     private $nameError = null;
 
     public function __construct(User $user = null)
@@ -45,7 +47,7 @@ class UserValidator2
                 $this->valid = false;
             }
             if (empty($user->getPasswordRepeat())) {
-                $this->passwordError = 'Please repeat the password';
+                $this->passwordRepeatError = 'Please repeat the password';
                 $this->valid = false;
             }
             if ($user->comparePasswords($_POST["password"],$_POST["passwordRepeat"]) == false){
@@ -92,5 +94,13 @@ class UserValidator2
     public function getPasswordError()
     {
         return $this->passwordError;
+    }
+    public function getPasswordRepeatError()
+    {
+        return $this->passwordRepeatError;
+    }
+    public function getPasswordCompareError()
+    {
+        return $this->passwordCompareError;
     }
 }

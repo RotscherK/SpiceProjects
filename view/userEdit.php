@@ -57,7 +57,7 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                 <label for="name" class="col-sm-3 col-form-label">Repeat Password</label>
                 <div class="col-sm-9">
                     <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="" value="">
-                    <small class="form-text text-danger"><?php echo $userValidator->getPasswordError() ?></small>
+                    <small class="form-text text-danger"><?php echo $userValidator->getPasswordRepeatError() ?></small>
                 </div>
             </div>
             <div class="form-group row">
