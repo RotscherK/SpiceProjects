@@ -93,7 +93,7 @@ Router::route_auth("GET", "/user/edit", $authFunction, function () {
 
 Router::route_auth("POST", "/user/update", $authFunction, function () {
     if(UserController::update());
-    Router::redirect("/");
+    Router::redirect("/user/list");
 });
 
 Router::route("GET", "/program", function () {
