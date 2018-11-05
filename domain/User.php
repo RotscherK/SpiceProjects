@@ -132,6 +132,15 @@ class User {
         $this->passwordReapeat = $passwordRepeat;
     }
 
+    public function comparePasswords($password, $passwordRepeat){
+        if($password == $passwordRepeat){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
 }

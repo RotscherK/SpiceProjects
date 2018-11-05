@@ -48,7 +48,7 @@ class UserValidator2
                 $this->passwordError = 'Please repeat the password';
                 $this->valid = false;
             }
-            if(!comparePasswords($_POST["password"],$_POST["passwordRepeat"])){
+            if ($user->comparePasswords($_POST["password"],$_POST["passwordRepeat"])){
                 $this->passwordError = 'Passwords do not match!';
                 $this->valid = false;
             }
@@ -92,13 +92,5 @@ class UserValidator2
     public function getPasswordError()
     {
         return $this->passwordError;
-    }
-    public function comparePasswords($password, $passwordRepeat){
-        if($password == $passwordRepeat){
-            return true;
-        }
-        else{
-            return false;
-        }
     }
 }
