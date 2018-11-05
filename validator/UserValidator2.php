@@ -37,7 +37,7 @@ class UserValidator2
                 $this->valid = false;
             }
             if (empty($user->getEmail())) {
-                $this->nameError = 'Please enter an email address';
+                $this->emailError = 'Please enter an email address';
                 $this->valid = false;
             }
             if (empty($user->getPassword())) {
