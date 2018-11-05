@@ -6,9 +6,10 @@ Content Management:
     - Attributebased Search
     - Request form
 - User
-    - View
-    - Edit
+    - View -> Done, Tim
+    - Edit -> Done, Tim
     - Create/Edit
+    - Password hashing
 - Provider
     - View
     - Edit
