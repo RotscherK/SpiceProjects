@@ -25,7 +25,7 @@ class UserValidator2
         }
     }
 
-    public function validate(User $user, AuthServiceImpl $authService)
+    public function validate(User $user)
     {
         if (!is_null($user)) {
             if (empty($user->getFirstname())) {
