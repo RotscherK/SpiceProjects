@@ -49,7 +49,7 @@ class UserValidator2
                 $this->valid = false;
             }
             if ($user->comparePasswords($_POST["password"],$_POST["passwordRepeat"])){
-                $this->passwordError = 'Passwords do not match!';
+                $this->passwordError = $_POST["password"].' & '.$_POST["passwordRepeat"];
                 $this->valid = false;
             }
 
