@@ -72,6 +72,7 @@ class UserController
         $user->setId($_POST["id"]);
         $user->setFirstname($_POST["firstname"]);
         $user->setLastname($_POST["lastname"]);
+        $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
         $user->setPasswordRepeat($_POST["passwordRepeat"]);
         $userValidator2 = new UserValidator2($user);
