@@ -83,7 +83,7 @@ class UserController
         $user->setPasswordRepeat($_POST["passwordRepeat"]);
         $userValidator2 = new UserValidator2($user);
 
-        if($user->$_POST["adminType"] == '1'){
+        if($_POST["adminType"] == '1'){
             $user->setSiteAdmin(true);
             $user->setProviderAdmin(false);
             $user->setAdAdmin(false);
