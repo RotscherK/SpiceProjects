@@ -21,7 +21,12 @@ use domain\Agent;
 
 class UserController
 {
-    
+
+    public static function create(){
+        $contentView = new TemplateView("userEdit.php");
+        LayoutRendering::basicLayout($contentView);
+    }
+
     public static function list(){
         $contentView = new TemplateView("userList.php");
         $contentView->users = (new UserServiceImpl())->getAllUsers();
@@ -77,6 +82,26 @@ class UserController
         $user->setPassword($_POST["password"]);
         $user->setPasswordRepeat($_POST["passwordRepeat"]);
         $userValidator2 = new UserValidator2($user);
+
+        if($_POST["adminType"] == '1'){
+            $user->setSiteAdmin(true);
+            $user->setProviderAdmin(false);
+            $user->setAdAdmin(false);
+        }
+
+            else if($_POST["adminType"] == '2'){
+                $user->setSiteAdmin(false);
+                $user->setProviderAdmin(true);
+                $user->setAdAdmin(false);
+            }
+
+            else{
+                $user->setSiteAdmin(false);
+                $user->setProviderAdmin(false);
+                $user->setAdAdmin(true);
+            }
+
+
         if($userValidator2->isValid()) {
             if ($user->getId() === "") {
                 (new UserServiceImpl())->createUser($user);

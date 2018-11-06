@@ -19,6 +19,7 @@ class UserValidator2
     private $passwordRepeatError = null;
     private $passwordCompareError = null;
     private $nameError = null;
+    private $adminTypeError = null;
 
     public function __construct(User $user = null)
     {
@@ -48,6 +49,10 @@ class UserValidator2
             }
             if (empty($_POST["passwordRepeat"])){
                 $this->passwordRepeatError = 'Please repeat the password';
+                $this->valid = false;
+            }
+            if (empty($_POST["adminType"])){
+                $this->adminTypeError = 'Please select a admin type';
                 $this->valid = false;
             }
             if ($user->comparePasswords($_POST["password"],$_POST["passwordRepeat"]) == false){
@@ -102,5 +107,13 @@ class UserValidator2
     public function getPasswordCompareError()
     {
         return $this->passwordCompareError;
+    }
+    public function getAdminTypeError(){
+
+        return $this->adminTypeError;
+    }
+    public function isAdminTypeError(){
+
+        return isset($this->adminTypeError);
     }
 }

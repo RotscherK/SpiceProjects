@@ -96,6 +96,10 @@ Router::route_auth("POST", "/user/update", $authFunction, function () {
     Router::redirect("/user/list");
 });
 
+Router::route_auth("GET", "/user/create", $authFunction, function () {
+    UserController::create();
+});
+
 Router::route("GET", "/program", function () {
     ProgramController::showDetails();
 });

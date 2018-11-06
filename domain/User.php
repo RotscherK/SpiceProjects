@@ -35,6 +35,18 @@ class User {
      * @AttributeType String
      */
     protected $passwordRepeat;
+    /**
+     * @AttributeType Boolean
+     */
+    protected $siteAdmin;
+    /**
+     * @AttributeType Boolean
+     */
+    protected $providerAdmin;
+    /**
+     * @AttributeType Boolean
+     */
+    protected $adAdmin;
 
     /**
      * @return mixed
@@ -130,6 +142,48 @@ class User {
     public function setPasswordRepeat($passwordRepeat)
     {
         $this->passwordReapeat = $passwordRepeat;
+    }
+    /**
+     * @return mixed
+     */
+    public function setSiteAdmin($siteAdmin)
+    {
+        $this->siteAdmin = $siteAdmin;
+    }
+    /**
+     * @return mixed
+     */
+    public function getSiteAdmin()
+    {
+        return $this->siteAdmin;
+    }
+    /**
+     * @return mixed
+     */
+    public function setProviderAdmin($providerAdmin)
+    {
+        $this->providerAdmin = $providerAdmin;
+    }
+    /**
+     * @return mixed
+     */
+    public function getProviderAdmin()
+    {
+        return $this->providerAdmin;
+    }
+    /**
+     * @return mixed
+     */
+    public function setAdAdmin($adAdmin)
+    {
+        $this->adAdmin = $adAdmin;
+    }
+    /**
+     * @return mixed
+     */
+    public function getAdAdmin()
+    {
+        return $this->adAdmin;
     }
 
     public function comparePasswords($password, $passwordRepeat){

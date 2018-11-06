@@ -46,6 +46,17 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                     <small class="form-text text-danger"><?php echo $userValidator->getEmailError() ?></small>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="provider" class="col-sm-3 col-form-label" name="adminType" >Provider</label>
+                <div class="col-sm-9">
+                    <select class="form-control" id="adminType" name="adminType">
+                        <option value="1" <?php if($user->getSiteAdmin() == true): ?> selected="selected"<?php endif; ?>>Site Administrator</option>
+                        <option value="2" <?php if($user->getProviderAdmin() == true): ?> selected="selected"<?php endif; ?>>Provider</option>
+                        <option value="3" <?php if($user->getAdvertisementAdmin() == true): ?> selected="selected"<?php endif; ?>>Advertisement</option>
+                    </select>
+                    <small class="form-text text-danger"><?php echo $userValidator->getAdminTypeError() ?></small>
+                </div>
+            </div>
             <div class="form-group row <?php echo $userValidator->isPasswordError()? "has-error" : ""; ?>">
                 <label for="name" class="col-sm-3 col-form-label">Password</label>
                 <div class="col-sm-9">
