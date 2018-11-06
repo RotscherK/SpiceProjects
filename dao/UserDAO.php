@@ -19,8 +19,8 @@ class UserDAO extends BasicDAO {
 	 */
 	public function create(User $user) {
         $stmt = $this->pdoInstance->prepare('
-        INSERT INTO "user" (lastname, firstname, email, password)
-          SELECT :lastname,:firstname,:email,:password
+        INSERT INTO "user" (lastname, firstname, email, password, admin, provider_admin, ad_admin)
+          SELECT :lastname,:firstname,:email,:password,:siteAdmin,:providerAdmin,:adAdmin
           WHERE NOT EXISTS (
             SELECT email FROM user WHERE email = :emailExist
         );');
@@ -29,6 +29,9 @@ class UserDAO extends BasicDAO {
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':emailExist', $user->getEmail());
         $stmt->bindValue(':password', $user->getPassword());
+        $stmt->bindValue(':siteAdmin', $user->getSiteAdmin());
+        $stmt->bindValue(':providerAdmin', $user->getProviderAdmin());
+        $stmt->bindValue(':providerAdmin', $user->getAdAdmin());
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
 	}
@@ -78,12 +81,15 @@ class UserDAO extends BasicDAO {
 	 */
 	public function update(User $user) {
         $stmt = $this->pdoInstance->prepare('
-                UPDATE "user" SET lastname=:lastname, firstname=:firstname, email=:email, password=:password WHERE id = :id;');
+                UPDATE "user" SET lastname=:lastname, firstname=:firstname, email=:email, password=:password, admin=:siteAdmin, provider_admin=:providerAdmin, ad_admin=:adAdmin WHERE id = :id;');
         $stmt->bindValue(':id', $user->getId());
         $stmt->bindValue(':lastname', $user->getLastname());
         $stmt->bindValue(':firstname', $user->getFirstname());
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':password', $user->getPassword());
+        $stmt->bindValue(':siteAdmin', $user->getSiteAdmin());
+        $stmt->bindValue(':providerAdmin', $user->getProviderAdmin());
+        $stmt->bindValue(':providerAdmin', $user->getAdAdmin());
         $stmt->execute();
         return $this->read($user->getId());
 	}
