@@ -100,6 +100,10 @@ class UserController
                 $user->setAdAdmin(TRUE);
             }
 
+            $test = $_POST["adminType"];
+
+        echo "<script language='javascript'>alert('result: '.$test. ' :)');</script>";
+
         $userValidator2 = new UserValidator2($user);
 
         if($userValidator2->isValid()) {

@@ -17,7 +17,7 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form action="update" method="post">
-            <h2 class="text-center">Create/Edit user: <?php echo $user->getSiteAdmin()?></h2>
+            <h2 class="text-center">Create/Edit user:</h2>
 
             <div class="form-group row" <?php if($user->getId() == null): ?> style="display: none" <?php endif; ?>>
                 <label for="id" class="col-sm-3 col-form-label">ID</label>
