@@ -81,9 +81,6 @@ class UserController
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
         $user->setPasswordRepeat($_POST["passwordRepeat"]);
-        $userValidator2 = new UserValidator2($user);
-
-        echo 'alert("The admin type is: " .$_POST["adminType"]. " :)")';
 
         if($_POST["adminType"] == '1'){
             $user->setSiteAdmin(TRUE);
@@ -103,6 +100,7 @@ class UserController
                 $user->setAdAdmin(TRUE);
             }
 
+        $userValidator2 = new UserValidator2($user);
 
         if($userValidator2->isValid()) {
             if ($user->getId() === "") {
