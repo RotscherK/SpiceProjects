@@ -84,21 +84,21 @@ class UserController
         $userValidator2 = new UserValidator2($user);
 
         if($_POST["adminType"] == '1'){
-            $user->setSiteAdmin(true);
-            $user->setProviderAdmin(false);
-            $user->setAdAdmin(false);
+            $user->setSiteAdmin(TRUE);
+            $user->setProviderAdmin(FALSE);
+            $user->setAdAdmin(FALSE);
         }
 
             else if($_POST["adminType"] == '2'){
-                $user->setSiteAdmin(false);
-                $user->setProviderAdmin(true);
-                $user->setAdAdmin(false);
+                $user->setSiteAdmin(TRUE);
+                $user->setProviderAdmin(TRUE);
+                $user->setAdAdmin(TRUE);
             }
 
             else{
-                $user->setSiteAdmin(false);
-                $user->setProviderAdmin(false);
-                $user->setAdAdmin(true);
+                $user->setSiteAdmin(FALSE);
+                $user->setProviderAdmin(FALSE);
+                $user->setAdAdmin(TRUE);
             }
 
 
