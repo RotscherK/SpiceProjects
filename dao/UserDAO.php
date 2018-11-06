@@ -89,7 +89,7 @@ class UserDAO extends BasicDAO {
         $stmt->bindValue(':password', $user->getPassword());
         $stmt->bindValue(':siteAdmin', $user->getSiteAdmin());
         $stmt->bindValue(':providerAdmin', $user->getProviderAdmin());
-        $stmt->bindValue(':providerAdmin', $user->getAdAdmin());
+        $stmt->bindValue(':adAdmin', $user->getAdAdmin());
         $stmt->execute();
         return $this->read($user->getId());
 	}
