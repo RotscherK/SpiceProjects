@@ -17,7 +17,7 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form action="update" method="post">
-            <h2 class="text-center">Create/Edit user</h2>
+            <h2 class="text-center">Create/Edit user: <?php echo $user->getSiteAdmin()?></h2>
 
             <div class="form-group row" <?php if($user->getId() == null): ?> style="display: none" <?php endif; ?>>
                 <label for="id" class="col-sm-3 col-form-label">ID</label>
@@ -47,12 +47,12 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                 </div>
             </div>
             <div class="form-group row">
-                <label for="provider" class="col-sm-3 col-form-label" name="adminType" >Provider</label>
+                <label for="adminTypeype" class="col-sm-3 col-form-label" name="adminType" >Type</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="adminType" name="adminType">
                         <option value="1" <?php if($user->getSiteAdmin() == true): ?> selected="selected"<?php endif; ?>>Site Administrator</option>
                         <option value="2" <?php if($user->getProviderAdmin() == true): ?> selected="selected"<?php endif; ?>>Provider</option>
-                        <option value="3" <?php if($user->getAdvertisementAdmin() == true): ?> selected="selected"<?php endif; ?>>Advertisement</option>
+                        <option value="3" <?php if($user->getAdAdmin() == true): ?> selected="selected"<?php endif; ?>>Advertiser</option>
                     </select>
                     <small class="form-text text-danger"><?php echo $userValidator->getAdminTypeError() ?></small>
                 </div>
