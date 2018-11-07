@@ -17,7 +17,7 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form action="update" method="post">
-            <h2 class="text-center">Create/Edit user:</h2>
+            <h2 class="text-center">Create/Edit user</h2>
 
             <div class="form-group row" <?php if($user->getId() == null): ?> style="display: none" <?php endif; ?>>
                 <label for="id" class="col-sm-3 col-form-label">ID</label>
@@ -47,7 +47,7 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                 </div>
             </div>
             <div class="form-group row">
-                <label for="adminType" class="col-sm-3 col-form-label" name="adminType" >Type: <?php echo $user->getEmail() ?> :)</label>
+                <label for="adminType" class="col-sm-3 col-form-label" name="adminType" >Type: <?php echo $user->getSiteAdmin() ?> :)</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="adminType" name="adminType">
                         <option value="1" <?php if($user->getSiteAdmin() === "TRUE"): ?> selected="selected"<?php endif; ?>>Site Administrator</option>
