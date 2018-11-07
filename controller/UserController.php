@@ -89,15 +89,15 @@ class UserController
         }
 
             else if($_POST["adminType"] === "2"){
-                $user->setSiteAdmin(TRUE);
-                $user->setProviderAdmin(TRUE);
-                $user->setAdAdmin(TRUE);
+                $user->setSiteAdmin("TRUE");
+                $user->setProviderAdmin("TRUE");
+                $user->setAdAdmin("TRUE");
             }
 
             else{
-                $user->setSiteAdmin(FALSE);
-                $user->setProviderAdmin(FALSE);
-                $user->setAdAdmin(TRUE);
+                $user->setSiteAdmin("FALSE");
+                $user->setProviderAdmin("FALSE");
+                $user->setAdAdmin("TRUE");
             }
 
         $userValidator2 = new UserValidator2($user);
