@@ -81,13 +81,13 @@ class UserDAO extends BasicDAO {
 	 */
 	public function update(User $user) {
         $stmt = $this->pdoInstance->prepare('
-                UPDATE "user" SET lastname=:lastname, firstname=:firstname, email=:email, password=:password, admin=FALSE, provider_admin=:providerAdmin, ad_admin=:adAdmin WHERE id = :id;');
+                UPDATE "user" SET lastname=:lastname, firstname=:firstname, email=:email, password=:password, admin=:siteAdmin, provider_admin=:providerAdmin, ad_admin=:adAdmin WHERE id = :id;');
         $stmt->bindValue(':id', $user->getId());
         $stmt->bindValue(':lastname', $user->getLastname());
         $stmt->bindValue(':firstname', $user->getFirstname());
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':password', $user->getPassword());
-        //$stmt->bindValue(':siteAdmin', $user->getSiteAdmin());
+        $stmt->bindValue(':siteAdmin', $user->getSiteAdmin());
         $stmt->bindValue(':providerAdmin', $user->getProviderAdmin());
         $stmt->bindValue(':adAdmin', $user->getAdAdmin());
         $stmt->execute();
