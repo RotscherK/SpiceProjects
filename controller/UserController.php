@@ -89,9 +89,9 @@ class UserController
         }
 
             else if($_POST["adminType"] === "2"){
-                $user->setSiteAdmin("TRUE");
+                $user->setSiteAdmin("FALSE");
                 $user->setProviderAdmin("TRUE");
-                $user->setAdAdmin("TRUE");
+                $user->setAdAdmin("FALSE");
             }
 
             else{
