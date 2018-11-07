@@ -47,7 +47,7 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                 </div>
             </div>
             <div class="form-group row">
-                <label for="adminTypeype" class="col-sm-3 col-form-label" name="adminType" >Type</label>
+                <label for="adminType" class="col-sm-3 col-form-label" name="adminType" >Type</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="adminType" name="adminType">
                         <option value="1" <?php if($user->getSiteAdmin() == true): ?> selected="selected"<?php endif; ?>>Site Administrator</option>

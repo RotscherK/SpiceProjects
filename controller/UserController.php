@@ -82,13 +82,13 @@ class UserController
         $user->setPassword($_POST["password"]);
         $user->setPasswordRepeat($_POST["passwordRepeat"]);
 
-        if($_POST["adminType"] == '1'){
+        if($_POST["adminType"] == "1"){
             $user->setSiteAdmin(TRUE);
             $user->setProviderAdmin(FALSE);
             $user->setAdAdmin(FALSE);
         }
 
-            else if($_POST["adminType"] == '2'){
+            else if($_POST["adminType"] == "2"){
                 $user->setSiteAdmin(TRUE);
                 $user->setProviderAdmin(TRUE);
                 $user->setAdAdmin(TRUE);
@@ -99,10 +99,6 @@ class UserController
                 $user->setProviderAdmin(FALSE);
                 $user->setAdAdmin(TRUE);
             }
-
-            $test = $_POST["adminType"];
-
-        echo "<script language='javascript'>alert('result: '.$test. ' :)');</script>";
 
         $userValidator2 = new UserValidator2($user);
 
