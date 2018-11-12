@@ -10,7 +10,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
     <div class="form-clean">
         <div class="row details-form">
             <div></div>
-            <h1><?php echo TemplateView::noHTML($user->getName()) ?></h1>
+            <h1><?php echo TemplateView::noHTML($user->getEmail()) ?></h1>
             <div></div>
         </div>
         <div class="row details-form">
