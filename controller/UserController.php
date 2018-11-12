@@ -83,19 +83,19 @@ class UserController
         $user->setPasswordRepeat($_POST["passwordRepeat"]);
 
         if($_POST["adminType"] === "1"){
-            $user->setSiteAdmin("TRUE");
+            $user->setAdmin("TRUE");
             $user->setProviderAdmin("FALSE");
             $user->setAdAdmin("FALSE");
         }
 
             else if($_POST["adminType"] === "2"){
-                $user->setSiteAdmin("FALSE");
+                $user->setAdmin("FALSE");
                 $user->setProviderAdmin("TRUE");
                 $user->setAdAdmin("FALSE");
             }
 
             else{
-                $user->setSiteAdmin("FALSE");
+                $user->setAdmin("FALSE");
                 $user->setProviderAdmin("FALSE");
                 $user->setAdAdmin("TRUE");
             }

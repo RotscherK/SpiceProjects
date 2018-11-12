@@ -38,15 +38,15 @@ class User {
     /**
      * @AttributeType Boolean
      */
-    protected $siteAdmin;
+    protected $admin;
     /**
      * @AttributeType Boolean
      */
-    protected $providerAdmin;
+    protected $provider_admin;
     /**
      * @AttributeType Boolean
      */
-    protected $adAdmin;
+    protected $ad_admin;
 
     /**
      * @return mixed
@@ -146,44 +146,44 @@ class User {
     /**
      * @return mixed
      */
-    public function setSiteAdmin($siteAdmin)
+    public function setAdmin($admin)
     {
-        $this->siteAdmin = $siteAdmin;
+        $this->admin = $admin;
     }
     /**
      * @return mixed
      */
-    public function getSiteAdmin()
+    public function getAdmin()
     {
-        return $this->siteAdmin;
+        return $this->admin;
     }
     /**
      * @return mixed
      */
-    public function setProviderAdmin($providerAdmin)
+    public function setProviderAdmin($provider_admin)
     {
-        $this->providerAdmin = $providerAdmin;
+        $this->provider_admin = $provider_admin;
     }
     /**
      * @return mixed
      */
     public function getProviderAdmin()
     {
-        return $this->providerAdmin;
+        return $this->provider_admin;
     }
     /**
      * @return mixed
      */
-    public function setAdAdmin($adAdmin)
+    public function setAdAdmin($ad_admin)
     {
-        $this->adAdmin = $adAdmin;
+        $this->ad_admin = $ad_admin;
     }
     /**
      * @return mixed
      */
     public function getAdAdmin()
     {
-        return $this->adAdmin;
+        return $this->ad_admin;
     }
 
     public function comparePasswords($password, $passwordRepeat){
