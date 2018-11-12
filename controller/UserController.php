@@ -153,6 +153,14 @@ class UserController
 
     }
 
+    public static function showDetails()
+    {
+        $id = $_GET["id"];
+        $contentView = new TemplateView("view/userDetail.php");
+        $contentView->program = (new UserServiceImpl())->readUser($id);
+        LayoutRendering::basicLayout($contentView);
+    }
+
     public static function delete(){
         $id = $_GET["id"];
         (new UserServiceImpl())->deleteUser($id);

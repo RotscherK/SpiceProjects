@@ -105,6 +105,10 @@ Router::route_auth("GET", "/user/delete", $authFunction, function () {
     Router::redirect("/user/list");
 });
 
+Router::route("GET", "/user", function () {
+    UserController::showDetails();
+});
+
 Router::route("GET", "/program", function () {
     ProgramController::showDetails();
 });
