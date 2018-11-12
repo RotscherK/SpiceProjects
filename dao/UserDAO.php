@@ -22,7 +22,7 @@ class UserDAO extends BasicDAO {
         INSERT INTO "user" (lastname, firstname, email, password, admin, provider_admin, ad_admin)
           SELECT :lastname,:firstname,:email,:password,:siteAdmin,:providerAdmin,:adAdmin
           WHERE NOT EXISTS (
-            SELECT email FROM user WHERE email = :emailExist
+            SELECT email FROM "user" WHERE email = :emailExist
         );');
         $stmt->bindValue(':lastname', $user->getLastname());
         $stmt->bindValue(':firstname', $user->getFirstname());
