@@ -27,7 +27,7 @@ class UserServiceImpl implements UserService
     public function createUser(User $user) {
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
             $userDAO = new UserDAO();
-            $user->setAgentId(AuthServiceImpl::getInstance()->getCurrentAgentId());
+            //$user->setAgentId(AuthServiceImpl::getInstance()->getCurrentAgentId());
             return $userDAO->create($user);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
