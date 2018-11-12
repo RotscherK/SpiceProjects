@@ -50,9 +50,9 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                 <label for="adminType" class="col-sm-3 col-form-label" name="adminType" >Type: <?php echo $user->getSiteAdmin() ?> :)</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="adminType" name="adminType">
-                        <option value="1" <?php if($user->getSiteAdmin() === "TRUE"): ?> selected="selected"<?php endif; ?>>Site Administrator</option>
-                        <option value="2" <?php if($user->getProviderAdmin() === "TRUE"): ?> selected="selected"<?php endif; ?>>Provider</option>
-                        <option value="3" <?php if($user->getAdAdmin() === "TRUE"): ?> selected="selected"<?php endif; ?>>Advertiser</option>
+                        <option value="1" <?php if($user->getSiteAdmin()==TRUE): ?> selected="selected"<?php endif; ?>>Site Administrator</option>
+                        <option value="2" <?php if($user->getProviderAdmin()==TRUE): ?> selected="selected"<?php endif; ?>>Provider</option>
+                        <option value="3" <?php if($user->getAdAdmin()==TRUE): ?> selected="selected"<?php endif; ?>>Advertiser</option>
                     </select>
                     <small class="form-text text-danger"><?php echo $userValidator->getAdminTypeError() ?></small>
                 </div>
