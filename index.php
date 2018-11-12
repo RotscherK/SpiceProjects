@@ -102,7 +102,7 @@ Router::route_auth("GET", "/user/create", $authFunction, function () {
 
 Router::route_auth("GET", "/user/delete", $authFunction, function () {
     UserController::delete();
-    Router::redirect("/");
+    Router::redirect("/user/list");
 });
 
 Router::route("GET", "/program", function () {
