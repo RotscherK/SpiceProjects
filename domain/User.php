@@ -126,7 +126,7 @@ class User {
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
 
     /**
@@ -141,7 +141,7 @@ class User {
      */
     public function setPasswordRepeat($passwordRepeat)
     {
-        $this->passwordReapeat = $passwordRepeat;
+        $this->passwordReapeat = password_hash($passwordRepeat, PASSWORD_DEFAULT);
     }
     /**
      * @return mixed

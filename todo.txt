@@ -8,7 +8,8 @@ Content Management:
 - User
     - View -> Done, Tim
     - Edit -> Done, Tim
-    - Create/Edit
+    - Create/Edit -> Done, Tim
+    - Admin Type for edit
     - Password hashing
 - Provider
     - View
