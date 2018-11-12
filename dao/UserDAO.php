@@ -115,6 +115,21 @@ class UserDAO extends BasicDAO {
 
     /**
      * @access public
+     * @param Program program
+     * @ParamType program Program
+     */
+    public function delete(User $user) {
+        $stmt = $this->pdoInstance->prepare('
+            DELETE FROM "user"
+            WHERE id = :id
+        ');
+        $stmt->bindValue(':id', $user->getId());
+        $stmt->execute();
+    }
+
+
+    /**
+     * @access public
      * @return User[]
      * @ReturnType User[]
      */
