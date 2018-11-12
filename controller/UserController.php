@@ -152,4 +152,9 @@ class UserController
         return $userDAO->getAllUsers();
 
     }
+
+    public static function delete(){
+        $id = $_GET["id"];
+        (new UserServiceImpl())->deleteUser($id);
+    }
 }

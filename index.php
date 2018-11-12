@@ -100,6 +100,11 @@ Router::route_auth("GET", "/user/create", $authFunction, function () {
     UserController::create();
 });
 
+Router::route_auth("GET", "/user/delete", $authFunction, function () {
+    UserController::delete();
+    Router::redirect("/");
+});
+
 Router::route("GET", "/program", function () {
     ProgramController::showDetails();
 });
