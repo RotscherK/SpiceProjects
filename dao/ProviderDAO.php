@@ -45,5 +45,17 @@ class ProviderDAO extends BasicDAO {
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider");
 	}
+
+	public function getAdministratorEmail($administrator){
+	    $stmt = $this->pdoInstance->prepare('SELECT email FROM "user"
+        WHERE id = :administratorId');
+        $stmt->bindValue(':administratorId', $administrator);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider")[0];
+        }
+        return null;
+    }
+
 }
 ?>

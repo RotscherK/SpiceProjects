@@ -36,7 +36,7 @@ isset($this->provider) ? $provider = $this->provider : $provider = new Provider(
                                 <td><?php echo TemplateView::noHTML($provider->getName()); ?></td>
                                 <td><?php echo TemplateView::noHTML($provider->getDescription()); ?></td>
                                 <td><?php echo TemplateView::noHTML($provider->getBillingEmail()); ?></td>
-                                <td><?php echo TemplateView::noHTML($provider->getAdministrator()); ?></td>
+                                <td><?php echo TemplateView::noHTML($provider->getAdministratorEmail()); ?></td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">

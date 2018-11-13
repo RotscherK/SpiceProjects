@@ -8,6 +8,8 @@
 
 namespace domain;
 
+use dao\ProviderDAO;
+
 class Provider {
     /**
      * 
@@ -221,6 +223,17 @@ class Provider {
     public function getAdministrator() {
         return $this->administrator;
     }
+
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getAdministratorEmail() {
+        return (new ProviderDAO())->getAdministratorEmail($this->administrator);
+    }
+
 
     /**
      * METHODDESCRIPTION

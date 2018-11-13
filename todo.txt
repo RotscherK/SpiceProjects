@@ -9,7 +9,7 @@ Content Management:
 - User
     - Access only for site admins
 - Provider
-    - View
+    - View -> Done, Tim
     - Edit
     - Create/Edit
 - Advertisement
