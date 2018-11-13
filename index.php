@@ -16,6 +16,7 @@ use router\Router;
 use controller\HomepageController;
 use controller\ProgramController;
 use controller\UserController;
+use controller\ProviderController;
 use controller\AuthController;
 use controller\ErrorController;
 use controller\UserPasswordResetController;
