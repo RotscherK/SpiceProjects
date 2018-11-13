@@ -39,7 +39,7 @@ class ProviderDAO extends BasicDAO {
 	 * @return Provider[]
 	 * @ReturnType Provider[]
 	 */
-	public function getAllProvider() {
+	public function getAllProviders() {
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "provider" ORDER BY id;');
         $stmt->execute();
