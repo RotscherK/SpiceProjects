@@ -52,7 +52,7 @@ class ProviderDAO extends BasicDAO {
         $stmt->bindValue(':administratorId', $administrator);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider")[0];
+            return $stmt->fetchColumn();
         }
         return null;
     }
