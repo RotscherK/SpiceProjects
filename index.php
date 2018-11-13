@@ -138,6 +138,12 @@ Router::route("GET", "/charging", function () {
     ChargingController::charging();
 });
 
+Router::route_auth("GET", "/provider/list", $authFunction, function () {
+    ProviderController::list();
+});
+
+
+
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
     EmailController::sendMeMyCustomers();
