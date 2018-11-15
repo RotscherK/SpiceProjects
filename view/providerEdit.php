@@ -19,12 +19,12 @@ isset($this->user) ? $user = $this->user : $user = new User();
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form action="update" method="post">
-            <h2 class="text-center">Create/Edit user</h2>
+            <h2 class="text-center">Create/Edit Provider</h2>
 
             <div class="form-group row" <?php if($provider->getId() == null): ?> style="display: none" <?php endif; ?>>
                 <label for="id" class="col-sm-3 col-form-label">ID</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $user->getId() ?>">
+                    <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $provider->getId() ?>">
                 </div>
             </div>
             <div class="form-group row <?php echo $providerValidator->isNameError()? "has-error" : ""; ?>">
