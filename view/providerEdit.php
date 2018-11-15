@@ -73,7 +73,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <label for="administrator" class="col-sm-3 col-form-label" name="administrator">Administrator</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="administrator" name="administrator">
-                        <?php foreach($this->user as $user): /* @var User $user */ ?>
+                        <?php foreach($this->users as $user): /* @var User $user */ ?>
                             <option value=<?php echo $user->getId() ?>><?php echo $user->getEmail() ?></option>
                         <?php endforeach; ?>
                     </select>
