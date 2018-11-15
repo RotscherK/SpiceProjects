@@ -143,6 +143,9 @@ Router::route_auth("GET", "/provider/list", $authFunction, function () {
     ProviderController::list();
 });
 
+Router::route_auth("GET", "/provider/edit", $authFunction, function () {
+    ProviderController::edit();
+});
 
 
 /*

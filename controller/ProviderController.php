@@ -37,6 +37,7 @@ class ProviderController{
         $id = $_GET["id"];
         $contentView = new TemplateView("providerEdit.php");
         $contentView->provider = (new ProviderServiceImpl())->readProvider($id);
+        $contentView->users = (new UserServiceImpl())->getAllUsers();
 
         LayoutRendering::basicLayout($contentView);
     }
