@@ -34,7 +34,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $providerValidator->getNameError() ?></small>
                 </div>
             </div>
-            <div class="form-group row <?php echo $providerValidator->isNameDescription()? "has-error" : ""; ?>">
+            <div class="form-group row <?php echo $providerValidator->isDescriptionError()? "has-error" : ""; ?>">
                 <label for="name" class="col-sm-3 col-form-label">Description</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="description" id="description" placeholder="Description" value="<?php echo $user->getLastname() ?>">
@@ -77,7 +77,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                             <option value=<?php echo $user->getId() ?>><?php echo $user->getEmail() ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <small class="form-text text-danger"><?php echo $providerValidator->getAdministrator() ?></small>
+                    <small class="form-text text-danger"><?php echo $providerValidator->getAdministratorError() ?></small>
                 </div>
             </div>
             <div class="form-group row">
