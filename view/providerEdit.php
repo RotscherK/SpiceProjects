@@ -30,14 +30,14 @@ isset($this->user) ? $user = $this->user : $user = new User();
             <div class="form-group row <?php echo $providerValidator->isNameError()? "has-error" : ""; ?>">
                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $user->getFirstname() ?>">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="<?php echo $provider->getName() ?>">
                     <small class="form-text text-danger"><?php echo $providerValidator->getNameError() ?></small>
                 </div>
             </div>
             <div class="form-group row <?php echo $providerValidator->isDescriptionError()? "has-error" : ""; ?>">
                 <label for="name" class="col-sm-3 col-form-label">Description</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="description" id="description" placeholder="Description" value="<?php echo $user->getLastname() ?>">
+                    <input type="text" class="form-control" name="description" id="description" placeholder="Description" value="<?php echo $provider->getDescription() ?>">
                     <small class="form-text text-danger"><?php echo $providerValidator->getDescriptionError() ?></small>
                 </div>
             </div>
