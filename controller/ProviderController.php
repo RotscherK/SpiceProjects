@@ -10,6 +10,7 @@ namespace controller;
 
 use domain\Provider;
 use validator\ProviderValidator;
+use service\UserServiceImpl;
 use view\TemplateView;
 use view\LayoutRendering;
 use service\ProviderServiceImpl;
@@ -35,7 +36,7 @@ class ProviderController{
 
         $id = $_GET["id"];
         $contentView = new TemplateView("providerEdit.php");
-        $contentView->user = (new ProviderServiceImpl())->readProvider($id);
+        $contentView->provider = (new ProviderServiceImpl())->readProvider($id);
 
         LayoutRendering::basicLayout($contentView);
     }

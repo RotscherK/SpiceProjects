@@ -75,6 +75,14 @@ class Provider {
     protected $administrator;
 
     /**
+     *
+     *
+     * @access protected
+     * @var PROPTYPE
+     */
+    protected $administratorEmail;
+
+    /**
      * METHODDESCRIPTION
      *
      * @access public
@@ -223,18 +231,6 @@ class Provider {
     public function getAdministrator() {
         return $this->administrator;
     }
-
-    /**
-     * METHODDESCRIPTION
-     *
-     * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
-     */
-    public function getAdministratorEmail() {
-        return (new ProviderDAO())->getAdministratorEmail($this->administrator);
-    }
-
-
     /**
      * METHODDESCRIPTION
      *
@@ -243,5 +239,14 @@ class Provider {
      */
     public function setAdministrator($administrator) {
         $this->administrator = $administrator;
+    }
+    /**
+     * METHODDESCRIPTION
+     *
+     * @access public
+     * @return RETURNTYPE RETURNDESCRIPTION
+     */
+    public function getAdministratorEmail() {
+        return $this->administratorEmail;
     }
 }
