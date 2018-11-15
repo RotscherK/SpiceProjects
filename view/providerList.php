@@ -32,7 +32,7 @@ isset($this->provider) ? $provider = $this->provider : $provider = new Provider(
                         <tbody>
                         <?php
                         foreach($this->providers as $provider): /* @var Provider $provider */ ?>
-                            <tr class='clickable-row' data-href="/user?id=<?php echo $provider->getId(); ?>">
+                            <tr class='clickable-row' data-href="/provider?id=<?php echo $provider->getId(); ?>">
                                 <td><?php echo TemplateView::noHTML($provider->getName()); ?></td>
                                 <td><?php echo TemplateView::noHTML($provider->getDescription()); ?></td>
                                 <td><?php echo TemplateView::noHTML($provider->getBillingEmail()); ?></td>

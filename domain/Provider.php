@@ -247,6 +247,6 @@ class Provider {
      * @return RETURNTYPE RETURNDESCRIPTION
      */
     public function getAdministratorEmail() {
-        return $this->administratorEmail;
+        return (new ProviderDAO())->getAdministratorEmail($this->administrator);
     }
 }

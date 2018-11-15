@@ -42,13 +42,13 @@ class ProviderDAO extends BasicDAO {
 	public function getAllProviders() {
         $stmt = $this->pdoInstance->prepare('
             SELECT provider.id, provider.name, provider.description, provider.plz,
-             provider.city, provider.street, provider.billing_email, provider.administrator, "user".email AS administratorEmail 
+             provider.city, provider.street, provider.billing_email, provider.administrator, "user".email AS administratorEmail
              FROM "provider" JOIN "user" ON provider.administrator="user".id ORDER BY provider.id;');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider");
 	}
 
-   /* public function getAdministratorEmail($administrator){
+    public function getAdministratorEmail($administrator){
         $stmt = $this->pdoInstance->prepare('SELECT email FROM "user"
         WHERE id = :administratorId');
         $stmt->bindValue(':administratorId', $administrator);
@@ -57,7 +57,7 @@ class ProviderDAO extends BasicDAO {
             return $stmt->fetchColumn();
         }
         return null;
-    }*/
+    }
 
 }
 ?>
