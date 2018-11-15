@@ -31,32 +31,32 @@ class ProviderValidator
     public function validate(Provider $provider)
     {
         if (!is_null($provider)) {
-            if (empty($provider->getFirstname())) {
-                $this->nameError = 'Please enter the first name';
+            if (empty($provider->getName())) {
+                $this->nameError = 'Please enter the name';
                 $this->valid = false;
             }
-            if (empty($provider->getLastname())) {
-                $this->nameError = 'Please enter the last name';
+            if (empty($provider->getDescription())) {
+                $this->nameError = 'Please enter the description';
                 $this->valid = false;
             }
-            if (empty($provider->getEmail())) {
-                $this->emailError = 'Please enter an email address';
+            if (empty($provider->getPlz())) {
+                $this->emailError = 'Please enter a PLZ';
                 $this->valid = false;
             }
-            if (empty($provider->getPassword())) {
-                $this->passwordError = 'Please select a password';
+            if (empty($provider->getCity())) {
+                $this->passwordError = 'Please enter a city';
                 $this->valid = false;
             }
-            if (empty($_POST["passwordRepeat"])){
-                $this->passwordRepeatError = 'Please repeat the password';
+            if (empty($provider->getStreet())) {
+                $this->passwordError = 'Please enter a street';
                 $this->valid = false;
             }
-            if (empty($_POST["adminType"])){
-                $this->adminTypeError = 'Please select a admin type';
+            if (empty($provider->getBillingEmail())) {
+                $this->passwordError = 'Please enter a billing email';
                 $this->valid = false;
             }
-            if ($provider->comparePasswords($_POST["password"],$_POST["passwordRepeat"]) == false){
-                $this->passwordError = $_POST["password"].' & '.$_POST["passwordRepeat"];
+            if (empty($provider->getAdministrator())) {
+                $this->passwordError = 'Please select an adminstrator';
                 $this->valid = false;
             }
 
