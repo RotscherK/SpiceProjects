@@ -3,7 +3,8 @@
 use view\TemplateView;
 use http\HTTPException;
 
-isset($this->exception) ? $exception = $this->exception : $exception = new \http\HTTPException();
+isset($this->exceptionCode) ? $exceptionCode = $this->exceptionCode : $exceptionCode = '404';
+isset($this->exceptionText) ? $exceptionText = $this->exceptionText : $exceptionText = 'Page not found';
 
 ?>
 
@@ -12,7 +13,7 @@ isset($this->exception) ? $exception = $this->exception : $exception = new \http
         <form method="post">
             <h2 class="text-center">Spice Project</h2>
             <div class="text">
-                <h3 class="text-center">404<strong> Not Found</strong> </h3>
+                <h3 class="text-center">404<strong> <?php echo $exceptionCode; ?> </strong> <?php echo $exceptionText; ?>  </h3>
                 <p class="text-center">We couldn't find this url on our server. Maybe you'd like to try our <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>">homepage</a> instead? </p>
 
 
