@@ -136,13 +136,12 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-5">
-                    <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
                 </div>
-                <div class="col-sm-5">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </div>
-
             </div>
         </form>
     </div>
