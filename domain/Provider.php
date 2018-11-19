@@ -146,7 +146,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getPlz() {
         return $this->plz;
@@ -166,7 +166,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getCity() {
         return $this->city;
@@ -186,7 +186,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getStreet() {
         return $this->street;

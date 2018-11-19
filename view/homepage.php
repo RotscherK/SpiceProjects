@@ -35,16 +35,20 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                         foreach($this->programs as $program): /* @var Program $program */ ?>
                             <tr class='clickable-row' data-href="/program?id=<?php echo $program->getId(); ?>">
                                 <td><?php echo TemplateView::noHTML($program->getName()); ?></td>
-                                <td><?php echo TemplateView::noHTML($program->getProviderId()); ?></td>
-                                <td><?php echo TemplateView::noHTML($program->getPrice()); ?> ! <?php echo TemplateView::noHTML($program->getCategoryId()); ?> ! <?php echo TemplateView::noHTML($program->getDistanceLearning()); ?> ! <?php echo TemplateView::noHTML($program->getURL()); ?></td>
+                                <td><?php echo TemplateView::noHTML($program->getProvider()->getName()); ?></td>
+                                <td><?php echo TemplateView::noHTML($program->getProvider()->getStreet() . " " . $program->getProvider()->getPlz() ." " . $program->getProvider()->getCity()) ?></td>
                                 <td><?php echo TemplateView::noHTML($program->getDegree()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getType()); ?> </td>
                                 <td><?php echo TemplateView::noHTML($program->getDuration()); ?> </td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">
-                                            <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
-                                            <a class="btn-default" role="button" href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
+                                            <button type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right:16px;">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-xs dt-delete">
+                                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                            </button>
                                         </div>
                                     </td>
                                 <?php endif; ?>
