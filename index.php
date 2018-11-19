@@ -56,8 +56,13 @@ Router::route("POST", "/register", function () {
 */
 
 Router::route("POST", "/login", function () {
-    if(AuthController::login()){}
+    if(AuthController::login()){
+        if(isset($_SESSION["currentPath"]) ){
+            Router::redirect($_SESSION["currentPath"]);
+        }
         HomepageController::show();
+    }
+
 });
 
 Router::route("GET", "/logout", function () {
