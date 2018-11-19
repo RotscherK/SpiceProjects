@@ -50,6 +50,7 @@ class ProviderController{
     public static function update(){
         $provider = new Provider();
         $provider->setId($_POST["id"]);
+        $provider->setName($_POST["name"]);
         $provider->setDescription($_POST["description"]);
         $provider->setPlz($_POST["plz"]);
         $provider->setCity($_POST["city"]);

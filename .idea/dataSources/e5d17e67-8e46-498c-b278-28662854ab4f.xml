@@ -19995,8 +19995,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>zfjuxnofrhkvit</Owner>
-      <IntrospectionTimestamp>2018-11-19.13:41:56.695</IntrospectionTimestamp>
-      <IntrospectionStateNumber>27119266</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-11-19.15:57:45.069</IntrospectionTimestamp>
+      <IntrospectionStateNumber>32620067</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -20042,52 +20042,120 @@
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="4154" parent="4147" name="authtoken_id_seq">
+    <sequence id="4154" parent="4147" name="advertisements_id_seq">
+      <ObjectId>13131849</ObjectId>
+      <Owner>zfjuxnofrhkvit</Owner>
+      <StateNumber>32610134</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="4155" parent="4147" name="authtoken_id_seq">
       <ObjectId>11822458</ObjectId>
       <StateNumber>22697617</StateNumber>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <sequence id="4155" parent="4147" name="category_id_seq">
+    <sequence id="4156" parent="4147" name="category_id_seq">
       <ObjectId>11822502</ObjectId>
       <StateNumber>22697623</StateNumber>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <sequence id="4156" parent="4147" name="program_id_seq">
+    <sequence id="4157" parent="4147" name="program_id_seq">
       <ObjectId>11822491</ObjectId>
       <StateNumber>22697621</StateNumber>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <sequence id="4157" parent="4147" name="provider_int_seq">
+    <sequence id="4158" parent="4147" name="provider_int_seq">
       <ObjectId>11822480</ObjectId>
       <StateNumber>22697619</StateNumber>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <sequence id="4158" parent="4147" name="user_id_seq">
+    <sequence id="4159" parent="4147" name="user_id_seq">
       <ObjectId>11822469</ObjectId>
       <StateNumber>22697618</StateNumber>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <table id="4159" parent="4147" name="authtoken">
+    <table id="4160" parent="4147" name="advertisements">
+      <ObjectId>13131851</ObjectId>
+      <Owner>zfjuxnofrhkvit</Owner>
+      <StateNumber>32620067</StateNumber>
+    </table>
+    <table id="4161" parent="4147" name="authtoken">
       <ObjectId>11822460</ObjectId>
       <StateNumber>22697625</StateNumber>
     </table>
-    <table id="4160" parent="4147" name="category">
+    <table id="4162" parent="4147" name="category">
       <ObjectId>11822504</ObjectId>
       <StateNumber>22706977</StateNumber>
     </table>
-    <table id="4161" parent="4147" name="program">
+    <table id="4163" parent="4147" name="program">
       <ObjectId>11822493</ObjectId>
       <StateNumber>26864845</StateNumber>
     </table>
-    <table id="4162" parent="4147" name="provider">
+    <table id="4164" parent="4147" name="provider">
       <ObjectId>11822482</ObjectId>
       <StateNumber>22697628</StateNumber>
     </table>
-    <table id="4163" parent="4147" name="user">
+    <table id="4165" parent="4147" name="user">
       <ObjectId>11822471</ObjectId>
-      <StateNumber>26734984</StateNumber>
+      <Owner>zfjuxnofrhkvit</Owner>
+      <StateNumber>32620067</StateNumber>
     </table>
-    <column id="4164" parent="4159" name="id">
+    <column id="4166" parent="4160" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>32610134</StateNumber>
+      <DefaultExpression>nextval(&apos;advertisements_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>advertisements_id_seq</SequenceName>
+    </column>
+    <column id="4167" parent="4160" name="title">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <StateNumber>32616339</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="4168" parent="4160" name="content">
+      <Position>3</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <StateNumber>32610134</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="4169" parent="4160" name="url">
+      <Position>4</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <StateNumber>32616340</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="4170" parent="4160" name="administrator">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>32618725</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="4171" parent="4160" name="advertisements_pkey">
+      <ObjectId>13131855</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="4172" parent="4160" name="advertisements_pkey">
+      <ObjectId>13131856</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>advertisements_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="4173" parent="4160" name="advertisements_user_id_fk">
+      <ObjectId>13132123</ObjectId>
+      <ColNames>administrator</ColNames>
+      <RefTableId>11822471</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="4174" parent="4161" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -20095,48 +20163,48 @@
       <DefaultExpression>nextval(&apos;authtoken_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>authtoken_id_seq</SequenceName>
     </column>
-    <column id="4165" parent="4159" name="selector">
+    <column id="4175" parent="4161" name="selector">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697617</StateNumber>
     </column>
-    <column id="4166" parent="4159" name="validator">
+    <column id="4176" parent="4161" name="validator">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697617</StateNumber>
     </column>
-    <column id="4167" parent="4159" name="expiration">
+    <column id="4177" parent="4161" name="expiration">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697617</StateNumber>
     </column>
-    <column id="4168" parent="4159" name="type">
+    <column id="4178" parent="4161" name="type">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697617</StateNumber>
     </column>
-    <column id="4169" parent="4159" name="user_id">
+    <column id="4179" parent="4161" name="user_id">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697617</StateNumber>
     </column>
-    <index id="4170" parent="4159" name="authtoken_pkey">
+    <index id="4180" parent="4161" name="authtoken_pkey">
       <ObjectId>11822467</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4171" parent="4159" name="authtoken_pkey">
+    <key id="4181" parent="4161" name="authtoken_pkey">
       <ObjectId>11822468</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>authtoken_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="4172" parent="4159" name="fkauthtoken611198">
+    <foreign-key id="4182" parent="4161" name="fkauthtoken611198">
       <ObjectId>11822510</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableId>11822471</RefTableId>
@@ -20145,7 +20213,7 @@
       <RefKeyName>user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="4173" parent="4160" name="id">
+    <column id="4183" parent="4162" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -20153,24 +20221,24 @@
       <DefaultExpression>nextval(&apos;category_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>category_id_seq</SequenceName>
     </column>
-    <column id="4174" parent="4160" name="name">
+    <column id="4184" parent="4162" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22707143</StateNumber>
     </column>
-    <index id="4175" parent="4160" name="category_pkey">
+    <index id="4185" parent="4162" name="category_pkey">
       <ObjectId>11822508</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4176" parent="4160" name="category_pkey">
+    <key id="4186" parent="4162" name="category_pkey">
       <ObjectId>11822509</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="4177" parent="4161" name="id">
+    <column id="4187" parent="4163" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -20178,96 +20246,96 @@
       <DefaultExpression>nextval(&apos;program_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>program_id_seq</SequenceName>
     </column>
-    <column id="4178" parent="4161" name="name">
+    <column id="4188" parent="4163" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4179" parent="4161" name="type">
+    <column id="4189" parent="4163" name="type">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4180" parent="4161" name="category_id">
+    <column id="4190" parent="4163" name="category_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4181" parent="4161" name="distance_learning">
+    <column id="4191" parent="4163" name="distance_learning">
       <Position>5</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4182" parent="4161" name="degree">
+    <column id="4192" parent="4163" name="degree">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4183" parent="4161" name="price">
+    <column id="4193" parent="4163" name="price">
       <Position>7</Position>
       <DataType>double precision|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4184" parent="4161" name="duration">
+    <column id="4194" parent="4163" name="duration">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4185" parent="4161" name="description">
+    <column id="4195" parent="4163" name="description">
       <Position>9</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>26571350</StateNumber>
     </column>
-    <column id="4186" parent="4161" name="requirements">
+    <column id="4196" parent="4163" name="requirements">
       <Position>10</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>26571351</StateNumber>
     </column>
-    <column id="4187" parent="4161" name="url">
+    <column id="4197" parent="4163" name="url">
       <Position>11</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4188" parent="4161" name="start_date">
+    <column id="4198" parent="4163" name="start_date">
       <Position>12</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>26873852</StateNumber>
     </column>
-    <column id="4189" parent="4161" name="provider_id">
+    <column id="4199" parent="4163" name="provider_id">
       <Position>13</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697621</StateNumber>
     </column>
-    <column id="4190" parent="4161" name="is_billed">
+    <column id="4200" parent="4163" name="is_billed">
       <Position>14</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>26873853</StateNumber>
       <DefaultExpression>false</DefaultExpression>
     </column>
-    <index id="4191" parent="4161" name="program_pkey">
+    <index id="4201" parent="4163" name="program_pkey">
       <ObjectId>11822500</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4192" parent="4161" name="program_pkey">
+    <key id="4202" parent="4163" name="program_pkey">
       <ObjectId>11822501</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>program_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="4193" parent="4161" name="fkprogram908823">
+    <foreign-key id="4203" parent="4163" name="fkprogram908823">
       <ObjectId>11822525</ObjectId>
       <ColNames>category_id</ColNames>
       <RefTableId>11822504</RefTableId>
@@ -20276,7 +20344,7 @@
       <RefKeyName>category_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="4194" parent="4161" name="fkprogram924620">
+    <foreign-key id="4204" parent="4163" name="fkprogram924620">
       <ObjectId>11822520</ObjectId>
       <ColNames>provider_id</ColNames>
       <RefTableId>11822482</RefTableId>
@@ -20285,7 +20353,7 @@
       <RefKeyName>provider_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="4195" parent="4162" name="id">
+    <column id="4205" parent="4164" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -20293,60 +20361,60 @@
       <DefaultExpression>nextval(&apos;provider_int_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>provider_int_seq</SequenceName>
     </column>
-    <column id="4196" parent="4162" name="name">
+    <column id="4206" parent="4164" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697619</StateNumber>
     </column>
-    <column id="4197" parent="4162" name="description">
+    <column id="4207" parent="4164" name="description">
       <Position>3</Position>
       <DataType>varchar(1000)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697619</StateNumber>
     </column>
-    <column id="4198" parent="4162" name="plz">
+    <column id="4208" parent="4164" name="plz">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697619</StateNumber>
     </column>
-    <column id="4199" parent="4162" name="city">
+    <column id="4209" parent="4164" name="city">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697619</StateNumber>
     </column>
-    <column id="4200" parent="4162" name="street">
+    <column id="4210" parent="4164" name="street">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697619</StateNumber>
     </column>
-    <column id="4201" parent="4162" name="billing_email">
+    <column id="4211" parent="4164" name="billing_email">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697619</StateNumber>
     </column>
-    <column id="4202" parent="4162" name="administrator">
+    <column id="4212" parent="4164" name="administrator">
       <Position>8</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697619</StateNumber>
     </column>
-    <index id="4203" parent="4162" name="provider_pkey">
+    <index id="4213" parent="4164" name="provider_pkey">
       <ObjectId>11822489</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4204" parent="4162" name="provider_pkey">
+    <key id="4214" parent="4164" name="provider_pkey">
       <ObjectId>11822490</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>provider_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="4205" parent="4162" name="fkprovider123840">
+    <foreign-key id="4215" parent="4164" name="fkprovider123840">
       <ObjectId>11822515</ObjectId>
       <ColNames>administrator</ColNames>
       <RefTableId>11822471</RefTableId>
@@ -20355,7 +20423,7 @@
       <RefKeyName>user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="4206" parent="4163" name="id">
+    <column id="4216" parent="4165" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -20363,54 +20431,54 @@
       <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>user_id_seq</SequenceName>
     </column>
-    <column id="4207" parent="4163" name="lastname">
+    <column id="4217" parent="4165" name="lastname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697618</StateNumber>
     </column>
-    <column id="4208" parent="4163" name="firstname">
+    <column id="4218" parent="4165" name="firstname">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697618</StateNumber>
     </column>
-    <column id="4209" parent="4163" name="email">
+    <column id="4219" parent="4165" name="email">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697618</StateNumber>
     </column>
-    <column id="4210" parent="4163" name="password">
+    <column id="4220" parent="4165" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>22697618</StateNumber>
     </column>
-    <column id="4211" parent="4163" name="admin">
+    <column id="4221" parent="4165" name="admin">
       <Position>6</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>26734982</StateNumber>
       <DefaultExpression>false</DefaultExpression>
     </column>
-    <column id="4212" parent="4163" name="provider_admin">
+    <column id="4222" parent="4165" name="provider_admin">
       <Position>7</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>26734983</StateNumber>
       <DefaultExpression>false</DefaultExpression>
     </column>
-    <column id="4213" parent="4163" name="ad_admin">
+    <column id="4223" parent="4165" name="ad_admin">
       <Position>8</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>26735070</StateNumber>
       <DefaultExpression>false</DefaultExpression>
     </column>
-    <index id="4214" parent="4163" name="user_pkey">
+    <index id="4224" parent="4165" name="user_pkey">
       <ObjectId>11822478</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4215" parent="4163" name="user_pkey">
+    <key id="4225" parent="4165" name="user_pkey">
       <ObjectId>11822479</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
