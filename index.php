@@ -29,7 +29,6 @@ use http\HTTPStatusCode;
 session_start();
 
 $authFunction = function () {
-
     if (AuthController::authenticate())
         return true;
     Router::redirect("/login");
@@ -166,6 +165,7 @@ try {
     if($_SERVER['REQUEST_METHOD']=="OPTIONS") {
         HTTPHeader::setStatusHeader(HTTPStatusCode::HTTP_204_NO_CONTENT);
     } else {
+        $_SESSION["currentPath"] = $_SERVER['PATH_INFO'];
         Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO']);
     }
 } catch (HTTPException $exception) {
