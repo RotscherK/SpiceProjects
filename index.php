@@ -131,7 +131,7 @@ Router::route_auth("GET", "/program/edit", $authFunction, function () {
 
 Router::route_auth("GET", "/program/delete", $authFunction, function () {
     ProgramController::delete();
-    Router::redirect("/");
+    ProgramController::readAll();
 });
 
 Router::route_auth("POST", "/program/update", $authFunction, function () {
