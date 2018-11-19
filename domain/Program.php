@@ -313,7 +313,8 @@ class Program {
      */
     public function getCategory()
     {
-        return $this->category;
+        return (new CategoryDAO())->read($this->category);
+        //return $this->category;
     }
 
     /**
@@ -329,7 +330,9 @@ class Program {
      */
     public function getProvider()
     {
-        return $this->provider;
+        return (new ProviderDAO())->read($this->provider);
+
+        //return $this->provider;
     }
 
     /**
