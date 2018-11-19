@@ -22,6 +22,8 @@ use controller\ErrorController;
 use controller\UserPasswordResetController;
 use controller\ChargingController;
 use controller\PDFController;
+use view\TemplateView;
+use view\LayoutRendering;
 use http\HTTPException;
 use http\HTTPHeader;
 use http\HTTPStatusCode;
@@ -178,10 +180,10 @@ try {
 } catch (HTTPException $exception) {
     $exception->getHeader();
 
-     // $contentView = new TemplateView("404page.php");
-    // $contentView->exception = $exception;
-   // LayoutRendering::basicLayout($contentView);
+     $contentView = new TemplateView("404page.php");
+    $contentView->exception = $exception;
+   LayoutRendering::basicLayout($contentView);
 
-    $exception->getHeader();
-    ErrorController::show404();
+    //$exception->getHeader();
+    //ErrorController::show404();
 }
