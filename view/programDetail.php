@@ -25,13 +25,13 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                     <div class="col"><label><?php
                             switch ($program->getType()) {
                                 case 1:
-                                    echo "BB";
+                                    echo "Parttime";
                                     break;
                                 case 2:
-                                    echo "VZ";
+                                    echo "Fulltime";
                                     break;
                                 case 3:
-                                    echo "BB/VZ";
+                                    echo "Parttime/Fulltime";
                                     break;
                             }
                             ?>
@@ -84,7 +84,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                 </div>
                 <div class="row">
                     <div class="col"><label>Address<br></label></div>
-                    <div class="col"><label><?php echo TemplateView::noHTML($program->getProvider()->getStreet() ."<br>" . $program->getProvider()->getPlz() ." ". $program->getProvider()->getDescription()) ?></label></div>
+                    <div class="col"><label><?php echo TemplateView::noHTML($program->getProvider()->getStreet()) ."<br>" . TemplateView::noHTML($program->getProvider()->getPlz() ." ". $program->getProvider()->getDescription()) ?></label></div>
                 </div>
             </div>
         </div>

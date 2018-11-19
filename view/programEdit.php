@@ -7,9 +7,11 @@
  */
 use view\TemplateView;
 use domain\Program;
+use domain\Provider;
 use validator\ProgramValidator;
 
 isset($this->program) ? $program = $this->program : $program = new Program();
+isset($this->provider) ? $provider = $this->provider : $provider = new Provider();
 isset($this->programValidator) ? $programValidator = $this->programValidator : $programValidator = new ProgramValidator();
 ?>
 
@@ -35,11 +37,9 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="provider" class="col-sm-3 col-form-label" name="provider" >Provider</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="provider" name="provider">
-                        <option value="1" <?php if($program->getProviderId() == '1'): ?> selected="selected"<?php endif; ?> >FHNW</option>
-                        <option value="2" <?php if($program->getProviderId() == '2'): ?> selected="selected"<?php endif; ?> >Uni Basel</option>
-                        <option value="3" <?php if($program->getProviderId() == '3'): ?> selected="selected"<?php endif; ?> >Uni Bern</option>
-                        <option value="4" <?php if($program->getProviderId() == '4'): ?> selected="selected"<?php endif; ?> >IKT</option>
-                        <option value="5" <?php if($program->getProviderId() == '5'): ?> selected="selected"<?php endif; ?> >FHBO</option>
+                        <?php foreach($this->providers as $provider): /* @var Provider $provider */ ?>
+                            <option value="<?php echo $provider->getID(); ?>" <?php if($program->getProviderId() == $provider->getID()): ?> selected="selected"<?php endif; ?> >$provider->getName()</option>
+                        <?php endforeach; ?>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getProviderIDError() ?></small>
                 </div>
@@ -48,9 +48,9 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="type" class="col-sm-3 col-form-label">Type</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="type" name="type">
-                        <option value="1" <?php if($program->getType() == '1'): ?> selected="selected"<?php endif; ?> >BB</option>
-                        <option value="2" <?php if($program->getType() == '2'): ?> selected="selected"<?php endif; ?> >VZ</option>
-                        <option value="3" <?php if($program->getType() == '3'): ?> selected="selected"<?php endif; ?> >VZ/BB</option>
+                        <option value="1" <?php if($program->getType() == '1'): ?> selected="selected"<?php endif; ?> >Parttime</option>
+                        <option value="2" <?php if($program->getType() == '2'): ?> selected="selected"<?php endif; ?> >Fulltime</option>
+                        <option value="3" <?php if($program->getType() == '3'): ?> selected="selected"<?php endif; ?> >Parttime/Fulltime</option>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getTypeError() ?></small>
 
