@@ -38,7 +38,7 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <div class="col-sm-9">
                     <select class="form-control" id="provider" name="provider">
                         <?php foreach($this->providers as $provider): /* @var Provider $provider */ ?>
-                            <option value="<?php echo $provider->getID(); ?>" <?php if($program->getProviderId() == $provider->getID()): ?> selected="selected"<?php endif; ?> >$provider->getName()</option>
+                            <option value="<?php echo $provider->getID(); ?>" <?php if($program->getProviderId() == $provider->getID()): ?> selected="selected"<?php endif; ?>> <?php echo $provider->getName() ?> </option>
                         <?php endforeach; ?>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getProviderIDError() ?></small>
