@@ -71,6 +71,7 @@ class ProgramServiceImpl implements ProgramService
             $program = new Program();
             $program->setId($programId);
             $programDAO->delete($program);
+            return;
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }

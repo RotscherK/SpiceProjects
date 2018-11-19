@@ -1,7 +1,18 @@
 Todo:
 
+Access Concept:
+- Programs& Adds (Create, Edit & Delete)
+    - Site Admin
+    - Provider (Administrator providing Program)
+
+- User Create, View, Edit and Delete
+    - Site Admin
+
+- Provider Create, Edit and Delete
+    - Site Admin
+    - Provider (Administrator providing Program)
+
 Content Management:
-- NEW: Redirect after program/user delete
 - Program
     - Dropdowns with other entities
     - Attributebased Search
@@ -33,6 +44,8 @@ Authorization
 - Login Form, Logic & Validation
     - Password Reset
 - Logout
+- NEW: Redirect after program/user delete
+
 
 Basics
 - Index & Routing setup

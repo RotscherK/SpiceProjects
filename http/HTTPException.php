@@ -30,6 +30,10 @@ class HTTPException extends Exception implements HTTPStatusCode
         return $this->header;
     }
 
+    public function getStatusCode(){
+        return $this->statusCode;
+    }
+
     public function getBody()
     {
         return $this->body;

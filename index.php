@@ -22,6 +22,8 @@ use controller\ErrorController;
 use controller\UserPasswordResetController;
 use controller\ChargingController;
 use controller\PDFController;
+use view\TemplateView;
+use view\LayoutRendering;
 use http\HTTPException;
 use http\HTTPHeader;
 use http\HTTPStatusCode;
@@ -29,7 +31,6 @@ use http\HTTPStatusCode;
 session_start();
 
 $authFunction = function () {
-
     if (AuthController::authenticate())
         return true;
     Router::redirect("/login");
@@ -57,8 +58,13 @@ Router::route("POST", "/register", function () {
 */
 
 Router::route("POST", "/login", function () {
-    if(AuthController::login()){}
+    if(AuthController::login()){
+        if(isset($_SESSION["currentPath"]) ){
+            Router::redirect($_SESSION["currentPath"]);
+        }
         HomepageController::show();
+    }
+
 });
 
 Router::route("GET", "/logout", function () {
@@ -125,7 +131,7 @@ Router::route_auth("GET", "/program/edit", $authFunction, function () {
 
 Router::route_auth("GET", "/program/delete", $authFunction, function () {
     ProgramController::delete();
-    Router::redirect("/");
+    HomepageController::show();
 });
 
 Router::route_auth("POST", "/program/update", $authFunction, function () {
@@ -147,6 +153,10 @@ Router::route_auth("GET", "/provider/edit", $authFunction, function () {
     ProviderController::edit();
 });
 
+Router::route_auth("POST", "/provider/update", $authFunction, function () {
+    if(ProviderController::update());
+    Router::redirect("/provider/list");
+});
 
 
 /*
@@ -167,15 +177,21 @@ try {
     if($_SERVER['REQUEST_METHOD']=="OPTIONS") {
         HTTPHeader::setStatusHeader(HTTPStatusCode::HTTP_204_NO_CONTENT);
     } else {
+        if ($_SERVER['PATH_INFO'] !== '/login'){
+            $_SESSION["currentPath"] = $_SERVER['PATH_INFO'];
+        }
         Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO']);
     }
 } catch (HTTPException $exception) {
     $exception->getHeader();
 
-     // $contentView = new TemplateView("404page.php");
-    // $contentView->exception = $exception;
-   // LayoutRendering::basicLayout($contentView);
+     $contentView = new TemplateView("404page.php");
+    $contentView->exceptionCode = substr($exception->getStatusCode(), 0, 3);
+    $contentView->exceptionText =  substr($exception->getStatusCode(), 3);
+    $contentView->exception = $exception;
 
-    $exception->getHeader();
-    ErrorController::show404();
+    LayoutRendering::basicLayout($contentView);
+
+    //$exception->getHeader();
+    //ErrorController::show404();
 }

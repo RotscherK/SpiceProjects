@@ -29,7 +29,7 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                 <div class="form-control">
                     <div class="checkbox">
                         <label class="control-label">
-                            <input type="checkbox" name="remember" />Remember me for 30 days
+                            <input type="checkbox" name="remember" />Remember me for 30 days Test
                         </label>
                     </div>
                 </div>
