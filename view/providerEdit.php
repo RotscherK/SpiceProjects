@@ -62,7 +62,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $providerValidator->getStreetError() ?></small>
                 </div>
             </div>
-            <div class="form-group row <?php echo $providerValidator->isBillingEmailError()? "has-error" : ""; ?>">
+            <div class="form-group row <?php echo $providerValidator->isBillingEmailError()? "has-error" : "";?>">
                 <label for="name" class="col-sm-3 col-form-label">PLZ</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="billingEmail" id="billingEmail" placeholder="Billing email" value="<?php echo $provider->getBillingEmail() ?>">
