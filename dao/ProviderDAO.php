@@ -58,6 +58,5 @@ class ProviderDAO extends BasicDAO {
         }
         return null;
     }
-
 }
 ?>
