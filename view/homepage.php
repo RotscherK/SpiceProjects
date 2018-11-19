@@ -44,10 +44,10 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">
                                             <button type="button" class="btn btn-primary btn-xs dt-edit" style="margin-right:16px;">
-                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true">edit</span>
                                             </button>
                                             <button type="button" class="btn btn-danger btn-xs dt-delete">
-                                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-remove" aria-hidden="true">delete</span>
                                             </button>
                                         </div>
                                     </td>
