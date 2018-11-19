@@ -20,6 +20,7 @@ class ProviderController{
 
     public static function create(){
         $contentView = new TemplateView("providerEdit.php");
+        $contentView->users = (new ProviderServiceImpl())->getProviderAdmins();
         LayoutRendering::basicLayout($contentView);
     }
 
