@@ -126,7 +126,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getDescription() {
         return $this->description;

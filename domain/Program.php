@@ -309,7 +309,7 @@ class Program {
     }
 
     /**
-     * @return mixed
+     * @return Category
      */
     public function getCategory()
     {
