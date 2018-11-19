@@ -34,6 +34,28 @@ class ProviderDAO extends BasicDAO {
         return null;
     }
 
+    /**
+     * @access public
+     * @param Provider provider
+     * @return Provider
+     * @ParamType provider Provider
+     * @ReturnType Provider
+     */
+    public function update(Provider $provider) {
+        $stmt = $this->pdoInstance->prepare('
+                UPDATE "provider" SET name=:name, description=:description, plz=:plz, city=:city, street=:street, 
+                billing_email=:billingEmail, administrator=:administrator WHERE id = :id;');
+        $stmt->bindValue(':name', $provider->getName());
+        $stmt->bindValue(':description', $provider->getDescription());
+        $stmt->bindValue(':plz', $provider->getPlz());
+        $stmt->bindValue(':city', $provider->getCity());
+        $stmt->bindValue(':street', $provider->getStreet());
+        $stmt->bindValue(':billing_email', $provider->getBillingEmail());
+        $stmt->bindValue(':administrator', $provider->getAdministrator());
+        $stmt->execute();
+        return $this->read($provider->getId());
+    }
+
 	/**
 	 * @access public
 	 * @return Provider[]
