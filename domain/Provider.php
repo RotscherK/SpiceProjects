@@ -9,6 +9,7 @@
 namespace domain;
 
 use dao\ProviderDAO;
+use service\UserServiceImpl;
 
 class Provider {
     /**
@@ -247,6 +248,7 @@ class Provider {
      * @return RETURNTYPE RETURNDESCRIPTION
      */
     public function getAdministratorEmail() {
-        return (new ProviderDAO())->getAdministratorEmail($this->administrator);
+        return (new UserServiceImpl())->readUserBasic($this->getAdministrator())->getEmail();
+        //return (new ProviderDAO())->getAdministratorEmail($this->administrator);
     }
 }
