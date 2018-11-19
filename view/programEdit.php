@@ -84,9 +84,9 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="degree" class="col-sm-3 col-form-label">Degree</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="degree" name="degree">
-                        <option value="bachelor" <?php if($program->getDegree() == 'Bachelor'): ?> selected="selected"<?php endif; ?> >Bachelor</option>
-                        <option value="master" <?php if($program->getDegree() == 'Master'): ?> selected="selected"<?php endif; ?> >Master</option>
-                        <option value="other" <?php if($program->getDegree() == 'Other'): ?> selected="selected"<?php endif; ?> >Other</option>
+                        <option value="Bachelor" <?php if($program->getDegree() == 'Bachelor'): ?> selected="selected"<?php endif; ?> >Bachelor</option>
+                        <option value="Master" <?php if($program->getDegree() == 'Master'): ?> selected="selected"<?php endif; ?> >Master</option>
+                        <option value="Other" <?php if($program->getDegree() == 'Other'): ?> selected="selected"<?php endif; ?> >Other</option>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getDegreeError() ?></small>
 
