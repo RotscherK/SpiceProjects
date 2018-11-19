@@ -153,6 +153,10 @@ Router::route_auth("GET", "/provider/edit", $authFunction, function () {
     ProviderController::edit();
 });
 
+Router::route_auth("POST", "/provider/update", $authFunction, function () {
+    if(ProviderController::update());
+    Router::redirect("/provider/list");
+});
 
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
