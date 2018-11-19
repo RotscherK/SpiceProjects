@@ -91,4 +91,14 @@ class ProviderServiceImpl implements ProviderService
         return $providerDAO->getAllProviders();
     }
 
+/**
+ * @access public
+ * @return Provider[]
+ * @ReturnType Provider[]
+ * @throws HTTPException
+ */
+public function getProviderAdmins() {
+    return true;
+}
+
 }
