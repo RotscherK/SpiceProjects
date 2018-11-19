@@ -19995,8 +19995,8 @@
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Owner>zfjuxnofrhkvit</Owner>
-      <IntrospectionTimestamp>2018-11-19.15:57:45.069</IntrospectionTimestamp>
-      <IntrospectionStateNumber>32620067</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-11-19.19:47:58.322</IntrospectionTimestamp>
+      <IntrospectionStateNumber>32721732</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -20076,10 +20076,10 @@
       <StateNumber>22697618</StateNumber>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <table id="4160" parent="4147" name="advertisements">
+    <table id="4160" parent="4147" name="advertisement">
       <ObjectId>13131851</ObjectId>
       <Owner>zfjuxnofrhkvit</Owner>
-      <StateNumber>32620067</StateNumber>
+      <StateNumber>32721732</StateNumber>
     </table>
     <table id="4161" parent="4147" name="authtoken">
       <ObjectId>11822460</ObjectId>
