@@ -48,7 +48,7 @@ class ProgramController
         $id = $_GET["id"];
         $contentView = new TemplateView("programEdit.php");
         $contentView->program = (new ProgramServiceImpl())->readProgram($id);
-
+        $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
         LayoutRendering::basicLayout($contentView);
     }
 
