@@ -43,12 +43,8 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">
-                                            <button type="button" class="btn btn-default btn-xs dt-edit" style="margin-right:5px;">
-                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-xs dt-delete">
-                                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                            </button>
+                                            <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
+                                            <a class="btn-default" role="button" href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                         </div>
                                     </td>
                                 <?php endif; ?>
