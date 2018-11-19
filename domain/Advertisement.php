@@ -110,12 +110,6 @@ class Advertisement {
     {
         return $this->admin;
     }
-    /**
-     * @return mixed
-     */
-    public function setProviderAdmin($provider_admin)
-    {
-        $this->provider_admin = $provider_admin;
-    }
+
 }
 ?>
