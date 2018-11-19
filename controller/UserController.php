@@ -157,7 +157,7 @@ class UserController
     {
         $id = $_GET["id"];
         $contentView = new TemplateView("view/userDetail.php");
-        $contentView->program = (new UserServiceImpl())->readUser($id);
+        $contentView->user = (new UserServiceImpl())->readUser($id);
         LayoutRendering::basicLayout($contentView);
     }
 
