@@ -45,6 +45,7 @@ class ProviderDAO extends BasicDAO {
         $stmt = $this->pdoInstance->prepare('
                 UPDATE "provider" SET name=:name, description=:description, plz=:plz, city=:city, street=:street, 
                 billing_email=:billingEmail, administrator=:administrator WHERE id = :id;');
+        $stmt->bindValue(':id', $provider->getId());
         $stmt->bindValue(':name', $provider->getName());
         $stmt->bindValue(':description', $provider->getDescription());
         $stmt->bindValue(':plz', $provider->getPlz());
