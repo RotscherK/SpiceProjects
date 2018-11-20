@@ -8,6 +8,10 @@
 
 namespace domain;
 
+use dao\CategoryDAO;
+use dao\ProviderDAO;
+
+
 
 class Program {
 
@@ -27,6 +31,10 @@ class Program {
      * @AttributeType Int
      */
     protected $category_id;
+    /**
+     * @AttributeType Category
+     */
+    protected $category;
     /**
      * @AttributeType boolean
      */
@@ -60,10 +68,15 @@ class Program {
      */
     protected $start_date;
 
-    /**
+      /**
      * @AttributeType Int
      */
     protected $provider_id;
+
+    /**
+     * @AttributeType Provider
+     */
+    protected $provider;
 
     /**
      * @AttributeType Boolean
@@ -132,6 +145,7 @@ class Program {
     public function setCategoryId($category_id)
     {
         $this->category_id = $category_id;
+        $this->category = (new CategoryDAO())->read($category_id);
     }
 
     /**
@@ -276,6 +290,7 @@ class Program {
     public function setProviderId($provider_id)
     {
         $this->provider_id = $provider_id;
+        $this->provider = (new ProviderDAO())->read($provider_id);
     }
     /**
      * @return mixed
@@ -292,5 +307,41 @@ class Program {
     {
         $this->is_billed = $is_billed;
     }
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return (new CategoryDAO())->read($this->category_id);
+        //return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return Provider
+     */
+    public function getProvider()
+    {
+        return (new ProviderDAO())->read($this->provider_id);
+
+        //return $this->provider;
+    }
+
+    /**
+     * @param mixed $provider
+     */
+    public function setProvider($provider)
+    {
+        $this->provider = $provider;
+    }
+
 
 }

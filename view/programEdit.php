@@ -7,9 +7,11 @@
  */
 use view\TemplateView;
 use domain\Program;
+use domain\Provider;
 use validator\ProgramValidator;
 
 isset($this->program) ? $program = $this->program : $program = new Program();
+isset($this->provider) ? $provider = $this->provider : $provider = new Provider();
 isset($this->programValidator) ? $programValidator = $this->programValidator : $programValidator = new ProgramValidator();
 ?>
 
@@ -35,11 +37,9 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="provider" class="col-sm-3 col-form-label" name="provider" >Provider</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="provider" name="provider">
-                        <option value="1" <?php if($program->getProviderId() == '1'): ?> selected="selected"<?php endif; ?> >FHNW</option>
-                        <option value="2" <?php if($program->getProviderId() == '2'): ?> selected="selected"<?php endif; ?> >Uni Basel</option>
-                        <option value="3" <?php if($program->getProviderId() == '3'): ?> selected="selected"<?php endif; ?> >Uni Bern</option>
-                        <option value="4" <?php if($program->getProviderId() == '4'): ?> selected="selected"<?php endif; ?> >IKT</option>
-                        <option value="5" <?php if($program->getProviderId() == '5'): ?> selected="selected"<?php endif; ?> >FHBO</option>
+                        <?php foreach($this->providers as $provider): /* @var Provider $provider */ ?>
+                            <option value="<?php echo $provider->getID(); ?>" <?php if($program->getProviderId() == $provider->getID()): ?> selected="selected"<?php endif; ?>> <?php echo $provider->getName() ?> </option>
+                        <?php endforeach; ?>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getProviderIDError() ?></small>
                 </div>
@@ -48,9 +48,9 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="type" class="col-sm-3 col-form-label">Type</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="type" name="type">
-                        <option value="1" <?php if($program->getType() == '1'): ?> selected="selected"<?php endif; ?> >BB</option>
-                        <option value="2" <?php if($program->getType() == '2'): ?> selected="selected"<?php endif; ?> >VZ</option>
-                        <option value="3" <?php if($program->getType() == '3'): ?> selected="selected"<?php endif; ?> >VZ/BB</option>
+                        <option value="1" <?php if($program->getType() == '1'): ?> selected="selected"<?php endif; ?> >Parttime</option>
+                        <option value="2" <?php if($program->getType() == '2'): ?> selected="selected"<?php endif; ?> >Fulltime</option>
+                        <option value="3" <?php if($program->getType() == '3'): ?> selected="selected"<?php endif; ?> >Parttime/Fulltime</option>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getTypeError() ?></small>
 
@@ -77,16 +77,16 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                     </label>
                 </div>
                 <div class="col-sm-9">
-                    <input class="form-check-input" type="checkbox" name="distance_learning" id="distance_learning" <?php echo ($program->getDistanceLearning()==true ? 'checked' : '');?>>
+                    <input class="form-check-input" type="checkbox" name="distance_learning" style="margin-left:0px;" id="distance_learning" <?php echo ($program->getDistanceLearning()==true ? 'checked' : '');?>>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="degree" class="col-sm-3 col-form-label">Degree</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="degree" name="degree">
-                        <option value="bachelor" <?php if($program->getDegree() == 'bachelor'): ?> selected="selected"<?php endif; ?> >Bachelor</option>
-                        <option value="master" <?php if($program->getDegree() == 'master'): ?> selected="selected"<?php endif; ?> >Master</option>
-                        <option value="other" <?php if($program->getDegree() == 'other'): ?> selected="selected"<?php endif; ?> >Other</option>
+                        <option value="Bachelor" <?php if($program->getDegree() == 'Bachelor'): ?> selected="selected"<?php endif; ?> >Bachelor</option>
+                        <option value="Master" <?php if($program->getDegree() == 'Master'): ?> selected="selected"<?php endif; ?> >Master</option>
+                        <option value="Other" <?php if($program->getDegree() == 'Other'): ?> selected="selected"<?php endif; ?> >Other</option>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getDegreeError() ?></small>
 
@@ -136,13 +136,12 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-5">
-                    <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
                 </div>
-                <div class="col-sm-5">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </div>
-
             </div>
         </form>
     </div>

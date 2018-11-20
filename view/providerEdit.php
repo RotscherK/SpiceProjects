@@ -62,7 +62,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $providerValidator->getStreetError() ?></small>
                 </div>
             </div>
-            <div class="form-group row <?php echo $providerValidator->isBillingEmailError()? "has-error" : ""; ?>">
+            <div class="form-group row <?php echo $providerValidator->isBillingEmailError()? "has-error" : "";?>">
                 <label for="name" class="col-sm-3 col-form-label">PLZ</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="billingEmail" id="billingEmail" placeholder="Billing email" value="<?php echo $provider->getBillingEmail() ?>">
@@ -81,12 +81,13 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-sm-5">
-                    <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
                 </div>
-                <div class="col-sm-5">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </div>
+
             </div>
         </form>
     </div>

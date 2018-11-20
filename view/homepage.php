@@ -35,10 +35,22 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                         foreach($this->programs as $program): /* @var Program $program */ ?>
                             <tr class='clickable-row' data-href="/program?id=<?php echo $program->getId(); ?>">
                                 <td><?php echo TemplateView::noHTML($program->getName()); ?></td>
-                                <td><?php echo TemplateView::noHTML($program->getProviderId()); ?></td>
-                                <td><?php echo TemplateView::noHTML($program->getPrice()); ?> ! <?php echo TemplateView::noHTML($program->getCategoryId()); ?> ! <?php echo TemplateView::noHTML($program->getDistanceLearning()); ?> ! <?php echo TemplateView::noHTML($program->getURL()); ?></td>
+                                <td><?php echo TemplateView::noHTML($program->getProvider()->getName()); ?></td>
+                                <td><?php echo TemplateView::noHTML($program->getProvider()->getStreet() . " " . $program->getProvider()->getPlz() ." " . $program->getProvider()->getCity()) ?></td>
                                 <td><?php echo TemplateView::noHTML($program->getDegree()); ?> </td>
-                                <td><?php echo TemplateView::noHTML($program->getType()); ?> </td>
+                                <td><?php
+                                    switch ($program->getType()) {
+                                        case 1:
+                                            echo "Parttime";
+                                            break;
+                                        case 2:
+                                            echo "Fulltime";
+                                            break;
+                                        case 3:
+                                            echo "Parttime/Fulltime";
+                                            break;
+                                    }
+                                    ?></td>
                                 <td><?php echo TemplateView::noHTML($program->getDuration()); ?> </td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>

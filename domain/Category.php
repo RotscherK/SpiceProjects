@@ -9,7 +9,7 @@
 namespace domain;
 
 
-class Provider extends AbstractJSONDTO {
+class Category {
 
     /**
      * @AttributeType int

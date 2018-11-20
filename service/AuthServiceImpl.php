@@ -93,6 +93,9 @@ class AuthServiceImpl implements AuthService {
                     $userDAO->update($user);
                 }
                 $_SESSION["userLogin"]["userID"] = $user->getId();
+                $_SESSION["userLogin"]["siteAdmin"] = $user->getAdmin();
+                $_SESSION["userLogin"]["adAdmin"] = $user->getAdAdmin();
+                $_SESSION["userLogin"]["providerAdmin"] = $user->getProviderAdmin();
 
                 return true;
             }

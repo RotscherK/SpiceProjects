@@ -18,11 +18,25 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             <div class="container container-details"><label><strong>Details</strong><br></label>
                 <div class="row">
                     <div class="col"><label>Category<br></label></div>
-                    <div class="col"><label><?php echo TemplateView::noHTML($program->getCategoryId()) ?><br></label></div>
+                    <div class="col"><label><?php echo TemplateView::noHTML($program->getCategory()->getName()) ?><br></label></div>
                 </div>
                 <div class="row">
                     <div class="col"><label>Type<br></label></div>
-                    <div class="col"><label><?php echo TemplateView::noHTML($program->getType()) ?><br></label></div>
+                    <div class="col"><label><?php
+                            switch ($program->getType()) {
+                                case 1:
+                                    echo "Parttime";
+                                    break;
+                                case 2:
+                                    echo "Fulltime";
+                                    break;
+                                case 3:
+                                    echo "Parttime/Fulltime";
+                                    break;
+                            }
+                            ?>
+
+                            <br></label></div>
                 </div>
                 <div class="row">
                     <div class="col"><label>Degree<br></label></div>
@@ -63,14 +77,14 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             </div>
         </div>
         <div class="row details-form">
-            <div class="container container-details"><label><strong>Provider <?php echo TemplateView::noHTML($program->getProviderId()) ?></strong><br></label>
+            <div class="container container-details"><label><strong>Provider <?php echo TemplateView::noHTML($program->getProvider()->getName()) ?></strong><br></label>
                 <div class="row">
-                    <div class="col"><label>Place<br></label></div>
-                    <div class="col"><label>Text<br></label></div>
+                    <div class="col"><label>Description<br></label></div>
+                    <div class="col"><label><?php echo TemplateView::noHTML($program->getProvider()->getDescription()) ?><br></label></div>
                 </div>
                 <div class="row">
-                    <div class="col"><label>Price<br></label></div>
-                    <div class="col"><label>Text<br></label></div>
+                    <div class="col"><label>Address<br></label></div>
+                    <div class="col"><label><?php echo TemplateView::noHTML($program->getProvider()->getStreet()) ."<br>" . TemplateView::noHTML($program->getProvider()->getPlz() ." ". $program->getProvider()->getDescription()) ?></label></div>
                 </div>
             </div>
         </div>

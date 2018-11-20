@@ -9,6 +9,7 @@
 namespace domain;
 
 use dao\ProviderDAO;
+use service\UserServiceImpl;
 
 class Provider {
     /**
@@ -126,7 +127,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getDescription() {
         return $this->description;
@@ -146,7 +147,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getPlz() {
         return $this->plz;
@@ -166,7 +167,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getCity() {
         return $this->city;
@@ -186,7 +187,7 @@ class Provider {
      * METHODDESCRIPTION
      *
      * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return String
      */
     public function getStreet() {
         return $this->street;
@@ -247,6 +248,7 @@ class Provider {
      * @return RETURNTYPE RETURNDESCRIPTION
      */
     public function getAdministratorEmail() {
-        return (new ProviderDAO())->getAdministratorEmail($this->administrator);
+        return (new UserServiceImpl())->readUserBasic($this->getAdministrator())->getEmail();
+        //return (new ProviderDAO())->getAdministratorEmail($this->administrator);
     }
 }
