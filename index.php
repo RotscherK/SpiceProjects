@@ -158,7 +158,6 @@ Router::route_auth("POST", "/provider/update", $authFunction, function () {
     Router::redirect("/provider/list");
 });
 
-
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
     EmailController::sendMeMyCustomers();
