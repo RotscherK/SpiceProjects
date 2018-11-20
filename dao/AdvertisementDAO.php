@@ -63,7 +63,7 @@ class AdvertisementDAO extends BasicDAO {
 	public function getAllAdvertisements() {
         $stmt = $this->pdoInstance->prepare('
             SELECT advertisement.id, advertisement.title, advertisement.content, advertisement.url, advertisement.administrator, "user".email AS administratorEmail
-             FROM "advertisement" JOIN "user" ON advertisement.administrator="user".id ORDER BY provider.id;');
+             FROM "advertisement" JOIN "user" ON advertisement.administrator="user".id ORDER BY advertisement.id;');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Advertisement");
 	}
