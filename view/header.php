@@ -45,7 +45,7 @@
                     <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/user/list">Edit</a><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/user/create">Create</a></div>
                 </li>
                 <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color: #ffffff;">Advertisement&nbsp;</a>
-                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/advertisement/edit">Edit</a><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/advertisement/create">Create</a></div>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/advertisement/list">Edit</a><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/advertisement/create">Create</a></div>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
