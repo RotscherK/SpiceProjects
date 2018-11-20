@@ -16,7 +16,7 @@ use view\LayoutRendering;
 use service\AdvertisementServiceImpl;
 use dao\AdvertisementDAO;
 
-class ProviderController{
+class AdvertisementController{
 
     public static function create(){
         $contentView = new TemplateView("advertisementEdit.php");
@@ -48,29 +48,26 @@ class ProviderController{
      * @throws \http\HTTPException
      */
     public static function update(){
-        $provider = new Provider();
-        $provider->setId($_POST["id"]);
-        $provider->setName($_POST["name"]);
-        $provider->setDescription($_POST["description"]);
-        $provider->setPlz($_POST["plz"]);
-        $provider->setCity($_POST["city"]);
-        $provider->setStreet($_POST["street"]);
-        $provider->setBillingEmail($_POST["billingEmail"]);
-        $provider->setAdministrator($_POST["administrator"]);
+        $advertisement = new Advertisement();
+        $advertisement->setId($_POST["id"]);
+        $advertisement->setTitle($_POST["title"]);
+        $advertisement->setContent($_POST["content"]);
+        $advertisement->setURL($_POST["url"]);
+        $advertisement->setUserAdmin($_POST["administrator"]);
 
-        $providerValidator = new providerValidator($provider);
+        $advertisementValidator = new AdvertisementValidator($advertisement);
 
-        if($providerValidator->isValid()) {
-            if ($provider->getId() === "") {
-                (new ProviderServiceImpl())->createProvider($provider);
+        if($advertisementValidator->isValid()) {
+            if ($advertisement->getId() === "") {
+                (new AdvertisementServiceImpl())->createAdvertisement($advertisement);
             } else {
-                (new ProviderServiceImpl())->updateProvider($provider);
+                (new AdvertisementServiceImpl())->updateAdvertisement($advertisement);
             }
         }
         else{
-            $contentView = new TemplateView("providerEdit.php");
-            $contentView->provider = $provider;
-            $contentView->providerValidator = $providerValidator;
+            $contentView = new TemplateView("advertisementEdit.php");
+            $contentView->advertisement = $advertisement;
+            $contentView->advertisementValidator = $advertisementValidator;
             LayoutRendering::basicLayout($contentView);
             return false;
         }

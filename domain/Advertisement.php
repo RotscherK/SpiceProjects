@@ -99,16 +99,16 @@ class Advertisement {
      * @param $user_admin
      * @return mixed
      */
-    public function setUserAdmin($user_admin)
+    public function setUserAdmin($administrator)
     {
-        $this->user_admin = $user_admin;
+        $this->administrator = $administrator;
     }
     /**
      * @return mixed
      */
     public function getUserAdmin()
     {
-        return $this->admin;
+        return $this->administrator;
     }
 
 }
