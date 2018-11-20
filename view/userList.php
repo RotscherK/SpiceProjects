@@ -14,7 +14,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
         <form method="post">
-            <h2 class="text-center">Available Users + <?php echo $_SESSION["userLogin"]["siteAdmin"].$_SESSION["userLogin"]["adAdmin"].$_SESSION["userLogin"]["providerAdmin"];?> test</h2>
+            <h2 class="text-center">Available Users</h2>
             <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchUser()" placeholder="Search"></div>
             <div class="text">
                 <div class="table-responsive table table-striped table-bordered table-hover">
