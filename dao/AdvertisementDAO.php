@@ -67,7 +67,7 @@ class AdvertisementDAO extends BasicDAO {
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Advertisement");
 	}
-/**
+
     public function getAdministratorEmail($administrator){
         $stmt = $this->pdoInstance->prepare('SELECT email FROM "user"
         WHERE id = :administratorId');
@@ -77,5 +77,5 @@ class AdvertisementDAO extends BasicDAO {
             return $stmt->fetchColumn();
         }
         return null;
-    }**/
+    }
 }
