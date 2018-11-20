@@ -13,8 +13,8 @@ use validator\AdvertisementValidator;
 use service\UserServiceImpl;
 use view\TemplateView;
 use view\LayoutRendering;
-use service\ProviderServiceImpl;
-use dao\ProviderDAO;
+use service\AdvertisementServiceImpl;
+use dao\AdvertisementDAO;
 
 class ProviderController{
 
@@ -25,8 +25,8 @@ class ProviderController{
 
     public static function list(){
         $contentView = new TemplateView("advertisementList.php");
-        $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
-        $contentView->users = (new ProviderServiceImpl())->getProviderAdmins();
+        $contentView->advertisement = (new AdvertisementServiceImpl())->getAllProviders();
+        $contentView->users = (new AdvertisementServiceImpl())->getProviderAdmins();
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -36,8 +36,8 @@ class ProviderController{
     public static function edit(){
 
         $id = $_GET["id"];
-        $contentView = new TemplateView("providerEdit.php");
-        $contentView->provider = (new ProviderServiceImpl())->readProvider($id);
+        $contentView = new TemplateView("advertisementEdit.php");
+        $contentView->advertisement = (new AdvertisementServiceImpl())->readAdvertisement($id);
         $contentView->users = (new UserServiceImpl())->getAllUsers();
 
         LayoutRendering::basicLayout($contentView);

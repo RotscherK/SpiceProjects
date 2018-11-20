@@ -51,53 +51,53 @@ class AdvertisementServiceImpl implements AdvertisementService
 
     /**
      * @access public
-     * @param Provider provider
-     * @return Provider
-     * @ParamType provider Provider
-     * @ReturnType Provider
+     * @param Advertisement advertisement
+     * @return Advertisement
+     * @ParamType advertisement Advertisement
+     * @ReturnType Advertisement
      * @throws HTTPException
      */
-    public function updateProvider(Provider $provider) {
+    public function updateAdvertisement(Advertisement $advertisement) {
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
-            $providerDAO = new ProviderDAO();
-            return $providerDAO->update($provider);
+            $advertisementDAO = new AdvertisementDAO();
+            return $advertisementDAO->update($advertisement);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
      * @access public
-     * @param int providerId
-     * @ParamType providerId int
+     * @param int advertisementId
+     * @ParamType advertisementId int
      */
-    public function deleteProvider($providerId) {
+    public function deleteAdvertisement($advertisementId) {
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
-            $providerDAO = new ProviderDAO();
-            $provider = new Provider();
-            $provider->setId($providerId);
-            $providerDAO->delete($provider);
+            $advertisementDAO = new AdvertisementDAO();
+            $advertisement = new Advertisement();
+            $advertisement->setId($advertisementId);
+            $advertisementDAO->delete($advertisement);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
     /**
      * @access public
-     * @return Provider[]
-     * @ReturnType Provider[]
+     * @return Advertisement[]
+     * @ReturnType Advertisement[]
      * @throws HTTPException
      */
-    public function getAllProviders() {
-        $providerDAO = new ProviderDAO();
-        return $providerDAO->getAllProviders();
+    public function getAllAdvertisements() {
+        $advertisementDAO = new AdvertisementDAO();
+        return $advertisementDAO->getAllAdvertisements();
     }
 
 /**
  * @access public
- * @return Provider[]
- * @ReturnType Provider[]
+ * @return Advertisement[]
+ * @ReturnType Advertisement[]
  * @throws HTTPException
  */
-public function getProviderAdmins() {
+public function getAdvertisementAdmins() {
     return true;
 }
 

@@ -36,10 +36,10 @@ class AdvertisementDAO extends BasicDAO {
 
     /**
      * @access public
-     * @param Provider provider
-     * @return Provider
-     * @ParamType provider Provider
-     * @ReturnType Provider
+     * @param Advertisement advertisement
+     * @return Advertisement
+     * @ParamType advertisement Advertisement
+     * @ReturnType Advertisement
      */
     public function update(Advertisement $advertisement) {
         $stmt = $this->pdoInstance->prepare('
@@ -55,19 +55,19 @@ class AdvertisementDAO extends BasicDAO {
 
 	/**
 	 * @access public
-	 * @return Provider[]
-	 * @ReturnType Provider[]
+	 * @return Advertisement[]
+	 * @ReturnType Advertisement[]
 	 */
 
-	/**
+
 	public function getAllAdvertisements() {
         $stmt = $this->pdoInstance->prepare('
             SELECT advertisement.id, advertisement.title, advertisement.content, advertisement.url, advertisement.administrator, "user".email AS administratorEmail
-             FROM "advertisement" JOIN "user" ON provider.administrator="user".id ORDER BY provider.id;');
+             FROM "advertisement" JOIN "user" ON advertisement.administrator="user".id ORDER BY provider.id;');
         $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Advertisement");
 	}
-
+/**
     public function getAdministratorEmail($administrator){
         $stmt = $this->pdoInstance->prepare('SELECT email FROM "user"
         WHERE id = :administratorId');
