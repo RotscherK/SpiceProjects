@@ -32,7 +32,7 @@ class Advertisement {
     /**
      * @AttributeType String
      */
-    protected $user_admin;
+    protected $administrator;
     /**
      * @return mixed
      */
