@@ -56,7 +56,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                             <option value=<?php echo $user->getId() ?>><?php echo $user->getEmail() ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <small class="form-text text-danger"><?php echo $providerValidator->getAdministratorError() ?></small>
+                    <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
             </div>
             <div class="form-group row">
