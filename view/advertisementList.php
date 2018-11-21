@@ -7,7 +7,7 @@
  */
 
 use view\TemplateView;
-use domain\User;
+use domain\Advertisement;
 isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new advertisement();
 
 ?>
@@ -39,8 +39,8 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">
-                                            <a class="btn-default" role="button" href="/user/edit?id=<?php echo $advertisement->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
-                                            <a class="btn-default" role="button" href="/user/delete?id=<?php echo $advertisement->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
+                                            <a class="btn-default" role="button" href="/advertisement/edit?id=<?php echo $advertisement->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
+                                            <a class="btn-default" role="button" href="/advertisement/delete?id=<?php echo $advertisement->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                         </div>
                                     </td>
                                 <?php endif; ?>
