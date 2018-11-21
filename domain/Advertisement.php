@@ -56,7 +56,7 @@ class Advertisement {
     }
 
     /**
-     * @param mixed $lastname
+     * @param mixed $title
      */
     public function setTitle($title)
     {
@@ -72,7 +72,7 @@ class Advertisement {
     }
 
     /**
-     * @param mixed $firstname
+     * @param mixed $content
      */
     public function setContent($content)
     {
@@ -88,7 +88,7 @@ class Advertisement {
     }
 
     /**
-     * @param mixed $email
+     * @param mixed $url
      */
     public function setURL($url)
     {
