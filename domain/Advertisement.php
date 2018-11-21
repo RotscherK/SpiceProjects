@@ -8,7 +8,7 @@
 
 namespace domain;
 
-
+use dao\AdvertisementDAO;
 use service\UserServiceImpl;
 
 class Advertisement {
