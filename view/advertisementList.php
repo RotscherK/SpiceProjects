@@ -35,7 +35,7 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
                                 <td><?php echo TemplateView::noHTML($advertisement->getTitle()); ?></td>
                                 <td><?php echo TemplateView::noHTML($advertisement->getContent()); ?></td>
                                 <td><?php echo TemplateView::noHTML($advertisement->getURL()); ?></td>
-                                <td><?php echo TemplateView::noHTML($advertisement->getUserAdmin()); ?></td>
+                                <td><?php echo TemplateView::noHTML($advertisement->getAdministratorEmail()); ?></td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">
