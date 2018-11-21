@@ -74,6 +74,11 @@ class AdvertisementController{
         return true;
     }
 
+    public static function delete(){
+        $id = $_GET["id"];
+        (new AdvertisementServiceImpl())->deleteAdvertisement($id);
+    }
+
 
 
 
