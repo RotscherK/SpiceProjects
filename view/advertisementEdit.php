@@ -27,22 +27,22 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <input type="text" class="form-control" name="id" id="id" placeholder="ID" readonly="true" value="<?php echo $advertisement->getId() ?>">
                 </div>
             </div>
-            <div class="form-group row <?php echo $advertisementValidator->isNameError()? "has-error" : ""; ?>">
-                <label for="name" class="col-sm-3 col-form-label">Title</label>
+            <div class="form-group row <?php echo $advertisementValidator->isTitleError()? "has-error" : ""; ?>">
+                <label for="title" class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<?php echo $advertisement->getTitle() ?>">
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getTitleError() ?></small>
                 </div>
             </div>
             <div class="form-group row <?php echo $advertisementValidator->isContentError()? "has-error" : ""; ?>">
-                <label for="name" class="col-sm-3 col-form-label">Content</label>
+                <label for="content" class="col-sm-3 col-form-label">Content</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="content" id="content" placeholder="Content" value="<?php echo $advertisement->getContent() ?>">
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getContentError() ?></small>
                 </div>
             </div>
             <div class="form-group row <?php echo $advertisementValidator->isURLError()? "has-error" : ""; ?>">
-                <label for="name" class="col-sm-3 col-form-label">URL</label>
+                <label for="url" class="col-sm-3 col-form-label">URL</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="url" id="url" placeholder="URL" value="<?php echo $advertisement->getURL() ?>">
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getURLError() ?></small>
