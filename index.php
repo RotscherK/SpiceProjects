@@ -167,6 +167,11 @@ Router::route_auth("GET", "/advertisement/edit", $authFunction, function () {
     AdvertisementController::edit();
 });
 
+Router::route_auth("POST", "/advertisement/update", $authFunction, function () {
+    if(AdvertisementController::update());
+    Router::redirect("/advertisement/list");
+});
+
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
     EmailController::sendMeMyCustomers();
