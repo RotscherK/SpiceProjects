@@ -62,7 +62,7 @@ class Advertisement {
      */
     public function setTitle($title)
     {
-        $this->titile = $title;
+        $this->title = $title;
     }
 
     /**
