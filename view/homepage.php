@@ -5,6 +5,7 @@
  * Date: 25.10.2018
  * Time: 18:00
  */
+
 use view\TemplateView;
 use domain\Program;
 isset($this->program) ? $program = $this->program : $program = new Program();
