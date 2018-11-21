@@ -26,7 +26,7 @@ class AdvertisementController{
     public static function list(){
         $contentView = new TemplateView("advertisementList.php");
         $contentView->advertisement = (new AdvertisementServiceImpl())->getAllAdvertisements();
-        $contentView->advertisement = (new AdvertisementServiceImpl())->getAdvertisementAdmins();
+        $contentView->users = (new AdvertisementServiceImpl())->getAdvertisementAdmins();
         LayoutRendering::basicLayout($contentView);
     }
 
