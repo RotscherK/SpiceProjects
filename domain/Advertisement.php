@@ -9,6 +9,8 @@
 namespace domain;
 
 
+use service\UserServiceImpl;
+
 class Advertisement {
 
     /**
@@ -109,6 +111,11 @@ class Advertisement {
     public function getUserAdmin()
     {
         return $this->administrator;
+    }
+
+    public function getAdministratorEmail() {
+        return (new UserServiceImpl())->readUserBasic($this->getUserAdmin())->getEmail();
+        //return (new AdvertisementDAO())->getAdministratorEmail($this->administrator);
     }
 
 }
