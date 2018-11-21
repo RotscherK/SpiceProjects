@@ -24,7 +24,7 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
                             <th>Title</th>
                             <th>Content</th>
                             <th>URL</th>
-                            <?php if(isset($_SESSION['userLogin'])): ?><th>Action</th><?php endif; ?>
+                            <?php if(isset($_SESSION['userLogin'])): ?><th>Administrator</th><?php endif; ?>
 
                         </tr>
                         </thead>
