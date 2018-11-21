@@ -15,7 +15,7 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
     <div class="form-clean">
         <form method="post">
             <h2 class="text-center">Available Advertisements</h2>
-            <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchAD()" placeholder="Search"></div>
+            <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchAd()" placeholder="Search"></div>
             <div class="text">
                 <div class="table-responsive table table-striped table-bordered table-hover">
                     <table class="table" id="user">
@@ -56,7 +56,7 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
     </div>
 </div>
 <script>
-    /**function searchUser() {
+    function searchAd() {
         // Declare variables
         var input, filter, table, tbody, tr, td, i, rowContent;
         input = document.getElementById("search");
@@ -82,5 +82,5 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
             window.location = $(this).data("href");
         });
     };
-    **/
+
 </script>
