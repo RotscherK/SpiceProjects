@@ -23,10 +23,6 @@ Content Management:
     - View -> Done, Tim
     - Edit
     - Create/Edit
-- Advertisement
-    - View
-    - Edit
-    - Create/Edit
 
 Finalization Invoicing
 - PDFController->generateProviderInvoicePDF()
@@ -86,3 +82,10 @@ Scheduled job (Cronjob)
     - Create/Edit -> Done, Tim
     - Admin Type for edit -> Done, Tim
     - Password hashing -> Done, Tim
+
+- Advertisement
+    - View -> Done, Nicola
+    - Edit -> Done, Nicola
+    - Create/Edit -> Done, Nicola
+    - Search fixed for Advertisement list -> Done, Nicola
+    -AWS Account created: Name->SpiceProjecs, pw->Spice:18
