@@ -37,13 +37,9 @@ class AdvertisementDAO extends BasicDAO {
     public function delete(Advertisement $advertisement) {
         $stmt = $this->pdoInstance->prepare('
             DELETE FROM "advertisement"
-            WHERE id = :id;');
+            WHERE id = :id');
         $stmt->bindValue(':id', $advertisement->getId());
         $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Advertisement")[0];
-        }
-        return null;
     }
 
     /**
