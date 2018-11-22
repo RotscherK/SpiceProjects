@@ -40,7 +40,6 @@ class AdvertisementDAO extends BasicDAO {
             WHERE id = :id;');
         $stmt->bindValue(':id', $advertisement->getId());
         $stmt->execute();
-        return $this->read($advertisement->getId());
     }
 
     /**
