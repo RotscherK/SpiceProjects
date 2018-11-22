@@ -40,6 +40,10 @@ class AdvertisementDAO extends BasicDAO {
             WHERE id = :id;');
         $stmt->bindValue(':id', $advertisement->getId());
         $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Advertisement")[0];
+        }
+        return null;
     }
 
     /**
