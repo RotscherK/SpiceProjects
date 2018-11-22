@@ -20,6 +20,7 @@ class AdvertisementController{
 
     public static function create(){
         $contentView = new TemplateView("advertisementEdit.php");
+        $contentView->users = (new AdvertisementServiceImpl())->getAdvertisementAdmins();
         LayoutRendering::basicLayout($contentView);
     }
 
