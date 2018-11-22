@@ -15,7 +15,7 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
     <div class="form-clean">
         <form method="post">
             <h2 class="text-center">Available Advertisements</h2>
-            <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchAdvertisement()" placeholder="Search"></div>
+            <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchAd()" placeholder="Search"></div>
             <div class="text">
                 <div class="table-responsive table table-striped table-bordered table-hover">
                     <table class="table" id="advertisement">
