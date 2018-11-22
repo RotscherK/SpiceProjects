@@ -91,6 +91,7 @@ class UserServiceImpl implements UserService
             $user = new User();
             $user->setId($userId);
             $userDAO->delete($user);
+            return;
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
