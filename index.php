@@ -158,6 +158,19 @@ Router::route_auth("POST", "/provider/update", $authFunction, function () {
     Router::redirect("/provider/list");
 });
 
+Router::route_auth("GET", "/provider/create", $authFunction, function () {
+    ProviderController::create();
+});
+
+Router::route_auth("GET", "/provider/delete", $authFunction, function () {
+    ProviderController::delete();
+    ProviderController::list();
+});
+
+Router::route("GET", "/provider", function () {
+    ProviderController::showDetails();
+});
+
 Router::route_auth("GET", "/advertisement/list", $authFunction, function () {
     AdvertisementController::list();
 });

@@ -78,6 +78,18 @@ class ProviderController{
         return true;
     }
 
+    public static function showDetails()
+    {
+        $id = $_GET["id"];
+        $contentView = new TemplateView("view/providerDetail.php");
+        $contentView->user = (new ProviderServiceImpl())->readProvider($id);
+        LayoutRendering::basicLayout($contentView);
+    }
+    public static function delete(){
+        $id = $_GET["id"];
+        (new ProviderServiceImpl())->deleteProvider($id);
+    }
+
 
 
 

@@ -81,5 +81,19 @@ class ProviderDAO extends BasicDAO {
         }
         return null;
     }
+
+    /**
+     * @access public
+     * @param Provider provider
+     * @ParamType provider Provider
+     */
+    public function delete(Provider $provider) {
+        $stmt = $this->pdoInstance->prepare('
+            DELETE FROM "provider"
+            WHERE id = :id
+        ');
+        $stmt->bindValue(':id', $provider->getId());
+        $stmt->execute();
+    }
 }
 ?>
