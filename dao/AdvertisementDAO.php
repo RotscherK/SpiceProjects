@@ -18,6 +18,25 @@ class AdvertisementDAO extends BasicDAO {
 
     /**
      * @access public
+     * @param Advertisment advertisment
+     * @return Advertisment
+     * @ParamType advertisment Advertisment
+     * @ReturnType Advertisment
+     */
+    public function create(Advertisement $advertisement) {
+        $stmt = $this->pdoInstance->prepare('
+        INSERT INTO "advertisement" (title, content, url, administrator)
+        VALUES (:title, :content, :url, :administrator)');
+        $stmt->bindValue(':title', $advertisement->getTitle());
+        $stmt->bindValue(':content', $advertisement->getContent());
+        $stmt->bindValue(':url', $advertisement->getURL());
+        $stmt->bindValue(':administrator', $advertisement->getUserAdmin());
+        $stmt->execute();
+        return $this->read($this->pdoInstance->lastInsertId());
+    }
+
+    /**
+     * @access public
      * @param int advertisementId
      * @return Advertisement
      * @ParamType advertisementId int
@@ -32,6 +51,14 @@ class AdvertisementDAO extends BasicDAO {
             return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Advertisement")[0];
         }
         return null;
+    }
+
+    public function delete(Advertisement $advertisement) {
+        $stmt = $this->pdoInstance->prepare('
+            DELETE FROM "advertisement"
+            WHERE id = :id;');
+        $stmt->bindValue(':id', $advertisement->getId());
+        $stmt->execute();
     }
 
     /**

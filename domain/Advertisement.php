@@ -32,7 +32,7 @@ class Advertisement {
     /**
      * @AttributeType String
      */
-    protected $user_admin;
+    protected $administrator;
     /**
      * @return mixed
      */
@@ -62,7 +62,7 @@ class Advertisement {
      */
     public function setTitle($title)
     {
-        $this->titile = $title;
+        $this->title = $title;
     }
 
     /**
