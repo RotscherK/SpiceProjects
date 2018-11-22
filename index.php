@@ -175,6 +175,10 @@ Router::route_auth("GET", "/advertisement/delete", $authFunction, function () {
     AdvertisementController::delete();
     AdvertisementController::list();
 });
+
+Router::route_auth("GET", "/advertisement/create", $authFunction, function () {
+    AdvertisementController::create();
+});
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
     EmailController::sendMeMyCustomers();
