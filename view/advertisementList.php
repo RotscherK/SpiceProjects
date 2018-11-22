@@ -18,7 +18,7 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
             <div class="form-group"><input id="search" class="form-control" type="search" onkeyup="searchAdvertisement()" placeholder="Search"></div>
             <div class="text">
                 <div class="table-responsive table table-striped table-bordered table-hover">
-                    <table class="table" id="user">
+                    <table class="table" id="advertisement">
                         <thead>
                         <tr>
                             <th>Title</th>
