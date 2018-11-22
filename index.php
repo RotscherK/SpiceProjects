@@ -172,9 +172,8 @@ Router::route_auth("POST", "/advertisement/update", $authFunction, function () {
 });
 
 Router::route_auth("GET", "/advertisement/delete", $authFunction, function () {
-    Router::redirect("/advertisement/list");
-   AdvertisementController::delete();
-
+    AdvertisementController::delete();
+    AdvertisementController::list();
 });
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
