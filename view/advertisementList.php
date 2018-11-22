@@ -62,13 +62,13 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
         var input, filter, table, tbody, tr, td, i, rowContent;
         input = document.getElementById("search");
         filter = input.value.toUpperCase();
-        table = document.getElementById("user");
+        table = document.getElementById("advertisement");
         tbody = document.getElementsByTagName("tbody")[0];
         tr = tbody.getElementsByTagName("tr");
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td");
-            rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML;
+            rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML + td[3].innerHTML;
             if (td) {
                 if (rowContent.toUpperCase().indexOf(filter) > -1) {
                     tr[i].style.display = "";
