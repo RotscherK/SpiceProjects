@@ -18,10 +18,10 @@ interface AdvertisementService {
 
     /**
      * @access public
-     * @param int providerId
-     * @return Provider
-     * @ParamType providerId int
-     * @ReturnType Provider
+     * @param int advertisementId
+     * @return Advertisement
+     * @ParamType advertisementId int
+     * @ReturnType Advertisement
      */
     public function readAdvertisement($advertisementId);
 
