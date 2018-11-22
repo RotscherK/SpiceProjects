@@ -26,14 +26,10 @@ class AdvertisementDAO extends BasicDAO {
     public function create(Advertisement $advertisement) {
         $stmt = $this->pdoInstance->prepare('
         INSERT INTO "advertisement" (title, content, url, administrator)
-          SELECT :title,:content,:url,:administrator
-          WHERE NOT EXISTS (
-            SELECT email FROM "user" WHERE email = :emailExist
-        );');
+        VALUES (:title, :content, :url, :administrator)');
         $stmt->bindValue(':title', $advertisement->getTitle());
         $stmt->bindValue(':content', $advertisement->getContent());
         $stmt->bindValue(':url', $advertisement->getURL());
-        $stmt->bindValue(':emailExist', $advertisement->getEmail());
         $stmt->bindValue(':administrator', $advertisement->getUserAdmin());
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
