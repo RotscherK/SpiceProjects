@@ -76,6 +76,7 @@ class AdvertisementServiceImpl implements AdvertisementService
             $advertisement = new Advertisement();
             $advertisement->setId($advertisementId);
             $advertisementDAO->delete($advertisement);
+            return;
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
