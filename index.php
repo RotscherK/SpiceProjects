@@ -122,6 +122,7 @@ Router::route("GET", "/program", function () {
 });
 
 Router::route_auth("GET", "/program/create", $authFunction, function () {
+
     ProgramController::create();
 });
 

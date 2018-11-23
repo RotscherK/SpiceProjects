@@ -63,4 +63,17 @@ class AuthController
         setcookie("token","",time() - 3600, "/");
     }
 
+    public static function getAdminType(){
+
+        if($_SESSION["userLogin"]["siteAdmin"]){
+            return 1;
+        }
+        else if($_SESSION["userLogin"]["adAdmin"]){
+            return 2;
+        }
+        else{
+            return 3;
+        }
+    }
+
 }
