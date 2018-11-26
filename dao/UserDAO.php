@@ -29,9 +29,9 @@ class UserDAO extends BasicDAO {
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':emailExist', $user->getEmail());
         $stmt->bindValue(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT));
-        $stmt->bindValue(':siteAdmin', $user->getAdmin());
-        $stmt->bindValue(':providerAdmin', $user->getProviderAdmin());
-        $stmt->bindValue(':adAdmin', $user->getAdAdmin());
+        $stmt->bindValue(':siteAdmin', (($user->getAdmin())? 'true' : 'false'));
+        $stmt->bindValue(':providerAdmin', (($user->getProviderAdmin())? 'true' : 'false'));
+        $stmt->bindValue(':adAdmin', (($user->getAdAdmin())? 'true' : 'false'));
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
 	}
