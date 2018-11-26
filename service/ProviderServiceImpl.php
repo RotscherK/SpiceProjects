@@ -76,6 +76,7 @@ class ProviderServiceImpl implements ProviderService
             $provider = new Provider();
             $provider->setId($providerId);
             $providerDAO->delete($provider);
+            return;
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }

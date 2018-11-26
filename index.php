@@ -102,7 +102,8 @@ Router::route_auth("GET", "/user/list", $authFunction, function () {
     if(AuthController::getAdminType() == 1) {
         UserController::list();
     }else{
-        AuthController::showAccessDenied();
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+        //AuthController::showAccessDenied();
     }
 });
 
