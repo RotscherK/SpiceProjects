@@ -102,7 +102,7 @@ Router::route_auth("GET", "/user/list", $authFunction, function () {
     if(AuthController::getAdminType() == 1) {
         UserController::list();
     }else{
-        Router::redirect("/403");
+        AuthController::showAccessDenied();
     }
 });
 
