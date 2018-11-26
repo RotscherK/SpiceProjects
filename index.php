@@ -102,7 +102,7 @@ Router::route_auth("GET", "/user/list", $authFunction, function () {
     if(AuthController::getAdminType() == 1) {
         UserController::list();
     }else{
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED, "",  "TEST TIM");
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 });
 
@@ -149,26 +149,41 @@ Router::route("GET", "/user", function () {
 });
 
 Router::route("GET", "/program", function () {
-    ProgramController::showDetails();
+        ProgramController::showDetails();
 });
 
 Router::route_auth("GET", "/program/create", $authFunction, function () {
-    ProgramController::create();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProgramController::create();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
-
 Router::route_auth("GET", "/program/edit", $authFunction, function () {
-    ProgramController::edit();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProgramController::edit();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/program/delete", $authFunction, function () {
-    ProgramController::delete();
-    HomepageController::show();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProgramController::delete();
+        HomepageController::show();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
+});
+Router::route_auth("POST", "/program/update", $authFunction, function () {
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        if(ProgramController::update());
+        Router::redirect("/");
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
-Router::route_auth("POST", "/program/update", $authFunction, function () {
-    if(ProgramController::update());
-        Router::redirect("/");
-});
 Router::route("GET", "/program/pdf/{id}", function ($id) {
     PDFController::generateProgramDetailPDF($id);
 });
@@ -185,47 +200,86 @@ Router::route_auth("GET", "/provider/list", $authFunction, function () {
 });
 
 Router::route_auth("GET", "/provider/edit", $authFunction, function () {
-    ProviderController::edit();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProviderController::edit();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("POST", "/provider/update", $authFunction, function () {
-    if(ProviderController::update());
-    Router::redirect("/provider/list");
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        if (ProviderController::update()) ;
+        Router::redirect("/provider/list");
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/provider/create", $authFunction, function () {
-    ProviderController::create();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProviderController::create();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/provider/delete", $authFunction, function () {
-    ProviderController::delete();
-    ProviderController::list();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProviderController::delete();
+        ProviderController::list();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route("GET", "/provider", function () {
-    ProviderController::showDetails();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProviderController::showDetails();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/advertisement/list", $authFunction, function () {
-    AdvertisementController::list();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 2) {
+        AdvertisementController::list();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
-
 Router::route_auth("GET", "/advertisement/edit", $authFunction, function () {
-    AdvertisementController::edit();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 2) {
+        AdvertisementController::edit();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("POST", "/advertisement/update", $authFunction, function () {
-    if(AdvertisementController::update());
-    Router::redirect("/advertisement/list");
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 2) {
+        if (AdvertisementController::update()) ;
+        Router::redirect("/advertisement/list");
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+        }
 });
 
 Router::route_auth("GET", "/advertisement/delete", $authFunction, function () {
-    AdvertisementController::delete();
-    AdvertisementController::list();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 2) {
+        AdvertisementController::delete();
+        AdvertisementController::list();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/advertisement/create", $authFunction, function () {
-    AdvertisementController::create();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 2) {
+        AdvertisementController::create();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 /*
 Router::route_auth("GET", "/customer/email", $authFunction, function () {
