@@ -9,6 +9,8 @@
 namespace validator;
 
 use domain\Program;
+use http\HTTPException;
+use http\HTTPStatusCode;
 
 class ProgramValidator
 {
@@ -35,72 +37,80 @@ class ProgramValidator
     public function validate(Program $program)
     {
         if (!is_null($program)) {
-            if (empty($program->getName())) {
-                $this->nameError = 'Please enter a name';
-                $this->valid = false;
+
+            if (($program->getProvider()->getAdministrator() == $_SESSION["userLogin"]["userID"])) {
+
+                if (empty($program->getName())) {
+                    $this->nameError = 'Please enter a name';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getType())) {
+                    $this->typeError = 'Please select a type';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getCategoryId())) {
+                    $this->categoryIDError = 'Please select a category';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getDegree())) {
+                    $this->degreeError = 'Please enter a degree';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getPrice())) {
+                    $this->priceError = 'Please enter a price';
+                    $this->valid = false;
+                } else if ($program->getPrice() < 0) {
+                    $this->priceError = 'Please enter a valid price';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getDuration())) {
+                    $this->durationError = 'Please select a duration';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getDescription())) {
+                    $this->descriptionError = 'Please enter a description';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getRequirement())) {
+                    $this->requirementsError = 'Please enter requirements';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getUrl())) {
+                    $this->urlError = 'Please enter an url';
+                    $this->valid = false;
+                }
+
+                if (empty($program->getStartDate())) {
+                    $this->expirationError = 'Please enter a start date';
+                    $this->valid = false;
+                } else if (strtotime($program->getStartDate()) === strtotime('today')) {
+                    $this->expirationError = 'Please enter a valid start date';
+                    $this->valid = false;
+                }
+
+
+                if (empty($program->getProviderId())) {
+                    $this->providerIDError = 'Please select a provider';
+                    $this->valid = false;
+                }
+
+
+            }else{
+                throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
             }
 
-            if (empty($program->getType())) {
-                $this->typeError = 'Please select a type';
+            } else {
                 $this->valid = false;
             }
-
-            if (empty($program->getCategoryId())) {
-                $this->categoryIDError = 'Please select a category';
-                $this->valid = false;
-            }
-
-            if (empty($program->getDegree())) {
-                $this->degreeError = 'Please enter a degree';
-                $this->valid = false;
-            }
-
-            if (empty($program->getPrice())) {
-                $this->priceError = 'Please enter a price';
-                $this->valid = false;
-            }else if($program->getPrice()<0){
-                $this->priceError = 'Please enter a valid price';
-                $this->valid = false;
-            }
-
-            if (empty($program->getDuration())) {
-                $this->durationError = 'Please select a duration';
-                $this->valid = false;
-            }
-
-            if (empty($program->getDescription())) {
-                $this->descriptionError = 'Please enter a description';
-                $this->valid = false;
-            }
-
-            if (empty($program->getRequirement())) {
-                $this->requirementsError = 'Please enter requirements';
-                $this->valid = false;
-            }
-
-            if (empty($program->getUrl())) {
-                $this->urlError = 'Please enter an url';
-                $this->valid = false;
-            }
-
-            if (empty($program->getStartDate())) {
-                $this->expirationError = 'Please enter a start date';
-                $this->valid = false;
-            }else if(strtotime($program->getStartDate()) === strtotime('today')){
-                $this->expirationError = 'Please enter a valid start date';
-                $this->valid = false;
-            }
-
-
-            if (empty($program->getProviderId())) {
-                $this->providerIDError = 'Please select a provider';
-                $this->valid = false;
-            }
-
-        } else {
-            $this->valid = false;
-        }
-        return $this->valid;
+            return $this->valid;
 
     }
 

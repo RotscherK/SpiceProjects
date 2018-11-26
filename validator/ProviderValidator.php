@@ -9,6 +9,8 @@
 namespace validator;
 
 use domain\Provider;
+use http\HTTPException;
+use http\HTTPStatusCode;
 
 class ProviderValidator
 {
@@ -31,35 +33,41 @@ class ProviderValidator
     public function validate(Provider $provider)
     {
         if (!is_null($provider)) {
-            if (empty($provider->getName())) {
-                $this->nameError = 'Please enter the name';
-                $this->valid = false;
-            }
-            if (empty($provider->getDescription())) {
-                $this->nameError = 'Please enter the description';
-                $this->valid = false;
-            }
-            if (empty($provider->getPlz())) {
-                $this->emailError = 'Please enter a PLZ';
-                $this->valid = false;
-            }
-            if (empty($provider->getCity())) {
-                $this->passwordError = 'Please enter a city';
-                $this->valid = false;
-            }
-            if (empty($provider->getStreet())) {
-                $this->passwordError = 'Please enter a street';
-                $this->valid = false;
-            }
-            if (empty($provider->getBillingEmail())) {
-                $this->passwordError = 'Please enter a billing email';
-                $this->valid = false;
-            }
-            if (empty($provider->getAdministrator())) {
-                $this->passwordError = 'Please select an adminstrator';
-                $this->valid = false;
-            }
 
+            if (($provider->getAdministrator() == $_SESSION["userLogin"]["userID"])) {
+
+                if (empty($provider->getName())) {
+                    $this->nameError = 'Please enter the name';
+                    $this->valid = false;
+                }
+                if (empty($provider->getDescription())) {
+                    $this->nameError = 'Please enter the description';
+                    $this->valid = false;
+                }
+                if (empty($provider->getPlz())) {
+                    $this->emailError = 'Please enter a PLZ';
+                    $this->valid = false;
+                }
+                if (empty($provider->getCity())) {
+                    $this->passwordError = 'Please enter a city';
+                    $this->valid = false;
+                }
+                if (empty($provider->getStreet())) {
+                    $this->passwordError = 'Please enter a street';
+                    $this->valid = false;
+                }
+                if (empty($provider->getBillingEmail())) {
+                    $this->passwordError = 'Please enter a billing email';
+                    $this->valid = false;
+                }
+                if (empty($provider->getAdministrator())) {
+                    $this->passwordError = 'Please select an adminstrator';
+                    $this->valid = false;
+                }
+
+            }else{
+                throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+            }
         } else {
             $this->valid = false;
         }
