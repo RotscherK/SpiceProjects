@@ -115,21 +115,37 @@ Router::route_auth("GET", "/user/edit", $authFunction, function () {
 });
 
 Router::route_auth("POST", "/user/update", $authFunction, function () {
-    if(UserController::update());
-    Router::redirect("/user/list");
+    if(AuthController::getAdminType() == 1) {
+        if(UserController::update());
+        Router::redirect("/user/list");
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/user/create", $authFunction, function () {
-    UserController::create();
+    if(AuthController::getAdminType() == 1) {
+        UserController::create();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/user/delete", $authFunction, function () {
-    UserController::delete();
-    UserController::list();
+    if(AuthController::getAdminType() == 1) {
+        UserController::delete();
+        UserController::list();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route("GET", "/user", function () {
-    UserController::showDetails();
+    if(AuthController::getAdminType() == 1) {
+        UserController::showDetails();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route("GET", "/program", function () {
@@ -161,7 +177,11 @@ Router::route("GET", "/charging", function () {
 });
 
 Router::route_auth("GET", "/provider/list", $authFunction, function () {
-    ProviderController::list();
+    if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
+        ProviderController::list();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("GET", "/provider/edit", $authFunction, function () {
