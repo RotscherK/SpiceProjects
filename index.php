@@ -39,6 +39,13 @@ $authFunction = function () {
     return false;
 };
 
+/**
+ * public function show403(){
+$contentView = new TemplateView("403page.php");
+LayoutRendering::basicLayout($contentView);
+}
+ */
+
 Router::route("GET", "/", function () {
     HomepageController::show();
 });
