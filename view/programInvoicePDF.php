@@ -6,7 +6,7 @@ use domain\Program;
 
 <h1 align="center" style="font-family: Helvetica"><span style="color: #f4476b;">Spice Projects</span> | Monthly invoice</h1>
 <br>
-<table border="0" style="height: 237px; border-color: #f4476b; border-collapse: collapse; width: 463.5px; margin-left: auto; margin-right: auto; font-family: Helvetica; font-size: 15px;" >
+<table border="0" style="height: 237px; border-color: #f4476b; border-collapse: collapse; width: 463.5px; margin-left: auto; margin-right: auto; font-family: Helvetica; font-size: 12px;" >
     <thead>
     <tr>
         <td style=" padding-left: 10px;font-weight: bold;">Name</td>
@@ -27,7 +27,6 @@ use domain\Program;
         </tr>
     <?php endforeach; ?>
     <tr class='clickable-row' data-href="/program?id=<?php echo $program->getId(); ?>">
-        <td style=" padding-left: 10px;"></td>
         <td style=" padding-left: 10px;"></td>
         <td style=" padding-left: 10px;"></td>
         <td style=" padding-left: 10px;"></td>
