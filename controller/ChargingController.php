@@ -47,7 +47,6 @@ class ChargingController
                 echo "Provider: " . $provider->getName() . " </br>";
                 $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 EmailController::sendInvoice($provider, $pdfContent);
-                $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 EmailController::sendInvoice($provider, $pdfContent);
                 $providerPrograms = array();
 
