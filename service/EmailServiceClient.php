@@ -13,7 +13,7 @@ use config\Config;
 class EmailServiceClient
 {
 
-    public static function sendEmail($toEmail, $subject, $htmlData, $hasPDFAttachement, $PDFcontent, $PDFname){
+    public static function sendEmail($toEmail, $subject, $htmlData, $hasPDFAttachement, $PDFContent, $PDFName){
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->from->email = "spice.project.test@test.com";
@@ -23,8 +23,8 @@ class EmailServiceClient
         $jsonObj->content[0]->value = $htmlData;
 
         if($hasPDFAttachement){
-            $jsonObj->attachement[0]->content = $PDFcontent;
-            $jsonObj->attachement[0]->filename = $PDFname;
+            $jsonObj->attachements[0]->content = $PDFContent;
+            $jsonObj->attachements[0]->filename = $PDFName;
         }
 
         $options = ["http" => [
@@ -33,7 +33,7 @@ class EmailServiceClient
                 "Authorization: Bearer ".Config::get("email.sendgrid-apikey").""],
             "content" => json_encode($jsonObj)
         ]];
-        echo $options;
+        print_r($options);
         $context = stream_context_create($options);
         $response = file_get_contents("https://api.sendgrid.com/v3/mail/send", false, $context);
         if(strpos($http_response_header[0],"202"))
