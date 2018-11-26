@@ -51,7 +51,7 @@
             </ul>
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation">
-                    <?php if(isset($_SESSION['userLogin'])): ?>
+                    <?php if(isset($_SESSION['userLogin'])): echo $_SESSION["userLogin"]["userID"] ?>
                         <a class="log-button btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/logout" >Logout <ion-icon name="log-out"></ion-icon></a>
                     <?php else: ?>
                         <a class="log-button btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" >Login <ion-icon name="log-in"></ion-icon></span></a>
