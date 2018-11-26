@@ -102,7 +102,7 @@ Router::route_auth("GET", "/user/list", $authFunction, function () {
     if(AuthController::getAdminType() == 1) {
         UserController::list();
     }else{
-        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED, "",  "TEST TIM");
     }
 });
 
