@@ -107,7 +107,11 @@ Router::route_auth("GET", "/user/list", $authFunction, function () {
 });
 
 Router::route_auth("GET", "/user/edit", $authFunction, function () {
-    UserController::edit();
+    if(AuthController::getAdminType() == 1) {
+        UserController::edit();
+    }else{
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
 });
 
 Router::route_auth("POST", "/user/update", $authFunction, function () {
