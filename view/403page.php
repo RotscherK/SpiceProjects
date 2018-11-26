@@ -20,7 +20,8 @@ isset($this->exceptionText) ? $exceptionText = $this->exceptionText : $exception
             <h2 class="text-center">Spice Project</h2>
             <div class="text">
                 <h3 class="text-center"><?php echo $exceptionCode; ?><strong> <?php echo $exceptionText;?> </strong>    </h3>
-                <p class="text-center">Access denied<a href="<?php echo $GLOBALS["ROOT_URL"]; ?>">homepage</a> instead? </p>
+                <p class="text-center">You do not have sufficient rights to access this site <br>
+                    <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>">homepage</a> instead? </p>
 
 
             </div>

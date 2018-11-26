@@ -99,7 +99,7 @@ Router::route("GET", "/password/reset", function () {
 });
 
 Router::route_auth("GET", "/user/list", $authFunction, function () {
-    if(AuthController::getAdminType() == 2) {
+    if(AuthController::getAdminType() == 1) {
         UserController::list();
     }else{
         AuthController::showAccessDenied();
