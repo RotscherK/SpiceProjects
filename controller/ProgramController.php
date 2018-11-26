@@ -50,7 +50,7 @@ class ProgramController
         $contentView = new TemplateView("view/programSearch.php");
         $contentView->programs = (new ProgramServiceImpl())->getAllPrograms();
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
-        $contentView->category = (new ProviderServiceImpl())->get();
+        $contentView->category = (new CategoryServiceImpl())->getAllCategories();
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -62,7 +62,7 @@ class ProgramController
         $id = $_GET["id"];
         $contentView = new TemplateView("programEdit.php");
         $contentView->program = (new ProgramServiceImpl())->readProgram($id);
-        $contentView->categories = (new CategoryServiceImpl())->readAllCategories();
+        $contentView->categories = (new CategoryServiceImpl())->getAllCategories();
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
         LayoutRendering::basicLayout($contentView);
     }
@@ -97,6 +97,8 @@ class ProgramController
         else{
             $contentView = new TemplateView("programEdit.php");
             $contentView->program = $program;
+            $contentView->categories = (new CategoryServiceImpl())->getAllCategories();
+            $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
             $contentView->programValidator = $programValidator;
             LayoutRendering::basicLayout($contentView);
             return false;

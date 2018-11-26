@@ -23,7 +23,7 @@ class CategoryServiceImpl implements CategoryService
      * @ReturnType Category[]
      * @throws HTTPException
      */
-    public function readAllCategories() {
+    public function getAllCategories() {
         $categoryDAO = new CategoryDAO();
         return $categoryDAO->getAllCategories();
     }
