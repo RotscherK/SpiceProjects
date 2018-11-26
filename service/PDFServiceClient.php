@@ -26,10 +26,6 @@ class PDFServiceClient
         ]];
         $context = stream_context_create($options);
 
-        echo '<pre>';
-        print_r($options);
-        echo '</pre>';
-
         $response = file_get_contents("https://www.hypdf.com/htmltopdf", false, $context);
         //print_r($http_response_header);
         echo "<br><br><br>";
