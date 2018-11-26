@@ -77,7 +77,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         // Declare variables
         var input, filter, keywords, found, table, tbody, tr, td, i, rowContent;
         input = document.getElementById("search");
-        filter = input.value.toUpperCase();
+        filter = input.value.toUpperCase().trim();
         keywords = filter.split(" ");
         table = document.getElementById("program");
         tbody = document.getElementsByTagName("tbody")[0];
@@ -90,7 +90,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             if (td) {
                 found = false;
                 for(var j=0; j < keywords.length && !found; j++) {
-                    if (rowContent.toUpperCase().indexOf(keywords[j]) > -1 && keywords[j] != "") {
+                    if (rowContent.toUpperCase().indexOf(keywords[j]) > -1) {
                         found = true;
                     }
                 }
