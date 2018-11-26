@@ -23,12 +23,12 @@ class PDFServiceClient
             "method" => "POST",
             "header" => ["Content-Type: application/json"],
             "content" => json_encode($jsonObj),
-            'http' => array('ignore_errors' => true)
+            'ignore_errors' => true
         ]];
         $context = stream_context_create($options);
 
         $response = file_get_contents("https://www.hypdf.com/htmltopdf", false, $context);
-        print_r($response);
+        print_r($http_response_header);
         if(strpos($http_response_header[0],"200"))
             return $response;
         return false;
