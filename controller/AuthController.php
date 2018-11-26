@@ -75,10 +75,4 @@ class AuthController
             return 3;
         }
     }
-
-    public static function showAccessDenied(){
-        $contentView = new TemplateView("view/403page.php");
-        LayoutRendering::basicLayout($contentView);
-    }
-
 }

@@ -103,7 +103,6 @@ Router::route_auth("GET", "/user/list", $authFunction, function () {
         UserController::list();
     }else{
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
-        //AuthController::showAccessDenied();
     }
 });
 
