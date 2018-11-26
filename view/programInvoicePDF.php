@@ -2,7 +2,6 @@
 use view\TemplateView;
 use domain\Program;
 
-
 ?>
 
 <h1 align="center" style="font-family: Helvetica;"><span style="color: #f4476b;">Spice Projects</span> | Program Details</h1>
@@ -18,10 +17,7 @@ use domain\Program;
     </tr>
     </thead>
     <tbody>
-    <?php foreach($this->categories as $category): /* @var Category $category */ ?>
-        <option value="<?php echo $category->getId(); ?>" <?php if($program->getCategoryId() == $category->getId()): ?> selected="selected"<?php endif; ?>> <?php echo $category->getName() ?> </option>
-    <?php endforeach; ?>
-    <?php foreach($this->billingprograms as $program): /* @var Program $program */ ?>
+    <?php foreach($this->billingPrograms as $program): /* @var Program $program */ ?>
         <tr>
             <td style="width: 274.5px; padding-left: 10px; font-family: Helvetica;"><?php echo TemplateView::noHTML($program->getName()); ?></td>
             <td style="width: 274.5px; padding-left: 10px; font-family: Helvetica;"><?php echo TemplateView::noHTML($program->getDegree()); ?> </td>
