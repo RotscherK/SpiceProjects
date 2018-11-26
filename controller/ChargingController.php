@@ -10,12 +10,17 @@ namespace controller;
 
 use domain\Program;
 use service\ProgramServiceImpl;
+use service\ProviderServiceImpl;
 use view\TemplateView;
+use http\HTTPException;
 
 
 class ChargingController
 {
-
+    /**
+     * @access public
+     * @throws HTTPException
+     */
     public static function charging(){
         echo (new TemplateView("empty.php"))->render();
 
@@ -38,14 +43,19 @@ class ChargingController
         foreach ($billingPrograms as $program){
 
             if($providerid !== $program->getProviderID() && $providerid !== 'initial'){
-                PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
+                $provider = (new ProviderServiceImpl())->readProvider($providerid);
+                $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
+                EmailController::sendInvoice($provider, $pdfContent);
+
                 $providerPrograms = array();
             }
             $providerid = $program->getProviderID();
             array_push($providerPrograms, $program);
         }
         if(count($providerPrograms)>0)
-                PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
+            $provider = (new ProviderServiceImpl())->readProvider($providerid);
+            $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $providerid);
+            EmailController::sendInvoice($provider, $pdfContent);
     }
 
 }

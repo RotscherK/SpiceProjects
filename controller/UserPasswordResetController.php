@@ -51,7 +51,7 @@ class UserPasswordResetController
         $token = AuthServiceImpl::getInstance()->issueToken(AuthServiceImpl::RESET_TOKEN, $_POST["email"]);
         $emailView = new TemplateView("userPasswordResetEmail.php");
         $emailView->resetLink = $GLOBALS["ROOT_URL"] . "/password/reset?token=" . $token;
-        return EmailServiceClient::sendEmail($_POST["email"], "Password Reset Email", $emailView->render());
+        return EmailServiceClient::sendEmail($_POST["email"], "Password Reset Email", $emailView->render(), false, null, null);
     }
 
 }
