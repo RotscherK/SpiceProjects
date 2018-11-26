@@ -90,7 +90,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             if (td) {
                 found = false;
                 for(var j=0; j < keywords.length && !found; j++) {
-                    if (rowContent.toUpperCase().indexOf(keywords[j]) > -1) {
+                    if (rowContent.toUpperCase().indexOf(keywords[j]) > -1 && keywords[j] != "") {
                         found = true;
                     }
                 }
