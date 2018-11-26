@@ -44,6 +44,7 @@ class ChargingController
 
             if($providerid !== $program->getProviderID() && $providerid !== 'initial'){
                 $provider = (new ProviderServiceImpl())->readProvider($program->getProviderID());
+                echo "Provider: " . $provider->getName() . " </br>";
                 $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 EmailController::sendInvoice($provider, $pdfContent);
 
@@ -53,7 +54,8 @@ class ChargingController
             array_push($providerPrograms, $program);
         }
         if(count($providerPrograms)>0)
-            $provider = (new ProviderServiceImpl())->readProvider($program->getProviderID());
+            $provider = (new ProviderServiceImpl())->readProvider($providerid);
+            echo "Provider: " . $provider->getName() . " </br>";
             $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
             EmailController::sendInvoice($provider, $pdfContent);
     }

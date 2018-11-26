@@ -32,7 +32,6 @@ use domain\Program;
         <td style=" padding-left: 10px;"></td>
         <td style=" padding-left: 10px; font-weight: bold;">Total</td>
         <td style=" padding-left: 10px; font-weight: bold;"><?php echo sizeof($this->billingPrograms); ?> CHF</td>
-
     </tr>
     </tbody>
 </table>
