@@ -23,6 +23,6 @@ interface CategoryService {
      * @ParamType categoryId int
      * @ReturnType Category
      */
-    public function readAllCategories();
+    public function getAllCategories();
 
 }
