@@ -43,7 +43,7 @@ class ChargingController
         foreach ($billingPrograms as $program){
 
             if($providerid !== $program->getProviderID() && $providerid !== 'initial'){
-                $provider = (new ProviderServiceImpl())->readProvider($providerid);
+                $provider = (new ProviderServiceImpl())->readProvider($program->getProviderID());
                 $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 echo $pdfContent;
                 EmailController::sendInvoice($provider, $pdfContent);
