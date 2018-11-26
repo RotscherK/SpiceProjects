@@ -44,7 +44,7 @@ class ChargingController
 
             if($providerid !== $program->getProviderID() && $providerid !== 'initial'){
                 $provider = (new ProviderServiceImpl())->readProvider($program->getProviderID());
-                //echo $provider;
+                echo $provider;
                 $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 //echo $pdfContent;
                 EmailController::sendInvoice($provider, $pdfContent);

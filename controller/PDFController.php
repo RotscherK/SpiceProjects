@@ -24,23 +24,22 @@ class PDFController
     }
     public static function generateProviderInvoicePDF($billingPrograms, $provider){
 
-        echo "Provider: " . $provider->getID();
+        echo "Provider: " . $provider->getName() . " </br>";
 
         foreach($billingPrograms as $program){
 
-            echo " ID: ". $program->getID() . "P_ID: " . $provider->getBillingEmail() . " | </br>";
+            echo " ID: ". $program->getID() . "P_ID: " . $provider->getBillingEmail() . "  </br>";
 
 
             //TODO Create email and attach PDF
 
         }
-        echo "  |  ";
+        echo "  </br>  ";
             $pdfView = new TemplateView("programInvoicePDF.php");
             $pdfView->billingPrograms = $billingPrograms;
             $pdfView->provider = $provider;
 
             $result = PDFServiceClient::sendPDF($pdfView->render());
-            header("Content-Type: application/pdf", NULL, 200);
             return $result;
 
 

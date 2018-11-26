@@ -33,6 +33,7 @@ class EmailServiceClient
                 "Authorization: Bearer ".Config::get("email.sendgrid-apikey").""],
             "content" => json_encode($jsonObj)
         ]];
+        echo $options;
         $context = stream_context_create($options);
         $response = file_get_contents("https://api.sendgrid.com/v3/mail/send", false, $context);
         if(strpos($http_response_header[0],"202"))
