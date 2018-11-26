@@ -45,18 +45,6 @@ class ProgramController
     /**
      * @throws \http\HTTPException
      */
-    public static function search(){
-
-        $contentView = new TemplateView("view/programSearch.php");
-        $contentView->programs = (new ProgramServiceImpl())->getAllPrograms();
-        $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
-        $contentView->category = (new CategoryServiceImpl())->getAllCategories();
-        LayoutRendering::basicLayout($contentView);
-    }
-
-    /**
-     * @throws \http\HTTPException
-     */
     public static function edit(){
 
         $id = $_GET["id"];
