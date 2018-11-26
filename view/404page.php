@@ -1,8 +1,5 @@
 <?php
 
-use view\TemplateView;
-use http\HTTPException;
-
 isset($this->exceptionCode) ? $exceptionCode = $this->exceptionCode : $exceptionCode = '404';
 isset($this->exceptionText) ? $exceptionText = $this->exceptionText : $exceptionText = 'Page not found';
 
