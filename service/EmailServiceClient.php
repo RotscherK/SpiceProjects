@@ -13,7 +13,7 @@ use config\Config;
 class EmailServiceClient
 {
 
-    public static function sendEmail($toEmail, $subject, $htmlData){
+    public static function sendEmail($toEmail, $subject, $htmlData, $hasPDFAttachement, $PDFcontent, $PDFname){
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->from->email = "spice.project.test@test.com";
@@ -21,6 +21,11 @@ class EmailServiceClient
 
         $jsonObj->subject = $subject;
         $jsonObj->content[0]->value = $htmlData;
+
+        if($hasPDFAttachement){
+            $jsonObj->attachement[0]->content = $PDFcontent;
+            $jsonObj->attachement[0]->filename = $PDFname;
+        }
 
         $options = ["http" => [
             "method" => "POST",
@@ -55,6 +60,13 @@ class EmailServiceClient
             {
               "type": "text/html",
               "value": "value"
+            }
+          ],
+          "attachments": [
+            {
+              "content": "content",
+              "type": "application/pdf",
+              "filename": "filename"
             }
           ]
         }');
