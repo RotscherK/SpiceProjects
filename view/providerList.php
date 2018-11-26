@@ -26,7 +26,6 @@ isset($this->provider) ? $provider = $this->provider : $provider = new Provider(
                             <th>Billing email</th>
                             <th>Administrator</th>
                             <?php if(isset($_SESSION['userLogin'])): ?><th>Action</th><?php endif; ?>
-
                         </tr>
                         </thead>
                         <tbody>
