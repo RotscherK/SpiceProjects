@@ -28,14 +28,14 @@ class PDFServiceClient
         $context = stream_context_create($options);
 
         $response = file_get_contents("https://www.hypdf.com/htmltopdf", false, $context);
-        print_r(parseHeaders($http_response_header));
+        print_r(self::parseHeaders($http_response_header));
         echo "<br><br><br>";
         if(strpos($http_response_header[0],"200"))
             return $response;
         return false;
     }
 
-    function parseHeaders( $headers )
+    static function  parseHeaders( $headers )
     {
         $head = array();
         foreach( $headers as $k=>$v )
