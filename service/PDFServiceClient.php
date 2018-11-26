@@ -27,8 +27,6 @@ class PDFServiceClient
         $context = stream_context_create($options);
 
         $response = file_get_contents("https://www.hypdf.com/htmltopdf", false, $context);
-        //print_r($http_response_header);
-        echo "<br><br><br>";
 
         if(strpos($http_response_header[0],"200"))
             return $response;
