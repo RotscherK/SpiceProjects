@@ -13,7 +13,7 @@ use domain\Program;
         <td style=" padding-left: 10px;font-weight: bold;">Degree</td>
         <td style=" padding-left: 10px;font-weight: bold;">Duration</td>
         <td style=" padding-left: 10px;font-weight: bold;">Expiration Date</td>
-        <td style=" padding-left: 10px;font-weight: bold;">Cost</td>
+        <td style="min-width: 40px; padding-left: 10px;font-weight: bold;">Cost</td>
     </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@ use domain\Program;
             <td style=" padding-left: 10px;">1.- CHF</td>
         </tr>
     <?php endforeach; ?>
-    <tr class='clickable-row' data-href="/program?id=<?php echo $program->getId(); ?>">
+    <tr></tr><tr>
         <td style=" padding-left: 10px;"></td>
         <td style=" padding-left: 10px;"></td>
         <td style=" padding-left: 10px;"></td>

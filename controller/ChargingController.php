@@ -47,8 +47,9 @@ class ChargingController
                 echo "Provider: " . $provider->getName() . " </br>";
                 $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 EmailController::sendInvoice($provider, $pdfContent);
-
                 $providerPrograms = array();
+
+                sleep(5);
             }
             $providerid = $program->getProviderID();
             array_push($providerPrograms, $program);
@@ -56,7 +57,6 @@ class ChargingController
         if(sizeof($providerPrograms)>0)
             $provider = (new ProviderServiceImpl())->readProvider($providerid);
             echo "Provider: " . $provider->getName() . " </br>";
-            echo print_r($providerPrograms);
             $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
             EmailController::sendInvoice($provider, $pdfContent);
     }
