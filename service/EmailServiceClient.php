@@ -23,8 +23,8 @@ class EmailServiceClient
         $jsonObj->content[0]->value = $htmlData;
 
         if($hasPDFAttachement){
-            $jsonObj->attachements[0]->content = $PDFContent;
-            $jsonObj->attachements[0]->filename = $PDFName;
+            $jsonObj->attachments[0]->content = base64_encode($PDFContent);
+            $jsonObj->attachments[0]->filename = $PDFName;
         }
 
         $options = ["http" => [
@@ -33,8 +33,9 @@ class EmailServiceClient
                 "Authorization: Bearer ".Config::get("email.sendgrid-apikey").""],
             "content" => json_encode($jsonObj)
         ]];
-        print_r($options);
         $context = stream_context_create($options);
+        print_r($context);
+
         $response = file_get_contents("https://api.sendgrid.com/v3/mail/send", false, $context);
         if(strpos($http_response_header[0],"202"))
             return true;
