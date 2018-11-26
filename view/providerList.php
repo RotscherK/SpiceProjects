@@ -38,12 +38,10 @@ isset($this->provider) ? $provider = $this->provider : $provider = new Provider(
                                 <td><?php echo TemplateView::noHTML($provider->getAdministratorEmail()); ?></td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
-                                    <?php if($_SESSION["userLogin"]["siteAdmin"] == true || ($provider->getAdministrator() == $_SESSION["userLogin"]["userID"])): ?>
                                         <div class="btn-group btn-group-sm" role="group">
                                             <a class="btn-default" role="button" href="/provider/edit?id=<?php echo $provider->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
                                             <a class="btn-default" role="button" href="/provider/delete?id=<?php echo $provider->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                         </div>
-                                    <?php endif; ?>
                                     </td>
                                 <?php endif; ?>
                             </tr>
