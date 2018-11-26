@@ -32,7 +32,7 @@ class ProviderDAO extends BasicDAO {
         $stmt->bindValue(':plz', $provider->getPlz());
         $stmt->bindValue(':city', $provider->getCity());
         $stmt->bindValue(':street', $provider->getStreet());
-        $stmt->bindValue(':billingEmail', $provider->getBillingEmail());
+        $stmt->bindValue(':billing_email', $provider->getBillingEmail());
         $stmt->bindValue(':administrator', $provider->getAdministrator());
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
