@@ -92,7 +92,11 @@ Router::route("GET", "/password/reset", function () {
 });
 
 Router::route_auth("GET", "/user/list", $authFunction, function () {
-    UserController::list();
+    if(AuthController::getAdminType() == 1) {
+        UserController::list();
+    }else{
+        Router::redirect("/403");
+    }
 });
 
 Router::route_auth("GET", "/user/edit", $authFunction, function () {
