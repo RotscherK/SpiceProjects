@@ -140,6 +140,10 @@ Router::route_auth("GET", "/program/edit", $authFunction, function () {
     ProgramController::edit();
 });
 
+Router::route_auth("GET", "/search", $authFunction, function () {
+    ProgramController::search();
+});
+
 Router::route_auth("GET", "/program/delete", $authFunction, function () {
     ProgramController::delete();
     HomepageController::show();

@@ -12,6 +12,7 @@ use dao\UserDAO;
 use domain\Program;
 use domain\User;
 use domain\Provider;
+use service\CategoryServiceImpl;
 use service\EmailServiceClient;
 use service\ProviderServiceImpl;
 use service\UserServiceImpl;
@@ -44,11 +45,24 @@ class ProgramController
     /**
      * @throws \http\HTTPException
      */
+    public static function search(){
+
+        $contentView = new TemplateView("view/programSearch.php");
+        $contentView->programs = (new ProgramServiceImpl())->getAllPrograms();
+        $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
+        $contentView->category = (new ProviderServiceImpl())->get();
+        LayoutRendering::basicLayout($contentView);
+    }
+
+    /**
+     * @throws \http\HTTPException
+     */
     public static function edit(){
 
         $id = $_GET["id"];
         $contentView = new TemplateView("programEdit.php");
         $contentView->program = (new ProgramServiceImpl())->readProgram($id);
+        $contentView->categories = (new CategoryServiceImpl())->readAllCategories();
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
         LayoutRendering::basicLayout($contentView);
     }
