@@ -112,7 +112,7 @@ class ProviderDAO extends BasicDAO {
      * @ParamType provider Provider
      */
     public function delete(Provider $provider) {
-        if((new ProgramDAO())->getProgramsByProvider($provider->getId()) > 0) {
+        if(((new ProgramDAO())->getProgramsByProvider($provider->getId())) > 0) {
             throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
         }else {
             $stmt = $this->pdoInstance->prepare('
