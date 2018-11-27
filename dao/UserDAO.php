@@ -3,6 +3,10 @@
 namespace dao;
 
 use domain\User;
+use http\HTTPException;
+use http\HTTPStatusCode;
+use dao\ProviderDAO;
+use dao\ProgramDAO;
 
 /**
  * @access public
@@ -118,13 +122,18 @@ class UserDAO extends BasicDAO {
      * @param Program program
      * @ParamType program Program
      */
-    public function delete(User $user) {
-        $stmt = $this->pdoInstance->prepare('
+    public function delete(User $user)
+    {
+        if (((new ProviderDAO())->getProvidersByUser($user->getId())) > 0 || ((new AdvertisementDAO())->getAdvertisementsByUser($user->getId())) > 0) {
+            throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
+        } else {
+            $stmt = $this->pdoInstance->prepare('
             DELETE FROM "user"
             WHERE id = :id
         ');
-        $stmt->bindValue(':id', $user->getId());
-        $stmt->execute();
+            $stmt->bindValue(':id', $user->getId());
+            $stmt->execute();
+        }
     }
 
     /**

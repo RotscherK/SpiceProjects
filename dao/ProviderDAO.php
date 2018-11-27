@@ -122,5 +122,19 @@ class ProviderDAO extends BasicDAO {
             $stmt->execute();
         }
     }
+
+    /**
+     * @access public
+     * @return int
+     * @ReturnType Provider[]
+     */
+    public function getProvidersByUser($userId) {
+        $stmt = $this->pdoInstance->prepare('SELECT * FROM "provider" WHERE administrator = :user_id');
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
+
+
 }
 ?>

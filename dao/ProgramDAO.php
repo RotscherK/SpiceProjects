@@ -142,6 +142,5 @@ class ProgramDAO extends BasicDAO {
         $stmt->execute();
         return $stmt->rowCount();
     }
-
 }
 ?>
