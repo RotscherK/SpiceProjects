@@ -34,7 +34,6 @@ class EmailServiceClient
             "content" => json_encode($jsonObj)
         ]];
         $context = stream_context_create($options);
-        print_r($context);
 
         $response = file_get_contents("https://api.sendgrid.com/v3/mail/send", false, $context);
         if(strpos($http_response_header[0],"202"))

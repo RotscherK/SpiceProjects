@@ -43,17 +43,21 @@ class ChargingController
         foreach ($billingPrograms as $program){
 
             if($providerid !== $program->getProviderID() && $providerid !== 'initial'){
-                $provider = (new ProviderServiceImpl())->readProvider($program->getProviderID());
+                $provider = (new ProviderServiceImpl())->readProvider($providerid);
+                echo "Provider: " . $provider->getName() . " </br>";
                 $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 EmailController::sendInvoice($provider, $pdfContent);
-
+                EmailController::sendInvoice($provider, $pdfContent);
                 $providerPrograms = array();
+
+                sleep(5);
             }
             $providerid = $program->getProviderID();
             array_push($providerPrograms, $program);
         }
-        if(count($providerPrograms)>0)
-            $provider = (new ProviderServiceImpl())->readProvider($program->getProviderID());
+        if(sizeof($providerPrograms)>0)
+            $provider = (new ProviderServiceImpl())->readProvider($providerid);
+            echo "Provider: " . $provider->getName() . " </br>";
             $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
             EmailController::sendInvoice($provider, $pdfContent);
     }
