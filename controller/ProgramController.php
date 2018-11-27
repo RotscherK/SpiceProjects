@@ -30,6 +30,7 @@ class ProgramController
     public static function create(){
         $contentView = new TemplateView("programEdit.php");
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
+        $contentView->categories = (new CategoryServiceImpl())->getAllCategories();
         LayoutRendering::basicLayout($contentView);
     }
 

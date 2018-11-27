@@ -63,7 +63,7 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <div class="col-sm-9">
                     <select class="form-control" id="category" name="category">
                         <?php foreach($this->categories as $category): /* @var Category $category */ ?>
-                            <option value="<?php echo $category->getId(); ?>" <?php if($program->getCategoryId() == $category->getId()): ?> selected="selected"<?php endif; ?>> <?php echo $category->getName() ?> </option>
+                            <option value=<?php echo $category->getId(); if($program->getCategoryId() == $category->getId()): ?> selected="selected"<?php endif; ?> ><?php echo $category->getName() ?> </option>
                         <?php endforeach; ?>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getCategoryIDError() ?></small>
