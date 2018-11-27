@@ -111,7 +111,7 @@ class ProviderDAO extends BasicDAO {
      * @ParamType provider Provider
      */
     public function delete(Provider $provider) {
-        $stmt = $this->pdoInstance->prepare('SELECT * FROM "program" WHERE id = :id');
+        $stmt = $this->pdoInstance->prepare('SELECT * FROM "program" WHERE provider_id = :id');
         $stmt->bindValue(':id', $provider->getId());
         $stmt->execute();
         if ($stmt->rowCount() > 0){
