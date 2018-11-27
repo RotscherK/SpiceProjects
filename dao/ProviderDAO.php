@@ -11,7 +11,7 @@ namespace dao;
 use domain\Provider;
 use http\HTTPException;
 use http\HTTPStatusCode;
-use DAO\ProgramDAO;
+use dao\ProgramDAO;
 
 /**
  * @access public
