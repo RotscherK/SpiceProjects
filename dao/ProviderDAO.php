@@ -113,6 +113,7 @@ class ProviderDAO extends BasicDAO {
     public function delete(Provider $provider) {
         $stmt = $this->pdoInstance->prepare('SELECT * FROM "program" WHERE id = :id');
         $stmt->bindValue(':id', $provider->getId());
+        $stmt->execute();
         if ($stmt->rowCount() > 0){
             throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
         }else {
