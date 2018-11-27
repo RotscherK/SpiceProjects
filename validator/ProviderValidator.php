@@ -34,7 +34,7 @@ class ProviderValidator
     {
         if (!is_null($provider)) {
 
-            if (($provider->getAdministrator() == $_SESSION["userLogin"]["userID"])) {
+            if ($_SESSION["userLogin"]["siteAdmin"] == true || $provider->getAdministrator() == $_SESSION["userLogin"]["userID"]) {
 
                 if (empty($provider->getName())) {
                     $this->nameError = 'Please enter the name';

@@ -220,7 +220,7 @@ Router::route_auth("GET", "/provider/create", $authFunction, function () {
     if(AuthController::getAdminType() == 1 || AuthController::getAdminType() == 3) {
         ProviderController::create();
     }else{
-        throw new HTTPException(HTTPStatusCode::HTTP_204_NO_CONTENT);
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 });
 
