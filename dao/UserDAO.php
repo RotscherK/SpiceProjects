@@ -127,7 +127,6 @@ class UserDAO extends BasicDAO {
         $stmt->execute();
     }
 
-
     /**
      * @access public
      * @return User[]
