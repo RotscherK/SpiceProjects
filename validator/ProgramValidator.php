@@ -38,7 +38,7 @@ class ProgramValidator
     {
         if (!is_null($program)) {
 
-            if (($program->getProvider()->getAdministrator() == $_SESSION["userLogin"]["userID"])) {
+            if ($_SESSION["userLogin"]["siteAdmin"] == true || $program->getProvider()->getAdministrator() == $_SESSION["userLogin"]["userID"]) {
 
                 if (empty($program->getName())) {
                     $this->nameError = 'Please enter a name';
