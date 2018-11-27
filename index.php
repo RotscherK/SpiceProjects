@@ -307,9 +307,9 @@ try {
 } catch (HTTPException $exception) {
     $exception->getHeader();
 
-     $contentView = new TemplateView("404page.php");
+    $contentView = new TemplateView("404page.php");
     $contentView->exceptionCode = substr($exception->getStatusCode(), 0, 3);
-    $contentView->exceptionText =  substr($exception->getStatusCode(), 3);
+    $contentView->exceptionText = substr($exception->getStatusCode(), 3);
     $contentView->exception = $exception;
 
     LayoutRendering::basicLayout($contentView);

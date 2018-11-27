@@ -9,6 +9,8 @@
 namespace dao;
 
 use domain\Provider;
+use http\HTTPException;
+use http\HTTPStatusCode;
 
 /**
  * @access public
@@ -109,12 +111,17 @@ class ProviderDAO extends BasicDAO {
      * @ParamType provider Provider
      */
     public function delete(Provider $provider) {
-        $stmt = $this->pdoInstance->prepare('
-            DELETE FROM "provider"
-            WHERE id = :id
-        ');
+        $stmt = $this->pdoInstance->prepare('SELECT * FROM "program" WHERE id = :id');
         $stmt->bindValue(':id', $provider->getId());
-        $stmt->execute();
+        if ($stmt->rowCount() > 0){
+            throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
+        }else {
+            $stmt = $this->pdoInstance->prepare('
+                DELETE FROM "provider"
+                WHERE id = :id');
+            $stmt->bindValue(':id', $provider->getId());
+            $stmt->execute();
+        }
     }
 }
 ?>
