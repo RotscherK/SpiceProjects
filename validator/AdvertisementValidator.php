@@ -39,17 +39,19 @@ class AdvertisementValidator
             if (empty($advertisement->getURL())) {
                 $this->urlError = 'Please enter a URL';
                 $this->valid = false;
-            }elseif(!strpos($advertisement->getURL(), "http://")){
+            }
+            if(!strpos($advertisement->getURL(), "http://")){
                 $this->urlError = 'Please start the link with http:// or https://';
                 $this->valid = false;
-            }elseif(!strpos($advertisement->getURL(), "https://")){
+            }
+            /*if(!strpos($advertisement->getURL(), "https://")){
                 $this->urlError = 'Please start the link with http:// or https://';
                 $this->valid = false;
             }
             if (empty($advertisement->getUserAdmin())) {
                 $this->administratorError = 'Please select an administrator';
                 $this->valid = false;
-            }
+            }*/
 
         } else {
             $this->valid = false;
