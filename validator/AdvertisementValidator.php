@@ -40,11 +40,11 @@ class AdvertisementValidator
                 $this->urlError = 'Please enter a URL';
                 $this->valid = false;
             }
-            if(!strpos($advertisement->getURL(), "http://")){
+            if((strpos($advertisement->getURL(), "http://")==false) && (strpos($advertisement->getURL(), "http://")==false)) {
                 $this->urlError = 'Please start the link with http:// or https://';
                 $this->valid = false;
             }
-            /*if(!strpos($advertisement->getURL(), "https://")){
+            /*if(strpos($advertisement->getURL(), "https://")==false){
                 $this->urlError = 'Please start the link with http:// or https://';
                 $this->valid = false;
             }
