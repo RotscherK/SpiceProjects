@@ -11,8 +11,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
     <div class="well">
        <?php
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
-        <?php echo $advertisement->getId(); ?>
-        <?php echo TemplateView::noHTML($advertisement->getTitle()); endforeach ?>
+        <?php echo "<p>" ?> <?php echo TemplateView::noHTML($advertisement->getTitle()); ?> <?php echo "</p>"?> <?php endforeach ?>
         <?php ; ?>
     </div>
 </div>
