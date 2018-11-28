@@ -10,6 +10,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
 <div class="col-sm-2 sidenav">
     <div class="well">
        <?php
+        shuffle($advertisements);
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php echo "<p>" ?> <?php echo TemplateView::noHTML($advertisement->getTitle()); ?> <?php echo "</p>"?> <?php endforeach ?>
         <?php ; ?>
