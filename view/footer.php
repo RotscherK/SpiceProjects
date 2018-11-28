@@ -11,9 +11,8 @@ $contentView->advertisement = (new AdvertisementServiceImpl())->getAllAdvertisem
        <?php
         foreach($this->advertisement as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php echo $advertisement->getId(); ?>
-        <p><?php echo TemplateView::noHTML($advertisement->getTitle()); ?>Nice Bikes</p>
-        <p>New Iphone</p>
-        <p>Some more Ads</p>
+        <?php echo TemplateView::noHTML($advertisement->getTitle()); endforeach ?>
+        <?php ; ?>
     </div>
 </div>
 </div>
