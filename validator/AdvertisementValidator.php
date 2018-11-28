@@ -29,7 +29,7 @@ class AdvertisementValidator
     {
         if (!is_null($advertisement)) {
             if (empty($advertisement->getTitle())) {
-                $this->titleError = 'Please enter the title';
+                $this->titleError = 'Please enter the title1';
                 $this->valid = false;
             }
             if (empty($advertisement->getContent())) {
