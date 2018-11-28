@@ -12,7 +12,8 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
        <?php
         shuffle($advertisements);
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
-        <?php echo "<p><a href="?><?php echo $advertisement->getURL();?>">
+        <?php $link = $advertisement->getURL();?>
+        <?php echo "<p><a href=$link>"?>
             <?php echo TemplateView::noHTML($advertisement->getTitle()); ?>
             <?php echo "</a></p>"?>
         <?php endforeach ?>
