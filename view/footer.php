@@ -16,6 +16,9 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
         <?php echo "<p><a href='$link'>";?>
             <?php echo TemplateView::noHTML($advertisement->getTitle()); ?>
             <?php echo "</a></p>"?>
+            <?php echo "<p>"?>
+            <?php echo TemplateView::noHTML($advertisement->getContent()); ?>
+            <?php echo "<p>"?>
         <?php endforeach ?>
         <?php ; ?>
     </div>
