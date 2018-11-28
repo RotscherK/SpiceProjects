@@ -43,7 +43,7 @@ class AdvertisementValidator
                     $this->urlError = 'Please start the link with http:// or https://';
                     $this->valid = false;
                 }else{
-                
+
             }
             if (empty($advertisement->getUserAdmin())) {
                 $this->administratorError = 'Please select an administrator';
