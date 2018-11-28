@@ -55,10 +55,12 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                                 <td><?php echo TemplateView::noHTML($program->getDuration()); ?> </td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
+                                    <?php if($_SESSION["userLogin"]["siteAdmin"] == true || ($program->getProvider())->getAdministrator() == $_SESSION["userLogin"]["userID"]): ?>
                                         <div class="btn-group btn-group-sm" role="group">
                                             <a class="btn-default" role="button" href="program/edit?id=<?php echo $program->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
                                             <a class="btn-default" role="button" href="program/delete?id=<?php echo $program->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                         </div>
+                                    <?php endif; ?>
                                     </td>
                                 <?php endif; ?>
                             </tr>
@@ -75,9 +77,10 @@ isset($this->program) ? $program = $this->program : $program = new Program();
 <script>
     function searchProgram() {
         // Declare variables
-        var input, filter, table, tbody, tr, td, i, rowContent;
+        var input, filter, keywords, found, table, tbody, tr, td, i, rowContent;
         input = document.getElementById("search");
-        filter = input.value.toUpperCase();
+        filter = input.value.toUpperCase().trim();
+        keywords = filter.split(" ");
         table = document.getElementById("program");
         tbody = document.getElementsByTagName("tbody")[0];
         tr = tbody.getElementsByTagName("tr");
@@ -86,9 +89,14 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td");
             rowContent = td[0].innerHTML + td[1].innerHTML + td[2].innerHTML + td[3].innerHTML + td[4].innerHTML + td[5].innerHTML;
-
             if (td) {
-                if (rowContent.toUpperCase().indexOf(filter) > -1) {
+                found = false;
+                for(var j=0; j < keywords.length && !found; j++) {
+                    if (rowContent.toUpperCase().indexOf(keywords[j]) > -1) {
+                        found = true;
+                    }
+                }
+                if (found) {
                     tr[i].style.display = "";
                 } else {
                     tr[i].style.display = "none";

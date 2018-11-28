@@ -12,6 +12,8 @@ Access Concept:
     - Site Admin
     - Provider (Administrator providing Program)
 
+
+
 Content Management:
 - Program
     - Dropdowns with other entities
@@ -30,7 +32,7 @@ Finalization Invoicing
 - mail
 
 Finalization
-- Setup of schedule job when start date Expired => Heroku Schdule
+- Setup of schedule job when start date Expired => Heroku Schedule
 
 
 =========================================

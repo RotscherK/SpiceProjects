@@ -76,6 +76,7 @@ class ProviderServiceImpl implements ProviderService
             $provider = new Provider();
             $provider->setId($providerId);
             $providerDAO->delete($provider);
+            return;
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
@@ -90,15 +91,5 @@ class ProviderServiceImpl implements ProviderService
         $providerDAO = new ProviderDAO();
         return $providerDAO->getAllProviders();
     }
-
-/**
- * @access public
- * @return Provider[]
- * @ReturnType Provider[]
- * @throws HTTPException
- */
-public function getProviderAdmins() {
-    return true;
-}
 
 }

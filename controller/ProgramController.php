@@ -12,6 +12,7 @@ use dao\UserDAO;
 use domain\Program;
 use domain\User;
 use domain\Provider;
+use service\CategoryServiceImpl;
 use service\EmailServiceClient;
 use service\ProviderServiceImpl;
 use service\UserServiceImpl;
@@ -29,6 +30,7 @@ class ProgramController
     public static function create(){
         $contentView = new TemplateView("programEdit.php");
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
+        $contentView->categories = (new CategoryServiceImpl())->getAllCategories();
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -49,6 +51,7 @@ class ProgramController
         $id = $_GET["id"];
         $contentView = new TemplateView("programEdit.php");
         $contentView->program = (new ProgramServiceImpl())->readProgram($id);
+        $contentView->categories = (new CategoryServiceImpl())->getAllCategories();
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
         LayoutRendering::basicLayout($contentView);
     }
@@ -83,6 +86,8 @@ class ProgramController
         else{
             $contentView = new TemplateView("programEdit.php");
             $contentView->program = $program;
+            $contentView->categories = (new CategoryServiceImpl())->getAllCategories();
+            $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
             $contentView->programValidator = $programValidator;
             LayoutRendering::basicLayout($contentView);
             return false;
@@ -131,7 +136,7 @@ class ProgramController
         $emailView->program = $program;
         $emailView->provider = $provider;
         $emailView->firstname = $admin->getFirstname();
-        return EmailServiceClient::sendEmail($admin->getEmail(), "Program is expired", $emailView->render());
+        return EmailServiceClient::sendEmail($admin->getEmail(), "Program is expired", $emailView->render(), false, null, null);
 
     }
 

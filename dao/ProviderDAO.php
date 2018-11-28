@@ -9,12 +9,37 @@
 namespace dao;
 
 use domain\Provider;
+use http\HTTPException;
+use http\HTTPStatusCode;
+use dao\ProgramDAO;
 
 /**
  * @access public
  * @author roger.kaufmann
  */
 class ProviderDAO extends BasicDAO {
+
+    /**
+     * @access public
+     * @param Provider provider
+     * @return Provider
+     * @ParamType provider Provider
+     * @ReturnType Provider
+     */
+    public function create(Provider $provider) {
+        $stmt = $this->pdoInstance->prepare('
+        INSERT INTO "provider" (name, description, plz, city, street, billing_email, administrator)
+          VALUES(:name,:description,:plz,:city,:street,:billing_email,:administrator);');
+        $stmt->bindValue(':name', $provider->getName());
+        $stmt->bindValue(':description', $provider->getDescription());
+        $stmt->bindValue(':plz', $provider->getPlz());
+        $stmt->bindValue(':city', $provider->getCity());
+        $stmt->bindValue(':street', $provider->getStreet());
+        $stmt->bindValue(':billing_email', $provider->getBillingEmail());
+        $stmt->bindValue(':administrator', $provider->getAdministrator());
+        $stmt->execute();
+        return $this->read($this->pdoInstance->lastInsertId());
+    }
 
     /**
      * @access public
@@ -64,9 +89,8 @@ class ProviderDAO extends BasicDAO {
 	 */
 	public function getAllProviders() {
         $stmt = $this->pdoInstance->prepare('
-            SELECT provider.id, provider.name, provider.description, provider.plz,
-             provider.city, provider.street, provider.billing_email, provider.administrator, "user".email AS administratorEmail
-             FROM "provider" JOIN "user" ON provider.administrator="user".id ORDER BY provider.id;');
+            SELECT * FROM "provider" 
+             ORDER BY id;');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Provider");
 	}
@@ -81,5 +105,36 @@ class ProviderDAO extends BasicDAO {
         }
         return null;
     }
+
+    /**
+     * @access public
+     * @param Provider provider
+     * @ParamType provider Provider
+     */
+    public function delete(Provider $provider) {
+        if(((new ProgramDAO())->getProgramsByProvider($provider->getId())) > 0) {
+            throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
+        }else {
+            $stmt = $this->pdoInstance->prepare('
+                DELETE FROM "provider"
+                WHERE id = :id');
+            $stmt->bindValue(':id', $provider->getId());
+            $stmt->execute();
+        }
+    }
+
+    /**
+     * @access public
+     * @return int
+     * @ReturnType Provider[]
+     */
+    public function getProvidersByUser($userId) {
+        $stmt = $this->pdoInstance->prepare('SELECT * FROM "provider" WHERE administrator = :user_id');
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
+
+
 }
 ?>

@@ -8,10 +8,12 @@
 use view\TemplateView;
 use domain\Program;
 use domain\Provider;
+use domain\Category;
 use validator\ProgramValidator;
 
 isset($this->program) ? $program = $this->program : $program = new Program();
 isset($this->provider) ? $provider = $this->provider : $provider = new Provider();
+isset($this->category) ? $category = $this->category : $category = new Category();
 isset($this->programValidator) ? $programValidator = $this->programValidator : $programValidator = new ProgramValidator();
 ?>
 
@@ -60,11 +62,9 @@ isset($this->programValidator) ? $programValidator = $this->programValidator : $
                 <label for="category" class="col-sm-3 col-form-label">Category</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="category" name="category">
-                        <option value="1" <?php if($program->getCategoryId() == '1'): ?> selected="selected"<?php endif; ?> >Computer Science</option>
-                        <option value="2" <?php if($program->getCategoryId() == '2'): ?> selected="selected"<?php endif; ?> >Economy</option>
-                        <option value="3" <?php if($program->getCategoryId() == '3'): ?> selected="selected"<?php endif; ?> >Education</option>
-                        <option value="4" <?php if($program->getCategoryId() == '4'): ?> selected="selected"<?php endif; ?> >Social</option>
-                        <option value="5" <?php if($program->getCategoryId() == '5'): ?> selected="selected"<?php endif; ?> >Architect</option>
+                        <?php foreach($this->categories as $category): /* @var Category $category */ ?>
+                            <option value=<?php echo $category->getId(); if($program->getCategoryId() == $category->getId()): ?> selected="selected"<?php endif; ?> ><?php echo $category->getName() ?> </option>
+                        <?php endforeach; ?>
                     </select>
                     <small class="form-text text-danger"><?php echo $programValidator->getCategoryIDError() ?></small>
 

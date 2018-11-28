@@ -74,7 +74,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <div class="col-sm-9">
                     <select class="form-control" id="administrator" name="administrator">
                         <?php foreach($this->users as $user): /* @var User $user */ ?>
-                            <option value=<?php echo $user->getId() ?>><?php echo $user->getEmail() ?></option>
+                            <option value=<?php echo $user->getId(); if($provider->getAdministrator()==$user->getId()): ?> selected="selected"<?php endif; ?> ><?php echo $user->getEmail() ?></option>
                         <?php endforeach; ?>
                     </select>
                     <small class="form-text text-danger"><?php echo $providerValidator->getAdministratorError() ?></small>

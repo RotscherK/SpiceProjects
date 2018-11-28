@@ -23,6 +23,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/img/favicon/manifest.json">
+    <meta name="google-site-verification" content="ii0zEVRBxBijnCFfCwU3rmyUmJXejQ2T5JhVdvl4DrA" />
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -34,7 +35,7 @@
     <div class="container-fluid"><a class="navbar-brand" href="/" style="color: #ffffff;font-size: 30px;">Education Program</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div    class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/search" style="color: #ffffff;">Search</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/" style="color: #ffffff;">Search</a></li>
                 <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color: #ffffff;">Programs&nbsp;</a>
                     <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/">Edit your programs</a><a class="dropdown-item" role="presentation" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/program/create">Create</a></div>
                 </li>

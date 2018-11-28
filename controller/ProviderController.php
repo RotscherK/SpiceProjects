@@ -20,14 +20,16 @@ class ProviderController{
 
     public static function create(){
         $contentView = new TemplateView("providerEdit.php");
-        $contentView->users = (new ProviderServiceImpl())->getProviderAdmins();
+       // $contentView->users = (new ProviderServiceImpl())->getProviderAdmins();
+        $contentView->users = (new UserServiceImpl())->getAllUsers();
         LayoutRendering::basicLayout($contentView);
+
     }
 
     public static function list(){
         $contentView = new TemplateView("providerList.php");
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
-        $contentView->users = (new ProviderServiceImpl())->getProviderAdmins();
+        //$contentView->users = (new ProviderServiceImpl())->getProviderAdmins();
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -76,6 +78,18 @@ class ProviderController{
             return false;
         }
         return true;
+    }
+
+    public static function showDetails()
+    {
+        $id = $_GET["id"];
+        $contentView = new TemplateView("view/providerDetail.php");
+        $contentView->provider = (new ProviderServiceImpl())->readProvider($id);
+        LayoutRendering::basicLayout($contentView);
+    }
+    public static function delete(){
+        $id = $_GET["id"];
+        (new ProviderServiceImpl())->deleteProvider($id);
     }
 
 

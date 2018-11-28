@@ -105,4 +105,16 @@ class AdvertisementDAO extends BasicDAO {
         }
         return null;
     }
+
+    /**
+     * @access public
+     * @return int
+     * @ReturnType Advertisement[]
+     */
+    public function getAdvertisementsByUser($userId) {
+        $stmt = $this->pdoInstance->prepare('SELECT * FROM "advertisement" WHERE administrator = :user_id');
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
 }

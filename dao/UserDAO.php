@@ -3,6 +3,10 @@
 namespace dao;
 
 use domain\User;
+use http\HTTPException;
+use http\HTTPStatusCode;
+use dao\ProviderDAO;
+use dao\ProgramDAO;
 
 /**
  * @access public
@@ -29,9 +33,9 @@ class UserDAO extends BasicDAO {
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':emailExist', $user->getEmail());
         $stmt->bindValue(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT));
-        $stmt->bindValue(':siteAdmin', $user->getAdmin());
-        $stmt->bindValue(':providerAdmin', $user->getProviderAdmin());
-        $stmt->bindValue(':adAdmin', $user->getAdAdmin());
+        $stmt->bindValue(':siteAdmin', (($user->getAdmin())? 'true' : 'false'));
+        $stmt->bindValue(':providerAdmin', (($user->getProviderAdmin())? 'true' : 'false'));
+        $stmt->bindValue(':adAdmin', (($user->getAdAdmin())? 'true' : 'false'));
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
 	}
@@ -87,9 +91,9 @@ class UserDAO extends BasicDAO {
         $stmt->bindValue(':firstname', $user->getFirstname());
         $stmt->bindValue(':email', $user->getEmail());
         $stmt->bindValue(':password', password_hash($user->getPassword(), PASSWORD_DEFAULT));
-        $stmt->bindValue(':siteAdmin', $user->getAdmin());
-        $stmt->bindValue(':providerAdmin', $user->getProviderAdmin());
-        $stmt->bindValue(':adAdmin', $user->getAdAdmin());
+        $stmt->bindValue(':siteAdmin', (($user->getAdmin())? 'true' : 'false'));
+        $stmt->bindValue(':providerAdmin', (($user->getProviderAdmin())? 'true' : 'false'));
+        $stmt->bindValue(':adAdmin', (($user->getAdAdmin())? 'true' : 'false'));
         $stmt->execute();
         return $this->read($user->getId());
 	}
@@ -118,15 +122,19 @@ class UserDAO extends BasicDAO {
      * @param Program program
      * @ParamType program Program
      */
-    public function delete(User $user) {
-        $stmt = $this->pdoInstance->prepare('
+    public function delete(User $user)
+    {
+        if (((new ProviderDAO())->getProvidersByUser($user->getId())) > 0 || ((new AdvertisementDAO())->getAdvertisementsByUser($user->getId())) > 0) {
+            throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
+        } else {
+            $stmt = $this->pdoInstance->prepare('
             DELETE FROM "user"
             WHERE id = :id
         ');
-        $stmt->bindValue(':id', $user->getId());
-        $stmt->execute();
+            $stmt->bindValue(':id', $user->getId());
+            $stmt->execute();
+        }
     }
-
 
     /**
      * @access public

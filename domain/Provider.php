@@ -8,15 +8,12 @@
 
 namespace domain;
 
-use dao\ProviderDAO;
 use service\UserServiceImpl;
 
 class Provider {
+
     /**
-     * 
-     *
-     * @access protected
-     * @var PROPTYPE
+     * @AttributeType int
      */
     protected $id;
 
@@ -84,10 +81,7 @@ class Provider {
     protected $administratorEmail;
 
     /**
-     * METHODDESCRIPTION
-     *
-     * @access public
-     * @return RETURNTYPE RETURNDESCRIPTION
+     * @return mixed
      */
     public function getId() {
         return $this->id;
