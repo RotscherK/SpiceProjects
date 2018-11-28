@@ -1,7 +1,12 @@
+<?php
+use view\TemplateView;
+use domain\Advertisement;
+isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new advertisement();
+?>
 
 <div class="col-sm-2 sidenav">
     <div class="well">
-        <p>Nice Bikes</p>
+        <p><?php echo TemplateView::noHTML($advertisement->getTitle()); ?>Nice Bikes</p>
         <p>New Iphone</p>
         <p>Some more Ads</p>
     </div>
