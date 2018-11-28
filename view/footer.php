@@ -8,8 +8,10 @@ $contentView->advertisement = (new AdvertisementServiceImpl())->getAllAdvertisem
 
 <div class="col-sm-2 sidenav">
     <div class="well">
-
-        <p>Nice Bikes</p>
+       <?php
+        foreach($this->advertisement as $advertisement): /* @var Advertisement $advertisement */ ?>
+        <?php echo $advertisement->getId(); ?>
+        <p><?php echo TemplateView::noHTML($advertisement->getTitle()); ?>Nice Bikes</p>
         <p>New Iphone</p>
         <p>Some more Ads</p>
     </div>
