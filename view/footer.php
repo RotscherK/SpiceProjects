@@ -13,7 +13,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
         shuffle($advertisements);
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php $link = $advertisement->getURL();?>
-        <?php echo "<p><a href='$link'>";?>
+        <?php echo "<p><base href='$link'>";?>
             <?php echo TemplateView::noHTML($advertisement->getTitle()); ?>
             <?php echo "</a></p>"?>
         <?php endforeach ?>
