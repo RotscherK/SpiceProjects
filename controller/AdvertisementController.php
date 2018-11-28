@@ -74,6 +74,7 @@ class AdvertisementController{
             $contentView = new TemplateView("advertisementEdit.php");
             $contentView->advertisement = $advertisement;
             $contentView->advertisementValidator = $advertisementValidator;
+            $contentView->users = (new UserServiceImpl())->getAllUsers();
             LayoutRendering::basicLayout($contentView);
             return false;
         }
