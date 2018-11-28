@@ -29,7 +29,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-3 item">
-                    <h3>Services</h3>
+                    <h3>Services1</h3>
                     <ul>
                         <li><a href="#">Web design</a></li>
                         <li><a href="#">Development</a></li>
