@@ -2,14 +2,15 @@
 use view\TemplateView;
 use domain\Advertisement;
 use service\AdvertisementServiceImpl;
+
 isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new advertisement();
-$contentView->advertisement = (new AdvertisementServiceImpl())->getAllAdvertisements();
+$advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
 ?>
 
 <div class="col-sm-2 sidenav">
     <div class="well">
        <?php
-        foreach($this->advertisement as $advertisement): /* @var Advertisement $advertisement */ ?>
+        foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php echo $advertisement->getId(); ?>
         <?php echo TemplateView::noHTML($advertisement->getTitle()); endforeach ?>
         <?php ; ?>
