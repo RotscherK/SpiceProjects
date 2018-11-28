@@ -40,18 +40,14 @@ class AdvertisementValidator
                 $this->urlError = 'Please enter a URL';
                 $this->valid = false;
             }
-            if((strpos($advertisement->getURL(), "https://")===false) && (strpos($advertisement->getURL(), "http://")===false)) {
-                $this->urlError = 'Please start the link with http:// or https://'.$advertisement->getURL();
-                $this->valid = false;
-            }
-            /*if(strpos($advertisement->getURL(), "https://")==false){
+            if((strpos($advertisement->getURL(), "https://")!==0) && (strpos($advertisement->getURL(), "http://")!==0)) {
                 $this->urlError = 'Please start the link with http:// or https://';
                 $this->valid = false;
             }
             if (empty($advertisement->getUserAdmin())) {
                 $this->administratorError = 'Please select an administrator';
                 $this->valid = false;
-            }*/
+            }
 
         } else {
             $this->valid = false;
