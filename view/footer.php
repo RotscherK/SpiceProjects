@@ -13,7 +13,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
         shuffle($advertisements);
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php $i = 0; ?>
-            <?php if (++$i > 8)break; ?>
+            <?php if (++$i > 8){ ?>
         <?php $link = $advertisement->getURL();?>
         <?php echo "<p><a href='$link'>";?>
             <?php echo TemplateView::noHTML($advertisement->getTitle()); ?>
@@ -21,6 +21,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
             <?php echo "<p>"?>
             <?php echo TemplateView::noHTML($advertisement->getContent()); ?>
             <?php echo "<p>"?>
+        <?php } ?>
         <?php endforeach ?>
         <?php ; ?>
     </div>
