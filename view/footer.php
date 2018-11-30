@@ -10,8 +10,6 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
 <div class="col-sm-2 sidenav">
     <div class="well">
        <?php
-       $i = 0;
-       if (++$i < 8){
         shuffle($advertisements);
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php $link = $advertisement->getURL();?>
@@ -22,7 +20,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
             <?php echo TemplateView::noHTML($advertisement->getContent()); ?>
             <?php echo "<p>"?>
         <?php endforeach ?>
-        <?php ; }?>
+        <?php ; ?>
     </div>
 </div>
 </div>
