@@ -35,8 +35,8 @@ class AdvertisementValidator
             if (empty($advertisement->getContent())) {
                 $this->contentError = 'Please enter the content';
                 $this->valid = false;
-            }elseif ((strlen($advertisement->getContent()))>75){
-                $this->contentError = 'Please keep the description below 75 characters';
+            }elseif ((strlen($advertisement->getContent()))>50){
+                $this->contentError = 'Please keep the description below 50 characters';
                 $this->valid = false;
             }
             if (empty($advertisement->getURL())) {
