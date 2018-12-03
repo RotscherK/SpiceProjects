@@ -49,8 +49,6 @@ class ChargingController
                 $pdfContent = PDFController::generateProviderInvoicePDF($providerPrograms, $provider);
                 EmailController::sendInvoice($provider, $pdfContent);
                 $providerPrograms = array();
-
-                sleep(5);
             }
             $providerid = $program->getProviderID();
             array_push($providerPrograms, $program);
