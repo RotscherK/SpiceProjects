@@ -69,7 +69,6 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
-                <div class="col-sm-9">
                     <?php
                     if(isset($POST['Upload Image'])){
                         $file_tmp = $_FILES['file']['tmp_name'];
@@ -77,7 +76,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     }
                     ?>
                 <form method="post" enctype="multipart/form-data">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <?php echo cl_image_upload_tag('image_id'); ?>
                     <input type="submit" value="Upload Image" name="submit">
                 </form>
             </div>
