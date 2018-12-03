@@ -18,6 +18,7 @@ class EmailController
         $emailView = new TemplateView("programInvoiceEmail.php");
         $emailView->provider = $provider;
         //return EmailServiceClient::sendEmail($provider->getBillingEmail(), "Monthly Invoice", $emailView->render(), true, $pdfContent, "Invoice.pdf");
-        return EmailServiceClient::sendEmail("roger.kaufmann1@students.fhnw.ch", "Monthly Invoice", $emailView->render(), true, $pdfContent, "Invoice.pdf");
+        //return EmailServiceClient::sendEmail("roger.kaufmann1@students.fhnw.ch", "Monthly Invoice", $emailView->render(), true, $pdfContent, "Invoice.pdf");
+        return EmailServiceClient::sendEmail("roger.kaufmann1@students.fhnw.ch", "Monthly Invoice", $emailView->render(), true, "", "Invoice.pdf");
     }
 }
