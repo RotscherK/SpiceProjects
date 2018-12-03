@@ -16,14 +16,6 @@ Content Management:
 - Program
     - Request form
 
-Finalization Invoicing
-- PDFController->generateProviderInvoicePDF()
-- php template
-- mail
-
-Finalization
-- Setup of schedule job when start date Expired => Heroku Schedule
-
 
 =========================================
 Done:
@@ -67,7 +59,16 @@ Invoicing
 
 Scheduled job (Cronjob)
 - Setup of basic call structure
--
+
+Finalization Invoicing
+- PDFController->generateProviderInvoicePDF()
+- php template
+- mail
+
+Finalization
+- Setup of schedule job when start date Expired => Heroku Schedule
+
+
 
 - User
     - View -> Done, Tim
@@ -89,3 +90,4 @@ Scheduled job (Cronjob)
         - View -> Done, Tim
         - Edit -> Done, Tim
         - Create/Edit -> Done, Tim
+
