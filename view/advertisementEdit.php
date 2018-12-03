@@ -68,12 +68,12 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     </select>
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
+                <label for="Image" class="col-sm-3 col-form-label">Image</label>
+                <form action="advertisementUpload.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+                </form>
             </div>
-            <label for="Image" class="col-sm-3 col-form-label">Image</label>
-            <form action="advertisementUpload.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="submit">
-            </form>
             <div class="form-group row">
                 <div class="col-sm-5">
                     <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
