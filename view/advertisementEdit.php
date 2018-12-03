@@ -71,7 +71,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
                     <?php
                     if(isset($POST['Upload Image'])){
-                        $file_tmp = $_FILES['file']['tmp_name'];
+                        $file_tmp = $_FILES['']['tmp_name'];
                         \cloudinary\Uploader::upload($file_tmp, array("public_id" => $advertisement->getID()));
                     }
                     ?>
