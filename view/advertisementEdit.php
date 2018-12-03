@@ -77,7 +77,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 <div class="col-sm-5">
-                    <button type="button" class="btn btn-tertiary">Upload</button>
+                    <button type="button" class="btn btn-primary">Upload</button>
                 </div>
             </div>
         </form>
