@@ -70,7 +70,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 </div>
             </div>
             <div class="col-sm-5">
-                <button type="button" class="btn btn-primary" name="upload" value="Upload" onClick="window.location='<?php echo cl_image_upload_tag('image_id', array("callback" => $cors_location)); ?>; ?>/';">Upload</button>
+                <button type="button" class="btn btn-primary" name="upload" value="Upload" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Upload</button>
             </div>
             <div class="form-group row">
                 <div class="col-sm-5">
