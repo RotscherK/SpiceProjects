@@ -76,6 +76,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     }
                     ?>
                 <form method="post" enctype="multipart/form-data">
+                    <input type="file" name="file">
                     <input type="submit" value="Upload Image" name="submit">
                 </form>
             </div>
