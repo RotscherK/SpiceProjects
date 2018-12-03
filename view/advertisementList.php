@@ -39,10 +39,12 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
                                 <td><?php echo TemplateView::noHTML($advertisement->getAdministratorEmail()); ?></td>
                                 <?php if(isset($_SESSION['userLogin'])): ?>
                                     <td>
+                                    <?php if($_SESSION["userLogin"]["siteAdmin"] == true || ($advertisement->getUserAdmin() == $_SESSION["userLogin"]["userID"])): ?>
                                         <div class="btn-group btn-group-sm" role="group">
                                             <a class="btn-default" role="button" href="/advertisement/edit?id=<?php echo $advertisement->getId(); ?>"> <ion-icon name="create"></ion-icon></a>
                                             <a class="btn-default" role="button" href="/advertisement/delete?id=<?php echo $advertisement->getId(); ?>"> <ion-icon name="trash"></ion-icon></a>
                                         </div>
+                                    <?php endif; ?>
                                     </td>
                                 <?php endif; ?>
                             </tr>
