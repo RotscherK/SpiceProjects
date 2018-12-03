@@ -9,6 +9,8 @@
 namespace validator;
 
 use domain\Advertisement;
+use http\HTTPException;
+use http\HTTPStatusCode;
 
 class AdvertisementValidator
 {
@@ -28,6 +30,9 @@ class AdvertisementValidator
     public function validate(Advertisement $advertisement)
     {
         if (!is_null($advertisement)) {
+
+            if ($_SESSION["userLogin"]["siteAdmin"] == true || $advertisement->getUserAdmin() == $_SESSION["userLogin"]["userID"]) {
+
             if (empty($advertisement->getTitle())) {
                 $this->titleError = 'Please enter the title';
                 $this->valid = false;
@@ -48,9 +53,14 @@ class AdvertisementValidator
                 }else{
 
             }
+
             if (empty($advertisement->getUserAdmin())) {
                 $this->administratorError = 'Please select an administrator';
                 $this->valid = false;
+            }
+
+            }else{
+                throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
             }
 
         } else {

@@ -137,7 +137,6 @@ class ProgramController
         $emailView->provider = $provider;
         $emailView->firstname = $admin->getFirstname();
         return EmailServiceClient::sendEmail($admin->getEmail(), "Program is expired", $emailView->render(), false, null, null);
-
     }
 
 
