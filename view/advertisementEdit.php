@@ -70,6 +70,12 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 </div>
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
                 <div class="col-sm-9">
+                    <?php
+                    if(isset($POST['Upload Image'])){
+                        $file_tmp = $_FILES['file']['tmp_name'];
+                        \cloudinary\Uploader::upload($file_tmp, array("public_id" => $advertisement->getID()));
+                    }
+                    ?>
                 <form method="post" enctype="multipart/form-data">
                     <input type="file" name="fileToUpload" id="fileToUpload">
                     <input type="submit" value="Upload Image" name="submit">
