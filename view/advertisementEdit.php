@@ -11,6 +11,16 @@ use domain\Advertisement;
 use domain\User;
 use validator\AdvertisementValidator;
 
+if (is_file(__DIR__ . '/../cloudinary/autoload.php') && is_readable(__DIR__ . '/../cloudinary/autoload.php')) {
+    require_once __DIR__.'/../cloudinary/autoload.php';
+} else {
+    // Fallback to legacy autoloader
+    require_once __DIR__.'/../cloudinary/autoload.php';
+}
+if (file_exists('/../cloudinary/Settings.php')) {
+    include '/../cloudinary/Settings.php';
+}
+
 isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new Advertisement();
 isset($this->advertisementValidator) ? $advertisementValidator = $this->advertisementValidator : $advertisementValidator = new AdvertisementValidator();
 isset($this->user) ? $user = $this->user : $user = new User();
@@ -65,6 +75,9 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 </div>
                 <div class="col-sm-5">
                     <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                <div class="col-sm-5">
+                    <button type="button" class="btn btn-tertiary">Upload</button>
                 </div>
             </div>
         </form>
