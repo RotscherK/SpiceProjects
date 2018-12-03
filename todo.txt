@@ -12,19 +12,11 @@ Access Concept:
     - Site Admin
     - Provider (Administrator providing Program)
 
-
-
 Content Management:
 - Program
     - Dropdowns with other entities
     - Attributebased Search
     - Request form
-- User
-    - Access only for site admins
-- Provider
-    - View -> Done, Tim
-    - Edit
-    - Create/Edit
 
 Finalization Invoicing
 - PDFController->generateProviderInvoicePDF()
@@ -91,3 +83,10 @@ Scheduled job (Cronjob)
     - Create/Edit -> Done, Nicola
     - Search fixed for Advertisement list -> Done, Nicola
     -AWS Account created: Name->SpiceProjecs, pw->Spice:18
+
+    - User
+        - Access only for site admins -> Done, Tim
+    - Provider
+        - View -> Done, Tim
+        - Edit -> Done, Tim
+        - Create/Edit -> Done, Tim
