@@ -23,6 +23,6 @@ class EmailController
         print_r($emailView->render());
         echo "<br><br>";
 
-        //return EmailServiceClient::sendEmail("roger.kaufmann1@students.fhnw.ch", "Monthly Invoice", $emailView->render(), true, "", "Invoice.pdf");
+        return EmailServiceClient::sendEmail("roger.kaufmann1@students.fhnw.ch", "Monthly Invoice", "test", true, "", "Invoice.pdf");
     }
 }
