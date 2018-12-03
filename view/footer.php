@@ -11,11 +11,15 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
     <div class="well">
        <?php
         shuffle($advertisements);
+        array_splice($advertisements,9);
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php $link = $advertisement->getURL();?>
         <?php echo "<p><a href='$link'>";?>
             <?php echo TemplateView::noHTML($advertisement->getTitle()); ?>
             <?php echo "</a></p>"?>
+            <?php echo "<p>"?>
+            <?php echo TemplateView::noHTML($advertisement->getContent()); ?>
+            <?php echo "<p>"?>
         <?php endforeach ?>
         <?php ; ?>
     </div>
