@@ -30,7 +30,7 @@ class Advertisement {
      */
     protected $url;
     /**
-     * @AttributeType String
+     * @AttributeType int
      */
     protected $administrator;
     /**
