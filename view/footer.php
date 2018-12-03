@@ -1,9 +1,27 @@
+<?php
+use view\TemplateView;
+use domain\Advertisement;
+use service\AdvertisementServiceImpl;
+
+isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new advertisement();
+$advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
+?>
 
 <div class="col-sm-2 sidenav">
     <div class="well">
-        <p>Nice Bikes</p>
-        <p>New Iphone</p>
-        <p>Some more Ads</p>
+       <?php
+        shuffle($advertisements);
+        array_splice($advertisements,9);
+        foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
+        <?php $link = $advertisement->getURL();?>
+        <?php echo "<p><a href='$link'>";?>
+            <?php echo TemplateView::noHTML($advertisement->getTitle()); ?>
+            <?php echo "</a></p>"?>
+            <?php echo "<p>"?>
+            <?php echo TemplateView::noHTML($advertisement->getContent()); ?>
+            <?php echo "<p>"?>
+        <?php endforeach ?>
+        <?php ; ?>
     </div>
 </div>
 </div>

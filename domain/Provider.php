@@ -8,7 +8,6 @@
 
 namespace domain;
 
-use dao\ProviderDAO;
 use service\UserServiceImpl;
 
 class Provider {

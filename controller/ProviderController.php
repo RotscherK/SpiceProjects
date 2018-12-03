@@ -74,6 +74,7 @@ class ProviderController{
             $contentView = new TemplateView("providerEdit.php");
             $contentView->provider = $provider;
             $contentView->providerValidator = $providerValidator;
+            $contentView->users = (new UserServiceImpl())->getAllUsers();
             LayoutRendering::basicLayout($contentView);
             return false;
         }

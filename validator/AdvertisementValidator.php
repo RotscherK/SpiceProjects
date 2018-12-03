@@ -35,12 +35,19 @@ class AdvertisementValidator
             if (empty($advertisement->getContent())) {
                 $this->contentError = 'Please enter the content';
                 $this->valid = false;
+            }elseif ((strlen($advertisement->getContent()))>50){
+                $this->contentError = 'Please keep the description below 50 characters';
+                $this->valid = false;
             }
             if (empty($advertisement->getURL())) {
                 $this->urlError = 'Please enter a URL';
                 $this->valid = false;
-            }
+            }elseif((strpos($advertisement->getURL(), "https://")!==0) && (strpos($advertisement->getURL(), "http://")!==0)) {
+                    $this->urlError = 'Please start the link with http:// or https://';
+                    $this->valid = false;
+                }else{
 
+            }
             if (empty($advertisement->getUserAdmin())) {
                 $this->administratorError = 'Please select an administrator';
                 $this->valid = false;
