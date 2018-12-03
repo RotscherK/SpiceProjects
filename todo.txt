@@ -14,8 +14,6 @@ Access Concept:
 
 Content Management:
 - Program
-    - Dropdowns with other entities
-    - Attributebased Search
     - Request form
 
 Finalization Invoicing
@@ -62,6 +60,7 @@ Content Management:
     - Delete (Logic)
     - View
     - PDF Generation
+    - Dropdowns with other entities
 
 Invoicing
 - Logic & Structure
