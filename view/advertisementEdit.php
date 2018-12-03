@@ -76,7 +76,6 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     }
                     ?>
                 <form method="post" enctype="multipart/form-data">
-                    <?php echo cl_image_upload_tag('image_id'); ?>
                     <input type="submit" value="Upload Image" name="submit">
                 </form>
             </div>
