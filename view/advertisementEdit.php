@@ -69,7 +69,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
-                <form action="advertisementUpload.php" method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data">
                     <input type="file" name="fileToUpload" id="fileToUpload">
                     <input type="submit" value="Upload Image" name="submit">
                 </form>
