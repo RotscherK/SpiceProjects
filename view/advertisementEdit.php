@@ -69,15 +69,15 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
             </div>
+            <div class="col-sm-5">
+                <button type="button" class="btn btn-primary" name="upload" value="Upload" onClick="window.location='<?php echo cl_image_upload_tag('image_id', array("callback" => $cors_location)); ?>; ?>/';">Upload</button>
+            </div>
             <div class="form-group row">
                 <div class="col-sm-5">
                     <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
                 </div>
                 <div class="col-sm-5">
                     <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-                <div class="col-sm-5">
-                    <button type="button" class="btn btn-primary">Upload</button>
                 </div>
             </div>
         </form>
