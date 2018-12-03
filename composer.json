@@ -1,0 +1,13 @@
+{
+  "name": "spiceprojects",
+  "description": "Reference Project",
+  "authors": [
+    {
+      "name": "Roger Kaufmann",
+      "email": "roger.kaufmann1@students.fhnw.ch"
+    }
+  ],
+  "require": {
+    "php": "~7.2.0"
+  }
+}
