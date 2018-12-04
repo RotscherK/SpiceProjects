@@ -44,3 +44,17 @@ foreach ($files["tmp_name"] as $index => $value) {
     array_push($files_data, create_photo($value, $files["name"][$index]));
 }
 ?>
+<html>
+<head>
+    <title>Upload succeeded!</title>
+</head>
+<body>
+
+<h1>Your photo has been uploaded sucessfully!</h1>
+<h2>Upload details:</h2>
+
+<br/>
+<?php echo cl_image_tag($file_data['public_id'], array_merge($thumbs_params, array( "crop" => "fill" ))); ?>
+
+</body>
+</html>
