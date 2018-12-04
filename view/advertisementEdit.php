@@ -69,15 +69,9 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
-                <form method="post" enctype="multipart/form-data">
-                    <input type="file" name="file">
-                    <input type="submit" value="Upload Image" name="submit">
-                    <?php
-                    if(isset($POST['Upload Image'])){
-                        $file_tmp = $_FILES['file']['tmp_name'];
-                        \cloudinary\Uploader::upload($file_tmp, array("public_id" => $advertisement->getID()));
-                    }
-                    ?>
+                <form action="advertisementUpload" method="post" enctype="multipart/form-data">
+                    <input id="fileupload" type="file" name="files[]" multiple accept="image/jpeg, image/png">
+                    <input type="submit" value="Upload Image">
                 </form>
             </div>
             <div class="form-group row">
