@@ -69,15 +69,15 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
-                    <?php
-                    if(isset($POST['Upload Image'])){
-                        $file_tmp = $_FILES['']['tmp_name'];
-                        \cloudinary\Uploader::upload($file_tmp, array("public_id" => $advertisement->getID()));
-                    }
-                    ?>
                 <form method="post" enctype="multipart/form-data">
                     <input type="file" name="file">
                     <input type="submit" value="Upload Image" name="submit">
+                    <?php
+                    if(isset($POST['Upload Image'])){
+                        $file_tmp = $_FILES['file']['tmp_name'];
+                        \cloudinary\Uploader::upload($file_tmp, array("public_id" => $advertisement->getID()));
+                    }
+                    ?>
                 </form>
             </div>
             <div class="form-group row">
