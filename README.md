@@ -71,6 +71,10 @@ Index (Search the latest programs)
         - Create
         - Edit
         - Delete
+        
+#### Access concept
+
+![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/Access rights concept.png "Access rights concept")  
  
 
 #### Database Model
