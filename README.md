@@ -82,7 +82,7 @@ The following access concept has been designed for the three types of administra
 
 ![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept.png "Access rights concept")  
 
-The advertisement and provider administrators can only edit the entries where they are listed as the administrator. The site administrator has complete access to all entries and has no restrictions at all.
+Depicted in the table above is the access concept for these administrators. The advertisement and provider administrators can only edit the entries where they are listed as the administrator. The site administrator has complete access to all entries and has no restrictions at all.
 
 #### Database Model
 
