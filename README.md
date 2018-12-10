@@ -74,7 +74,7 @@ Index (Search the latest programs)
         
 #### Access concept
 
-![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/Access rights concept.png "Access rights concept")  
+![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept.png "Access rights concept")  
  
 
 #### Database Model
