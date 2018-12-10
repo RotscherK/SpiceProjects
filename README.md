@@ -74,8 +74,15 @@ Index (Search the latest programs)
         
 #### Access concept
 
+The following access concept has been designed for the three types of administrators on the web page:
+
+- Site Administrator
+- Provider Administrator
+- Advertisement Administrator
+
 ![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept.png "Access rights concept")  
- 
+
+The advertisement and provider administrators can only edit the entries where they are listed as the administrator. The site administrator has complete access to all entries and has no restrictions at all.
 
 #### Database Model
 
