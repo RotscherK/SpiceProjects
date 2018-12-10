@@ -48,19 +48,26 @@ administrator.
 
 #### Wireframes
 ##### Website Structure
-Index (Search and latest courses)
-- Course
-    - Course Search
-    - Course List
-    - Course View
+Index (Search the latest programs)
+- Program
+    - Program List
+    - Program View
 - Administration
     - Login
         - Password forgotten
-    - Course (List)
+    - Program (List)
+        - Create
+        - Edit
+        - Delete
+    - Provider (List)
         - Create
         - Edit
         - Delete
     - User (List)
+        - Create
+        - Edit
+        - Delete
+    - Advertisement (List)
         - Create
         - Edit
         - Delete
