@@ -69,7 +69,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <?php
                 $s3 = new S3Client([
                     $_ENV["AWS_ACCESS_KEY_ID"],
-                    $_ENV["AWS_SECRET_ACCESS_KEY"]
+                    $_ENV["AWS_SECRET_ACCESS_KEY"],
+                    'region' => 'eu-west-2'
                 ]);
                 if(isset($_FILES['file'])) {
                     $file = $_FILES['file'];
