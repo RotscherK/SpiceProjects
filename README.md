@@ -101,7 +101,18 @@ Depicted in the table above is the access concept for these administrators. The 
 
 #### Database Model
 
+A PostgreSQL database was created in order to store all data used in the application. The design of database is displayed in the image below:
+
 ![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.png "Database Model")  
+
+In addition, a short description on the purpose of each table is provided here:
+
+- authoken: administrative table handling the remember me for 30 days functionality and the password reset.
+- user: All information on the user is stored including the type of administrator he/she is (site admin / provider / advertisement)
+- advertisement: All advertisement details are stored and the id of the responsible user.
+- provider: Information on each provider including the responsible user.
+- program: All program details are saved in this table including the corresponding category and provider id.
+- category: For each a program category an entry is created.
 
 #### Use Case Diagram
 
