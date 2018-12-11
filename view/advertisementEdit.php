@@ -10,6 +10,8 @@ use view\TemplateView;
 use domain\Advertisement;
 use domain\User;
 use validator\AdvertisementValidator;
+use config\Config;
+use Aws\S3\S3Client;
 
 require __DIR__ .'../amazon/aws-autoloader.php';
 
@@ -60,10 +62,18 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     </select>
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
+                <div class="form-group row">
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
-                <?php $s3 = Aws\S3\S3Client::factory();
-                $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-                ?>
+                <!-- S3 setup -->
+                <?php
+                $s3 = new S3Client([
+                    $_ENV["AWS_ACCESS_KEY_ID"],
+                    $_ENV["AWS_SECRET_ACCESS_KEY"]
+                ]); ?>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="file" name="file">
+                        <input type="submit" value="Upload">
+                    </form>
             </div>
             <div class="form-group row">
                 <div class="col-sm-5">
