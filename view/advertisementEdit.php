@@ -63,6 +63,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     </select>
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
+            </div>
                 <div class="form-group row">
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
                 <?php
@@ -71,6 +72,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <div class=form-group">
                     <input type="file" name="image">
             </div>
+                </div>
             <div class="form-group row">
                 <div class="col-sm-5">
                     <button type="button" class="btn btn-secondary" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
