@@ -17,7 +17,7 @@ class AWSUploadService {
 
     public function uploadImage($image) {
 
-        require __DIR__ . '/../amazon/aws-autoloader.php';
+        require __DIR__ . '../amazon/aws-autoloader.php';
         //S3 Setup
         $s3 = new S3Client([
             'key' => $_ENV["AWS_ACCESS_KEY_ID"],
