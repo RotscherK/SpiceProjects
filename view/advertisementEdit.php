@@ -71,7 +71,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 $link = $advertisement->getImage();
                 echo isset($link) ? "<img width='150px' src=$link>" : ""?>
                     </div>
-                <div class=form-group">
+                    <div class="col-sm-9">
                     <input type="file" name="image">
             </div>
                 </div>
