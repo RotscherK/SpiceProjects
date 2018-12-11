@@ -103,7 +103,7 @@ Depicted in the table above is the access concept for these administrators. The 
 
 A PostgreSQL database was created in order to store all data used in the application. The design of database is displayed in the image below:
 
-![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/Database_Model.png "Database Model")  
+![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.png "Database Model")  
 
 In addition, a short description on the purpose of each table is provided here:
 
