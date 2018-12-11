@@ -124,6 +124,22 @@ In addition, a short description on the purpose of each table is provided here:
 
 #### Classes
 
+For the implementation of the web application, the hands-on project provided the lecturer of the course, Andreas Martin was a big help. It can be found in the following GitHub repository: https://github.com/andreasmartin/WE-CRM . The concepts in that project were taken and adjusted/extended/reduced to fulfil the needs of our project. The structure contains several directories which contain files for individual purposes. These are described here:
+
+- amazon: All configuration files required for the upload of images to the Amazon S3 storage
+- config: Gets information such as credentials from the secret .ENV file
+- controller: Controller files for the connection between logic and view
+- dao: Database operations for each specific table
+- database: Responsible for the database connection
+- domain: Domain objects with getters and setters for all attributes
+- files: Nicola?
+- http: HTTPHeader and the different kinds of status messages (e.g. 404)
+- router: Requests within the application are routed to the required location
+- scheduler: Handles the invoicing and checks programs for expiration date
+- service: Service layer for the different domain objects
+- validator: Validate the user input before sending it to the database
+- view: All views which are displayed to the end-user
+
 #### Database
 
 #### Applied techniques and APIs
