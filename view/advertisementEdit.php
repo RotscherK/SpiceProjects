@@ -68,8 +68,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <!-- S3 setup -->
                 <?php
                 $s3 = new S3Client([
-                    'key' => $_ENV["AWS_ACCESS_KEY_ID"],
-                    'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
+                    'key' => 'AKIAIVRQAZP6XE4R5N6A',/*$_ENV["AWS_ACCESS_KEY_ID"],*/
+                    'secret' => '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',/*$_ENV["AWS_SECRET_ACCESS_KEY"],*/
                     'version' => 'latest',
                     'region' => 'eu-west-2'
                 ]);
@@ -86,7 +86,6 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     $tmp_file_path = "files/{$tmp_file_name}";
                     //Move the file
                     move_uploaded_file($tmp_name, $tmp_file_path);
-                    var_dump($tmp_name);
                     try {
                         $s3->putObject([
                            'Bucket' =>  'spiceprojects',
