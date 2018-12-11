@@ -11,15 +11,7 @@ use domain\Advertisement;
 use domain\User;
 use validator\AdvertisementValidator;
 
-if (is_file(__DIR__ . '/../cloudinary/autoload.php') && is_readable(__DIR__ . '/../cloudinary/autoload.php')) {
-    require_once __DIR__.'/../cloudinary/autoload.php';
-} else {
-    // Fallback to legacy autoloader
-    require_once __DIR__.'/../cloudinary/autoload.php';
-}
-if (file_exists('/../cloudinary/Settings.php')) {
-    include '/../cloudinary/Settings.php';
-}
+require __DIR__ .'../amazon/aws-autoloader.php';
 
 isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new Advertisement();
 isset($this->advertisementValidator) ? $advertisementValidator = $this->advertisementValidator : $advertisementValidator = new AdvertisementValidator();
