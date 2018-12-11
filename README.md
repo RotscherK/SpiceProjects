@@ -50,15 +50,15 @@ administrator.
 
 Before we started the design of the web page, our ideas were captured and visualized in these mockup sketches done with the tool Balsamiq. As the content of the web page of rather serious manner, we decided to keep the design simple and uniform. The home page is shown in the mockup below and contains a list of all available continuing educational programs.
 
-![Wireframe (Mockups)](https://github.com/RotscherK/SpiceProjects/blob/master/Mockup_ProgramList "Homepage mockup")
+![Wireframe (Mockups)](https://github.com/RotscherK/SpiceProjects/blob/master/Mockup_ProgramList.png "Homepage mockup")
 
 The home page as shown above can be accessed without having to login to the application. If new programs, providers, users or advertisements need to be created, a login is required. The end-user experiences the login in a very standard way and is displayed in the mockup below. In addition, the option stands to mark the remember me check box and stay logged in for the next 30 days. 
 
-![Wireframe (Mockups)](https://github.com/RotscherK/SpiceProjects/blob/master/Mockup_Login "Login window mockup")
+![Wireframe (Mockups)](https://github.com/RotscherK/SpiceProjects/blob/master/Mockup_Login.png "Login window mockup")
 
 As new programs, provider, users and advertisements need to be created or existing ones modified constantly, we again here decided to provide a uniform way to do this. Given that the user has sufficient permissions to do so, the creation of new or altering of existing objects will be handled in a window as depicted in the image below. For more information on the access rights of the users, please check the chapter Access Content of this file.
 
-![Wireframe (Mockups)](https://github.com/RotscherK/SpiceProjects/blob/master/Mockup_ProviderEdit "Create/Edit provider window mockup")
+![Wireframe (Mockups)](https://github.com/RotscherK/SpiceProjects/blob/master/Mockup_ProviderEdit.png "Create/Edit provider window mockup")
 
 
 
