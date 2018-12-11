@@ -142,7 +142,9 @@ For the implementation of the web application, the hands-on project provided the
 
 #### Database
 
-The following code was used to create the database according to the model defined in the chapter [Database Model](#database- model)
+The following code was used to create the database according to the model defined in the chapter Database Model: link to SQLDDL.sql
+
+
 
 
 #### Applied techniques and APIs
