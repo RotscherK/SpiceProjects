@@ -114,20 +114,11 @@ In addition, a short description on the purpose of each table is provided here:
 - program: All program details are saved in this table including the corresponding category and provider id.
 - category: For each a program category an entry is created.
 
-#### Use Case Diagram
+#### Use Case Diagram (NICOLA)
 
-- Login
-- Logout
-- PW reset
-- Modify Profile
-- Search functionality
-- Create/Edit/Delete forms for schools, courses and users
-- Book advertising
-- Optional: Register
+#### Deployment Diagram (NICOLA)
 
-#### Deployment Diagram
-
-#### Domain Model
+#### Domain Model (?)
 
 ### Implementation
 
