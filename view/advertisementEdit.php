@@ -65,44 +65,12 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 </div>
                 <div class="form-group row">
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
-                <!-- S3 setup -->
                 <?php
-                $s3 = new S3Client([
-                    'key' => $_ENV["AWS_ACCESS_KEY_ID"],
-                    'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
-                    'version' => 'latest',
-                    'region' => 'eu-west-2'
-                ]);
-                if(!empty($_FILES['file'])) {
-                    echo $_FILES;
-                    $file = $_FILES['file'];
-                    //File details
-                    $name =$file['name'];
-                    $tmp_name = $file['tmp_name'];
-                    $extentsion = explode('.', $name);
-                    $extentsion = strtolower(end($extentsion));
-                    //Temp details
-                    $key = md5(uniqid());
-                    $tmp_file_name = "{$key}.{$extentsion}";
-                    $tmp_file_path = "files/{$tmp_file_name}";
-                    //Move the file
-                    move_uploaded_file($tmp_name, $tmp_file_path);
-                    try {
-                        $s3->putObject([
-                           'Bucket' =>  'spiceprojects',
-                            'Key' => "uploads/{$name}",
-                            'Body' => fopen($tmp_file_path, 'rb'),
-                            'ACL' => 'public-read'
-                        ]);
-                        //Remove the file
-                        unlink($tmp_file_path);
-
-                    } catch(Aws\S3\Exception\S3Exception $e){
-                        die("Error while uploading to S3");
-                    }
-                }
-                ?>
-                        <input type="file" name="file">
+                $link = $advertisement->getImage();
+                echo isset($link) ? "<src=$link>" : ""?>
+                <div class=form-group">
+                    <input type="file" name="image">
+                    <label class="label-top">Image</label>
             </div>
             <div class="form-group row">
                 <div class="col-sm-5">

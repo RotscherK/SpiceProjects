@@ -36,6 +36,8 @@ class Advertisement {
     /**
      * @return mixed
      */
+    protected $image;
+
     public function getId()
     {
         return $this->id;
@@ -112,6 +114,16 @@ class Advertisement {
     {
         return $this->administrator;
     }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+    public function getImage()
+    {
+        return $this->image;
+    }
+
 
     public function getAdministratorEmail() {
         return (new UserServiceImpl())->readUserBasic($this->getUserAdmin())->getEmail();

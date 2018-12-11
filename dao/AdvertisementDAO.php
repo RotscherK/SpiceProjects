@@ -25,12 +25,13 @@ class AdvertisementDAO extends BasicDAO {
      */
     public function create(Advertisement $advertisement) {
         $stmt = $this->pdoInstance->prepare('
-        INSERT INTO "advertisement" (title, content, url, administrator)
-        VALUES (:title, :content, :url, :administrator)');
+        INSERT INTO "advertisement" (title, content, url, administrator, image)
+        VALUES (:title, :content, :url, :administrator, :image)');
         $stmt->bindValue(':title', $advertisement->getTitle());
         $stmt->bindValue(':content', $advertisement->getContent());
         $stmt->bindValue(':url', $advertisement->getURL());
         $stmt->bindValue(':administrator', $advertisement->getUserAdmin());
+        $stmt->bindValue(':image', $advertisement->getImage());
         $stmt->execute();
         return $this->read($this->pdoInstance->lastInsertId());
     }
@@ -70,12 +71,13 @@ class AdvertisementDAO extends BasicDAO {
      */
     public function update(Advertisement $advertisement) {
         $stmt = $this->pdoInstance->prepare('
-                UPDATE "advertisement" SET title=:title, content=:content, url=:url, administrator=:administrator WHERE id = :id;');
+                UPDATE "advertisement" SET title=:title, content=:content, url=:url, administrator=:administrator, image=:image WHERE id = :id;');
         $stmt->bindValue(':id', $advertisement->getId());
         $stmt->bindValue(':title', $advertisement->getTitle());
         $stmt->bindValue(':content', $advertisement->getContent());
         $stmt->bindValue(':url', $advertisement->getURL());
         $stmt->bindValue(':administrator', $advertisement->getUserAdmin());
+        $stmt->bindValue(':image', $advertisement->getImage());
         $stmt->execute();
         return $this->read($advertisement->getId());
     }
