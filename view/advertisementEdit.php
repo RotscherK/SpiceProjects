@@ -12,6 +12,7 @@ use domain\User;
 use validator\AdvertisementValidator;
 use config\Config;
 use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
 
 require '../amazon/aws-autoloader.php';
 
@@ -82,7 +83,12 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     $tmp_file_name = "{$key}.{$extentsion}";
                     $tmp_file_path = "files/{$tmp_file_name}";
                     //Move the file
+                    move_uploaded_file($tmp_name, $tmp_file_path);
+                    try {
 
+                    } catch(\Aws\S3\Exception\S3Exception $e){
+                        die("Error while uploading to S3");
+                    }
                 }
                 ?>
                     <form action="advertisementEdit.php" method="post" enctype="multipart/form-data">
