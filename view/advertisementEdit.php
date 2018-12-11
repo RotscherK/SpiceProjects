@@ -66,9 +66,11 @@ isset($this->user) ? $user = $this->user : $user = new User();
             </div>
                 <div class="form-group row">
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
+                    <div class="col-sm-9">
                 <?php
                 $link = $advertisement->getImage();
                 echo isset($link) ? "<img width='150px' src=$link>" : ""?>
+                    </div>
                 <div class=form-group">
                     <input type="file" name="image">
             </div>
