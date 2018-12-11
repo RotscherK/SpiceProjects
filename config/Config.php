@@ -49,5 +49,11 @@ class Config
         if (isset($_ENV["HYPDF_PASSWORD"])) {
             self::$config["pdf.hypdf-password"] = $_ENV["HYPDF_PASSWORD"];
         }
+        if (isset($_ENV["AWS_ACCESS_KEY_ID"])){
+            self::$config["aws.access-key"] = $_ENV["AWS_ACCESS_KEY_ID"];
+        }
+        if (isset($_ENV["AWS_SECRET_ACCESS_KEY"])){
+            self::$config["aws.secret-access-key"] = $_ENV["AWS_SECRET_ACCESS_KEY"];
+        }
     }
 }
