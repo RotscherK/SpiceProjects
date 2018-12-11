@@ -73,6 +73,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     'region' => 'eu-west-2',
                     'version' => '2006-03-01'
                 ]);
+                var_dump($_ENV);
                 if(isset($_FILES['file'])) {
                     $file = $_FILES['file'];
                     //File details
