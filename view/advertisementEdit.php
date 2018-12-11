@@ -23,7 +23,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
 
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
-        <form action="update" method="post">
+        <form action="update" method="post" enctype="multipart/form-data">
             <h2 class="text-center">Create/Edit Advertisement</h2>
 
             <div class="form-group row" <?php if($advertisement->getId() == null): ?> style="display: none" <?php endif; ?>>
@@ -102,10 +102,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     }
                 }
                 ?>
-                    <form method="post" enctype="multipart/form-data">
                         <input type="file" name="file">
                         <input type="submit" value="Upload">
-                    </form>
             </div>
             <div class="form-group row">
                 <div class="col-sm-5">
