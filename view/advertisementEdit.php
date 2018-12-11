@@ -68,8 +68,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <!-- S3 setup -->
                 <?php
                 $s3 = new S3Client([
-                    $_ENV["AWS_ACCESS_KEY_ID"],
-                    $_ENV["AWS_SECRET_ACCESS_KEY"],
+                    'key' => $_ENV["AWS_ACCESS_KEY_ID"],
+                    'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
                     'region' => 'eu-west-2',
                     'version' => '2006-03-01'
                 ]);
