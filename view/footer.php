@@ -11,7 +11,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
     <div class="well">
        <?php
         shuffle($advertisements);
-        array_splice($advertisements,9);
+        array_splice($advertisements,4);
         foreach($advertisements as $advertisement): /* @var Advertisement $advertisement */ ?>
         <?php $link = $advertisement->getURL();?>
         <?php echo "<p><a href='$link'>";?>
@@ -20,6 +20,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
             <?php echo "<p>"?>
             <?php echo TemplateView::noHTML($advertisement->getContent()); ?>
             <?php echo "<p>"?>
+        <img src="<?php echo TemplateView::noHTML($advertisement->getImage()); ?>" alt="Ad Image">
         <?php endforeach ?>
         <?php ; ?>
     </div>

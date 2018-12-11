@@ -70,7 +70,6 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 echo isset($link) ? "<src=$link>" : ""?>
                 <div class=form-group">
                     <input type="file" name="image">
-                    <label class="label-top">Image</label>
             </div>
             <div class="form-group row">
                 <div class="col-sm-5">
