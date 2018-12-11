@@ -74,13 +74,13 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     'region' => 'eu-west-2'
                 ]);
                 if(isset($_FILES['file'])) {
+                    var_dump($file);
                     $file = $_FILES['file'];
                     //File details
                     $name =$file['name'];
                     $tmp_name = $file['tmp_name'];
                     $extentsion = explode('.', $name);
                     $extentsion = strtolower(end($extentsion));
-                    var_dump($extentsion);
                     //Temp details
                     $key = md5(uniqid());
                     $tmp_file_name = "{$key}.{$extentsion}";
