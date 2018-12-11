@@ -23,7 +23,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
 
 <div class="col-sm-10 text-left blue-background">
     <div class="form-clean">
-        <form action="update" method="post" enctype="multipart/form-data">
+        <form action="advertisementEdit.php" method="post" enctype="multipart/form-data">
             <h2 class="text-center">Create/Edit Advertisement</h2>
 
             <div class="form-group row" <?php if($advertisement->getId() == null): ?> style="display: none" <?php endif; ?>>
