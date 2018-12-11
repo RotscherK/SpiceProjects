@@ -74,7 +74,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     'region' => 'eu-west-2'
                 ]);
                 if(isset($_FILES['file'])) {
-                    var_dump($file);
+                    var_dump($_FILES);
                     $file = $_FILES['file'];
                     //File details
                     $name =$file['name'];
