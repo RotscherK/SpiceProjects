@@ -12,11 +12,12 @@ use Aws\S3\Exception\S3Exception;
 use Aws\S3\S3Client;
 use config\Config;
 
+
 class AWSUploadService {
 
     public function uploadImage($image) {
 
-        require '../amazon/aws-autoloader.php';
+        require __DIR__ . '../amazon/aws-autoloader.php';
         //S3 Setup
         $s3 = new S3Client([
             'key' => $_ENV["AWS_ACCESS_KEY_ID"],
