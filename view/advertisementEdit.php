@@ -70,7 +70,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 $s3 = new S3Client([
                     'key' => $_ENV["AWS_ACCESS_KEY_ID"],
                     'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
-                    'region' => 'eu-west-2',
+                    'region' => 'us-east-1',
                     'version' => '2006-03-01'
                 ]);
                 var_dump($_ENV);
