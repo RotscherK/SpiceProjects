@@ -118,7 +118,7 @@ In addition, a short description on the purpose of each table is provided here:
 
 Based on the previously defined requirements, the use case diagram was created. The following diagram illustrates the use cases.
 
-![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM.jpg "Use Case Diagram")
+![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM1.jpg "Use Case Diagram")
 
 #### Deployment Diagram
 
