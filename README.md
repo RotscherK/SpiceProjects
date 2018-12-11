@@ -120,7 +120,9 @@ Based on the previously defined requirements, the use case diagram was created. 
 
 ![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM.jpg "Use Case Diagram")
 
-#### Deployment Diagram (NICOLA)
+#### Deployment Diagram
+
+![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
 
 #### Domain Model (?)
 
