@@ -14,7 +14,7 @@ use config\Config;
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
 
-require __DIR__ .'../amazon/aws-autoloader.php';
+require __DIR__ .'/../amazon/aws-autoloader.php';
 
 isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new Advertisement();
 isset($this->advertisementValidator) ? $advertisementValidator = $this->advertisementValidator : $advertisementValidator = new AdvertisementValidator();
