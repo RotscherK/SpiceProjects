@@ -103,7 +103,6 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 }
                 ?>
                         <input type="file" name="file">
-                        <input type="submit" value="Upload">
             </div>
             <div class="form-group row">
                 <div class="col-sm-5">
