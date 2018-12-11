@@ -70,15 +70,14 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 $s3 = new S3Client([
                     'key' => $_ENV["AWS_ACCESS_KEY_ID"],
                     'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
-                    'version' => '2006-03-01',
-                    'region' => 'us-east-1'
+                    'version' => 'latest',
+                    'region' => 'eu-west-2'
                 ]);
                 if(isset($_FILES['file'])) {
                     $file = $_FILES['file'];
                     //File details
                     $name =$file['name'];
                     $tmp_name = $file['tmp_name'];
-                    var_dump($tmp_name);
                     $extentsion = explode('.', $name);
                     $extentsion = strtolower(end($extentsion));
                     //Temp details
@@ -87,6 +86,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     $tmp_file_path = "files/{$tmp_file_name}";
                     //Move the file
                     move_uploaded_file($tmp_name, $tmp_file_path);
+                    var_dump($tmp_name);
                     try {
                         $s3->putObject([
                            'Bucket' =>  'spiceprojects',
