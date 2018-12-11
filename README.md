@@ -144,8 +144,9 @@ For the implementation of the web application, the hands-on project provided the
 
 The following code was used to create the database according to the model defined in the chapter Database Model: link to SQLDDL.sql
 
-
-
-
 #### Applied techniques and APIs
-Tesr
+
+- HyPDF: The HyPDF API is used to generate PDFs containing program or invoicing information
+- SendGrid: For the password reset functionality as well as the invoicing emails are sent. This is done with the SendGrid API
+- Amazon AWS S3: The advertisement images are stored in the Amazon S3 storage and only a link is kept in our own database
+
