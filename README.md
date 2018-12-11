@@ -103,7 +103,7 @@ Depicted in the table above is the access concept for these administrators. The 
 
 A PostgreSQL database was created in order to store all data used in the application. The design of database is displayed in the image below:
 
-![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.png "Database Model")  
+![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/Database_Model.png "Database Model")  
 
 In addition, a short description on the purpose of each table is provided here:
 
@@ -114,9 +114,15 @@ In addition, a short description on the purpose of each table is provided here:
 - program: All program details are saved in this table including the corresponding category and provider id.
 - category: For each a program category an entry is created.
 
-#### Use Case Diagram (NICOLA)
+#### Use Case Diagram
 
-#### Deployment Diagram (NICOLA)
+Based on the previously defined requirements, the use case diagram was created. The following diagram illustrates the use cases.
+
+![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM.jpg "Use Case Diagram")
+
+#### Deployment Diagram
+
+![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
 
 #### Domain Model (?)
 
