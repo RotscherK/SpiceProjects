@@ -25,6 +25,10 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
         <?php ; ?>
     </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 <div class="footer-dark">
     <footer>
         <div class="container">
