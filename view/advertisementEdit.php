@@ -13,7 +13,7 @@ use validator\AdvertisementValidator;
 use config\Config;
 use Aws\S3\S3Client;
 
-require __DIR__ .'../amazon/aws-autoloader.php';
+require '../amazon/aws-autoloader.php';
 
 isset($this->advertisement) ? $advertisement = $this->advertisement : $advertisement = new Advertisement();
 isset($this->advertisementValidator) ? $advertisementValidator = $this->advertisementValidator : $advertisementValidator = new AdvertisementValidator();
@@ -81,6 +81,8 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     $key = md5(uniqid());
                     $tmp_file_name = "{$key}.{$extentsion}";
                     $tmp_file_path = "files/{$tmp_file_name}";
+                    //Move the file
+
                 }
                 ?>
                     <form action="advertisementEdit.php" method="post" enctype="multipart/form-data">
