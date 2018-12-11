@@ -69,8 +69,21 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 $s3 = new S3Client([
                     $_ENV["AWS_ACCESS_KEY_ID"],
                     $_ENV["AWS_SECRET_ACCESS_KEY"]
-                ]); ?>
-                    <form action="" method="post" enctype="multipart/form-data">
+                ]);
+                if(isset($_FILES['file'])) {
+                    $file = $_FILES['file'];
+                    //File details
+                    $name =$file['name'];
+                    $tmp_name = $file['tmp_name'];
+                    $extentsion = explode('.', $name);
+                    $extentsion = strtolower(end($extentsion));
+                    //Temp details
+                    $key = md5(uniqid());
+                    $tmp_file_name = "{$key}.{$extentsion}";
+                    $tmp_file_path = "files/{$tmp_file_name}";
+                }
+                ?>
+                    <form action="advertisementEdit.php" method="post" enctype="multipart/form-data">
                         <input type="file" name="file">
                         <input type="submit" value="Upload">
                     </form>
