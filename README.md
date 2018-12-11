@@ -101,28 +101,52 @@ Depicted in the table above is the access concept for these administrators. The 
 
 #### Database Model
 
-![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.jpg "Database Model")  
+A PostgreSQL database was created in order to store all data used in the application. The design of database is displayed in the image below:
 
-#### Use Case Diagram
+![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.png "Database Model")  
 
-- Login
-- Logout
-- PW reset
-- Modify Profile
-- Search functionality
-- Create/Edit/Delete forms for schools, courses and users
-- Book advertising
-- Optional: Register
+In addition, a short description on the purpose of each table is provided here:
 
-#### Deployment Diagram
+- authoken: administrative table handling the remember me for 30 days functionality and the password reset.
+- user: All information on the user is stored including the type of administrator he/she is (site admin / provider / advertisement)
+- advertisement: All advertisement details are stored and the id of the responsible user.
+- provider: Information on each provider including the responsible user.
+- program: All program details are saved in this table including the corresponding category and provider id.
+- category: For each a program category an entry is created.
 
-#### Domain Model
+#### Use Case Diagram (NICOLA)
+
+#### Deployment Diagram (NICOLA)
+
+#### Domain Model (?)
 
 ### Implementation
 
 #### Classes
 
+For the implementation of the web application, the hands-on project provided the lecturer of the course, Andreas Martin was a big help. It can be found in the following GitHub repository: https://github.com/andreasmartin/WE-CRM . The concepts in that project were taken and adjusted/extended/reduced to fulfil the needs of our project. The structure contains several directories which contain files for individual purposes. These are described here:
+
+- amazon: All configuration files required for the upload of images to the Amazon S3 storage
+- config: Gets information such as credentials from the secret .ENV file
+- controller: Controller files for the connection between logic and view
+- dao: Database operations for each specific table
+- database: Responsible for the database connection
+- domain: Domain objects with getters and setters for all attributes
+- files: Nicola?
+- http: HTTPHeader and the different kinds of status messages (e.g. 404)
+- router: Requests within the application are routed to the required location
+- scheduler: Handles the invoicing and checks programs for expiration date
+- service: Service layer for the different domain objects
+- validator: Validate the user input before sending it to the database
+- view: All views which are displayed to the end-user
+
 #### Database
 
+The following code was used to create the database according to the model defined in the chapter Database Model: link to SQLDDL.sql
+
 #### Applied techniques and APIs
-Tesr
+
+- HyPDF: The HyPDF API is used to generate PDFs containing program or invoicing information
+- SendGrid: For the password reset functionality as well as the invoicing emails are sent. This is done with the SendGrid API
+- Amazon AWS S3: The advertisement images are stored in the Amazon S3 storage and only a link is kept in our own database
+
