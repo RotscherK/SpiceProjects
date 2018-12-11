@@ -73,8 +73,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     'version' => 'latest',
                     'region' => 'eu-west-2'
                 ]);
-                if(isset($_FILES['file'])) {
-                    var_dump($_FILES);
+                if(!empty($_FILES['file'])) {
                     $file = $_FILES['file'];
                     //File details
                     $name =$file['name'];
@@ -97,7 +96,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                         //Remove the file
                         unlink($tmp_file_path);
 
-                    } catch(\Aws\S3\Exception\S3Exception $e){
+                    } catch(Aws\S3\Exception\S3Exception $e){
                         die("Error while uploading to S3");
                     }
                 }
