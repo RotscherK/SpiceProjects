@@ -95,7 +95,7 @@ The following access concept has been designed for the three types of administra
 - Provider Administrator
 - Advertisement Administrator
 
-![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept.png "Access rights concept")  
+![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessRightsConcept.png "Access rights concept")  
 
 Depicted in the table above is the access concept for these administrators. The advertisement and provider administrators can only edit the entries where they are listed as the administrator. The site administrator has complete access to all entries and has no restrictions at all.
 
