@@ -101,7 +101,7 @@ Depicted in the table above is the access concept for these administrators. The 
 
 #### Database Model
 
-![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.jpg "Database Model")  
+![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.png "Database Model")  
 
 #### Use Case Diagram
 
