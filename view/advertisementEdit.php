@@ -85,6 +85,14 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     //Move the file
                     move_uploaded_file($tmp_name, $tmp_file_path);
                     try {
+                        $s3->putObject([
+                           'Bucket' =>  'spiceprojects',
+                            'Key' => "uploads/{$name}",
+                            'Body' => fopen($tmp_file_path, 'rb'),
+                            'ACL' => 'public-read'
+                        ]);
+                        //Remove the file
+                        unlink($tmp_file_path);
 
                     } catch(\Aws\S3\Exception\S3Exception $e){
                         die("Error while uploading to S3");
