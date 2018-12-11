@@ -80,6 +80,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     $tmp_name = $file['tmp_name'];
                     $extentsion = explode('.', $name);
                     $extentsion = strtolower(end($extentsion));
+                    var_dump($extentsion);
                     //Temp details
                     $key = md5(uniqid());
                     $tmp_file_name = "{$key}.{$extentsion}";
