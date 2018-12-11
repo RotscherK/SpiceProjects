@@ -51,7 +51,7 @@ class AWSUploadService {
             //Remove the file
             unlink($tmp_file_path);
             //Print the URL to the object
-            $result['ObjectURL'] . PHP_EOL;
+           return $result['ObjectURL'] . PHP_EOL;
         } catch(Aws\S3\Exception\S3Exception $e){
             return $e ->getMessage() . PHP_EOL;
         }
