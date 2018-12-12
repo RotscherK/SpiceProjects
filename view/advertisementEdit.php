@@ -80,7 +80,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 echo isset($link) ? "<img width='150px' src=$link>" : ""?>
                     </div>
                     <div class="col-sm-9">
-                    <input type="file" name="image">
+                    <input type="file" class="btn btn-secondary btn-block" name="image">
                         <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
             </div>
                 </div>
