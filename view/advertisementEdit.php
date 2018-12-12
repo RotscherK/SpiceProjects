@@ -74,26 +74,14 @@ isset($this->user) ? $user = $this->user : $user = new User();
 
             <div class="form-group row">
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
-                    <div class="col-sm-9">
-                <?php
-                $link = $advertisement->getImage();
-                echo isset($link) ? "<img width='150px' src=$link>" : ""?>
-                    </div>
-                    <div class="col-sm-9">
-                    <input type="file" class="btn btn-secondary btn-block" name="image">
-                        <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
+                <div class="col-sm-12">
+                    <?php
+                    $link = $advertisement->getImage();
+                    echo isset($link) ? "<img width='150px' src=$link>" : ""?>
                 </div>
-            </div>
-
-
-            <div class="form-group">
-                <input type="file" name="img[]" class="file">
-                <div class="input-group col-xs-12">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-                    <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
-                    <span class="input-group-btn">
-                        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
-                    </span>
+                <div class="col-sm-12">
+                    <input type="file" class="btn btn-secondary btn-block" name="image">
+                    <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
                 </div>
             </div>
 
