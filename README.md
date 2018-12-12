@@ -122,13 +122,17 @@ Based on the previously defined requirements, the use case diagram was created. 
 
 The majority of the use cases have already been described roughly in the requirements section. In this section, the individual use cases are explained more detailed.
 
-    - Login Site Administrator:
+   - **Login Site Administrator:** Login for a currently logged-out user with the role of a overall site administrator. The     login is granted using the email and password as credentials and the site administrator is allowed to all of the use cases afterwards.
+   
+   - **Login Provider Administrator:**
     
-    - Login Provider Administrator:
+   - **Login Advertisement Administrator:**
     
-    - Login Advertisement Administrator:
-    
-    - Login User Administrator:
+   - **Login User Administrator:**
+   
+   - **Logout:**
+   
+   - **Reset Password:**
 
 #### Deployment Diagram
 
