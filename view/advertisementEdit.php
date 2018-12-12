@@ -72,7 +72,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 </div>
             </div>
 
-                <div class="form-group row">
+            <div class="form-group row">
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
                     <div class="col-sm-9">
                 <?php
@@ -82,8 +82,20 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <div class="col-sm-9">
                     <input type="file" class="btn btn-secondary btn-block" name="image">
                         <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
-            </div>
                 </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-9">
+                    <input type="file" class="btn btn-secondary btn-block" name="image">
+                    <label class="custom-file">
+                        <input type="file" id="file" class="custom-file-input">
+                        <span class="custom-file-control"></span>
+                    </label>
+                    <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
+                </div>
+            </div>
+
             <div class="form-group row">
                 <div class="col-sm-6">
                     <button type="button" class="btn btn-secondary btn-block" name="cancel" value="Cancel" onClick="window.location='<?php echo $GLOBALS["ROOT_URL"]; ?>/';">Cancel</button>
