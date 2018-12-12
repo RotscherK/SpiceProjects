@@ -69,6 +69,9 @@ class AdvertisementController{
         $aws = new AWSUploadService();
 
         if(!empty($_FILES['image']['name'])){
+            if(!empty($_POST["imageLink"])){
+                $imageAddress = $aws->deleteImage();
+            }
             $imageAddress = $aws->uploadImage($_FILES['image']);
             $advertisement->setImage($imageAddress);
         }

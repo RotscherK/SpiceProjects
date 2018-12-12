@@ -48,12 +48,30 @@ class AWSUploadService {
                 'Body' => fopen($tmp_file_path, 'rb'),
                 'ACL' => 'public-read'
             ]);
-            //Remove the file
+            //Remove the file from tmp folder
             unlink($tmp_file_path);
             //Print the URL to the object
            return $result['ObjectURL'] . PHP_EOL;
         } catch(Aws\S3\Exception\S3Exception $e){
             return $e ->getMessage() . PHP_EOL;
         }
+    }
+
+    public function deleteImage($image) {
+
+        require __DIR__ . '/../amazon/aws-autoloader.php';
+        //S3 Setup
+        $s3 = new S3Client([
+            'key' => $_ENV["AWS_ACCESS_KEY_ID"],
+            'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
+            'version' => 'latest',
+            'region' => 'eu-west-2'
+        ]);
+
+        // Delete an object from the bucket.
+        $s3->deleteObject([
+            'Bucket' => 'spiceprojects',
+            'Key'    => $image
+        ]);
     }
 }
