@@ -8,7 +8,6 @@
 
 namespace router;
 
-use http\Exception;
 use http\HTTPException;
 use http\HTTPStatusCode;
 use http\HTTPHeader;

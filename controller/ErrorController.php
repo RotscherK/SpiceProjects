@@ -1,18 +1,25 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: andreas.martin
- * Date: 09.10.2017
- * Time: 08:39
+ * User: roger.kaufmann
+ * Date: 12.12.2018
+ * Time: 18:39
  */
 
 namespace controller;
 
 use view\TemplateView;
+use http\HTTPException;
+use view\LayoutRendering;
 
 class ErrorController
 {
-    public static function show404(){
-        echo (new TemplateView("404.php"))->render();
+    public static function showError(HTTPException $exception){
+        $contentView = new TemplateView("404page.php");
+        $contentView->exceptionCode = substr($exception->getStatusCode(), 0, 3);
+        $contentView->exceptionText = substr($exception->getStatusCode(), 3);
+        $contentView->exception = $exception;
+
+        LayoutRendering::basicLayout($contentView);
     }
 }

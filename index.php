@@ -23,8 +23,6 @@ use controller\ErrorController;
 use controller\UserPasswordResetController;
 use controller\ChargingController;
 use controller\PDFController;
-use view\TemplateView;
-use view\LayoutRendering;
 use http\HTTPException;
 use http\HTTPHeader;
 use http\HTTPStatusCode;
@@ -39,13 +37,6 @@ $authFunction = function () {
     return false;
 };
 
-/**
- * public function show403(){
-$contentView = new TemplateView("403page.php");
-LayoutRendering::basicLayout($contentView);
-}
- */
-
 Router::route("GET", "/", function () {
     HomepageController::show();
 });
@@ -54,17 +45,6 @@ Router::route("GET", "/login", function () {
     UserController::loginView();
 });
 
-/*
-Router::route("GET", "/register", function () {
-    UserController::registerView();
-});
-
-Router::route("POST", "/register", function () {
-    if(UserController::register())
-        Router::redirect("/logout");
-});
-*/
-
 Router::route("POST", "/login", function () {
     if(AuthController::login()){
         if(isset($_SESSION["currentPath"]) ){
@@ -72,7 +52,6 @@ Router::route("POST", "/login", function () {
         }
         HomepageController::show();
     }
-
 });
 
 Router::route("GET", "/logout", function () {
@@ -281,16 +260,6 @@ Router::route_auth("GET", "/advertisement/create", $authFunction, function () {
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 });
-/*
-Router::route_auth("GET", "/customer/email", $authFunction, function () {
-    EmailController::sendMeMyCustomers();
-    Router::redirect("/");
-});
-
-Router::route_auth("GET", "/customer/pdf", $authFunction, function () {
-    PDFController::generatePDFCustomers();
-});
-*/
 
 try {
     HTTPHeader::setHeader("Access-Control-Allow-Origin: *");
@@ -306,14 +275,5 @@ try {
     }
 } catch (HTTPException $exception) {
     $exception->getHeader();
-
-    $contentView = new TemplateView("404page.php");
-    $contentView->exceptionCode = substr($exception->getStatusCode(), 0, 3);
-    $contentView->exceptionText = substr($exception->getStatusCode(), 3);
-    $contentView->exception = $exception;
-
-    LayoutRendering::basicLayout($contentView);
-
-    //$exception->getHeader();
-    //ErrorController::show404();
+    ErrorController::showError($exception);
 }
