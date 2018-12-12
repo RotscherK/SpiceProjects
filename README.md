@@ -122,13 +122,13 @@ Based on the previously defined requirements, the use case diagram was created. 
 
 The majority of the use cases have already been described roughly in the requirements section. In this section, the individual use cases are explained more detailed.
 
-    *Login Site Administrator:
+    - Login Site Administrator:
     
-    *Login Provider Administrator:
+    - Login Provider Administrator:
     
-    *Login Advertisement Administrator:
+    - Login Advertisement Administrator:
     
-    *Login User Administrator:
+    - Login User Administrator:
 
 #### Deployment Diagram
 
