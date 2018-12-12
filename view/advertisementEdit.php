@@ -69,7 +69,6 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 <label for="id" class="col-sm-3 col-form-label">Image Link</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="imageLink" id="imageLink" placeholder="imageLink" readonly="true" value="<?php echo $advertisement->getImage() ?>">
-                    <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
                 </div>
             </div>
 
@@ -82,6 +81,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     </div>
                     <div class="col-sm-9">
                     <input type="file" name="image">
+                        <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
             </div>
                 </div>
             <div class="form-group row">
