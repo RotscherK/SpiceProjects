@@ -148,7 +148,8 @@ The majority of the use cases have already been described roughly in the require
 
 #### Deployment Diagram
 
-The simple deployment of the application is shown in the following deployment diagraam.
+The simple deployment of the application is shown in the following deployment diagram.
+
 ![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
 
 The PostgreSQL database and the code of the application are both stored on a Heroku webserver. In the beginning, it was planned to store the images for the advertisements on the database of the Heroku webserver aswell. However, due to some difficulties with that matter, it was decided to use the S3 storage module of the Amazone Web Services (AWS). The advertisement images are stored in this S3 bucket with the URL stored in the PostgreSQL database on Heroku. 
