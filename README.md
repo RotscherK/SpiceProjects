@@ -95,34 +95,90 @@ The following access concept has been designed for the three types of administra
 - Provider Administrator
 - Advertisement Administrator
 
-![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept.png "Access rights concept")  
+![Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessRightsConcept.png "Access rights concept")  
 
 Depicted in the table above is the access concept for these administrators. The advertisement and provider administrators can only edit the entries where they are listed as the administrator. The site administrator has complete access to all entries and has no restrictions at all.
 
 #### Database Model
 
-![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/DatabaseModel.jpg "Database Model")  
+A PostgreSQL database was created in order to store all data used in the application. The design of database is displayed in the image below:
+
+![Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/Database_Model.png "Database Model")  
+
+In addition, a short description on the purpose of each table is provided here:
+
+- authoken: administrative table handling the remember me for 30 days functionality and the password reset.
+- user: All information on the user is stored including the type of administrator he/she is (site admin / provider / advertisement)
+- advertisement: All advertisement details are stored and the id of the responsible user.
+- provider: Information on each provider including the responsible user.
+- program: All program details are saved in this table including the corresponding category and provider id.
+- category: For each a program category an entry is created.
 
 #### Use Case Diagram
 
-- Login
-- Logout
-- PW reset
-- Modify Profile
-- Search functionality
-- Create/Edit/Delete forms for schools, courses and users
-- Book advertising
-- Optional: Register
+Based on the previously defined requirements, the use case diagram was created. The following diagram illustrates the use cases.
+
+![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM1.jpg "Use Case Diagram")
+
+The majority of the use cases have already been described roughly in the requirements section. In this section, the individual use cases are explained more detailed.
+
+   - **Login Site Administrator:** Login for a currently logged-out user with the role of a overall site administrator. The     login is granted using the email and password as credentials and the site administrator is allowed to all of the use cases afterwards.
+   - **Login Provider Administrator:** Login for a currently logged-out user with the role of a provider administrator. The login is granted using the email and password as credentials and the provider administrator has permission to manage his programs and his provider entry.
+   - **Login Advertisement Administrator:** Login for a currently logged-out user with the role of a advertisement administrator. The login is granted using the email and password as credentials and the advertisement administrator has permission to manage his advertisements.
+   - **Login User Administrator:** Login for a currently logged-out user with the role of a user administrator. The login is granted using the email and password as credentials and the user administrator has permission to manage users.
+   - **Logout:** Logged-in users can logout, what terminates the current session.
+   - **Reset Password:** If forgotten, users have the possibility to reset their password.
+   - **Search Programs:** A non-logged in user has access to the programs and can search them.
+   - **Manage Provider:** Logged-in site administrators and provider administrators have access to the provider area.
+       - **Create Provider:** Logged-in site administrators can create new providers. These providers appear on the website and can be searched.
+       - **Edit Provider:** Logged-in site administrators and provider administrators can edit entries (providers) regarding to their attributes.
+       - **Delete Provider:** Logged-in site administrators can fully delete entries (providers) from the database.
+   - **Manage Program:**
+       - **Create Program:**
+       - **Edit Program:**
+       - **Delete Program:**
+   - **Manage Advertisement:**
+       - **Create Advertisement:**
+       - **Edit Advertisement:**
+       - **Delete Advertisement:**
+   - **Manage User:**
+       - **Create User:**
+       - **Edit User:**
+       - **Delete User:**
 
 #### Deployment Diagram
 
-#### Domain Model
+![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
+
+#### Domain Model (?)
 
 ### Implementation
 
 #### Classes
 
+For the implementation of the web application, the hands-on project provided the lecturer of the course, Andreas Martin was a big help. It can be found in the following GitHub repository: https://github.com/andreasmartin/WE-CRM . The concepts in that project were taken and adjusted/extended/reduced to fulfil the needs of our project. The structure contains several directories which contain files for individual purposes. These are described here:
+
+- amazon: All configuration files required for the upload of images to the Amazon S3 storage
+- config: Gets information such as credentials from the secret .ENV file
+- controller: Controller files for the connection between logic and view
+- dao: Database operations for each specific table
+- database: Responsible for the database connection
+- domain: Domain objects with getters and setters for all attributes
+- files: Nicola?
+- http: HTTPHeader and the different kinds of status messages (e.g. 404)
+- router: Requests within the application are routed to the required location
+- scheduler: Handles the invoicing and checks programs for expiration date
+- service: Service layer for the different domain objects
+- validator: Validate the user input before sending it to the database
+- view: All views which are displayed to the end-user
+
 #### Database
 
+The following code was used to create the database according to the model defined in the chapter Database Model: link to SQLDDL.sql
+
 #### Applied techniques and APIs
-Tesr
+
+- HyPDF: The HyPDF API is used to generate PDFs containing program or invoicing information
+- SendGrid: For the password reset functionality as well as the invoicing emails are sent. This is done with the SendGrid API
+- Amazon AWS S3: The advertisement images are stored in the Amazon S3 storage and only a link is kept in our own database
+

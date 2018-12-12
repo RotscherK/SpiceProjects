@@ -15,6 +15,7 @@ use view\TemplateView;
 use view\LayoutRendering;
 use service\AdvertisementServiceImpl;
 use dao\AdvertisementDAO;
+use service\AWSUploadService;
 
 class AdvertisementController{
 
@@ -60,6 +61,15 @@ class AdvertisementController{
         $advertisement->setContent($_POST["content"]);
         $advertisement->setURL($_POST["url"]);
         $advertisement->setUserAdmin($_POST["administrator"]);
+
+        $aws = new AWSUploadService();
+
+        $advertisement->setImage(null);
+
+        if(!empty($_FILES['image']['name'])){
+            $imageAddress = $aws->uploadImage($_FILES['image']);
+            $advertisement->setImage($imageAddress);
+        }
 
         $advertisementValidator = new AdvertisementValidator($advertisement);
 
