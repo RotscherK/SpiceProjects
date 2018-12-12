@@ -19,6 +19,7 @@ class AdvertisementValidator
     private $contentError = null;
     private $urlError = null;
     private $administratorError = null;
+    private $imagelinkError = null;
 
     public function __construct(Advertisement $advertisement = null)
     {
@@ -50,9 +51,12 @@ class AdvertisementValidator
             }elseif((strpos($advertisement->getURL(), "https://")!==0) && (strpos($advertisement->getURL(), "http://")!==0)) {
                     $this->urlError = 'Please start the link with http:// or https://';
                     $this->valid = false;
-                }else{
+                }if (empty($advertisement->getImage())){
+                    $this->imagelinkError = 'Please select a Image';
+                    $this->valid = false;
+            }else {
 
-            }
+                }
 
             if (empty($advertisement->getUserAdmin())) {
                 $this->administratorError = 'Please select an administrator';
@@ -111,6 +115,15 @@ class AdvertisementValidator
     public function getAdministratorError()
     {
         return $this->administratorError;
+    }
+
+    public function isImageError()
+    {
+        return isset($this->imagelinkError);
+    }
+    public function getImageError()
+    {
+        return $this->imagelinkError;
     }
 
 }
