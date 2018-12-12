@@ -148,7 +148,10 @@ The majority of the use cases have already been described roughly in the require
 
 #### Deployment Diagram
 
+The simple deployment of the application is shown in the following deployment diagraam.
 ![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
+
+The PostgreSQL database and the code of the application are both stored on a Heroku webserver. In the beginning, it was planned to store the images for the advertisements on the database of the Heroku webserver aswell. However, due to some difficulties with that matter, it was decided to use the S3 storage module of the Amazone Web Services (AWS). The advertisement images are stored in this S3 bucket with the URL stored in the PostgreSQL database on Heroku. 
 
 #### Domain Model (?)
 
@@ -164,7 +167,7 @@ For the implementation of the web application, the hands-on project provided the
 - dao: Database operations for each specific table
 - database: Responsible for the database connection
 - domain: Domain objects with getters and setters for all attributes
-- files: Nicola?
+- files: Temporary stores images just before the upload into the Amazon S3 bucket
 - http: HTTPHeader and the different kinds of status messages (e.g. 404)
 - router: Requests within the application are routed to the required location
 - scheduler: Handles the invoicing and checks programs for expiration date
