@@ -92,7 +92,7 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
                     <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
                     <span class="input-group-btn">
-                    <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
                     </span>
                 </div>
             </div>
