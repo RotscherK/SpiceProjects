@@ -120,6 +120,16 @@ Based on the previously defined requirements, the use case diagram was created. 
 
 ![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM1.jpg "Use Case Diagram")
 
+The majority of the use cases have already been described roughly in the requirements section. In this section, the individual use cases are explained more detailed.
+
+    *Login Site Administrator:
+    
+    *Login Provider Administrator:
+    
+    *Login Advertisement Administrator:
+    
+    *Login User Administrator:
+
 #### Deployment Diagram
 
 ![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
