@@ -123,16 +123,11 @@ Based on the previously defined requirements, the use case diagram was created. 
 The majority of the use cases have already been described roughly in the requirements section. In this section, the individual use cases are explained more detailed.
 
    - **Login Site Administrator:** Login for a currently logged-out user with the role of a overall site administrator. The     login is granted using the email and password as credentials and the site administrator is allowed to all of the use cases afterwards.
-   
-   - **Login Provider Administrator:**
-    
-   - **Login Advertisement Administrator:**
-    
-   - **Login User Administrator:**
-   
-   - **Logout:**
-   
-   - **Reset Password:**
+   - **Login Provider Administrator:** Login for a currently logged-out user with the role of a provider administrator. The login is granted using the email and password as credentials and the provider administrator has permission to manage his programs and his provider entry.
+   - **Login Advertisement Administrator:** Login for a currently logged-out user with the role of a advertisement administrator. The login is granted using the email and password as credentials and the advertisement administrator has permission to manage his advertisements.
+   - **Login User Administrator:** Login for a currently logged-out user with the role of a user administrator. The login is granted using the email and password as credentials and the user administrator has permission to manage users.
+   - **Logout:** Logged-in users can logout, what terminates the current session.
+   - **Reset Password:** If forgotten, users have the possibility to reset their password.
 
 #### Deployment Diagram
 
