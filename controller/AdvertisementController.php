@@ -62,9 +62,11 @@ class AdvertisementController{
         $advertisement->setURL($_POST["url"]);
         $advertisement->setUserAdmin($_POST["administrator"]);
 
-        $aws = new AWSUploadService();
+        if(!empty($_POST["imageLink"])){
+            $advertisement->setImage(null);
+        }
 
-        $advertisement->setImage(null);
+        $aws = new AWSUploadService();
 
         if(!empty($_FILES['image']['name'])){
             $imageAddress = $aws->uploadImage($_FILES['image']);

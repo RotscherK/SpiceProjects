@@ -64,6 +64,14 @@ isset($this->user) ? $user = $this->user : $user = new User();
                     <small class="form-text text-danger"><?php echo $advertisementValidator->getAdministratorError() ?></small>
                 </div>
             </div>
+
+            <div class="form-group row" <?php if($advertisement->getImage() == null): ?> style="display: none" <?php endif; ?>>
+                <label for="id" class="col-sm-3 col-form-label">Image Link</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="imageLink" id="imageLink" placeholder="imageLink" readonly="true" value="<?php echo $advertisement->getImage() ?>">
+                </div>
+            </div>
+
                 <div class="form-group row">
                 <label for="Image" class="col-sm-3 col-form-label">Image</label>
                     <div class="col-sm-9">

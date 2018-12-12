@@ -217,6 +217,14 @@
     margin-top:15px;
     color:#fff
 }
+.img {
+    width: 100%;
+    height: auto;
+}
+.well a:link {
+    font-size: 25px;
+}
+
 .navigation-clean{
     background:#fff;
     padding-top:.75rem;
