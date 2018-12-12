@@ -63,7 +63,7 @@ class AdvertisementController{
         $advertisement->setUserAdmin($_POST["administrator"]);
 
         if(!empty($_POST["imageLink"])){
-            $advertisement->setImage(null);
+            $advertisement->setImage($_POST["imageLink"]);
         }
 
         $aws = new AWSUploadService();
