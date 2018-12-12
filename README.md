@@ -133,10 +133,10 @@ The majority of the use cases have already been described roughly in the require
        - **Create Provider:** Logged-in site administrators can create new providers. These providers appear on the website and can be searched.
        - **Edit Provider:** Logged-in site administrators and provider administrators can edit entries (providers) regarding to their attributes.
        - **Delete Provider:** Logged-in site administrators can fully delete entries (providers) from the database.
-   - **Manage Program:**
-       - **Create Program:**
-       - **Edit Program:**
-       - **Delete Program:**
+   - **Manage Program:** Logged-in site administrators and provider administrators have access to the program area.
+       - **Create Program:** Logged-in site administrators can create new programs and set a provider administrator for that program. These programs appear on the website and can be searched.
+       - **Edit Program:** Logged-in site administrators and provider administrators can edit entries (programs) regarding to their attributes.
+       - **Delete Program:** Logged-in site administrators and provider administrators can fully delete entries (programs) from the database.
    - **Manage Advertisement:** Logged-in site administrators and advertisement administrators have access to the advertisement area.
        - **Create Advertisement:** Logged-in site administrators and advertisement administrators can create new advertisements. These advertisements appear on the website and can be searched. Additionally, they are shown on the side of the page. 
        - **Edit Advertisement:** Logged-in site administrators and advertisement administrators can edit entries (advertisements) regarding to their attributes.
