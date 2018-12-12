@@ -128,6 +128,11 @@ The majority of the use cases have already been described roughly in the require
    - **Login User Administrator:** Login for a currently logged-out user with the role of a user administrator. The login is granted using the email and password as credentials and the user administrator has permission to manage users.
    - **Logout:** Logged-in users can logout, what terminates the current session.
    - **Reset Password:** If forgotten, users have the possibility to reset their password.
+   - **Search Programs:** A non-logged in user has access to the programs and can search them.
+   - **Manage Provider:** 
+       - **Create Provider:**
+       - **Edit Provider:**
+       - **Delete Provider:**
 
 #### Deployment Diagram
 
