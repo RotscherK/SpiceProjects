@@ -118,7 +118,7 @@ In addition, a short description on the purpose of each table is provided here:
 
 Based on the previously defined requirements, the use case diagram was created. The following diagram illustrates the use cases.
 
-![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM1.jpg "Use Case Diagram")
+![Use Case Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/UCM.jpg "Use Case Diagram")
 
 The majority of the use cases have already been described roughly in the requirements section. In this section, the individual use cases are explained more detailed.
 
@@ -133,10 +133,10 @@ The majority of the use cases have already been described roughly in the require
        - **Create Provider:** Logged-in site administrators can create new providers. These providers appear on the website and can be searched.
        - **Edit Provider:** Logged-in site administrators and provider administrators can edit entries (providers) regarding to their attributes.
        - **Delete Provider:** Logged-in site administrators can fully delete entries (providers) from the database.
-   - **Manage Program:**
-       - **Create Program:**
-       - **Edit Program:**
-       - **Delete Program:**
+   - **Manage Program:** Logged-in site administrators and provider administrators have access to the program area.
+       - **Create Program:** Logged-in site administrators can create new programs and set a provider administrator for that program. These programs appear on the website and can be searched.
+       - **Edit Program:** Logged-in site administrators and provider administrators can edit entries (programs) regarding to their attributes.
+       - **Delete Program:** Logged-in site administrators and provider administrators can fully delete entries (programs) from the database.
    - **Manage Advertisement:** Logged-in site administrators and advertisement administrators have access to the advertisement area.
        - **Create Advertisement:** Logged-in site administrators and advertisement administrators can create new advertisements. These advertisements appear on the website and can be searched. Additionally, they are shown on the side of the page. 
        - **Edit Advertisement:** Logged-in site administrators and advertisement administrators can edit entries (advertisements) regarding to their attributes.
@@ -148,7 +148,11 @@ The majority of the use cases have already been described roughly in the require
 
 #### Deployment Diagram
 
+The simple deployment of the application is shown in the following deployment diagram.
+
 ![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
+
+The PostgreSQL database and the code of the application are both stored on a Heroku webserver. In the beginning, it was planned to store the images for the advertisements on the database of the Heroku webserver aswell. However, due to some difficulties with that matter, it was decided to use the S3 storage module of the Amazone Web Services (AWS). The advertisement images are stored in this S3 bucket with the URL stored in the PostgreSQL database on Heroku. 
 
 #### Domain Model (?)
 
@@ -164,7 +168,7 @@ For the implementation of the web application, the hands-on project provided the
 - dao: Database operations for each specific table
 - database: Responsible for the database connection
 - domain: Domain objects with getters and setters for all attributes
-- files: Nicola?
+- files: Temporary stores images just before the upload into the Amazon S3 bucket
 - http: HTTPHeader and the different kinds of status messages (e.g. 404)
 - router: Requests within the application are routed to the required location
 - scheduler: Handles the invoicing and checks programs for expiration date
