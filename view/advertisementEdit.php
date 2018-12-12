@@ -85,14 +85,15 @@ isset($this->user) ? $user = $this->user : $user = new User();
                 </div>
             </div>
 
-            <div class="form-group row">
-                <div class="col-sm-9">
-                    <input type="file" class="btn btn-secondary btn-block" name="image">
-                    <label class="custom-file">
-                        <input type="file" id="file" class="custom-file-input">
-                        <span class="custom-file-control"></span>
-                    </label>
-                    <small class="form-text text-danger"><?php echo $advertisementValidator->getImageError() ?></small>
+
+            <div class="form-group">
+                <input type="file" name="img[]" class="file">
+                <div class="input-group col-xs-12">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                    <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+                    <span class="input-group-btn">
+                    <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+                    </span>
                 </div>
             </div>
 
