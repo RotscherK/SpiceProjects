@@ -133,6 +133,18 @@ The majority of the use cases have already been described roughly in the require
        - **Create Provider:** Logged-in site administrators can create new providers. These providers appear on the website and can be searched.
        - **Edit Provider:** Logged-in site administrators and provider administrators can edit entries (providers) regarding to their attributes.
        - **Delete Provider:** Logged-in site administrators can fully delete entries (providers) from the database.
+   - **Manage Program:**
+       - **Create Program:**
+       - **Edit Program:**
+       - **Delete Program:**
+   - **Manage Advertisement:**
+       - **Create Advertisement:**
+       - **Edit Advertisement:**
+       - **Delete Advertisement:**
+   - **Manage User:**
+       - **Create User:**
+       - **Edit User:**
+       - **Delete User:**
 
 #### Deployment Diagram
 
