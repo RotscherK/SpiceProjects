@@ -137,14 +137,14 @@ The majority of the use cases have already been described roughly in the require
        - **Create Program:**
        - **Edit Program:**
        - **Delete Program:**
-   - **Manage Advertisement:**
-       - **Create Advertisement:**
-       - **Edit Advertisement:**
-       - **Delete Advertisement:**
-   - **Manage User:**
-       - **Create User:**
-       - **Edit User:**
-       - **Delete User:**
+   - **Manage Advertisement:** Logged-in site administrators and advertisement administrators have access to the advertisement area.
+       - **Create Advertisement:** Logged-in site administrators and advertisement administrators can create new advertisements. These advertisements appear on the website and can be searched. Additionally, they are shown on the side of the page. 
+       - **Edit Advertisement:** Logged-in site administrators and advertisement administrators can edit entries (advertisements) regarding to their attributes.
+       - **Delete Advertisement:** Logged-in site administrators and advertisement administrators can fully delete entries (advertisements) from the database.
+   - **Manage User:** Logged-in site administrators have access to the user area.
+       - **Create User:** Logged-in site administrators can create new users and their password. These users appear on the website and can be searched.
+       - **Edit User:** Logged-in site administrators can edit entries (users) regarding to their attributes.
+       - **Delete User:** Logged-in site administrators can fully delete entries (users) from the database.
 
 #### Deployment Diagram
 
