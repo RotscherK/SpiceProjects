@@ -32,7 +32,7 @@ isset($this->advertisement) ? $advertisement = $this->advertisement : $advertise
                         <tbody>
                         <?php
                         foreach($this->advertisement as $advertisement): /* @var Advertisement $advertisement */ ?>
-                            <tr class='clickable-row' data-href="/advertisement?id=<?php echo $advertisement->getId(); ?>">
+                            <tr class='clickable-row' data-href="/advertisement/edit?id=<?php echo $advertisement->getId(); ?>">
                                 <td><?php echo TemplateView::noHTML($advertisement->getTitle()); ?></td>
                                 <td><?php echo TemplateView::noHTML($advertisement->getContent()); ?></td>
                                 <td><?php echo TemplateView::noHTML($advertisement->getURL()); ?></td>
