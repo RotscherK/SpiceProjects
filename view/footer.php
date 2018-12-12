@@ -18,7 +18,7 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
             <?php echo TemplateView::noHTML($advertisement->getTitle()); ?>
             <?php echo "</a></p>"?>
             <?php echo "<p>"?>
-            <img src="<?php echo TemplateView::noHTML($advertisement->getImage()); ?>" alt="Ad Img">
+            <img src="<?php echo TemplateView::noHTML($advertisement->getImage()); ?>" alt="Ad Img" class="responsive">
             <?php echo TemplateView::noHTML($advertisement->getContent()); ?>
             <?php echo "<p> <hr />"?>
         <?php endforeach ?>
