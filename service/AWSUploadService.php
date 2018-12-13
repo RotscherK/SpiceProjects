@@ -35,7 +35,7 @@ class AWSUploadService {
         //Temp details
         $key = md5(uniqid());
         $tmp_file_name = "{$key}.{$extentsion}";
-        $tmp_file_path = "/../files/{$tmp_file_name}";
+        $tmp_file_path = __DIR__ . "/../files/{$tmp_file_name}";
 
         //Move the file
         move_uploaded_file($tmp_name, $tmp_file_path);
