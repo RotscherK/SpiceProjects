@@ -82,7 +82,7 @@ Finalization
     - Edit -> Done, Nicola
     - Create/Edit -> Done, Nicola
     - Search fixed for Advertisement list -> Done, Nicola
-    -AWS Account created: Name->SpiceProjecs, pw->Spice:18
+    -AWS Account created:
 
     - User
         - Access only for site admins -> Done, Tim
