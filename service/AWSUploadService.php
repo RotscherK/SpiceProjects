@@ -56,22 +56,4 @@ class AWSUploadService {
             return $e ->getMessage() . PHP_EOL;
         }
     }
-
-    public function deleteImage($image) {
-
-        require __DIR__ . '/../amazon/aws-autoloader.php';
-        //S3 Setup
-        $s3 = new S3Client([
-            'key' => $_ENV["AWS_ACCESS_KEY_ID"],
-            'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
-            'version' => 'latest',
-            'region' => 'eu-west-2'
-        ]);
-
-        // Delete an object from the bucket.
-        $s3->deleteObject([
-            'Bucket' => 'spiceprojects',
-            'Key'    => $image
-        ]);
-    }
 }
