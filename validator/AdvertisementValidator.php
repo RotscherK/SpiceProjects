@@ -52,12 +52,12 @@ class AdvertisementValidator
                     $this->urlError = 'Please start the link with http:// or https://';
                     $this->valid = false;
                 }
-               /** if (empty($advertisement->getImage())){
+                if (empty($advertisement->getImage())){
                     $this->imagelinkError = 'Please select a Image';
                     $this->valid = false;
             }else {
 
-                }*/
+                }
 
             if (empty($advertisement->getUserAdmin())) {
                 $this->administratorError = 'Please select an administrator';

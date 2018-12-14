@@ -20,8 +20,8 @@ class AWSUploadService {
         require __DIR__ . '/../amazon/aws-autoloader.php';
         //S3 Setup
         $s3 = new S3Client([
-            'key' => $_ENV["AWS_ACCESS_KEY_ID"],
-            'secret' => $_ENV["AWS_SECRET_ACCESS_KEY"],
+            'key' => config::get("aws.access-key"),
+            'secret' => config::get("aws.secret-access-key"),
             'version' => 'latest',
             'region' => 'eu-west-2'
         ]);
