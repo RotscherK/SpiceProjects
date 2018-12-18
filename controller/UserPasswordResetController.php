@@ -10,7 +10,7 @@ namespace controller;
 
 use service\AuthServiceImpl;
 use view\TemplateView;
-use validator\UserValidator;
+use validator\LoginValidator;
 use service\EmailServiceClient;
 use view\LayoutRendering;
 
@@ -32,7 +32,7 @@ class UserPasswordResetController
         if(AuthServiceImpl::getInstance()->validateToken($_POST["token"])){
             $user = AuthServiceImpl::getInstance()->readUser();
             $user->setPassword($_POST["password"]);
-            $userValidator = new UserValidator($user);
+            $userValidator = new LoginValidator($user);
             if($userValidator->isValid()){
                 if(AuthServiceImpl::getInstance()->editUser($user->getEmail(), $user->getPassword())){
                     return true;

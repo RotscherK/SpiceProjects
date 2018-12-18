@@ -12,7 +12,7 @@ use domain\User;
 use service\AuthServiceImpl;
 use view\LayoutRendering;
 use view\TemplateView;
-use validator\UserValidator;
+use validator\LoginValidator;
 
 class AuthController
 {
@@ -38,7 +38,7 @@ class AuthController
         $user = new User();
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
-        $userValidator = new UserValidator($user, $authService);
+        $userValidator = new LoginValidator($user, $authService);
 
         if($userValidator->isValid()) {
             session_regenerate_id(true);

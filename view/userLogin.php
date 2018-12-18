@@ -7,10 +7,10 @@
  */
 use view\TemplateView;
 use domain\User;
-use validator\UserValidator;
+use validator\LoginValidator;
 
 isset($this->user) ? $user = $this->user : $user = new User();
-isset($this->userValidator) ? $userValidator = $this->userValidator : $userValidator = new UserValidator();
+isset($this->userValidator) ? $userValidator = $this->userValidator : $userValidator = new LoginValidator();
 ?>
 
 <div class="col-sm-10 text-left blue-background">

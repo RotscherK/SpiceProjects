@@ -16,34 +16,51 @@ class UserValidator
     private $valid = true;
     private $emailError = null;
     private $passwordError = null;
+    private $passwordRepeatError = null;
+    private $passwordCompareError = null;
+    private $nameError = null;
+    private $adminTypeError = null;
 
-
-    public function __construct(User $user = null, AuthServiceImpl $authService = null)
+    public function __construct(User $user = null)
     {
-        if (!is_null($user)& !is_null($authService)) {
-            $this->validate($user, $authService);
+        if (!is_null($user)){
+            $this->validate($user);
         }
     }
 
-    public function validate(User $user, AuthServiceImpl $authService)
+    public function validate(User $user)
     {
         if (!is_null($user)) {
-            if (empty($user->getEmail())) {
-                $this->nameError = 'Please enter an email address';
+            if (empty($user->getFirstname())) {
+                $this->nameError = 'Please enter the first name';
                 $this->valid = false;
             }
-
+            if (empty($user->getLastname())) {
+                $this->nameError = 'Please enter the last name';
+                $this->valid = false;
+            }
+            if (empty($user->getEmail())) {
+                $this->emailError = 'Please enter an email address';
+                $this->valid = false;
+            }
             if (empty($user->getPassword())) {
                 $this->passwordError = 'Please select a password';
                 $this->valid = false;
             }
-
-            if(!$authService->verifyUser($_POST["email"],$_POST["password"])){
-                $this->passwordError = 'Email and password do not match!';
+            if (empty($_POST["passwordRepeat"])){
+                $this->passwordRepeatError = 'Please repeat the password';
+                $this->valid = false;
+            }
+            if (empty($_POST["adminType"])){
+                $this->adminTypeError = 'Please select a admin type';
+                $this->valid = false;
+            }
+            if ($user->comparePasswords($_POST["password"],$_POST["passwordRepeat"]) == false){
+                $this->passwordError = $_POST["password"].' & '.$_POST["passwordRepeat"];
                 $this->valid = false;
             }
 
-            } else {
+        } else {
             $this->valid = false;
         }
         return $this->valid;
@@ -65,9 +82,9 @@ class UserValidator
         return $this->nameError;
     }
     public function isEmailError()
-{
-    return isset($this->emailError);
-}
+    {
+        return isset($this->emailError);
+    }
 
     public function getEmailError()
     {
@@ -83,5 +100,20 @@ class UserValidator
     {
         return $this->passwordError;
     }
+    public function getPasswordRepeatError()
+    {
+        return $this->passwordRepeatError;
+    }
+    public function getPasswordCompareError()
+    {
+        return $this->passwordCompareError;
+    }
+    public function getAdminTypeError(){
 
+        return $this->adminTypeError;
+    }
+    public function isAdminTypeError(){
+
+        return isset($this->adminTypeError);
+    }
 }

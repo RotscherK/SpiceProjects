@@ -11,7 +11,7 @@ namespace controller;
 use domain\User;
 use service\AuthServiceImpl;
 use validator\AgentValidator;
-use validator\UserValidator2;
+use validator\UserValidator;
 use view\TemplateView;
 use view\LayoutRendering;
 use service\UserServiceImpl;
@@ -100,7 +100,7 @@ class UserController
                 $user->setAdAdmin(true);
             }
 
-        $userValidator2 = new UserValidator2($user);
+        $userValidator2 = new UserValidator($user);
 
         if($userValidator2->isValid()) {
             if ($user->getId() === "") {
