@@ -39,7 +39,6 @@ isset($this->userValidator) ? $userValidator = $this->userValidator : $userValid
                 <button class="btn btn-primary pull-right" type="submit">Log In</button>
             </div>
                 <a class="text-primary already" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/request">Opps, I forgot my password.</a><br>
-                <a class="text-primary already" href="<?php echo $GLOBALS[" ROOT_URL"]; ?>/register">Register here.</a>
         </form>
     </div>
 </div>
