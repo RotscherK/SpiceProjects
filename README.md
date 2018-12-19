@@ -26,8 +26,11 @@ The goal is to create a web-based software that lists several continuing educati
 #### Contributors
 
 - Nicola Niklaus
+  - Advertisement Section, Amazon S3 image upload
 - Timothy Applewhite
+  - Provider / User Section, Access concept
 - Roger Kaufmann
+  - Program Section, Design/Layout, PDF creation, Database connection
 
 #### Requirements
 Following, the verbal requirements from your virtual customer to the web application are listed:
