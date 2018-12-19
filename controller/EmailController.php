@@ -33,10 +33,7 @@ class EmailController
         $emailView->phone = $_POST["phone"];
         $emailView->comment = $_POST["comment"];
 
-        if(EmailServiceClient::sendEmail("t_applewhite@bluewin.ch", "Request for Information", $emailView-render(),
-            false, "", "")){
-            return true;
-        }
-        return false;
+        return EmailServiceClient::sendEmail("t_applewhite@bluewin.ch", "Request for Information", $emailView-render(),
+            false, "", "");
     }
 }
