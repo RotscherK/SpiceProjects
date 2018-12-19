@@ -99,7 +99,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                 </div>
             </div>
         <?php endif; ?>
-        <p id="request"></p>
+        <a name="request"></a>
         <form action="program/request" method="post">
             <label><strong>Request more Information</strong><br /></label>
             <input hidden type="text" name="programid" value="<?php echo TemplateView::noHTML($program->getId()); ?>" />
