@@ -23,6 +23,7 @@ use controller\ErrorController;
 use controller\UserPasswordResetController;
 use controller\ChargingController;
 use controller\PDFController;
+use controller\EmailController;
 use http\HTTPException;
 use http\HTTPHeader;
 use http\HTTPStatusCode;
@@ -166,6 +167,12 @@ Router::route_auth("POST", "/program/update", $authFunction, function () {
 Router::route("GET", "/program/pdf/{id}", function ($id) {
     PDFController::generateProgramDetailPDF($id);
 });
+
+Router::route("GET", "/program/request", function(){
+    EmailController::sendRequestInformation();
+});
+
+
 Router::route("GET", "/charging", function () {
     ChargingController::charging();
 });
