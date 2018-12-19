@@ -50,15 +50,14 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav">
-
+                <li class="nav-item" role="presentation">
                 <?php if(isset($_SESSION['userLogin'])): ?>
-
                     <p>logged in</p>
-
                 <?php else: ?>
                     <p>not logged in</p>
                 <?php endif; ?>
 
+                </li>
             </ul>
 
             <ul class="nav navbar-nav">
