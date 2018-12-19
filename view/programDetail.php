@@ -102,7 +102,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         <a id="request">
         <form action="/program/request" method="post">
             <label><strong>Request more Information</strong><br /></label>
-            <input hidden type="text" name="programid" value="<?php echo TemplateView::noHTML($program->getId()); ?>" />
+            <input hidden type="text" name="programid" value="<?php echo $program->getId() ?>" />
             <div class="form-group row">
                 <label for="name" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
