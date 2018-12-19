@@ -52,9 +52,11 @@
             <ul class="nav navbar-nav">
 
                 <?php if(isset($_SESSION['userLogin'])): ?>
-logged in
+
+                    <p>logged in</p>
+
                 <?php else: ?>
-not logged in
+                    <p>not logged in</p>
                 <?php endif; ?>
 
             </ul>
