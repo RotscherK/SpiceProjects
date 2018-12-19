@@ -51,12 +51,11 @@
             </ul>
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation">
-                <?php if(isset($_SESSION['userLogin'])): ?>
-                    <p>logged in</p>
-                <?php else: ?>
-                    <p>not logged in</p>
-                <?php endif; ?>
-
+                    <?php if(isset($_SESSION['userLogin'])): ?>
+                        <a class="log-button btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>">Logged in</a>
+                    <?php else: ?>
+                        <a class="log-button btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>">Not logged in2</a>
+                    <?php endif; ?>
                 </li>
             </ul>
 
