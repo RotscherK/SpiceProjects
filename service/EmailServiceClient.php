@@ -14,7 +14,14 @@ class EmailServiceClient
 {
 
     public static function sendEmail($toEmail, $subject, $htmlData, $hasPDFAttachement, $PDFContent, $PDFName){
-        $jsonObj = self::createEmailJSONObj();
+
+        if($hasPDFAttachement){
+            $jsonObj = self::createEmailJSONObj();
+            $jsonObj->attachments[0]->content = base64_encode($PDFContent);
+            $jsonObj->attachments[0]->filename = $PDFName;
+        }else{
+            $jsonObj = self::createEmailJSONObjNoPDF();
+        }
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->from->email = "spice.project.test@test.com";
         $jsonObj->from->name = "Spice Projects";
@@ -22,13 +29,13 @@ class EmailServiceClient
         $jsonObj->subject = $subject;
         $jsonObj->content[0]->value = $htmlData;
 
-        if($hasPDFAttachement){
+  /*      if($hasPDFAttachement){
             $jsonObj->attachments[0]->content = base64_encode($PDFContent);
             $jsonObj->attachments[0]->filename = $PDFName;
         }else{
             $jsonObj = substr($jsonObj, 0,430);
             $jsonObj .= "]}";
-        }
+        }*/
 
         $options = ["http" => [
             "method" => "POST",
@@ -76,6 +83,31 @@ class EmailServiceClient
               "content": "content",
               "type": "application/pdf",
               "filename": "filename"
+            }
+          ]
+        }');
+    }
+
+    protected static function createEmailJSONObjNoPDF(){
+        return json_decode('{
+          "personalizations": [
+            {
+              "to": [
+                {
+                  "email": "email"
+                }
+              ]
+            }
+          ],
+          "from": {
+            "email": "noreply@fhnw.ch",
+            "name": "SpiceProjects"
+          },
+          "subject": "subject",
+          "content": [
+            {
+              "type": "text/html",
+              "value": "value"
             }
           ]
         }');
