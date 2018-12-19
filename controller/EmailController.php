@@ -26,7 +26,7 @@ class EmailController
 
     public static function sendRequestInformation(){
 
-        $emailView = new TemplateView("programRequestInformationEmail.php");
+        $emailView = new TemplateView("programRequestInformationEmail123.php");
         $emailView->program = (new ProgramServiceImpl())->readProgram($_POST["programid"]);
         $emailView->name = $_POST["name"];
         $emailView->email = $_POST["email"];
