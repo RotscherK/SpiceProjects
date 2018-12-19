@@ -10,7 +10,7 @@ isset($this->program) ? $program = $this->program : $program = new Program();
 <html>
 <body>
 <p>Dear Provider,</p>
-<p>A question has been asked on one of your programs: <?php echo $program->getName(); ?>. </p>
+<p>A question has been asked on one of your programs:</p>
 
 <p>Kind regards</p>
 <p>Your Spice Projects Team</p>
