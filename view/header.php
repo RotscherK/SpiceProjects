@@ -32,7 +32,7 @@
 
 <body>
 <nav class="navbar navbar-dark navbar-expand-md" style="background-color: #282d32;">
-    <div class="container-fluid"><a class="navbar-brand" href="/" style="color: #ffffff;"><img src="/view/assets/img/logo_sp.png" width="200px"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a class="navbar-brand" href="/" style="color: #ffffff;">test</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div    class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>/" style="color: #ffffff;">Search</a></li>
