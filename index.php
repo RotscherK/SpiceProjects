@@ -169,8 +169,11 @@ Router::route("GET", "/program/pdf/{id}", function ($id) {
 });
 
 Router::route("GET", "/program/request", function(){
-    if(EmailController::sendRequestInformation());
-    Router::redirect("/");
+    if(EmailController::sendRequestInformation()) {
+        Router::redirect("/");
+    }else{
+        Router::redirect("/user/list");
+    }
 });
 
 
