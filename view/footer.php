@@ -46,7 +46,6 @@ $advertisements = (new AdvertisementServiceImpl())->getAllAdvertisements();
                     <ul>
                         <li><a href="#">Company</a></li>
                         <li><a href="#">Team</a></li>
-                        <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 item text">
