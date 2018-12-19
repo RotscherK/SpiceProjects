@@ -104,25 +104,25 @@ isset($this->program) ? $program = $this->program : $program = new Program();
             <label><strong>Request more Information</strong><br /></label>
             <input hidden type="text" name="programid" value="<?php echo TemplateView::noHTML($program->getId()); ?>" />
             <div class="form-group row">
-                <label for="id" class="col-sm-3 col-form-label">Name</label>
+                <label for="name" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                 </div>
             </div></a>
             <div class="form-group row">
-                <label for="id" class="col-sm-3 col-form-label">Email</label>
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
                     <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="id" class="col-sm-3 col-form-label">Phone</label>
+                <label for="phone" class="col-sm-3 col-form-label">Phone</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="id" class="col-sm-3 col-form-label">Comment</label>
+                <label for="comment" class="col-sm-3 col-form-label">Comment</label>
                 <div class="col-sm-9">
                     <textarea class="form-control" rows="20" id="comment" name="comment" placeholder="Comment"></textarea>
                 </div>
