@@ -22,6 +22,7 @@ class EmailServiceClient
         }else{
             $jsonObj = self::createEmailJSONObjNoPDF();
         }
+        
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->from->email = "spice.project.test@test.com";
         $jsonObj->from->name = "Spice Projects";
