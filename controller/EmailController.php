@@ -33,7 +33,7 @@ class EmailController
         $emailView->phone = $_POST["phone"];
         $emailView->comment = $_POST["comment"];
 
-        return EmailServiceClient::sendEmail("t_applewhite@bluewin.ch", "Request for Information", $emailView->render(),
+        return EmailServiceClient::sendEmail( (new ProgramServiceImpl())->readProgram($_POST["programid"])->getProvider()->getAdministratorEmail(), "Request for Information", $emailView->render(),
             false, "", "");
     }
 }

@@ -243,6 +243,5 @@ class Provider {
      */
     public function getAdministratorEmail() {
         return (new UserServiceImpl())->readUserBasic($this->getAdministrator())->getEmail();
-        //return (new ProviderDAO())->getAdministratorEmail($this->administrator);
     }
 }
