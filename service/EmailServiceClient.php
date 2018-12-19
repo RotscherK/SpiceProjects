@@ -27,7 +27,7 @@ class EmailServiceClient
             $jsonObj->attachments[0]->filename = $PDFName;
         }else{
             $pos = strpos($jsonObj, "attachments");
-            $jsonObj = substr($jsonObj, $pos -2);
+            $jsonObj = substr($jsonObj, 0,$pos -2);
         }
 
         $options = ["http" => [
