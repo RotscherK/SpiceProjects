@@ -26,8 +26,11 @@ The goal is to create a web-based software that lists several continuing educati
 #### Contributors
 
 - Nicola Niklaus
+  - Advertisement Section, Amazon S3 image upload
 - Timothy Applewhite
+  - Provider / User Section, Access concept
 - Roger Kaufmann
+  - Program Section, Design/Layout, PDF creation, Database connection
 
 #### Requirements
 Following, the verbal requirements from your virtual customer to the web application are listed:
@@ -194,7 +197,9 @@ For the implementation of the web application, the hands-on project provided the
 
 #### Database
 
-The following code was used to create the database according to the model defined in the chapter Database Model: link to SQLDDL.sql
+The following code was used to create the database according to the model defined in the chapter Database Model:
+
+![SQLDDL](https://github.com/RotscherK/SpiceProjects/blob/master/SQLDDL.sql "SQLDDL")
 
 #### Applied techniques and APIs
 
