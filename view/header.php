@@ -52,9 +52,9 @@
             <ul class="nav navbar-nav">
                 <li class="nav-item" role="presentation">
                     <?php if(isset($_SESSION['userLogin'])): ?>
-                        <a class="log-button btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>">Logged in</a>
+                        <a class="log-button btn" href="<?php echo $GLOBALS["ROOT_URL"]; ?>">Logged in</a>
                     <?php else: ?>
-                        <a class="log-button btn nav-link active" href="<?php echo $GLOBALS["ROOT_URL"]; ?>">Not logged in2</a>
+                        <a class="log-button btn" href="<?php echo $GLOBALS["ROOT_URL"]; ?>">Not logged in</a>
                     <?php endif; ?>
                 </li>
             </ul>
