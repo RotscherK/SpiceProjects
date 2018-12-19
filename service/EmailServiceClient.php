@@ -28,6 +28,7 @@ class EmailServiceClient
         }else{
             $pos = strpos($jsonObj, "attachments");
             $jsonObj = substr($jsonObj, 0,$pos -2);
+            $jsonObj .= "}'";
         }
 
         $options = ["http" => [
