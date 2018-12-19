@@ -25,6 +25,10 @@ class EmailServiceClient
         if($hasPDFAttachement){
             $jsonObj->attachments[0]->content = base64_encode($PDFContent);
             $jsonObj->attachments[0]->filename = $PDFName;
+        }else{
+            $pos = strpos($jsonObj, "attachments");
+            $jsonObj = substr($jsonObj, 0,$pos -2);
+            $jsonObj .= "}'";
         }
 
         $options = ["http" => [

@@ -168,12 +168,9 @@ Router::route("GET", "/program/pdf/{id}", function ($id) {
     PDFController::generateProgramDetailPDF($id);
 });
 
-Router::route("GET", "/program/request", function(){
-    if(EmailController::sendRequestInformation()) {
-        Router::redirect("/user/list1");
-    }else{
-        Router::redirect("/user/list2");
-    }
+Router::route("POST", "/program/request", function(){
+    EmailController::sendRequestInformation();
+    Router::redirect("/");
 });
 
 

@@ -32,16 +32,6 @@ class UserController
         $contentView->users = (new UserServiceImpl())->getAllUsers();
         LayoutRendering::basicLayout($contentView);
     }
-    
-    public static function editView(){
-        $view = new TemplateView("agentEdit.php");
-        $view->agent = AuthServiceImpl::getInstance()->readUser();
-        $view->pageTitle = "WE-CRM";
-        $view->pageHeading = "<strong>WE-CRM | Update</strong> your account.";
-        $view->pageSubmitText = "Update";
-        $view->pageFormAction = "/agent/edit";
-        echo $view->render();
-    }
 
     /**
      * @throws \http\HTTPException
@@ -53,11 +43,6 @@ class UserController
         $contentView->user = (new UserServiceImpl())->readUser($id);
 
         LayoutRendering::basicLayout($contentView);
-    }
-
-
-    public static function registerView(){
-        echo (new TemplateView("agentEdit.php"))->render();
     }
 
     public static function update1(){
@@ -100,9 +85,9 @@ class UserController
                 $user->setAdAdmin(true);
             }
 
-        $userValidator2 = new UserValidator($user);
+        $userValidator = new UserValidator($user);
 
-        if($userValidator2->isValid()) {
+        if($userValidator->isValid()) {
             if ($user->getId() === "") {
                 (new UserServiceImpl())->createUser($user);
             } else {
@@ -112,33 +97,11 @@ class UserController
         else{
             $contentView = new TemplateView("userEdit.php");
             $contentView->user = $user;
-            $contentView->userValidator = $userValidator2;
+            $contentView->userValidator = $userValidator;
             LayoutRendering::basicLayout($contentView);
             return false;
         }
         return true;
-    }
-
-    public static function register($view = null){
-        $agent = new Agent();
-        $agent->setName($_POST["name"]);
-        $agent->setEmail($_POST["email"]);
-        $agent->setPassword($_POST["password"]);
-        $agentValidator = new AgentValidator($agent);
-        if($agentValidator->isValid()){
-            if(AuthServiceImpl::getInstance()->editAgent($agent->getName(),$agent->getEmail(), $agent->getPassword())){
-                return true;
-            }else{
-                $agentValidator->setEmailError("Email already exists");
-            }
-        }
-        $agent->setPassword("");
-        if (is_null($view))
-            $view = new TemplateView("agentEdit.php");
-        $view->agent = $agent;
-        $view->agentValidator = $agentValidator;
-        echo $view->render();
-        return false;
     }
 
     public static function loginView(){
