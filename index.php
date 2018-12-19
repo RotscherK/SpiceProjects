@@ -168,7 +168,7 @@ Router::route("GET", "/program/pdf/{id}", function ($id) {
     PDFController::generateProgramDetailPDF($id);
 });
 
-Router::route("GET", "/program/request", function(){
+Router::route("POST", "/program/request", function(){
     if(EmailController::sendRequestInformation());
     Router::redirect("/user/list1");
 });
