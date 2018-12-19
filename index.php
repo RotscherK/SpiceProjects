@@ -170,7 +170,7 @@ Router::route("GET", "/program/pdf/{id}", function ($id) {
 
 Router::route("POST", "/program/request", function(){
     if(EmailController::sendRequestInformation());
-    Router::redirect("/user/list1");
+    Router::redirect("/");
 });
 
 
