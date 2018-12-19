@@ -221,8 +221,8 @@
     width: 100%;
     height: auto;
 }
-img {
-    width: 50%;
+.brandImage {
+    width: 100rem;
     height: auto;
 }
 .well a:link {
