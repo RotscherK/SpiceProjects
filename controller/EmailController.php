@@ -27,13 +27,13 @@ class EmailController
     public static function sendRequestInformation(){
 
         $emailView = new TemplateView("programRequestInformationEmail.php");
-        //$emailView->program = (new ProgramServiceImpl())->readProgram($_POST["programid"]);
-        //$emailView->name = $_POST["name"];
-        //$emailView->email = $_POST["email"];
-        //$emailView->phone = $_POST["phone"];
-        //$emailView->comment = $_POST["comment"];
+        $emailView->program = (new ProgramServiceImpl())->readProgram($_POST["programid"]);
+        $emailView->name = $_POST["name"];
+        $emailView->email = $_POST["email"];
+        $emailView->phone = $_POST["phone"];
+        $emailView->comment = $_POST["comment"];
 
-        return EmailServiceClient::sendEmail("t_applewhite@bluewin.ch", "Request for Information", $emailView->render(),
+        return EmailServiceClient::sendEmail( (new ProgramServiceImpl())->readProgram($_POST["programid"])->getProvider()->getAdministratorEmail(), "Request for Information", $emailView->render(),
             false, "", "");
     }
 }
