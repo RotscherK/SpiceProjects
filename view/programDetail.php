@@ -60,9 +60,8 @@ isset($this->program) ? $program = $this->program : $program = new Program();
         <div class="row details-form">
             <div class="container container-details"><label><strong>Actions</strong><br /></label>
                 <div id="buttondetail" class="row">
-                    <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $program->getUrl(); ?>'" type="button">Link to provider</button></div>
-                    <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="Location.href='#request'" type="button">Request more info</button></div>
-                    <div class="col-sm-4"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/program/pdf/<?php echo $program->getId(); ?>'" type="button">Generate PDF</button></div>
+                    <div class="col-sm-9"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $program->getUrl(); ?>'" type="button">Link to provider</button></div>
+                    <div class="col-sm-9"><button class="btn btn-secondary btn-block" onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/program/pdf/<?php echo $program->getId(); ?>'" type="button">Generate PDF</button></div>
                 </div>
             </div>
         </div>
@@ -99,30 +98,30 @@ isset($this->program) ? $program = $this->program : $program = new Program();
                 </div>
             </div>
         <?php endif; ?>
-        <a id="request">
-        <form action="/program/request" method="post">
-            <label><strong>Request more Information</strong><br /></label>
-            <input hidden type="text" name="programid" value="<?php echo $program->getId() ?>" />
+
+        <form action="program/request" method="post">
+            <label><strong><a id="request">Request more Information</strong><br /></label>
+            <input hidden type="text" name="programid" value="<?php echo TemplateView::noHTML($program->getId()); ?>" />
             <div class="form-group row">
-                <label for="name" class="col-sm-3 col-form-label">Name</label>
+                <label for="id" class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                 </div>
             </div></a>
             <div class="form-group row">
-                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                <label for="id" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">
                     <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="phone" class="col-sm-3 col-form-label">Phone</label>
+                <label for="id" class="col-sm-3 col-form-label">Phone</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="comment" class="col-sm-3 col-form-label">Comment</label>
+                <label for="id" class="col-sm-3 col-form-label">Comment</label>
                 <div class="col-sm-9">
                     <textarea class="form-control" rows="20" id="comment" name="comment" placeholder="Comment"></textarea>
                 </div>
