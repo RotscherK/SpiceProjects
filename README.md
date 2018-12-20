@@ -180,7 +180,7 @@ The PostgreSQL database and the code of the application are both stored on a Her
 
 #### Classes
 
-For the implementation of the web application, the hands-on project provided the lecturer of the course, Andreas Martin was a big help. It can be found in the following GitHub repository: https://github.com/andreasmartin/WE-CRM . The concepts in that project were taken and adjusted/extended/reduced to fulfil the needs of our project. The structure contains several directories which contain files for individual purposes. These are described here:
+For the implementation of the web application, the hands-on project provided by the lecturer of the course, Andreas Martin was a big help. It can be found in the following GitHub repository: https://github.com/andreasmartin/WE-CRM . The concepts in that project were taken and adjusted/extended/reduced to fulfil the needs of our project. The structure contains several directories which contain files for individual purposes. These are described here:
 
 - amazon: All configuration files required for the upload of images to the Amazon S3 storage
 - config: Gets information such as credentials from the secret .ENV file
