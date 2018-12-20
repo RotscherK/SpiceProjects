@@ -199,19 +199,19 @@ For the implementation of the web application, the hands-on project provided the
 
 For the implementation of the access concept, after the login the database is checks what kind of an admin the user is and adds the corresponding boolean value to the session. This is displayed in the image below.
 
-![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_Session.jpg "Adding the admin type to the session after the login")
+![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_Session.png "Adding the admin type to the session after the login")
 
 Logically, there are certain sites which should be accessable for all admin types. An example is the page where programs can be edited. Therefore, before the routing takes place, the session values are checked. This code snippet from the file index.php is depicted below.
 
-![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_RouterCheck.jpg "Checking the user admin type before access")
+![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_RouterCheck.png "Checking the user admin type before access")
 
 In order to prevent accessing the session directly from different areas, a function was created in the file AuthController.php. As shown below it return the value 1-3 depending on the type of admin the user is.
 
-![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_AuthController.jpg "Returning values 1-3 based on the user admin type")
+![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_AuthController.png "Returning values 1-3 based on the user admin type")
 
 As already mentioned, with the exception of the site admin, users should only be able to edit their programs / providers / advertisements where they are listed as the administrator. For the others, the edit / delete functionality should not even be displayed to the user. An example screenshot from the implementation is shown below. Now the question arises, if the user is able to edit another program if the ID is known? The answer is no, because an additional check is made by validator.
 
-![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_EditDelete.jpg "Only display the edit / delete functionalities where the user is authorized")
+![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_EditDelete.png "Only display the edit / delete functionalities where the user is authorized")
 
 #### Database
 
