@@ -27,9 +27,9 @@ The goal is to create a web-based software that lists several continuing educati
 #### Contributors
 
 - Nicola Niklaus
-  - Advertisement Section, Amazon S3 image upload
+  - Advertisement Section, Amazon S3 image upload, Documentation
 - Timothy Applewhite
-  - Provider / User Section, Access concept
+  - Provider / User Section, Access concept, Documentation
 - Roger Kaufmann
   - Program Section, Design/Layout, PDF creation, Database connection
 
