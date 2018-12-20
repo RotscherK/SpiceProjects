@@ -218,6 +218,8 @@ As already mentioned, with the exception of the site admin, users should only be
 
 The following code was used to create the database according to the model defined in the chapter Database Model:
 
+- [Database Model](https://github.com/RotscherK/SpiceProjects/blob/master/SQLDDL.sql "SQLDDL")
+
 ![SQLDDL](https://github.com/RotscherK/SpiceProjects/blob/master/SQLDDL.sql "SQLDDL")
 
 #### Applied techniques and APIs
