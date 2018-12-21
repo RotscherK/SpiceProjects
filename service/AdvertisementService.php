@@ -25,4 +25,44 @@ interface AdvertisementService {
      */
     public function readAdvertisement($advertisementId);
 
+    /**
+     * @access public
+     * @param advertisement Advertisement
+     * @return Advertisement
+     * @ParamType advertisement Advertisement
+     * @ReturnType Advertisement
+     */
+    public function createAdvertisement(Advertisement $advertisement);
+
+    /**
+     * @access public
+     * @param Advertisement advertisement
+     * @return Advertisement
+     * @ParamType advertisement Advertisement
+     * @ReturnType Advertisement
+     */
+    public function updateAdvertisement(Advertisement $advertisement);
+
+    /**
+     * @access public
+     * @param int advertisementId
+     * @ParamType advertisementId int
+     */
+    public function deleteAdvertisement($advertisementId);
+
+    /**
+     * @access public
+     * @return Advertisement[]
+     * @ReturnType Advertisement[]
+     */
+    public function getAllAdvertisements();
+
+    /**
+     * @access public
+     * @return int
+     * @ReturnType rowCount
+     */
+    public function getAdvertisementsByUser($userId);
+
 }
+
