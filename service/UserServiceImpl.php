@@ -27,6 +27,7 @@ class UserServiceImpl implements UserService
     public function createUser(User $user) {
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
             $userDAO = new UserDAO();
+            //$user->setAgentId(AuthServiceImpl::getInstance()->getCurrentAgentId());
             return $userDAO->create($user);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
@@ -100,10 +101,10 @@ class UserServiceImpl implements UserService
      * @ReturnType User[]
      * @throws HTTPException
      */
-    public function findByEmail($userEmail) {
+    public function findAllUser() {
         if(AuthServiceImpl::getInstance()->verifyAuth()){
             $userDAO = new UserDAO();
-            return $userDAO->findByEmail($userEmail);
+            return $userDAO->findByEmail(AuthServiceImpl::getInstance()->getCurrentAgentId());
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
