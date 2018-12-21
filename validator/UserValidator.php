@@ -43,7 +43,7 @@ class UserValidator
                 $this->emailError = 'Please enter an email address';
                 $this->valid = false;
             }else{
-                if((new UserServiceImpl())->findByEmail($user->getEmail()) > 0 ){
+                if((new UserServiceImpl())->checkForEmail($user->getEmail()) > 0 ){
                     $this->emailError = 'Email is already taken';
                     $this->valid = false;
                 }

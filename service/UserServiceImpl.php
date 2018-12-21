@@ -110,6 +110,24 @@ class UserServiceImpl implements UserService
     }
 
     /**
+     *
+     * @access public
+     * @return int
+     * @ReturnType rowCount
+     * @throws HTTPException
+     */
+    public function checkForEmail($userEmail) {
+        if(AuthServiceImpl::getInstance()->verifyAuth()){
+            $userDAO = new UserDAO();
+            return $userDAO->checkForEmail($userEmail);
+        }
+        throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
+    }
+
+
+
+
+    /**
      * @access public
      * @return User[]
      * @ReturnType User[]
