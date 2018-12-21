@@ -171,7 +171,7 @@ The majority of the use cases have already been described roughly in the require
 ##### Additional Functionality (Scheduled Jobs)
 Every day a job defined on Heroku Scheduler starts the job file (scheduler/job.php). The job file starts the program expiration notification and the invoicing functionality. 
    - **Program Expiration Notification:** When the current day equals the expiration date of a program, an email is sent to the administrator of this program.
-   - **Invoicing:** On the last day of every month a invoice mail is sent to all universities including a pdf with all chargable programs provided by this university.
+   - **Invoicing:** On the last day of every month an invoice mail is sent to all universities including a pdf with all chargable programs provided by this university.
 
 #### Deployment Diagram
 
