@@ -174,7 +174,7 @@ The simple deployment of the application is shown in the following deployment di
 
 ![Deployment Diagram](https://github.com/RotscherK/SpiceProjects/blob/master/Deployment.jpg "Deployment Diagram")
 
-The PostgreSQL database and the code of the application are both stored on a Heroku webserver. In the beginning, it was planned to store the images for the advertisements on the database of the Heroku webserver aswell. However, due to some difficulties with that matter, it was decided to use the S3 storage module of the Amazone Web Services (AWS). The advertisement images are stored in this S3 bucket with the URL stored in the PostgreSQL database on Heroku. 
+The PostgreSQL database and the code of the application are both stored on the Heroku web server. In the beginning, it was planned to store the images of the advertisements on the database on Heroku as well. However, due to some difficulties with that matter, it was decided to use the S3 storage module of the Amazone Web Services (AWS). The advertisement images are stored in this S3 bucket with the URL stored in the PostgreSQL database on Heroku. 
 
 ### Implementation
 
