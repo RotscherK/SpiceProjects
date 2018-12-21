@@ -7,6 +7,7 @@ use http\HTTPException;
 use http\HTTPStatusCode;
 use dao\ProviderDAO;
 use dao\ProgramDAO;
+use service\AdvertisementServiceImpl;
 use service\ProviderServiceImpl;
 
 /**
@@ -141,7 +142,7 @@ class UserDAO extends BasicDAO {
      */
     public function delete(User $user)
     {
-        if (((new ProviderServiceImpl())->getProvidersByUser($user->getId())) > 0 || ((new AdvertisementDAO())->getAdvertisementsByUser($user->getId())) > 0) {
+        if (((new ProviderServiceImpl())->getProvidersByUser($user->getId())) > 0 || ((new AdvertisementServiceImpl())->getAdvertisementsByUser($user->getId())) > 0) {
             throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
         } else {
             $stmt = $this->pdoInstance->prepare('

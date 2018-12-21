@@ -85,21 +85,19 @@ class AdvertisementServiceImpl implements AdvertisementService
      * @access public
      * @return Advertisement[]
      * @ReturnType Advertisement[]
-     * @throws HTTPException
      */
     public function getAllAdvertisements() {
         $advertisementDAO = new AdvertisementDAO();
         return $advertisementDAO->getAllAdvertisements();
     }
 
-/**
- * @access public
- * @return Advertisement[]
- * @ReturnType Advertisement[]
- * @throws HTTPException
- */
-public function getAdvertisementAdmins() {
-    return true;
-}
-
+    /**
+     * @access public
+     * @return int
+     * @ReturnType rowCount
+     */
+    public function getAdvertisementsByUser($userId) {
+        $advertisementDAO = new AdvertisementDAO();
+        return $advertisementDAO->getAdvertisementsByUser($userId);
+    }
 }
