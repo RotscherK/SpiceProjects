@@ -32,7 +32,7 @@ interface ProviderService {
      * @ParamType provider Provider
      * @ReturnType Provider
      */
-    public function createProvider($providerId);
+    public function createProvider(Provider $providerId);
 
     /**
      * @access public
