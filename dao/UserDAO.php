@@ -130,10 +130,7 @@ class UserDAO extends BasicDAO {
             SELECT * FROM "user" WHERE email = :email;');
         $stmt->bindValue(':email', $userEmail);
         $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-            $stmt->rowCount();
-        }
-        return null;
+        return $stmt->rowCount();
     }
 
 
