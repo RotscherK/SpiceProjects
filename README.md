@@ -28,7 +28,7 @@ https://spiceprojects-playground.herokuapp.com
 
 #### Overview
 
-The goal is to create a web-based software that lists several continuing education programmes of diverse universities and universities of applied sciences. The web-platform act as a portal to these diverse continuing education programmes and you can assume that you act as a specialised/virtual company running this portal. Your business model is to sell every course entry to the universities and universities of applied sciences like a directory. The overall goal is to provide an overview of the programmes including links to the details pages of the related university and university of applied sciences. (Similarly as the company fachhochschulen.net)
+The goal is to create a web-based software that lists several continuing education programmes of various universities and universities of applied sciences. The web platform act as a portal to these diverse continuing education programmes and you can assume that you act as a specialised/virtual company running this portal. Your business model is to sell every course entry to the universities and universities of applied sciences like a directory. The overall goal is to provide an overview of the programmes including links to the details pages of the related university and university of applied sciences. (Similarly as the company fachhochschulen.net)
 
 #### Contributors
 
@@ -239,7 +239,8 @@ The following code was used to create the database according to the model define
 
 - All required functionalities were implemented. From the optional requirements, all were implemented with exception of the Google Maps API.
 - Advertisements can be booked, however there are always only four ads displayed. These four are chosen randomly every time the page is opened or refreshed. Therefore, there is no guarantee that the created advertisement is always visible to all users.
-- No registration functionality has been implemented, as there are only a certain amount of Schools and new Schools are founded in a rather rare manner. In case this should occur, the site administration has be contacted to create a user.
+- No registration functionality has been implemented, as new schools/universities are founded in a rare manner. In case this should occur, the site administration has be contacted to create a user.
 - The website responds as planned using the web browsers, Google Chrome, Mozilla Firefox and iOS Safari. 
 - When changes to an existing user is made, it is mandatory to set a new password due to security reasons.
 - When modifying the administrator of a provider or advertisement also users can be selected which to not belong to the corresponding admin group. This would lead the provider / advertisement to be locked out from modification as the access will be restricted for that user. To resolve this, the site administrator would have to be contacted.
+- As this is a school project, the credentials of the site admin are already entered into the fields for the login.
