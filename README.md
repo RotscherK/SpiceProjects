@@ -150,7 +150,7 @@ The majority of the use cases have already been described roughly in the require
    - **Login User Administrator:** Login for a currently logged-out user with the role of a user administrator. The login is granted using the email and password as credentials and the user administrator has permission to manage users.
    - **Logout:** Logged-in users can logout, what terminates the current session.
    - **Reset Password:** If forgotten, users have the possibility to reset their password.
-   - **Search Programs:** A non-logged in user has access to the programs and can search them.
+   - **Search Programs:** A non-logged in user has access to the programs and can search them. *The Space key works as an or operator. "Math Nano" -> Searches for programs containing Math or Nano*
    - **Manage Provider:** Logged-in site administrators and provider administrators have access to the provider area.
        - **Create Provider:** Logged-in site administrators can create new providers. These providers appear on the website and can be searched.
        - **Edit Provider:** Logged-in site administrators and provider administrators can edit entries (providers) regarding to their attributes.
