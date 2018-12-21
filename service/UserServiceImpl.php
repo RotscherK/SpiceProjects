@@ -62,8 +62,6 @@ class UserServiceImpl implements UserService
         return $userDAO->readBasic($userId);
     }
 
-
-
     /**
      * @access public
      * @param User user
@@ -98,17 +96,15 @@ class UserServiceImpl implements UserService
 
     /**
      *
-     * NEEDED??
-     *
      * @access public
      * @return User[]
      * @ReturnType User[]
      * @throws HTTPException
      */
-    public function findAllUser() {
+    public function findByEmail($userEmail) {
         if(AuthServiceImpl::getInstance()->verifyAuth()){
             $userDAO = new UserDAO();
-            return $userDAO->findByEmail(AuthServiceImpl::getInstance()->getCurrentAgentId());
+            return $userDAO->findByEmail($userEmail);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }

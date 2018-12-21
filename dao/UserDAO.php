@@ -101,7 +101,7 @@ class UserDAO extends BasicDAO {
 	/**
 	 * @access public
 	 * @param String email
-	 * @return User
+     * @return int
 	 * @ParamType email String
 	 * @ReturnType User
 	 */
@@ -112,15 +112,15 @@ class UserDAO extends BasicDAO {
         $stmt->bindValue(':email', $email);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
-            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\User")[0];
+            return $stmt->rowCount();
         }
         return null;
     }
 
     /**
      * @access public
-     * @param Program program
-     * @ParamType program Program
+     * @param User user
+     * @ParamType user User
      */
     public function delete(User $user)
     {

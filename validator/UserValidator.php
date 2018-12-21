@@ -9,7 +9,7 @@
 namespace validator;
 
 use domain\User;
-use service\AuthServiceImpl;
+use service\UserServiceImpl;
 
 class UserValidator
 {
@@ -42,6 +42,11 @@ class UserValidator
             if (empty($user->getEmail())) {
                 $this->emailError = 'Please enter an email address';
                 $this->valid = false;
+            }else{
+                if((new UserServiceImpl())->findByEmail($user->getEmail()) > 0 ){
+                    $this->emailError = 'Email is already taken';
+                    $this->valid = false;
+                }
             }
             if (empty($user->getPassword())) {
                 $this->passwordError = 'Please select a password. For security reasons a new password has to be set every time changes are made to a user';
