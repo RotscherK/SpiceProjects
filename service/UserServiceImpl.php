@@ -14,6 +14,11 @@ use dao\UserDAO;
 use http\HTTPException;
 use http\HTTPStatusCode;
 
+/**
+ * @access public
+ * @author timothyapplewhite
+ */
+
 class UserServiceImpl implements UserService
 {
     /**

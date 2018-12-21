@@ -13,6 +13,11 @@ use dao\AdvertisementDAO;
 use http\HTTPException;
 use http\HTTPStatusCode;
 
+/**
+ * @access public
+ * @author Nicola.Niklaus
+ */
+
 class AdvertisementServiceImpl implements AdvertisementService
 {
 

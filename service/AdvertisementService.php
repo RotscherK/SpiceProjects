@@ -12,7 +12,7 @@ use domain\Advertisement;
 
 /**
  * @access public
- * @author Nicola.Niklajs
+ * @author Nicola.Niklaus
  */
 interface AdvertisementService {
 

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: timothyapplewhite
+ * Date: 04.11.18
+ * Time: 16:39
+ */
 
 use view\TemplateView;
 use domain\User;

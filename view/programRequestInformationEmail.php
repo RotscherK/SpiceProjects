@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: timothyapplewhite
+ * Date: 04.11.18
+ * Time: 16:39
+ */
 use domain\Program;
 
 isset($this->program) ? $program = $this->program : $program = new Program();
