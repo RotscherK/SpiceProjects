@@ -36,19 +36,19 @@ The goal is to create a web-based software that lists several continuing educati
 #### Requirements
 Following, the verbal requirements from your virtual customer to the web application are listed:
 1. Authentication
-   * Login using email as username and a password
-   * User can logout
-   * If the password is forgotten, it should be possible to get a new one using email.
-   * The password must be securely stored
+   * Login using username (email) and password
+   * User logout
+   * If the password is forgotten, it should be possible to get a new one using email
+   * The password must be stored in a secure manner
 2. Content management
-   * User can create, update and delete courses, schools using the provided forms.
+   * User can create, update and delete programs, providers and advertisements depending on their access permissions
 3. Administration
    * User can be created, updated and deleted
 5. Notification
    * If the start date of a course has been expired, the system should send an email to the course
 administrator.
 6. Search functionality
-   * The website provides a search function so that user can search for courses with specific criteria
+   * The website provides a search function so that user can search for programs by entering details that correspond to any field of the program
 6. Charging
    * The customer (university and university of applied sciences) should be charged for every entry, based on a package or subscription by sending an email containing an invoice attached as pdf.
 7. Gui
@@ -58,7 +58,7 @@ administrator.
 #### Optional Requirements
 
 1. Advertisement
-   * It may be possible to book advertising on the web page.
+   * It may be possible to create advertising on the web page
 2. Authentification
    * Remember me function
 3. Google Maps integration
@@ -223,4 +223,18 @@ The following code was used to create the database according to the model define
 - HyPDF: The HyPDF API is used to generate PDFs containing program or invoicing information
 - SendGrid: For the password reset functionality as well as the invoicing emails are sent. This is done with the SendGrid API
 - Amazon AWS S3: The advertisement images are stored in the Amazon S3 storage and only a link is kept in our own database
+
+#### Remarks
+
+- All required functionalities were implemented. From the optional requirements, all were implemented with exception of the Google Maps API.
+- Advertisements can be booked, however there are always only four ads displayed. These four are chosen randomly every time the page is opened or refreshed. Therefore, there is no guarantee that the created advertisement is always visible to all users.
+- No registration functionality has been implemented, as there are only a certain amount of Schools and new Schools are founded in a rather rare manner. In case this should occur, the site administration has be contacted to create a user.
+- The website responds as planned using the web browsers, Google Chrome, Mozilla Firefox and iOS Safari. 
+- When changes to an existing user is made, it is mandatory to set a new password due to security reasons.
+- When modifying the administrator of a provider or advertisement also users can be selected which to not belong to the corresponding admin group. This would lead the provider / advertisement to be locked out from modification as the access will be restricted for that user. To resolve this, the site administrator would have to be contacted.
+
+
+
+
+
 
