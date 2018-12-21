@@ -44,13 +44,18 @@ class UserValidator
                 $this->valid = false;
             }
             if (empty($user->getPassword())) {
-                $this->passwordError = 'Please select a password';
+                $this->passwordError = 'Please select a password. For security reasons a new password has to be set every time changes are made to a user';
                 $this->valid = false;
+            } else {
+                if(strlen($user->getPassword()) < 7))){
+                $this->passwordError = 'Please make sure your password contains at least 7 characters';
+                $this->valid = false;
+                }
             }
             if (empty($_POST["passwordRepeat"])){
                 $this->passwordRepeatError = 'Please repeat the password';
                 $this->valid = false;
-            }
+            }                  
             if (empty($_POST["adminType"])){
                 $this->adminTypeError = 'Please select a admin type';
                 $this->valid = false;
