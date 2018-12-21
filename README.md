@@ -232,9 +232,3 @@ The following code was used to create the database according to the model define
 - The website responds as planned using the web browsers, Google Chrome, Mozilla Firefox and iOS Safari. 
 - When changes to an existing user is made, it is mandatory to set a new password due to security reasons.
 - When modifying the administrator of a provider or advertisement also users can be selected which to not belong to the corresponding admin group. This would lead the provider / advertisement to be locked out from modification as the access will be restricted for that user. To resolve this, the site administrator would have to be contacted.
-
-
-
-
-
-
