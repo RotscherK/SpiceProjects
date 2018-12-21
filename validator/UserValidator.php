@@ -47,7 +47,7 @@ class UserValidator
                 $this->passwordError = 'Please select a password. For security reasons a new password has to be set every time changes are made to a user';
                 $this->valid = false;
             } else {
-                if(strlen($user->getPassword()) < 7))){
+                if(strlen($user->getPassword()) < 7){
                 $this->passwordError = 'Please make sure your password contains at least 7 characters';
                 $this->valid = false;
                 }
