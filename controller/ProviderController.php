@@ -29,7 +29,6 @@ class ProviderController{
     public static function list(){
         $contentView = new TemplateView("providerList.php");
         $contentView->providers = (new ProviderServiceImpl())->getAllProviders();
-        //$contentView->users = (new ProviderServiceImpl())->getProviderAdmins();
         LayoutRendering::basicLayout($contentView);
     }
 

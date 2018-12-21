@@ -127,7 +127,6 @@ class Advertisement {
 
     public function getAdministratorEmail() {
         return (new UserServiceImpl())->readUserBasic($this->getUserAdmin())->getEmail();
-        //return (new AdvertisementDAO())->getAdministratorEmail($this->administrator);
     }
 
 }

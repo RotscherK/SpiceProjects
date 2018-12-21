@@ -27,7 +27,6 @@ class AdvertisementServiceImpl implements AdvertisementService
     public function createAdvertisement(Advertisement $advertisement) {
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
             $advertisementDOA = new AdvertisementDAO();
-            //$user->setAgentId(AuthServiceImpl::getInstance()->getCurrentAgentId());
             return $advertisementDOA->create($advertisement);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
