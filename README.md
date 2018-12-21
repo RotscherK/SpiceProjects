@@ -209,7 +209,7 @@ For the implementation of the web application, the hands-on project provided by 
 
 #### Implementation of the Access concept
 
-For the implementation of the access concept, after the login the database is checks what kind of an admin the user is and adds the corresponding boolean value to the session. This is displayed in the image below.
+For the implementation of the access concept, after the login the database checks what kind of an admin the user is and adds the corresponding boolean value to the session. This is displayed in the image below.
 
 ![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_Session.png "Adding the admin type to the session after the login")
 
@@ -221,7 +221,7 @@ In order to prevent accessing the session directly from different areas, a funct
 
 ![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_AuthController.png "Returning values 1-3 based on the user admin type")
 
-As already mentioned, with the exception of the site admin, users should only be able to edit their programs / providers / advertisements where they are listed as the administrator. For the others, the edit / delete functionality should not even be displayed to the user. An example screenshot from the implementation is shown below. Now the question arises, if the user is able to edit another program if the ID is known? The answer is no, because an additional check is made by validator.
+As already mentioned, with the exception of the site admin, users should only be able to edit the programs / providers / advertisements where they are listed as the administrator. For the others, the edit / delete functionality should not even be displayed to the user. An example screenshot from the implementation is shown below. Now the question arises, if the user is able to edit another program if the ID is known? The answer is no, because an additional check is made by validator.
 
 ![Implementation of the Access concept](https://github.com/RotscherK/SpiceProjects/blob/master/AccessConcept_EditDelete.png "Only display the edit / delete functionalities where the user is authorized")
 
