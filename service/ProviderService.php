@@ -25,4 +25,42 @@ interface ProviderService {
      */
     public function readProvider($providerId);
 
+    /**
+     * @access public
+     * @param Provider provider
+     * @return Provider
+     * @ParamType provider Provider
+     * @ReturnType Provider
+     */
+    public function createProvider($providerId);
+
+    /**
+     * @access public
+     * @param Provider provider
+     * @return Provider
+     * @ParamType provider Provider
+     * @ReturnType Provider
+     */
+    public function updateProvider(Provider $provider);
+
+    /**
+     * @access public
+     * @param int providerId
+     * @ParamType providerId int
+     */
+    public function deleteProvider($providerId);
+
+    /**
+     * @access public
+     * @return Provider[]
+     * @ReturnType Provider[]
+     */
+    public function getAllProviders();
+
+    /**
+     * @access public
+     * @return int
+     * @ReturnType rowCount
+     */
+    public function getProvidersByUser($userId);
 }
