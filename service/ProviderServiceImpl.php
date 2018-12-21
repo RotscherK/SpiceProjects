@@ -27,7 +27,6 @@ class ProviderServiceImpl implements ProviderService
     public function createProvider(Provider $provider) {
         if(AuthServiceImpl::getInstance()->verifyAuth()) {
             $providerDAO = new ProviderDAO();
-            //$user->setAgentId(AuthServiceImpl::getInstance()->getCurrentAgentId());
             return $providerDAO->create($provider);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
@@ -85,11 +84,19 @@ class ProviderServiceImpl implements ProviderService
      * @access public
      * @return Provider[]
      * @ReturnType Provider[]
-     * @throws HTTPException
      */
     public function getAllProviders() {
         $providerDAO = new ProviderDAO();
         return $providerDAO->getAllProviders();
     }
+    /**
+     * @access public
+     * @return int
+     * @ReturnType rowCount
+     */
+    public function getProvidersByUser($userId){
+        $providerDAO = new ProviderDAO();
+        return $providerDAO->getProvidersByUser($userId);
+    }
 
-}
+    }

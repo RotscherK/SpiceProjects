@@ -7,6 +7,7 @@ use http\HTTPException;
 use http\HTTPStatusCode;
 use dao\ProviderDAO;
 use dao\ProgramDAO;
+use service\ProviderServiceImpl;
 
 /**
  * @access public
@@ -133,8 +134,6 @@ class UserDAO extends BasicDAO {
         return $stmt->rowCount();
     }
 
-
-
     /**
      * @access public
      * @param User user
@@ -142,7 +141,7 @@ class UserDAO extends BasicDAO {
      */
     public function delete(User $user)
     {
-        if (((new ProviderDAO())->getProvidersByUser($user->getId())) > 0 || ((new AdvertisementDAO())->getAdvertisementsByUser($user->getId())) > 0) {
+        if (((new ProviderServiceImpl())->getProvidersByUser($user->getId())) > 0 || ((new AdvertisementDAO())->getAdvertisementsByUser($user->getId())) > 0) {
             throw new HTTPException(HTTPStatusCode::HTTP_403_FORBIDDEN);
         } else {
             $stmt = $this->pdoInstance->prepare('
